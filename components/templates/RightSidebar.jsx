@@ -6,7 +6,6 @@ import { useGetUrl } from '../../hooks/useGetUrl';
 const RightSidebar = () => {
   const router = useRouter();
   const {URL} = useGetUrl()
-  console.log('URL', URL)
   return (
     <Flex
         w="400px"
