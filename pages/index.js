@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    <Flex bg="gray.100" h="100%" direction="column"></Flex>
+    <>
+    </>
   )
 }

@@ -1,9 +1,12 @@
 import { Flex } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react'
+import { useGetUrl } from '../../hooks/useGetUrl';
 
 const RightSidebar = () => {
   const router = useRouter();
+  const {URL} = useGetUrl()
+  console.log('URL', URL)
   return (
     <Flex
         w="400px"
