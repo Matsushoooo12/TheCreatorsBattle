@@ -1,5 +1,6 @@
 import { SearchIcon } from '@chakra-ui/icons'
-import { Divider, Flex, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/react'
+import { Divider, Flex, Input, InputGroup, InputLeftElement, Link, Text } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import TabItem from '../../components/atoms/TabItem'
@@ -8,30 +9,49 @@ import TabItems from '../../components/molecules/TabItems'
 const taskList = [
   {
     id: 1,
-    content: "お疲れさまです、ミッションコンプリート🌟"
+    content: "投票期間がスタートしました。投票をしてください。",
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    deadline: "2023/01/01 11:00 - 2023/01/03 11:00",
+    status: 'vote',
+    projectId: '1'
   },
   {
     id: 2,
-    content: "お疲れさまです、ミッションコンプリート🌟"
+    content: "投票期間がスタートしました。投票をしてください。",
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    deadline: "2023/01/01 11:00 - 2023/01/03 11:00",
+    status: 'vote',
+    projectId: '2'
   },
   {
     id: 3,
-    content: "お疲れさまです、ミッションコンプリート🌟"
+    content: "制作期間がスタートしました。作品を提出してください。",
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    deadline: "2023/01/01 11:00 - 2023/01/03 11:00",
+    status: 'production',
+    projectId: '3'
   },
   {
     id: 4,
-    content: "お疲れさまです、ミッションコンプリート🌟"
+    content: "プロジェクトが終了しました。結果を確認しましょう。",
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    status: 'done',
+    projectId: '4'
+  },
+  {
+    id: 5,
+    content: "ミッションコンプリート🌟",
   },
 ]
 
 const notificationList = [
   {
     id: 1,
-    content: "お知らせです、ミッションコンプリート🌟"
+    content: "お知らせです、ミッションコンプリート🌟",
   },
   {
     id: 2,
-    content: "お知らせです、ミッションコンプリート🌟"
+    content: "お知らせです、ミッションコンプリート🌟",
   },
   {
     id: 3,
@@ -44,6 +64,7 @@ const notificationList = [
 ]
 
 const Notification = () => {
+  const router = useRouter()
   const [notificationIndex, setNotificationIndex] = useState(0)
   const toggleNotification = (index) => {
     setNotificationIndex(index)
@@ -51,6 +72,15 @@ const Notification = () => {
   useEffect(() => {
     setNotificationIndex(0)
   }, [])
+  const linkText = (status) => {
+    if(status === 'production'){
+      return "提出する"
+    }else if(status === 'vote'){
+      return "投票する"
+    }else if(status === 'done'){
+      return '結果を見る'
+    }
+  }
   return (
     <Flex direction="column" py="56px">
       <Text color="blue.800" fontWeight="bold" fontSize="22px" mb="16px">タスク・お知らせ一覧</Text>
@@ -73,7 +103,12 @@ const Notification = () => {
             <>
               {taskList?.map((list) => (
                 <Flex key={list.id} direction="column" color="black" py="16px" fontSize="14px" borderBottom="1px solid #000" borderColor="gray.200">
-                  {list.content}
+                  {list.deadline && (<Text mb="2px" color="gray.400" fontSize="12px" fontWeight="bold">{list.deadline}</Text>)}
+                  <Flex fontWeight="bold" mb={list.status && "6px"}>
+                    {list.status && (<Flex><Text onClick={() => router.push(`/projects/${list.projectId}`)} cursor="pointer" color="blue.800">{`「${list.title}」`}</Text><Text>の</Text></Flex>)}
+                    <Text>{list.content}</Text>
+                  </Flex>
+                  {list.status && (<Text cursor="pointer" fontSize="12px" fontWeight="bold" bgGradient="linear(to-b, blue.400, purple.400)" bgClip="text">{`${linkText(list.status)} >`}</Text>)}
                 </Flex>
               ))}
             </>

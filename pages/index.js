@@ -78,7 +78,7 @@ export default function Home() {
   const toggleLineChart = (index) => {
     setLineChartIndex(index)
   }
-  useEffect(() => setLineChartIndex(0), []);
+  // useEffect(() => setLineChartIndex(0), []);
   return (
     <Flex direction="column" py="56px">
       <HStack spacing="12px">

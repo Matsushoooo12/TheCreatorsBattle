@@ -14,6 +14,7 @@ const LeftSidebar = () => {
     const sx = { fill: "url(#linearColors)", fontSize: 28 }
   return (
     <Flex
+    suppressHydrationWarning
       bg="white"
       h="100vh"
       minW="96px"
@@ -25,7 +26,7 @@ const LeftSidebar = () => {
         pb="40px"
       justifyContent="space-between"
     >
-      <Flex direction="column" w="100%">
+      <Flex suppressHydrationWarning direction="column" w="100%">
       <MenuIcon onClick={() => router.push('/')} url={"http://localhost:3000/"}>
         <SignalCellularAltIcon
             sx={sx}

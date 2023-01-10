@@ -8,7 +8,7 @@ import {
 } from "recharts";
 
 const LineChartItem = (props) => {
-    const {data, gradientId, isReversed} = props
+  const {data, gradientId, isReversed} = props
   return (
     <LineChart
       width={540}
