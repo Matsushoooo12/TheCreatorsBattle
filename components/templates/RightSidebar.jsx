@@ -310,12 +310,12 @@ const RightSidebar = () => {
                   Lv.32
                 </Text>
                 <Flex h="5px" mb="6px">
-                  <Flex w="82px" h="100%" bg="white" borderRadiu="2px"></Flex>
+                  <Flex w="82px" h="100%" bg="white" borderRadius="2px"></Flex>
                   <Flex
                     w="90px"
                     h="100%"
                     bg="gray.400"
-                    borderRadiu="2px"
+                    borderRadius="2px"
                   ></Flex>
                 </Flex>
                 <Flex alignItems="center" color="white">
