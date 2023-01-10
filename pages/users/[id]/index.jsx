@@ -1,6 +1,7 @@
-import { Flex, HStack, Text } from '@chakra-ui/react'
+import { Flex, HStack } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React from 'react'
+import ChapterTitle from '../../../components/atoms/ChapterTitle'
 import SkilCard from '../../../components/molecules/SkilCard'
 import UserWorksCard from '../../../components/molecules/UserWorksCard'
 import ProjectList from '../../../components/organisms/ProjectList'
@@ -78,9 +79,14 @@ const skilList = [
 
 const DetailUser = () => {
   const router = useRouter()
+  const { id } = router.query
   return (
     <Flex direction="column" py="56px">
-      <ProjectList title="これまでの作品">
+      <ProjectList
+        title="これまでの作品"
+        onClick={() => router.push('/')}
+        isEdit={true}
+      >
         {userWorksList?.map((list) => (
           <UserWorksCard
             key={list.id}
@@ -93,9 +99,11 @@ const DetailUser = () => {
         ))}
       </ProjectList>
       <Flex w="100%" direction="column" mb="32px">
-        <Text color="blue.800" fontWeight="bold" fontSize="22px" mb="20px">
-          スキルレベル
-        </Text>
+        <ChapterTitle
+          isEdit={true}
+          title="スキルレベル"
+          onClick={() => router.push(`/users/${id}/skils/edit`)}
+        />
         <HStack spacing="8px" flexWrap="wrap">
           {skilList?.map((list) => (
             <SkilCard
@@ -103,6 +111,8 @@ const DetailUser = () => {
               text={list.text}
               level={list.level}
               thumbnail={list.thumbnail}
+              fill="url(#skil)"
+              isNew={false}
             />
           ))}
         </HStack>

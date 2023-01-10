@@ -1,10 +1,13 @@
-import { Flex, HStack, Icon, Image, Text } from '@chakra-ui/react'
+import { Flex, HStack, Image, Text } from '@chakra-ui/react'
 import React from 'react'
-import { AiFillGithub, AiFillTwitterCircle } from 'react-icons/ai'
-import { MdFacebook } from 'react-icons/md'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import GradientIcon from '../../components/atoms/GradientIcon'
 import { useRouter } from 'next/router'
+import GithubButtonIcon from '../../components/atoms/GithubButtonIcon'
+import MailButtonIcon from '../../components/atoms/MailButtonIcon'
+import FacebookButtonIcon from '../../components/atoms/FacebookButtonIcon'
+import TwitterButtonIcon from '../../components/atoms/TwitterButtonIcon'
+import GoogleButtonIcon from '../../components/atoms/GoogleButtonIcon'
 
 const SignUp = () => {
   const router = useRouter()
@@ -44,11 +47,11 @@ const SignUp = () => {
         <Text>どちらの方法で、アカウントを作成しますか？</Text>
       </Flex>
       <HStack spacing="14px" mb="60px">
-        <Icon w="34px" h="34px" as={AiFillGithub} color="blue.400" />
-        <Icon w="34px" h="34px" as={MdFacebook} color="blue.400" />
-        <Icon w="34px" h="34px" as={AiFillTwitterCircle} color="blue.400" />
-        <Icon w="34px" h="34px" as={AiFillTwitterCircle} color="blue.400" />
-        <Icon w="34px" h="34px" as={AiFillTwitterCircle} color="blue.400" />
+        <GithubButtonIcon />
+        <MailButtonIcon />
+        <FacebookButtonIcon />
+        <TwitterButtonIcon />
+        <GoogleButtonIcon />
       </HStack>
       <Text color="black" fontWeight="bold" mb="18px">
         もしかして、すでにアカウントをお持ちですか？

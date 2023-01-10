@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }) {
                 <Component {...pageProps} />
                 <Image
                   cursor="pointer"
-                  onClick={() => router.push('/')}
+                  onClick={() => router.push('/projects')}
                   mx="2px"
                   mb="4px"
                   h="24px"

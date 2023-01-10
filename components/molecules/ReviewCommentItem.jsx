@@ -10,14 +10,15 @@ import {
 import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
 
-const ReviewCommentItem = () => {
+const ReviewCommentItem = (props) => {
+  const { date, text, displayName, photoURL } = props
   return (
     <Flex w="100%" direction="column">
       <Flex w="100%">
         <Image bg="gray.500" w="120px" h="80px" alt="" mr="16px" />
         <Flex direction="column">
           <Text fontSize="12px" color="gray.500" mb="10px">
-            2022/12/12. Tue
+            {date}
           </Text>
           <Flex alignItems="center" mb="4px">
             <Flex alignItems="center" mr="18px">
@@ -69,12 +70,10 @@ const ReviewCommentItem = () => {
               </HStack>
             </Flex>
           </Flex>
-          <Text fontWeight="bold">
-            デザインも綺麗でとっても好きです！頑張ってください！
-          </Text>
+          <Text fontWeight="bold">{text}</Text>
           <Flex alignItems="center">
-            <Avatar size="xs" mr="4px" />
-            <Text fontSize="12px">松本省吾</Text>
+            <Avatar src={photoURL} size="xs" mr="4px" />
+            <Text fontSize="12px">{displayName}</Text>
           </Flex>
         </Flex>
       </Flex>

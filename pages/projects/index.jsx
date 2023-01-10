@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, useDisclosure } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React from 'react'
 import ProjectCard from '../../components/molecules/ProjectCard'
@@ -132,9 +132,10 @@ const doneProjects = [
 
 const Projects = () => {
   const router = useRouter()
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Flex direction="column" py="56px">
-      <ProjectList title="募集中のプロジェクト">
+      <ProjectList title="募集中のプロジェクト" isEdit={false}>
         {todoProjects?.map((list) => (
           <ProjectCard
             key={list.id}
@@ -148,7 +149,7 @@ const Projects = () => {
           />
         ))}
       </ProjectList>
-      <ProjectList title="進行中のプロジェクト">
+      <ProjectList title="進行中のプロジェクト" isEdit={false}>
         {inProgressProjects?.map((list) => (
           <ProjectCard
             key={list.id}
@@ -162,7 +163,7 @@ const Projects = () => {
           />
         ))}
       </ProjectList>
-      <ProjectList title="終了したプロジェクト">
+      <ProjectList title="終了したプロジェクト" isEdit={false}>
         {doneProjects?.map((list) => (
           <ProjectCard
             key={list.id}

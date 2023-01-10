@@ -1,4 +1,4 @@
-export const useGetStatus = (status) => {
+export const useGetStatus = (status, isVoted, isSubmit) => {
   const gradientColor = () => {
     if (status === 'recruitment') {
       return 'linear(to-r, purple.300, purple.600)'
@@ -23,13 +23,21 @@ export const useGetStatus = (status) => {
   }
   const projectButtonText = () => {
     if (status === 'recruitment') {
-      return '参加する'
+      return '参加する >'
     } else if (status === 'production') {
-      return '提出する'
+      if (!isSubmit) {
+        return '提出する >'
+      } else {
+        return '再提出する >'
+      }
     } else if (status === 'vote') {
-      return '投票する'
+      if (!isVoted) {
+        return '投票する >'
+      } else {
+        return '投票済み'
+      }
     } else if (status === 'done') {
-      return '結果を見る'
+      return '結果を見る >'
     }
   }
   return {
