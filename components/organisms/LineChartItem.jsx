@@ -5,21 +5,19 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend,
 } from "recharts";
 
 const LineChartItem = (props) => {
-    const {data, gradientId} = props
+    const {data, gradientId, isReversed} = props
   return (
     <LineChart
-      width={500}
+      width={540}
       height={230}
       data={data}
       margin={{
         top: 0,
         right: 0,
-        left: 0,
+        left: -30,
         bottom: 0,
       }}
       style={{ overflow: "hidden" }}
@@ -37,6 +35,7 @@ const LineChartItem = (props) => {
         tickLine={false}
         style={{ fontSize: "10px", fill: "#B4C0C6" }}
         height={20}
+        reversed={isReversed}
       />
       {/* <Tooltip /> */}
       <defs>

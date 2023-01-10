@@ -1,8 +1,15 @@
-import { Avatar, Divider, Flex, Heading, HStack, Icon, Tab, TabList, TabPanel, TabPanels, Tabs, Text, Image } from '@chakra-ui/react'
+import { Flex, Heading, HStack } from '@chakra-ui/react'
 import DataCard from '../components/molecules/DataCard'
 import ReviewChart from '../components/organisms/ReviewChart'
-import {AiFillStar} from 'react-icons/ai'
+import ReviewCommentItem from '../components/molecules/ReviewCommentItem'
+import { useEffect, useState } from 'react'
+import TabItems from '../components/molecules/TabItems'
+import TabItem from '../components/atoms/TabItem'
 import LineChartItem from '../components/organisms/LineChartItem'
+import dynamic from 'next/dynamic'
+
+// const LineChartItem = dynamic(() => import("../components/organisms/LineChartItem"), { ssr: false });
+// const ReviewChart = dynamic(() => import("../components/organisms/ReviewChart"), { ssr: false });
 
 const pointData = [
   {
@@ -67,8 +74,13 @@ const rankingData = [
 ];
 
 export default function Home() {
+  const [lineChartIndex, setLineChartIndex] = useState(0)
+  const toggleLineChart = (index) => {
+    setLineChartIndex(index)
+  }
+  useEffect(() => setLineChartIndex(0), []);
   return (
-    <Flex direction="column" pt="56px">
+    <Flex direction="column" py="56px">
       <HStack spacing="12px">
         <DataCard title="ランキング" myNumber="196" unitText="位" totalNumber="2000" emoji="🏆" />
         <DataCard title="レベル" myNumber="32" unitText="Lv." totalNumber="300" emoji="🔥" />
@@ -99,25 +111,20 @@ export default function Home() {
             >
               推移
             </Heading>
-            <Tabs variant="soft-rounded">
-              <TabList>
-                <Tab>ランキング</Tab>
-                <Tab>ポイント</Tab>
-              </TabList>
-
-              <TabPanels>
-                <TabPanel>
-                  <Flex zIndex={100}>
-                    <LineChartItem data={rankingData} gradientId="ranking_gradationColor" />
-                  </Flex>
-                </TabPanel>
-                <TabPanel>
-                  <Flex zIndex={100}>
-                  <LineChartItem data={pointData} gradientId="point_gradationColor" />
-                  </Flex>
-                </TabPanel>
-              </TabPanels>
-            </Tabs>
+            <HStack spacing="16px" color="blue.800" fontWeight="bold">
+              <TabItems mb="24px">
+                <TabItem title="ランキング" onClick={() => toggleLineChart(0)} tabState={lineChartIndex} tabIndex={0} />
+                <TabItem title="ポイント" onClick={() => toggleLineChart(1)} tabState={lineChartIndex} tabIndex={1} />
+              </TabItems>
+            </HStack>
+            <Flex index="100" w="100%" h="100%" justifyContent="center">
+              {lineChartIndex === 0 && (
+                <LineChartItem data={rankingData} gradientId="ranking" isReversed={true} />
+              )}
+              {lineChartIndex === 1 && (
+                <LineChartItem data={pointData} gradientId="point" isReversed={false} />
+              )}
+            </Flex>
           </Flex>
           <Flex
             w="50%"
@@ -149,7 +156,6 @@ export default function Home() {
             borderRadius="2xl"
             boxShadow="xl"
             w="100%"
-            // h="00px"
             bg="white"
             p="32px 32px 0"
             direction="column"
@@ -164,154 +170,9 @@ export default function Home() {
             >
               レビューコメント一覧
             </Heading>
-            <Flex w="100%" direction="column">
-              <Flex w="100%">
-                <Image
-                  bg="gray.500"
-                  w="120px"
-                  h="80px"
-                  alt=""
-                  mr="16px"
-                />
-                <Flex direction="column">
-                  <Text fontSize="12px" color="gray.500" mb="10px">
-                    2022/12/12. Tue
-                  </Text>
-                  <Flex alignItems="center" mb="4px">
-                    <Flex alignItems="center" mr="18px">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        発想
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                      </HStack>
-                    </Flex>
-                    <Flex alignItems="center" mr="18px">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        ビジネス
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                      </HStack>
-                    </Flex>
-                    <Flex alignItems="center" mr="18px">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        技術
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                      </HStack>
-                    </Flex>
-                    <Flex alignItems="center">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        デザイン
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                      </HStack>
-                    </Flex>
-                  </Flex>
-                  <Text fontWeight="bold">
-                    デザインも綺麗でとっても好きです！頑張ってください！
-                  </Text>
-                  <Flex alignItems="center">
-                    <Avatar size="xs" mr="4px" />
-                    <Text fontSize="12px">松本省吾</Text>
-                  </Flex>
-                </Flex>
-              </Flex>
-              <Divider orientation="horizontal" my="18px" size="xl" />
-            </Flex>
-            <Flex w="100%" direction="column">
-              <Flex w="100%">
-                <Image
-                  bg="gray.500"
-                  w="120px"
-                  h="80px"
-                  alt=""
-                  mr="16px"
-                />
-                <Flex direction="column">
-                  <Text fontSize="12px" color="gray.500" mb="10px">
-                    2022/12/12. Tue
-                  </Text>
-                  <Flex alignItems="center" mb="4px">
-                    <Flex alignItems="center" mr="18px">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        発想
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="gray.300" />
-                      </HStack>
-                    </Flex>
-                    <Flex alignItems="center" mr="18px">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        ビジネス
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="gray.300" />
-                        <Icon as={AiFillStar} color="gray.300" />
-                      </HStack>
-                    </Flex>
-                    <Flex alignItems="center" mr="18px">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        技術
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="gray.300" />
-                      </HStack>
-                    </Flex>
-                    <Flex alignItems="center">
-                      <Text fontSize="12px" color="gray.500" mr="8px">
-                        デザイン
-                      </Text>
-                      <HStack spacing="4px">
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="yellow.300" />
-                        <Icon as={AiFillStar} color="gray.300" />
-                        <Icon as={AiFillStar} color="gray.300" />
-                        <Icon as={AiFillStar} color="gray.300" />
-                      </HStack>
-                    </Flex>
-                  </Flex>
-                  <Text fontWeight="bold">
-                    デザインも綺麗でとっても好きです！頑張ってください！
-                  </Text>
-                  <Flex alignItems="center">
-                    <Avatar size="xs" mr="4px" />
-                    <Text fontSize="12px">松本省吾</Text>
-                  </Flex>
-                </Flex>
-              </Flex>
-              <Divider orientation="horizontal" my="18px" size="xl" />
-            </Flex>
+            <ReviewCommentItem />
+            <ReviewCommentItem />
+            <ReviewCommentItem />
           </Flex>
         </HStack>
     </Flex>

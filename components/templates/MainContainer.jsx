@@ -6,18 +6,19 @@ import RightSidebar from './RightSidebar';
 const MainContainer = (props) => {
   const { children } = props;
   return (
-    <Flex>
+    <Flex suppressHydrationWarning>
         <LeftSidebar />
         <Flex
+          suppressHydrationWarning
           flex={1}
           h="100vh"
-          bg="white"
+          bg="gray.100"
           alignItems="center"
           direction="column"
           position="relative"
           minW="1024px"
         >
-          <Flex h="100%" w="100%" overflowX="scroll" direction="column">
+          <Flex suppressHydrationWarning h="100%" w="100%" overflowX="scroll" direction="column">
             {children}
           </Flex>
         </Flex>

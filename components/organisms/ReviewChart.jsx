@@ -5,7 +5,6 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-  LabelList,
 } from "recharts";
 
 const data = [
@@ -42,10 +41,10 @@ const ReviewChart = () => {
       data={data}
     >
       <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
+      <PolarAngleAxis dataKey="subject" style={{ fontSize: "14px" }} tick={{fill: '#B4C0C6'}} />
       <PolarRadiusAxis domain={[0, 5]} tickCount={6} tick={false} />
       <defs>
-        <linearGradient id="review_gradationColor" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="review" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#4299E1" />
           <stop offset="100%" stopColor="#9F7AEA" />
         </linearGradient>
@@ -54,7 +53,7 @@ const ReviewChart = () => {
         name="Mike"
         dataKey="A"
         stroke="#8884d8"
-        fill="url(#review_gradationColor)"
+        fill="url(#review)"
         fillOpacity={0.6}
       />
     </RadarChart>

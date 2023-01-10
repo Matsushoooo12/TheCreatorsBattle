@@ -7,6 +7,7 @@ const MenuIcon = ({children, onClick, url}) => {
     const {URL} = useGetUrl()
   return (
     <Flex
+    suppressHydrationWarning
         p="20px"
         _hover={{ bg: "gray.100", cursor: "pointer" }}
         w="100%"
@@ -19,6 +20,7 @@ const MenuIcon = ({children, onClick, url}) => {
           {children}
         </GradientIcon>
         <Flex
+        suppressHydrationWarning
           position="absolute"
           top="0"
           left="20px"
@@ -27,6 +29,7 @@ const MenuIcon = ({children, onClick, url}) => {
           alignItems="center"
         >
           <Flex
+          suppressHydrationWarning
             w="4px"
             h="40px"
             bgGradient="linear(to-b, blue.400, purple.400)"

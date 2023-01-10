@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return(
     <ChakraProvider theme={theme}>
       <MainContainer>
-        <Flex bg="gray.100" h="100%" direction="column" px="24px">
+        <Flex suppressHydrationWarning bg="gray.100" h="100%" direction="column" px="24px">
           <Component {...pageProps} />
         </Flex>
       </MainContainer>
