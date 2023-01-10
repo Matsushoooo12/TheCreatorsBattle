@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const GradientIcon = (props) => {
-  const { children } = props;
+  const { children } = props
   return (
     <>
       <svg width={0} height={0}>
@@ -12,7 +12,7 @@ const GradientIcon = (props) => {
       </svg>
       {children}
     </>
-  );
-};
+  )
+}
 
-export default GradientIcon;
+export default GradientIcon

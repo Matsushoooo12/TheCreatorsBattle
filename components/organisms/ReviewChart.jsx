@@ -1,34 +1,34 @@
-import React from "react";
+import React from 'react'
 import {
   Radar,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-} from "recharts";
+} from 'recharts'
 
 const data = [
   {
-    subject: "ビジネス 3.2",
+    subject: 'ビジネス 3.2',
     A: 3.2,
     fullMark: 5,
   },
   {
-    subject: "技術 2.3",
+    subject: '技術 2.3',
     A: 2.3,
     fullMark: 5,
   },
   {
-    subject: "デザイン 4.5",
+    subject: 'デザイン 4.5',
     A: 4.5,
     fullMark: 5,
   },
   {
-    subject: "発想 2.8",
+    subject: '発想 2.8',
     A: 2.8,
     fullMark: 5,
   },
-];
+]
 
 const ReviewChart = () => {
   return (
@@ -41,7 +41,11 @@ const ReviewChart = () => {
       data={data}
     >
       <PolarGrid />
-      <PolarAngleAxis dataKey="subject" style={{ fontSize: "14px" }} tick={{fill: '#B4C0C6'}} />
+      <PolarAngleAxis
+        dataKey="subject"
+        style={{ fontSize: '14px' }}
+        tick={{ fill: '#B4C0C6' }}
+      />
       <PolarRadiusAxis domain={[0, 5]} tickCount={6} tick={false} />
       <defs>
         <linearGradient id="review" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -57,7 +61,7 @@ const ReviewChart = () => {
         fillOpacity={0.6}
       />
     </RadarChart>
-  );
-};
+  )
+}
 
-export default ReviewChart;
+export default ReviewChart

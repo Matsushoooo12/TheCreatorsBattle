@@ -7,47 +7,35 @@ import ProjectList from '../../components/organisms/ProjectList'
 const todoProjects = [
   {
     id: 1,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
-    status: 'recruitment'
+    status: 'recruitment',
   },
   {
     id: 2,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
-    status: 'recruitment'
+    status: 'recruitment',
   },
   {
     id: 3,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
-    status: 'recruitment'
+    status: 'recruitment',
   },
   {
     id: 4,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
@@ -55,11 +43,8 @@ const todoProjects = [
   },
   {
     id: 5,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
@@ -67,11 +52,8 @@ const todoProjects = [
   },
   {
     id: 6,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
@@ -79,26 +61,20 @@ const todoProjects = [
   },
   {
     id: 7,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
     status: 'recruitment',
-  }
+  },
 ]
 
 const inProgressProjects = [
   {
     id: 1,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
@@ -106,11 +82,8 @@ const inProgressProjects = [
   },
   {
     id: 2,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
@@ -118,26 +91,20 @@ const inProgressProjects = [
   },
   {
     id: 3,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
     status: 'vote',
-  }
+  },
 ]
 
 const doneProjects = [
   {
     id: 1,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
@@ -145,11 +112,8 @@ const doneProjects = [
   },
   {
     id: 2,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
@@ -157,35 +121,59 @@ const doneProjects = [
   },
   {
     id: 3,
-    title: "筋トレが楽しくなってもりもり筋肉がつくアプリケーション",
-    categories: [
-      "UI/UXデザイン",
-      "ウェブアプリ"
-    ],
+    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
     status: 'done',
-  }
+  },
 ]
 
 const Projects = () => {
   const router = useRouter()
   return (
     <Flex direction="column" py="56px">
-      <ProjectList title="募集中のプロジェクト" >
+      <ProjectList title="募集中のプロジェクト">
         {todoProjects?.map((list) => (
-            <ProjectCard key={list.id} title={list.title} categories={list.categories} joinNumber={list.joinNumber} acquisitionPoints={list.acquisitionPoints} untilTheDeadline={list.untilTheDeadline} status={list.status} onClick={() => router.push(`/projects/${list.id}`)} />
+          <ProjectCard
+            key={list.id}
+            title={list.title}
+            categories={list.categories}
+            joinNumber={list.joinNumber}
+            acquisitionPoints={list.acquisitionPoints}
+            untilTheDeadline={list.untilTheDeadline}
+            status={list.status}
+            onClick={() => router.push(`/projects/${list.id}`)}
+          />
         ))}
       </ProjectList>
-      <ProjectList title="進行中のプロジェクト" >
+      <ProjectList title="進行中のプロジェクト">
         {inProgressProjects?.map((list) => (
-            <ProjectCard key={list.id} title={list.title} categories={list.categories} joinNumber={list.joinNumber} acquisitionPoints={list.acquisitionPoints} untilTheDeadline={list.untilTheDeadline} status={list.status} onClick={() => router.push(`/projects/${list.id}`)} />
+          <ProjectCard
+            key={list.id}
+            title={list.title}
+            categories={list.categories}
+            joinNumber={list.joinNumber}
+            acquisitionPoints={list.acquisitionPoints}
+            untilTheDeadline={list.untilTheDeadline}
+            status={list.status}
+            onClick={() => router.push(`/projects/${list.id}`)}
+          />
         ))}
       </ProjectList>
-      <ProjectList title="終了したプロジェクト" >
+      <ProjectList title="終了したプロジェクト">
         {doneProjects?.map((list) => (
-            <ProjectCard key={list.id} title={list.title} categories={list.categories} joinNumber={list.joinNumber} acquisitionPoints={list.acquisitionPoints} untilTheDeadline={list.untilTheDeadline} status={list.status} onClick={() => router.push(`/projects/${list.id}`)} />
+          <ProjectCard
+            key={list.id}
+            title={list.title}
+            categories={list.categories}
+            joinNumber={list.joinNumber}
+            acquisitionPoints={list.acquisitionPoints}
+            untilTheDeadline={list.untilTheDeadline}
+            status={list.status}
+            onClick={() => router.push(`/projects/${list.id}`)}
+          />
         ))}
       </ProjectList>
     </Flex>

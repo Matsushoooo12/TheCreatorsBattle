@@ -1,16 +1,12 @@
-import { Flex } from '@chakra-ui/react';
-import React, { useContext } from 'react'
-import { useGetUrl } from '../../hooks/useGetUrl';
-import { AuthContext } from '../../pages/_app';
-import LeftSidebar from './LeftSidebar';
-import RightSidebar from './RightSidebar';
+import { Flex } from '@chakra-ui/react'
+import React from 'react'
+import LeftSidebar from './LeftSidebar'
+import RightSidebar from './RightSidebar'
 
 const MainContainer = (props) => {
-  const { children } = props;
-  const {isLogin} = useContext(AuthContext)
-  const {URL} = useGetUrl()
+  const { children } = props
   return (
-      <Flex>
+    <Flex>
       <LeftSidebar />
       <Flex
         flex={1}
@@ -25,7 +21,7 @@ const MainContainer = (props) => {
           {children}
         </Flex>
       </Flex>
-      <RightSidebar />  
+      <RightSidebar />
     </Flex>
   )
 }

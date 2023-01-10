@@ -1,14 +1,8 @@
-import React from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-} from "recharts";
+import React from 'react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts'
 
 const LineChartItem = (props) => {
-  const {data, gradientId, isReversed} = props
+  const { data, gradientId, isReversed } = props
   return (
     <LineChart
       width={540}
@@ -20,20 +14,20 @@ const LineChartItem = (props) => {
         left: -30,
         bottom: 0,
       }}
-      style={{ overflow: "hidden" }}
+      style={{ overflow: 'hidden' }}
     >
       <CartesianGrid strokeDasharray="10 10" vertical={false} />
       <XAxis
         dataKey="name"
         axisLine={false}
         tickLine={false}
-        style={{ fontSize: "10px", fill: "#B4C0C6" }}
+        style={{ fontSize: '10px', fill: '#B4C0C6' }}
         height={20}
       />
       <YAxis
         axisLine={false}
         tickLine={false}
-        style={{ fontSize: "10px", fill: "#B4C0C6" }}
+        style={{ fontSize: '10px', fill: '#B4C0C6' }}
         height={20}
         reversed={isReversed}
       />
@@ -52,7 +46,7 @@ const LineChartItem = (props) => {
         dot={false}
       />
     </LineChart>
-  );
-};
+  )
+}
 
-export default LineChartItem;
+export default LineChartItem
