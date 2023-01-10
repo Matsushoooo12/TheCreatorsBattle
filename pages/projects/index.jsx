@@ -1,4 +1,4 @@
-import { Flex, HStack, Text } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React from 'react'
 import ProjectCard from '../../components/molecules/ProjectCard'

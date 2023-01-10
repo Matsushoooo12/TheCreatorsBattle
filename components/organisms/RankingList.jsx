@@ -29,10 +29,10 @@ const RankingList = ({rankingList}) => {
             </Flex>
             <Flex alignItems="center">
             <Flex mr="8px" alignItems="center" fontWeight="bold">
-                <Text bgGradient="linear(to-b, blue.400, purple.400)" bgClip="text">{list.point}</Text>
+                <Text bgGradient="linear(to-b, #7CAAFF, #8D85F4)" bgClip="text">{list.point}</Text>
                 <Text>💰</Text>
             </Flex>
-            <Text bgGradient="linear(to-b, blue.400, purple.400)" bgClip="text" fontSize="12px" fontWeight="bold">Following</Text>
+            <Text bgGradient="linear(to-b, #7CAAFF, #8D85F4)" bgClip="text" fontSize="12px" fontWeight="bold">Following</Text>
             </Flex>
         </Flex>
       ))}

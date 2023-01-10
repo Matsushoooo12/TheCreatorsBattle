@@ -1,64 +1,75 @@
 import { SearchIcon } from '@chakra-ui/icons'
-import { Divider, Flex, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import {AiOutlineSearch} from 'react-icons/ai'
+import { Flex, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/react'
+import React, { useState } from 'react'
 import TabItem from '../../components/atoms/TabItem'
 import TabItems from '../../components/molecules/TabItems'
 
 const allList = [
   {
     id: 1,
-    content: "すべてです、ミッションコンプリート🌟"
+    content: "すべてです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
   {
     id: 2,
-    content: "すべてです、ミッションコンプリート🌟"
+    content: "すべてです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
   {
     id: 3,
-    content: "すべてです、ミッションコンプリート🌟"
+    content: "すべてです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
   {
     id: 4,
-    content: "すべてです、ミッションコンプリート🌟"
+    content: "すべてです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
 ]
 
 const doneList = [
   {
     id: 1,
-    content: "解決済みです、ミッションコンプリート🌟"
+    content: "解決済みです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
   {
     id: 2,
-    content: "解決済みです、ミッションコンプリート🌟"
+    content: "解決済みです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
   {
     id: 3,
-    content: "解決済みです、ミッションコンプリート🌟"
+    content: "解決済みです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
   {
     id: 4,
-    content: "解決済みです、ミッションコンプリート🌟"
+    content: "解決済みです、ミッションコンプリート🌟",
+    createdAt: "2023/01/01 11:00",
   },
 ]
 
 const waitList = [
     {
       id: 1,
-      content: "回答待ちです、ミッションコンプリート🌟"
+      content: "回答待ちです、ミッションコンプリート🌟",
+      createdAt: "2023/01/01 11:00",
     },
     {
       id: 2,
-      content: "回答待ちです、ミッションコンプリート🌟"
+      content: "回答待ちです、ミッションコンプリート🌟",
+      createdAt: "2023/01/01 11:00",
     },
     {
       id: 3,
-      content: "回答待ちです、ミッションコンプリート🌟"
+      content: "回答待ちです、ミッションコンプリート🌟",
+      createdAt: "2023/01/01 11:00",
     },
     {
       id: 4,
-      content: "回答待ちです、ミッションコンプリート🌟"
+      content: "回答待ちです、ミッションコンプリート🌟",
+      createdAt: "2023/01/01 11:00",
     },
   ]
 
@@ -67,9 +78,6 @@ const Questions = () => {
   const toggleQuestion = (index) => {
     setQuestionIndex(index)
   }
-  useEffect(() => {
-    setQuestionIndex(0)
-  }, [])
   return (
     <Flex direction="column" py="56px">
       <Text color="blue.800" fontWeight="bold" fontSize="22px" mb="16px">質問箱一覧</Text>
@@ -93,8 +101,11 @@ const Questions = () => {
             <>
               {allList?.map((list) => (
                 <Flex key={list.id} direction="column" color="black" py="16px" fontSize="14px" borderBottom="1px solid #000" borderColor="gray.200">
-                  {list.content}
+                <Text mb="2px" color="gray.400" fontSize="12px" fontWeight="bold">{list.createdAt}</Text>
+                <Flex fontWeight="bold" mb={list.status && "6px"}>
+                  <Text>{list.content}</Text>
                 </Flex>
+              </Flex>
               ))}
             </>
           )}
@@ -102,8 +113,11 @@ const Questions = () => {
             <>
               {doneList?.map((list) => (
                 <Flex key={list.id} direction="column" color="black" py="16px" fontSize="14px" borderBottom="1px solid #000" borderColor="gray.200">
-                  {list.content}
+                <Text mb="2px" color="gray.400" fontSize="12px" fontWeight="bold">{list.createdAt}</Text>
+                <Flex fontWeight="bold" mb={list.status && "6px"}>
+                  <Text>{list.content}</Text>
                 </Flex>
+              </Flex>
               ))}
             </>
           )}
@@ -111,8 +125,11 @@ const Questions = () => {
             <>
               {waitList?.map((list) => (
                 <Flex key={list.id} direction="column" color="black" py="16px" fontSize="14px" borderBottom="1px solid #000" borderColor="gray.200">
-                  {list.content}
+                <Text mb="2px" color="gray.400" fontSize="12px" fontWeight="bold">{list.createdAt}</Text>
+                <Flex fontWeight="bold" mb={list.status && "6px"}>
+                  <Text>{list.content}</Text>
                 </Flex>
+              </Flex>
               ))}
             </>
           )}

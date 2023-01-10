@@ -1,6 +1,5 @@
 import { Flex, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
-import ProjectCard from '../molecules/ProjectCard'
 
 const ProjectList = ({title, children}) => {
   return (
