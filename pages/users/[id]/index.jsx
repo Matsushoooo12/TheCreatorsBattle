@@ -154,9 +154,9 @@ const DetailUser = () => {
                   <SkilCard
                     text="サービス名"
                     level={4}
-                    thumbnail=""
+                    thumbnail="https://user-images.githubusercontent.com/66903388/211800043-b726329b-cebb-4fc2-a623-79203b27041a.gif"
                     fill="url(#skil)"
-                    isNew={true}
+                    isNew={false}
                   />
                 </Flex>
               </NewCreateCard>
