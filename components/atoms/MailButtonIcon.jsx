@@ -1,10 +1,12 @@
 import { Flex } from '@chakra-ui/react'
 import React from 'react'
 import EMailButtonIcon from '@mui/icons-material/Email'
+import { useRouter } from 'next/router'
 
-const MailButtonIcon = () => {
+const MailButtonIcon = ({ onClick }) => {
+  const router = useRouter()
   return (
-    <Flex position="relative" cursor="pointer">
+    <Flex position="relative" cursor="pointer" onClick={onClick}>
       <EMailButtonIcon
         sx={{
           position: 'absolute',

@@ -125,12 +125,14 @@ const Notification = () => {
             onClick={() => toggleNotification(0)}
             tabState={notificationIndex}
             tabIndex={0}
+            dataLength={2}
           />
           <TabItem
             title="お知らせ"
             onClick={() => toggleNotification(1)}
             tabState={notificationIndex}
             tabIndex={1}
+            // dataLength={3}
           />
         </TabItems>
         <Flex w="100%" h="1px" bg="gray.200" />
@@ -175,7 +177,7 @@ const Notification = () => {
                       cursor="pointer"
                       fontSize="12px"
                       fontWeight="bold"
-                      bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+                      bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
                       bgClip="text"
                     >{`${linkText(list.status)} >`}</Text>
                   )}

@@ -21,31 +21,36 @@ const skilList = [
   {
     id: 1,
     text: 'Next.js',
-    thumbnail: '',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
     level: 1,
   },
   {
     id: 2,
-    text: 'Next.js',
-    thumbnail: '',
+    text: 'TypeScript',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png',
     level: 2,
   },
   {
     id: 3,
-    text: 'Next.js',
-    thumbnail: '',
+    text: 'Kotlin',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/211631223-2f47b231-1c12-48d6-9067-68392df5c325.png',
     level: 3,
   },
   {
     id: 4,
-    text: 'Next.js',
-    thumbnail: '',
+    text: 'AWS',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/211631369-0d2cb214-498d-4f76-9083-c56434341f24.png',
     level: 4,
   },
   {
     id: 5,
-    text: 'Next.js',
-    thumbnail: '',
+    text: 'Firebase',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png',
     level: 4,
   },
 ]
@@ -54,29 +59,21 @@ const UserSkilEdit = () => {
   const router = useRouter()
   const { id } = router.query
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [sliderValue, setSliderValue] = useState(25)
-  const [showTooltip, setShowTooltip] = useState(false)
+  const [rangeIndex, setRangeIndex] = useState(0)
   const sliderText = () => {
-    if (sliderValue >= 0 && sliderValue < 25) {
+    if (rangeIndex === 1) {
       return '初級者'
-    } else if (sliderValue >= 25 && sliderValue < 50) {
+    } else if (rangeIndex === 2) {
       return '中級者'
-    } else if (sliderValue >= 50 && sliderValue < 75) {
+    } else if (rangeIndex === 3) {
       return '上級者'
-    } else if (sliderValue >= 75) {
+    } else if (rangeIndex === 4) {
       return '達人'
     }
+    return '未設定'
   }
-  const sliderStepNumber = (value) => {
-    if (value >= 0 && value < 25) {
-      setSliderValue(25)
-    } else if (value >= 25 && value < 50) {
-      setSliderValue(50)
-    } else if (value >= 50 && value < 75) {
-      setSliderValue(75)
-    } else if (value >= 75) {
-      setSliderValue(100)
-    }
+  const handleSliderChange = (event) => {
+    setRangeIndex(parseInt(event.target.value, 10))
   }
   return (
     <>
@@ -117,8 +114,8 @@ const UserSkilEdit = () => {
       <ModalCard
         isOpen={isOpen}
         onClose={onClose}
-        leftButtonText="キャンセル"
-        rightButtonText="追加する"
+        cancelButtonText="キャンセル"
+        submitButtonText="追加する"
         title="スキルを追加"
       >
         <Flex
@@ -146,30 +143,23 @@ const UserSkilEdit = () => {
           <Text color="gray.400" mb="10px">
             レベル：{sliderText()}
           </Text>
-          <Slider
-            id="slider"
-            defaultValue={5}
-            min={0}
-            max={100}
-            colorScheme="teal"
-            onChange={(v) => setSliderValue(v)}
-            onMouseEnter={() => setShowTooltip(true)}
-            onMouseLeave={() => setShowTooltip(false)}
-          >
-            <SliderTrack>
-              <SliderFilledTrack />
-            </SliderTrack>
-            <Tooltip
-              hasArrow
-              bg="teal.500"
-              color="white"
-              placement="top"
-              isOpen={showTooltip}
-              label={sliderText()}
-            >
-              <SliderThumb />
-            </Tooltip>
-          </Slider>
+          <input
+            type="range"
+            min="0"
+            max="4"
+            value={rangeIndex}
+            onChange={handleSliderChange}
+          />
+        </Flex>
+        <Flex mb="36px">
+          <SkilCard
+            text="Next.js"
+            level={rangeIndex}
+            thumbnail="https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png"
+            fill="url(#skil)"
+            isNew={false}
+            onClick={onOpen}
+          />
         </Flex>
       </ModalCard>
     </>

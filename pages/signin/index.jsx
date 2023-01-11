@@ -1,13 +1,13 @@
 import { Flex, HStack, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
-import GradientIcon from '../../components/atoms/GradientIcon'
 import { useRouter } from 'next/router'
 import GithubButtonIcon from '../../components/atoms/GithubButtonIcon'
-import FacebookButtonIcon from '../../components/atoms/FacebookButtonIcon'
 import MailButtonIcon from '../../components/atoms/MailButtonIcon'
+import FacebookButtonIcon from '../../components/atoms/FacebookButtonIcon'
 import TwitterButtonIcon from '../../components/atoms/TwitterButtonIcon'
 import GoogleButtonIcon from '../../components/atoms/GoogleButtonIcon'
+import GradientIcon from '../../components/atoms/GradientIcon'
 
 const SignIn = () => {
   const router = useRouter()
@@ -20,7 +20,7 @@ const SignIn = () => {
       <Flex
         w="120px"
         h="4px"
-        bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+        bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
         mb="56px"
       />
       <Flex
@@ -47,7 +47,7 @@ const SignIn = () => {
       </Flex>
       <HStack spacing="14px" mb="60px">
         <GithubButtonIcon />
-        <MailButtonIcon />
+        <MailButtonIcon onClick={() => router.push('/signin/new')} />
         <FacebookButtonIcon />
         <TwitterButtonIcon />
         <GoogleButtonIcon />
@@ -57,7 +57,7 @@ const SignIn = () => {
       </Text>
       <HStack
         spacing="2px"
-        bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+        bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
         bgClip="text"
         alignItems="center"
         cursor="pointer"

@@ -3,7 +3,7 @@ import React from 'react'
 import { Cell, Pie, PieChart } from 'recharts'
 import { AiOutlinePlus } from 'react-icons/ai'
 
-const skilData = [{ name: 'Group A', value: 400 }]
+const skilData = [{ name: 'Skil', value: 400 }]
 
 const SkilCard = ({ text, level, thumbnail, fill, isNew, onClick }) => {
   const endAngle = () => {
@@ -50,14 +50,14 @@ const SkilCard = ({ text, level, thumbnail, fill, isNew, onClick }) => {
               cx={38}
               cy={38}
               startAngle={90}
-              endAngle={endAngle()}
+              endAngle={level ? endAngle() : 90}
               innerRadius={30}
               outerRadius={38}
               fill={fill}
               paddingAngle={1}
               dataKey="value"
             >
-              {skilData.map((entry, index) => (
+              {skilData.map((index) => (
                 <Cell key={`cell-${index}`} fill={fill} />
               ))}
             </Pie>
@@ -65,7 +65,6 @@ const SkilCard = ({ text, level, thumbnail, fill, isNew, onClick }) => {
           {!isNew ? (
             <Image
               src={thumbnail}
-              bg="blue"
               w="32px"
               h="32px"
               alt=""

@@ -12,8 +12,8 @@ import React from 'react'
 const ModalCard = (props) => {
   const {
     children,
-    leftButtonText,
-    rightButtonText,
+    cancelButtonText,
+    submitButtonText,
     isOpen,
     onClose,
     title,
@@ -32,7 +32,7 @@ const ModalCard = (props) => {
         <ModalBody p="32px">
           <Flex mb="24px" alignItems="center" fontSize="20px" fontWeight="bold">
             <Text
-              bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+              bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
               bgClip="text"
               mr="8px"
             >
@@ -45,22 +45,22 @@ const ModalCard = (props) => {
             <HStack spacing="12px" alignItems="center" fontWeight="bold">
               <Flex
                 p="12px 24px"
-                bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
                 bgClip="text"
                 borderRadius="md"
                 cursor="pointer"
                 onClick={onClose}
               >
-                {leftButtonText}
+                {cancelButtonText}
               </Flex>
-              {rightButtonText && (
+              {submitButtonText && (
                 <Flex
                   p="12px 24px"
-                  bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+                  bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
                   borderRadius="md"
                   cursor="pointer"
                 >
-                  {rightButtonText}
+                  {submitButtonText}
                 </Flex>
               )}
             </HStack>

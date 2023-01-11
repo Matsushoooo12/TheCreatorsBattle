@@ -14,7 +14,7 @@ const EditButton = (props) => {
       <Text
         fontSize="12px"
         fontWeight="bold"
-        bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+        bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
         bgClip="text"
       >
         編集

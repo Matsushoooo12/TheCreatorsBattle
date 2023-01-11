@@ -23,6 +23,7 @@ import ModalCard from '../molecules/ModalCard'
 import GithubButtonIcon from '../atoms/GithubButtonIcon'
 import FacebookButtonIcon from '../atoms/FacebookButtonIcon'
 import TwitterButtonIcon from '../atoms/TwitterButtonIcon'
+import NewCreateCard from '../molecules/NewCreateCard'
 
 const inProgressProjects = [
   {
@@ -358,7 +359,7 @@ const RightSidebar = () => {
                   🏆 ランキング
                 </Text>
                 <Flex
-                  bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+                  bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
                   alignItems="center"
                   justifyContent="space-between"
                   p="8px 16px"
@@ -395,7 +396,7 @@ const RightSidebar = () => {
                 </Flex>
                 <Flex
                   w="100%"
-                  bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+                  bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
                   borderRadius="2xl"
                   direction="column"
                   p="12px 16px"
@@ -457,7 +458,7 @@ const RightSidebar = () => {
                 </Flex>
                 <Flex
                   w="100%"
-                  bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+                  bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
                   borderRadius="10px"
                   p="24px 16px"
                   alignItems="center"
@@ -502,14 +503,17 @@ const RightSidebar = () => {
                   </Flex>
                   <Icon as={AiFillStar} fontSize="80px" color="yellow.300" />
                 </Flex>
-                <Text fontSize="14px">
-                  はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。
-                  next.jsだいすき！！
-                </Text>
-                <Text fontSize="14px" mb="24px">
-                  将来は、個人開発で一発当てたい。野菜社主催
-                  きゅうりハッカソン優勝。
-                </Text>
+                {/* テキストがある場合 */}
+                {/* <Flex direction="column" mb="24px">
+                  <Text fontSize="14px">
+                    はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。
+                    next.jsだいすき！！
+                  </Text>
+                  <Text fontSize="14px">
+                    将来は、個人開発で一発当てたい。野菜社主催
+                    きゅうりハッカソン優勝。
+                  </Text>
+                </Flex>
                 <Flex direction="column">
                   <Text fontWeight="bold" color="blue.700" mb="10px">
                     SNS
@@ -519,7 +523,16 @@ const RightSidebar = () => {
                     <FacebookButtonIcon />
                     <TwitterButtonIcon />
                   </HStack>
-                </Flex>
+                </Flex> */}
+                {/* テキストがない場合 */}
+                <NewCreateCard
+                  title="あなたについて書いてみよう！"
+                  buttonText="プロフィールを書く"
+                  onClick={() => router.push(`/users/${id}`)}
+                >
+                  <Text>プロフィールを書くと、ポイントがもらえるかも...🤭</Text>
+                </NewCreateCard>
+                {/* ここまで */}
               </Flex>
             </Flex>
           )}
@@ -528,159 +541,205 @@ const RightSidebar = () => {
               <Flex w="328px" direction="column" mb="56px">
                 {isLogin && (
                   <Flex direction="column" mb="56px">
-                    <Text
-                      mb="8px"
-                      cursor="pointer"
-                      color="white"
-                      borderRadius="md"
-                      boxShadow="lg"
-                      fontWeight="bold"
-                      w="100%"
-                      py="14px"
-                      textAlign="center"
-                      bgGradient={gradientColor()}
-                      opacity={projectItem2.isVoted && '50%'}
-                      onClick={onOpen}
-                    >
-                      {projectButtonText()}
-                    </Text>
-                    {projectItem2.status === 'recruitment' && (
-                      <Text fontWeight="bold">
-                        💸 参加するのに、80pt必要です
-                      </Text>
-                    )}
-                    {projectItem2.status === 'production' && (
+                    {projectItem4?.status !== 'done' ? (
                       <>
-                        <Text fontWeight="bold" mb="8px">
-                          📌 提出済みのあなたの作品
+                        <Text
+                          mb="8px"
+                          cursor="pointer"
+                          color="white"
+                          borderRadius="md"
+                          boxShadow="lg"
+                          fontWeight="bold"
+                          w="100%"
+                          py="14px"
+                          textAlign="center"
+                          bgGradient={gradientColor()}
+                          opacity={projectItem4.isVoted && '50%'}
+                          onClick={onOpen}
+                        >
+                          {projectButtonText()}
                         </Text>
-                        <Flex w="100%">
-                          <UserWorksCard
-                            thumbnail={myWorks1.thumbnail}
-                            title={myWorks1.title}
-                            categories={myWorks1.categories}
-                            createdAt={myWorks1.createdAt}
-                            onClick={() => router.push(`/works/${myWorks1.id}`)}
-                          />
-                        </Flex>
+                        {projectItem4.status === 'recruitment' && (
+                          <Text fontWeight="bold">
+                            💸 参加するのに、80pt必要です
+                          </Text>
+                        )}
+                        {projectItem4.status === 'production' && (
+                          <>
+                            <Text fontWeight="bold" mb="8px">
+                              📌 提出済みのあなたの作品
+                            </Text>
+                            <Flex w="100%">
+                              <UserWorksCard
+                                thumbnail={myWorks1.thumbnail}
+                                title={myWorks1.title}
+                                categories={myWorks1.categories}
+                                createdAt={myWorks1.createdAt}
+                                onClick={() =>
+                                  router.push(`/works/${myWorks1.id}`)
+                                }
+                              />
+                            </Flex>
+                          </>
+                        )}
+                        {projectItem4.status === 'vote' && (
+                          <>
+                            <Text fontWeight="bold" mb="8px">
+                              📌 提出済みのあなたの作品
+                            </Text>
+                            <Flex w="100%">
+                              <UserWorksCard
+                                thumbnail={myWorks1.thumbnail}
+                                title={myWorks1.title}
+                                categories={myWorks1.categories}
+                                createdAt={myWorks1.createdAt}
+                                onClick={() =>
+                                  router.push(`/works/${myWorks1.id}`)
+                                }
+                              />
+                            </Flex>
+                            <Flex direction="column" mb="16px">
+                              <Text fontWeight="bold">💣 募集終了まで残り</Text>
+                              <Flex
+                                alignItems="flex-end"
+                                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+                                bgClip="text"
+                              >
+                                <Text
+                                  fontSize="56px"
+                                  fontWeight="bold"
+                                  mr="4px"
+                                >
+                                  32
+                                </Text>
+                                <Text
+                                  fontSize="22px"
+                                  fontWeight="bold"
+                                  mb="14px"
+                                >
+                                  時間（あと2日）
+                                </Text>
+                              </Flex>
+                            </Flex>
+                            <Flex direction="column" mb="16px">
+                              <Text fontWeight="bold">
+                                💰集まっているポイント
+                              </Text>
+                              <Flex
+                                alignItems="flex-end"
+                                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+                                bgClip="text"
+                              >
+                                <Text
+                                  fontSize="56px"
+                                  fontWeight="bold"
+                                  mr="4px"
+                                >
+                                  3,000
+                                </Text>
+                                <Text
+                                  fontSize="22px"
+                                  fontWeight="bold"
+                                  mb="14px"
+                                >
+                                  Pt
+                                </Text>
+                              </Flex>
+                            </Flex>
+                            <Flex direction="column" mb="16px">
+                              <Text fontWeight="bold">🙋🏻‍♀️ 参加者</Text>
+                              <Flex
+                                alignItems="flex-end"
+                                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+                                bgClip="text"
+                              >
+                                <Text
+                                  fontSize="56px"
+                                  fontWeight="bold"
+                                  mr="4px"
+                                >
+                                  30
+                                </Text>
+                                <Text
+                                  fontSize="22px"
+                                  fontWeight="bold"
+                                  mb="14px"
+                                >
+                                  人
+                                </Text>
+                              </Flex>
+                            </Flex>
+                            <HStack spacing="4px" mb="4px">
+                              <Center
+                                w="32px"
+                                h="32px"
+                                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+                                borderRadius="full"
+                              >
+                                <Avatar w="28px" h="28px" />
+                              </Center>
+                              <Center
+                                w="32px"
+                                h="32px"
+                                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+                                borderRadius="full"
+                              >
+                                <Avatar w="28px" h="28px" />
+                              </Center>
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                            </HStack>
+                            <HStack spacing="4px">
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                              <Avatar w="32px" h="32px" />
+                            </HStack>
+                          </>
+                        )}
                       </>
-                    )}
-                    {projectItem2.status === 'vote' && (
+                    ) : (
                       <>
-                        <Text fontWeight="bold" mb="8px">
-                          📌 提出済みのあなたの作品
+                        <Text
+                          color="blue.800"
+                          fontWeight="bold"
+                          fontSize="22px"
+                          mb="16px"
+                        >
+                          🏆️ ランキング結果 (32名)
                         </Text>
-                        <Flex w="100%">
-                          <UserWorksCard
-                            thumbnail={myWorks1.thumbnail}
-                            title={myWorks1.title}
-                            categories={myWorks1.categories}
-                            createdAt={myWorks1.createdAt}
-                            onClick={() => router.push(`/works/${myWorks1.id}`)}
-                          />
-                        </Flex>
+                        <RankingList rankingList={rankingList} />
                       </>
                     )}
                   </Flex>
                 )}
-                <Flex direction="column" mb="16px">
-                  <Text fontWeight="bold">💣 募集終了まで残り</Text>
-                  <Flex
-                    alignItems="flex-end"
-                    bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
-                    bgClip="text"
-                  >
-                    <Text fontSize="56px" fontWeight="bold" mr="4px">
-                      32
-                    </Text>
-                    <Text fontSize="22px" fontWeight="bold" mb="14px">
-                      時間（あと2日）
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Flex direction="column" mb="16px">
-                  <Text fontWeight="bold">💰集まっているポイント</Text>
-                  <Flex
-                    alignItems="flex-end"
-                    bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
-                    bgClip="text"
-                  >
-                    <Text fontSize="56px" fontWeight="bold" mr="4px">
-                      3,000
-                    </Text>
-                    <Text fontSize="22px" fontWeight="bold" mb="14px">
-                      Pt
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Flex direction="column" mb="16px">
-                  <Text fontWeight="bold">🙋🏻‍♀️ 参加者</Text>
-                  <Flex
-                    alignItems="flex-end"
-                    bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
-                    bgClip="text"
-                  >
-                    <Text fontSize="56px" fontWeight="bold" mr="4px">
-                      30
-                    </Text>
-                    <Text fontSize="22px" fontWeight="bold" mb="14px">
-                      人
-                    </Text>
-                  </Flex>
-                </Flex>
-                <HStack spacing="4px" mb="4px">
-                  <Center
-                    w="32px"
-                    h="32px"
-                    bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
-                    borderRadius="full"
-                  >
-                    <Avatar w="28px" h="28px" />
-                  </Center>
-                  <Center
-                    w="32px"
-                    h="32px"
-                    bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
-                    borderRadius="full"
-                  >
-                    <Avatar w="28px" h="28px" />
-                  </Center>
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                </HStack>
-                <HStack spacing="4px">
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                  <Avatar w="32px" h="32px" />
-                </HStack>
               </Flex>
             </Flex>
           )}
         </Flex>
       </Flex>
-      {projectItem2.status === 'recruitment' && (
+      {projectItem4.status === 'recruitment' && (
         <ModalCard
-          leftButtonText="閉じる"
+          cancelButtonText="閉じる"
           isOpen={isOpen}
           onClose={onClose}
           title="エントリーが完了しました"
           titleEmoji="🎉"
         ></ModalCard>
       )}
-      {projectItem2.status === 'production' && (
+      {projectItem4.status === 'production' && (
         <ModalCard
-          leftButtonText="閉じる"
+          cancelButtonText="閉じる"
           isOpen={isOpen}
           onClose={onClose}
           title="提出が完了しました"
@@ -692,9 +751,9 @@ const RightSidebar = () => {
           </Text>
         </ModalCard>
       )}
-      {projectItem2.status === 'vote' && (
+      {projectItem4.status === 'vote' && (
         <ModalCard
-          leftButtonText="閉じる"
+          cancelButtonText="閉じる"
           isOpen={isOpen}
           onClose={onClose}
           title="投票が完了しました"

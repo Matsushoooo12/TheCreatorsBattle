@@ -27,7 +27,7 @@ const MenuIcon = ({ children, onClick, url }) => {
         <Flex
           w="4px"
           h="40px"
-          bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+          bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
           borderRadius="md"
           display={URL === url ? 'block' : 'none'}
         ></Flex>

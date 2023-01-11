@@ -38,7 +38,9 @@ function MyApp({ Component, pageProps }) {
           <>
             {(isLogin === false && URL === 'http://localhost:3000/') ||
             URL === 'http://localhost:3000/signup' ||
-            URL === 'http://localhost:3000/signin' ? (
+            URL === 'http://localhost:3000/signin' ||
+            URL === 'http://localhost:3000/signup/new' ||
+            URL === 'http://localhost:3000/signin/new' ? (
               <Flex
                 h="100vh"
                 w="100%"

@@ -22,22 +22,34 @@ const TopContainer = () => {
         mb="16px"
         fontSize="42px"
         fontWeight="bold"
-        bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+        bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
         bgClip="text"
       >
         クリエイターの頂きへの挑戦状
       </Text>
       <Flex direction="column" fontSize="18px" fontWeight="bold">
-        <Text bgGradient="linear(to-b, #7CAAFF, #8D85F4)" bgClip="text">
+        <Text
+          bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+          bgClip="text"
+        >
           テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
         </Text>
-        <Text bgGradient="linear(to-b, #7CAAFF, #8D85F4)" bgClip="text">
+        <Text
+          bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+          bgClip="text"
+        >
           テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
         </Text>
-        <Text bgGradient="linear(to-b, #7CAAFF, #8D85F4)" bgClip="text">
+        <Text
+          bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+          bgClip="text"
+        >
           テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
         </Text>
-        <Text bgGradient="linear(to-b, #7CAAFF, #8D85F4)" bgClip="text">
+        <Text
+          bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
+          bgClip="text"
+        >
           テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
         </Text>
       </Flex>

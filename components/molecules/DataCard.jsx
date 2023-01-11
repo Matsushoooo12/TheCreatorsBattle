@@ -7,7 +7,7 @@ const DataCard = (props) => {
     <Flex
       direction="column"
       w="33%"
-      bgGradient="linear(to-b, #7CAAFF, #8D85F4)"
+      bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
       borderRadius="2xl"
       pt="28px"
       pb="16px"
