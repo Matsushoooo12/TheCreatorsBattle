@@ -1,7 +1,8 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, Icon } from '@chakra-ui/react'
 import React from 'react'
 import { useGetUrl } from '../../hooks/useGetUrl'
 import GradientIcon from '../atoms/GradientIcon'
+import { BsCircleFill } from 'react-icons/bs'
 
 const MenuIcon = ({ children, onClick, url }) => {
   const { URL } = useGetUrl()
@@ -30,7 +31,7 @@ const MenuIcon = ({ children, onClick, url }) => {
           bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
           borderRadius="md"
           display={URL === url ? 'block' : 'none'}
-        ></Flex>
+        />
       </Flex>
     </Flex>
   )

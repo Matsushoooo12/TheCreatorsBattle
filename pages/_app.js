@@ -12,11 +12,12 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [isSSR, setIsSSR] = useState(true)
   const [isLogin, setIsLogin] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const { URL } = useGetUrl()
   useEffect(() => {
     setIsSSR(false)
   }, [])
-  if (isSSR) {
+  if (isSSR || isLoading) {
     return (
       <ChakraProvider>
         <Center h="100vh" w="100%" bg="white">
@@ -32,7 +33,7 @@ function MyApp({ Component, pageProps }) {
     )
   }
   return (
-    <AuthContext.Provider value={{ isLogin }}>
+    <AuthContext.Provider value={{ isLogin, isLoading, setIsLoading }}>
       <ChakraProvider theme={theme}>
         {!isSSR && (
           <>

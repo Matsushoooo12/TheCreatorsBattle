@@ -24,8 +24,8 @@ const FacebookButtonIcon = () => {
             y2="32.1693"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#7CAAFF" />
-            <stop offset="1" stop-color="#8D85F4" />
+            <stop stopColor="#7CAAFF" />
+            <stop offset="1" stopColor="#8D85F4" />
           </linearGradient>
         </defs>
       </svg>

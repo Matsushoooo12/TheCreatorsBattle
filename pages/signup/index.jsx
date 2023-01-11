@@ -1,5 +1,5 @@
 import { Flex, HStack, Image, Text } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import { useRouter } from 'next/router'
 import GithubButtonIcon from '../../components/atoms/GithubButtonIcon'
@@ -9,10 +9,49 @@ import TwitterButtonIcon from '../../components/atoms/TwitterButtonIcon'
 import GoogleButtonIcon from '../../components/atoms/GoogleButtonIcon'
 import GradientIcon from '../../components/atoms/GradientIcon'
 import WaveContainer from '../../components/organisms/WaveContainer'
+import dayjs from 'dayjs'
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from 'firebase/auth'
+import { auth, db, googleProvider } from '../../firebase/config'
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore'
+import { AuthContext } from '../_app'
 
 const SignUp = () => {
   const router = useRouter()
+  const { setIsLoading } = useContext(AuthContext)
   const sx = { fill: 'url(#linearColors)', fontSize: 20 }
+  const now = dayjs().format()
+  const googleLogin = async () => {
+    await signInWithPopup(auth, googleProvider)
+      .then(async (res) => {
+        const querySnapshot = await getDocs(collection(db, 'users'))
+        const user = []
+        querySnapshot.forEach((doc) => {
+          user.push(doc.id)
+        })
+        if (!user.includes(res.user.uid)) {
+          await setDoc(doc(db, 'users', res.user.uid), {
+            displayName: res.user.displayName,
+            email: res.user.email,
+            photoURL: res.user.photoURL,
+            createdAt: now,
+          })
+            .then(() => {
+              router.push('/')
+            })
+            .catch((e) => {
+              console.log(e)
+            })
+        }
+        router.push('/')
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }
   return (
     <Flex
       w="100%"
@@ -59,7 +98,7 @@ const SignUp = () => {
         <MailButtonIcon onClick={() => router.push('/signup/new')} />
         <FacebookButtonIcon />
         <TwitterButtonIcon />
-        <GoogleButtonIcon />
+        <GoogleButtonIcon onClick={googleLogin} />
       </HStack>
       <Text color="black" fontWeight="bold" mb="18px">
         もしかして、すでにアカウントをお持ちですか？

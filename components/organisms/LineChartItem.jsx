@@ -5,13 +5,13 @@ const LineChartItem = (props) => {
   const { data, gradientId, isReversed } = props
   return (
     <LineChart
-      width={540}
+      width={580}
       height={230}
       data={data}
       margin={{
         top: 0,
         right: 0,
-        left: -30,
+        left: 0,
         bottom: 0,
       }}
       style={{ overflow: 'hidden' }}

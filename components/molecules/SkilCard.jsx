@@ -21,6 +21,7 @@ const SkilCard = ({ text, level, thumbnail, fill, isNew, onClick }) => {
     <Flex
       w="120px"
       bg={!isNew && 'white'}
+      _hover={isNew && { bg: 'white' }}
       boxShadow={!isNew && 'md'}
       borderRadius="lg"
       p="16px"

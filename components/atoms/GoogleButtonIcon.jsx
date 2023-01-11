@@ -2,9 +2,9 @@ import React from 'react'
 import GoogleIcon from '@mui/icons-material/Google'
 import { Flex } from '@chakra-ui/react'
 
-const GoogleButtonIcon = () => {
+const GoogleButtonIcon = ({ onClick }) => {
   return (
-    <Flex position="relative" cursor="pointer">
+    <Flex position="relative" cursor="pointer" onClick={onClick}>
       <GoogleIcon
         sx={{
           position: 'absolute',
@@ -39,8 +39,8 @@ const GoogleButtonIcon = () => {
             y2="32.8333"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#7CAAFF" />
-            <stop offset="1" stop-color="#8D85F4" />
+            <stop stopColor="#7CAAFF" />
+            <stop offset="1" stopColor="#8D85F4" />
           </linearGradient>
         </defs>
       </svg>
