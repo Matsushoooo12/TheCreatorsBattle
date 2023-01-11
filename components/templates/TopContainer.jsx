@@ -1,5 +1,8 @@
 import { Flex, Image, Text } from '@chakra-ui/react'
 import React from 'react'
+import Wave from 'react-wavify'
+import WaveItem from '../molecules/WaveItem'
+import WaveContainer from '../organisms/WaveContainer'
 
 const TopContainer = () => {
   return (
@@ -9,6 +12,7 @@ const TopContainer = () => {
       justifyContent="center"
       alignItems="center"
       direction="column"
+      position="relative"
     >
       <Image
         mb="56px"
@@ -53,6 +57,7 @@ const TopContainer = () => {
           テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
         </Text>
       </Flex>
+      <WaveContainer />
     </Flex>
   )
 }

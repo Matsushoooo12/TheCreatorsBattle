@@ -529,6 +529,7 @@ const RightSidebar = () => {
                   title="あなたについて書いてみよう！"
                   buttonText="プロフィールを書く"
                   onClick={() => router.push(`/users/${id}`)}
+                  isBoxShadow={true}
                 >
                   <Text>プロフィールを書くと、ポイントがもらえるかも...🤭</Text>
                 </NewCreateCard>
@@ -570,7 +571,7 @@ const RightSidebar = () => {
                               <Text fontWeight="bold" mb="8px">
                                 📌 提出済みのあなたの作品
                               </Text>
-                              <Flex w="100%">
+                              <Flex w="100%" mb="56px">
                                 <UserWorksCard
                                   thumbnail={myWorks1.thumbnail}
                                   title={myWorks1.title}
@@ -588,7 +589,7 @@ const RightSidebar = () => {
                               <Text fontWeight="bold" mb="8px">
                                 📌 提出済みのあなたの作品
                               </Text>
-                              <Flex w="100%">
+                              <Flex w="100%" mb="56px">
                                 <UserWorksCard
                                   thumbnail={myWorks1.thumbnail}
                                   title={myWorks1.title}

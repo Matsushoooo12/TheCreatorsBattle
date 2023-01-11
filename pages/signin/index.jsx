@@ -8,12 +8,20 @@ import FacebookButtonIcon from '../../components/atoms/FacebookButtonIcon'
 import TwitterButtonIcon from '../../components/atoms/TwitterButtonIcon'
 import GoogleButtonIcon from '../../components/atoms/GoogleButtonIcon'
 import GradientIcon from '../../components/atoms/GradientIcon'
+import WaveContainer from '../../components/organisms/WaveContainer'
 
 const SignIn = () => {
   const router = useRouter()
   const sx = { fill: 'url(#linearColors)', fontSize: 20 }
   return (
-    <>
+    <Flex
+      w="100%"
+      h="100%"
+      justifyContent="center"
+      alignItems="center"
+      direction="column"
+      position="relative"
+    >
       <Text mb="8px" fontSize="42px" fontWeight="bold" color="blue.800">
         Login
       </Text>
@@ -70,7 +78,8 @@ const SignIn = () => {
           <ArrowCircleRightOutlinedIcon sx={sx} />
         </GradientIcon>
       </HStack>
-    </>
+      <WaveContainer />
+    </Flex>
   )
 }
 

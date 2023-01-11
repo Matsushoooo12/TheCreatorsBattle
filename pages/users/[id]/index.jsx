@@ -115,6 +115,7 @@ const DetailUser = () => {
             title="作品を投稿してみましょう！"
             buttonText="作品を投稿する"
             onClick={() => router.push(`/users/${id}`)}
+            isBoxShadow={true}
           >
             <Text>作品を投稿すると、ポイントがもらえるかも...🤭</Text>
           </NewCreateCard>
@@ -146,6 +147,7 @@ const DetailUser = () => {
                 buttonText="スキルを入力する"
                 title="あなたのスキルレベルを入力してみましょう！"
                 onClick={() => router.push(`/users/${id}/skils/edit`)}
+                isBoxShadow={true}
               >
                 <Text mb="18px">
                   自分のスキルやその習熟度を入力すると、他のクリエイターと繋がりやすくなります。

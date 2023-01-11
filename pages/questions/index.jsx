@@ -239,6 +239,7 @@ const Questions = () => {
                 title="質問してみましょう！"
                 buttonText="質問をする"
                 onClick={onOpen}
+                isBoxShadow={false}
               >
                 <Text>
                   開発でなにかお困りごとはありませんか？みんなに質問してみよう！

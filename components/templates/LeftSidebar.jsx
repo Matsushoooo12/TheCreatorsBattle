@@ -34,7 +34,7 @@ const LeftSidebar = () => {
       <Flex
         bg="white"
         h="100vh"
-        w="96px"
+        minW="96px"
         alignItems="center"
         direction="column"
         boxShadow="lg"

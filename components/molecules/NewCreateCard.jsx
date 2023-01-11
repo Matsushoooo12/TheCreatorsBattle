@@ -2,14 +2,14 @@ import { Flex, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const NewCreateCard = (props) => {
-  const { title, children, buttonText, onClick } = props
+  const { title, children, buttonText, onClick, isBoxShadow } = props
   return (
     <Flex
       direction="column"
       w="100%"
       p="16px 24px"
       borderRadius="lg"
-      boxShadow="lg"
+      boxShadow={isBoxShadow && 'lg'}
       alignItems="center"
       justifyContent="center"
       color="black"

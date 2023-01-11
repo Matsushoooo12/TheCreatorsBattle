@@ -1,10 +1,18 @@
 import { Flex, HStack, Icon, Input, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { BiChevronRightCircle } from 'react-icons/bi'
+import WaveContainer from '../../../components/organisms/WaveContainer'
 
 const LoginAccount = () => {
   return (
-    <>
+    <Flex
+      w="100%"
+      h="100%"
+      justifyContent="center"
+      alignItems="center"
+      direction="column"
+      position="relative"
+    >
       <Text mb="8px" fontSize="42px" fontWeight="bold" color="blue.800">
         Login Account
       </Text>
@@ -39,7 +47,8 @@ const LoginAccount = () => {
         <Text fontWeight="bold">continue</Text>
         <Icon as={BiChevronRightCircle} />
       </HStack>
-    </>
+      <WaveContainer />
+    </Flex>
   )
 }
 
