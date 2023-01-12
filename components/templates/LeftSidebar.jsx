@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Avatar,
   Flex,
@@ -32,17 +32,17 @@ const LeftSidebar = () => {
   return (
     <>
       <Flex
-        bg="white"
-        h="100vh"
-        minW="96px"
-        alignItems="center"
-        direction="column"
-        boxShadow="lg"
-        pt="120px"
-        pb="40px"
-        justifyContent="space-between"
+        bg='white'
+        h='100vh'
+        minW='96px'
+        alignItems='center'
+        direction='column'
+        boxShadow='lg'
+        pt='120px'
+        pb='40px'
+        justifyContent='space-between'
       >
-        <Flex direction="column" w="100%">
+        <Flex direction='column' w='100%'>
           <MenuIcon
             onClick={() => router.push('/')}
             url={'http://localhost:3000/'}
@@ -68,35 +68,35 @@ const LeftSidebar = () => {
             <NotificationsRoundedIcon sx={sx} />
           </MenuIcon>
         </Flex>
-        <Flex direction="column" w="100%">
-          <Popover placement="right" autoFocus={false} closeOnBlur={true}>
+        <Flex direction='column' w='100%'>
+          <Popover placement='right' autoFocus={false} closeOnBlur={true}>
             <PopoverTrigger>
-              <Flex position="relative">
+              <Flex position='relative'>
                 <MenuIcon url={'http://localhost:3000/settings'}>
                   <SettingsRoundedIcon sx={sx} />
                 </MenuIcon>
               </Flex>
             </PopoverTrigger>
-            <PopoverContent color="black">
-              <PopoverCloseButton color="gray.400" mt="6px" mr="6px" />
+            <PopoverContent color='black'>
+              <PopoverCloseButton color='gray.400' mt='6px' mr='6px' />
               <PopoverBody
-                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
-                bgClip="text"
+                bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                bgClip='text'
               >
-                <Flex direction="column" p="10px 24px">
-                  <HStack spacing="6px" alignItems="center" cursor="pointer">
+                <Flex direction='column' p='10px 24px'>
+                  <HStack spacing='6px' alignItems='center' cursor='pointer'>
                     <GradientIcon>
                       <LogoutIcon
                         sx={{ fontSize: '20px', fill: 'url(#linearColors)' }}
                       />
                     </GradientIcon>
-                    <Text fontWeight="bold">ログアウト</Text>
+                    <Text fontWeight='bold'>ログアウト</Text>
                   </HStack>
-                  <Flex w="100%" h="1px" bg="gray.100" my="8px" />
+                  <Flex w='100%' h='1px' bg='gray.100' my='8px' />
                   <HStack
-                    spacing="6px"
-                    alignItems="center"
-                    cursor="pointer"
+                    spacing='6px'
+                    alignItems='center'
+                    cursor='pointer'
                     onClick={onOpen}
                   >
                     <GradientIcon>
@@ -104,16 +104,16 @@ const LeftSidebar = () => {
                         sx={{ fontSize: '20px', fill: 'url(#linearColors)' }}
                       />
                     </GradientIcon>
-                    <Text fontWeight="bold">アカウント削除</Text>
+                    <Text fontWeight='bold'>アカウント削除</Text>
                   </HStack>
-                  <Flex w="100%" h="1px" bg="gray.300" my="8px" />
-                  <HStack spacing="6px" alignItems="center" cursor="pointer">
+                  <Flex w='100%' h='1px' bg='gray.300' my='8px' />
+                  <HStack spacing='6px' alignItems='center' cursor='pointer'>
                     <GradientIcon>
                       <CreditCardIcon
                         sx={{ fontSize: '20px', fill: 'url(#linearColors)' }}
                       />
                     </GradientIcon>
-                    <Text fontWeight="bold">お支払い情報</Text>
+                    <Text fontWeight='bold'>お支払い情報</Text>
                   </HStack>
                 </Flex>
               </PopoverBody>
@@ -123,19 +123,19 @@ const LeftSidebar = () => {
             onClick={() => router.push('/users/1')}
             url={'http://localhost:3000/users/1'}
           >
-            <Avatar w="28px" h="28px" />
+            <Avatar w='28px' h='28px' />
           </MenuIcon>
         </Flex>
       </Flex>
       <ModalCard
-        title="アカウント削除しますか？"
-        cancelButtonText="削除する"
-        submitButtonText="辞める"
+        title='アカウント削除しますか？'
+        cancelButtonText='削除する'
+        submitButtonText='辞める'
         isOpen={isOpen}
         onClose={onClose}
       >
-        <Flex direction="column" color="black" fontWeight="bold" mb="12px">
-          <Text mb="16px">
+        <Flex direction='column' color='black' fontWeight='bold' mb='12px'>
+          <Text mb='16px'>
             アカウントを削除すると、あなたのデータは完全に削除され復興されません。
           </Text>
           <Text>本当にアカウントを削除してもよろしいですか？</Text>

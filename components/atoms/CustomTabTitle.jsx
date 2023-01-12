@@ -9,7 +9,7 @@ const CustomTabTitle = forwardRef((props, ref, { number }) => {
   return (
     <Button __css={styles.tab} {...tabProps}>
       {tabProps.children}
-      <Box as="span" ml="2">
+      <Box as='span' ml='2'>
         {number}
       </Box>
     </Button>

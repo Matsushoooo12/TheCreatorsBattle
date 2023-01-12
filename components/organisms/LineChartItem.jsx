@@ -16,9 +16,9 @@ const LineChartItem = (props) => {
       }}
       style={{ overflow: 'hidden' }}
     >
-      <CartesianGrid strokeDasharray="10 10" vertical={false} />
+      <CartesianGrid strokeDasharray='10 10' vertical={false} />
       <XAxis
-        dataKey="name"
+        dataKey='name'
         axisLine={false}
         tickLine={false}
         style={{ fontSize: '10px', fill: '#B4C0C6' }}
@@ -33,14 +33,14 @@ const LineChartItem = (props) => {
       />
       {/* <Tooltip /> */}
       <defs>
-        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#4299E1" />
-          <stop offset="100%" stopColor="#9F7AEA" />
+        <linearGradient id={gradientId} x1='0%' y1='0%' x2='100%' y2='100%'>
+          <stop offset='0%' stopColor='#4299E1' />
+          <stop offset='100%' stopColor='#9F7AEA' />
         </linearGradient>
       </defs>
       <Line
-        type="monotone"
-        dataKey="Rank"
+        type='monotone'
+        dataKey='Rank'
         stroke={`url(#${gradientId})`}
         strokeWidth={5}
         dot={false}

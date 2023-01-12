@@ -7,8 +7,8 @@ const ChapterTitle = (props) => {
   const { title, onClick, isEdit } = props
   const { isLogin } = useContext(AuthContext)
   return (
-    <Flex alignItems="center" mb="20px">
-      <Text color="blue.800" fontWeight="bold" fontSize="22px" mr="12px">
+    <Flex alignItems='center' mb='20px'>
+      <Text color='blue.800' fontWeight='bold' fontSize='22px' mr='12px'>
         {title}
       </Text>
       {isEdit && isLogin && <EditButton onClick={onClick} />}

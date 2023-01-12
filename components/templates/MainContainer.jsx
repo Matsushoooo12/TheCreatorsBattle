@@ -10,14 +10,14 @@ const MainContainer = (props) => {
       <LeftSidebar />
       <Flex
         flex={1}
-        h="100vh"
-        bg="gray.100"
-        alignItems="center"
-        direction="column"
-        position="relative"
-        minW="1024px"
+        h='100vh'
+        bg='gray.100'
+        alignItems='center'
+        direction='column'
+        position='relative'
+        minW='1024px'
       >
-        <Flex h="100%" w="100%" overflowX="scroll" direction="column">
+        <Flex h='100%' w='100%' overflowX='scroll' direction='column'>
           {children}
         </Flex>
       </Flex>

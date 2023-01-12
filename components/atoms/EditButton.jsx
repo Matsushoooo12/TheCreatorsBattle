@@ -7,15 +7,15 @@ const EditButton = (props) => {
   const { onClick } = props
   const sx = { fill: 'url(#linearColors)', fontSize: '14px', mr: '5px' }
   return (
-    <Flex alignItems="center" cursor="pointer" onClick={onClick}>
+    <Flex alignItems='center' cursor='pointer' onClick={onClick}>
       <GradientIcon>
         <EditRoundedIcon sx={sx} />
       </GradientIcon>
       <Text
-        fontSize="12px"
-        fontWeight="bold"
-        bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
-        bgClip="text"
+        fontSize='12px'
+        fontWeight='bold'
+        bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+        bgClip='text'
       >
         編集
       </Text>

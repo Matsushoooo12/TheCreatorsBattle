@@ -60,6 +60,7 @@ const UserSkilEdit = () => {
   const { id } = router.query
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [rangeIndex, setRangeIndex] = useState(0)
+  const [skilName, setSkilName] = useState('')
   const sliderText = () => {
     if (rangeIndex === 1) {
       return '初級者'
@@ -130,6 +131,8 @@ const UserSkilEdit = () => {
             focusBorderColor="gray.300"
             variant="flushed"
             placeholder="スキル名"
+            value={skilName}
+            onChange={(e) => setSkilName(e.target.value)}
           />
         </Flex>
         <Flex
@@ -153,11 +156,11 @@ const UserSkilEdit = () => {
         </Flex>
         <Flex mb="36px">
           <SkilCard
-            text="Next.js"
+            text={skilName}
             level={rangeIndex}
             thumbnail="https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png"
             fill="url(#skil)"
-            isNew={false}
+            isNew={true}
             onClick={onOpen}
           />
         </Flex>

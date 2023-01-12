@@ -95,9 +95,9 @@ const DetailUser = () => {
         title="これまでの作品"
         onClick={() => router.push('/')}
         isEdit={true}
-        isRowScroll={false}
+        isRowScroll={userWorksList.length ? true : false}
       >
-        {userWorksList2?.length ? (
+        {userWorksList?.length ? (
           <>
             {userWorksList?.map((list) => (
               <UserWorksCard
@@ -128,7 +128,7 @@ const DetailUser = () => {
           onClick={() => router.push(`/users/${id}/skils/edit`)}
         />
         <HStack spacing="8px" flexWrap="wrap">
-          {skilList2.length ? (
+          {skilList.length ? (
             <>
               {skilList?.map((list) => (
                 <SkilCard

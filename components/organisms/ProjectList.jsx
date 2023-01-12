@@ -4,10 +4,10 @@ import ChapterTitle from '../atoms/ChapterTitle'
 
 const ProjectList = ({ title, children, onClick, isEdit, isRowScroll }) => {
   return (
-    <Flex w="100%" direction="column" mb="32px">
+    <Flex w='100%' direction='column' mb='32px'>
       <ChapterTitle isEdit={isEdit} title={title} onClick={onClick} />
-      <Flex overflowX="scroll" pb="32px">
-        <HStack spacing="16px" color="black" w={!isRowScroll && '100%'}>
+      <Flex overflowX='scroll' pb='32px'>
+        <HStack spacing='16px' color='black' w={!isRowScroll && '100%'}>
           {children}
         </HStack>
       </Flex>

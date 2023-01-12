@@ -5,64 +5,64 @@ import React from 'react'
 const RankingList = ({ rankingList }) => {
   const router = useRouter()
   return (
-    <VStack spacing="24px">
+    <VStack spacing='24px'>
       {rankingList?.map((list) => (
         <Flex
           key={list.id}
-          alignItems="center"
-          justifyContent="space-between"
-          w="100%"
+          alignItems='center'
+          justifyContent='space-between'
+          w='100%'
         >
           <Flex
-            alignItems="center"
+            alignItems='center'
             onClick={() => router.push(`/users/${list.user.id}`)}
-            cursor="pointer"
+            cursor='pointer'
           >
             {list.rank === 1 && (
-              <Text mr="6px" fontWeight="bold" fontSize="22px">
+              <Text mr='6px' fontWeight='bold' fontSize='22px'>
                 🥇
               </Text>
             )}
             {list.rank === 2 && (
-              <Text mr="6px" fontWeight="bold" fontSize="22px">
+              <Text mr='6px' fontWeight='bold' fontSize='22px'>
                 🥈
               </Text>
             )}
             {list.rank === 3 && (
-              <Text mr="6px" fontWeight="bold" fontSize="22px">
+              <Text mr='6px' fontWeight='bold' fontSize='22px'>
                 🥉
               </Text>
             )}
             {list.rank > 3 && (
-              <Text mr="6px" fontWeight="bold" fontSize="22px">
+              <Text mr='6px' fontWeight='bold' fontSize='22px'>
                 {list.rank}
               </Text>
             )}
-            <Avatar w="40px" h="40px" mr="8px" src={list.user.photoURL} />
-            <Flex direction="column">
-              <Text fontWeight="bold" fontSize="14px">
+            <Avatar w='40px' h='40px' mr='8px' src={list.user.photoURL} />
+            <Flex direction='column'>
+              <Text fontWeight='bold' fontSize='14px'>
                 {list.user.displayName}
               </Text>
-              <Text fontSize="12px" fontWeight="bold">
+              <Text fontSize='12px' fontWeight='bold'>
                 {list.user.userId}
               </Text>
             </Flex>
           </Flex>
-          <Flex alignItems="center">
-            <Flex mr="8px" alignItems="center" fontWeight="bold">
+          <Flex alignItems='center'>
+            <Flex mr='8px' alignItems='center' fontWeight='bold'>
               <Text
-                bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
-                bgClip="text"
+                bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                bgClip='text'
               >
                 {list.point}
               </Text>
               <Text>💰</Text>
             </Flex>
             <Text
-              bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
-              bgClip="text"
-              fontSize="12px"
-              fontWeight="bold"
+              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+              bgClip='text'
+              fontSize='12px'
+              fontWeight='bold'
             >
               Following
             </Text>

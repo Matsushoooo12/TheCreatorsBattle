@@ -106,82 +106,82 @@ const DashboardContainer = () => {
     setLineChartIndex(index)
   }
   return (
-    <Flex direction="column" py="56px">
-      <HStack spacing="12px">
+    <Flex direction='column' py='56px'>
+      <HStack spacing='12px'>
         <DataCard
-          title="ランキング"
-          myNumber="196"
-          unitText="位"
-          totalNumber="2000"
-          emoji="🏆"
+          title='ランキング'
+          myNumber='196'
+          unitText='位'
+          totalNumber='2000'
+          emoji='🏆'
         />
         <DataCard
-          title="レベル"
-          myNumber="32"
-          unitText="Lv."
-          totalNumber="300"
-          emoji="🔥"
+          title='レベル'
+          myNumber='32'
+          unitText='Lv.'
+          totalNumber='300'
+          emoji='🔥'
         />
         <DataCard
-          title="ポイント"
-          myNumber="320"
-          unitText="pt"
-          totalNumber=""
-          emoji="💰"
+          title='ポイント'
+          myNumber='320'
+          unitText='pt'
+          totalNumber=''
+          emoji='💰'
         />
       </HStack>
-      <HStack w="100%" alignSelf="flex-start" spacing="12px" mt="24px">
-        <ChartCard>
-          <HStack spacing="16px" color="blue.800" fontWeight="bold">
-            <TabItems mb="24px">
+      <HStack w='100%' alignSelf='flex-start' spacing='12px' mt='24px'>
+        <ChartCard title='推移（last six months）'>
+          <HStack spacing='16px' color='blue.800' fontWeight='bold'>
+            <TabItems mb='24px'>
               <TabItem
-                title="ランキング"
+                title='ランキング'
                 onClick={() => toggleLineChart(0)}
                 tabState={lineChartIndex}
                 tabIndex={0}
               />
               <TabItem
-                title="ポイント"
+                title='ポイント'
                 onClick={() => toggleLineChart(1)}
                 tabState={lineChartIndex}
                 tabIndex={1}
               />
             </TabItems>
           </HStack>
-          <Flex index="100" w="100%" h="100%" justifyContent="center">
+          <Flex index='100' w='100%' h='100%' justifyContent='center'>
             {lineChartIndex === 0 && (
               <LineChartItem
                 data={rankingData}
-                gradientId="ranking"
+                gradientId='ranking'
                 isReversed={true}
               />
             )}
             {lineChartIndex === 1 && (
               <LineChartItem
                 data={pointData}
-                gradientId="point"
+                gradientId='point'
                 isReversed={false}
               />
             )}
           </Flex>
         </ChartCard>
-        <ChartCard>
-          <Flex w="100%" h="100%" justifyContent="center">
+        <ChartCard title='総合評価'>
+          <Flex w='100%' h='100%' justifyContent='center'>
             <ReviewChart />
           </Flex>
         </ChartCard>
       </HStack>
-      <HStack spacing="12px" mt="24px">
+      <HStack spacing='12px' mt='24px'>
         <Flex
-          borderRadius="2xl"
-          boxShadow="xl"
-          w="100%"
-          bg="white"
-          p="32px 32px 0"
-          direction="column"
-          color="#000"
+          borderRadius='2xl'
+          boxShadow='xl'
+          w='100%'
+          bg='white'
+          p='32px 32px 0'
+          direction='column'
+          color='#000'
         >
-          <Heading fontSize="20px" fontWeight="bold" color="blue.800" mb="16px">
+          <Heading fontSize='20px' fontWeight='bold' color='blue.800' mb='16px'>
             レビューコメント一覧
           </Heading>
           {reviewComments?.map((comment) => (
