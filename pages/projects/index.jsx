@@ -133,10 +133,38 @@ const doneProjects = [
 const Projects = () => {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  document.querySelector('.fluid')?.animate(
+    {
+      borderRadius: [
+        '50% 50% 50% 70%/50% 50% 70% 60%',
+        '80% 30% 50% 50%/50%',
+        '40% 40% 50% 40%/30% 50% 40% 80%',
+      ],
+    },
+    {
+      iterations: Infinity,
+      direction: 'alternate',
+      duration: 4000,
+    },
+  )
+  document.querySelector('.fluid4')?.animate(
+    {
+      borderRadius: [
+        '50% 50% 50% 70%/50% 50% 70% 60%',
+        '80% 30% 50% 50%/50%',
+        '40% 40% 50% 40%/30% 50% 40% 80%',
+      ],
+    },
+    {
+      iterations: Infinity,
+      direction: 'alternate',
+      duration: 4000,
+    },
+  )
   return (
-    <Flex direction="column" py="56px">
+    <Flex direction='column' py='56px' position='relative'>
       <ProjectList
-        title="募集中のプロジェクト"
+        title='募集中のプロジェクト'
         isEdit={false}
         isRowScroll={true}
       >
@@ -154,7 +182,7 @@ const Projects = () => {
         ))}
       </ProjectList>
       <ProjectList
-        title="進行中のプロジェクト"
+        title='進行中のプロジェクト'
         isEdit={false}
         isRowScroll={true}
       >
@@ -172,7 +200,7 @@ const Projects = () => {
         ))}
       </ProjectList>
       <ProjectList
-        title="終了したプロジェクト"
+        title='終了したプロジェクト'
         isEdit={false}
         isRowScroll={true}
       >

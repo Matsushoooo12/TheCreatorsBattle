@@ -106,7 +106,7 @@ const DashboardContainer = () => {
     setLineChartIndex(index)
   }
   return (
-    <Flex direction='column' py='56px'>
+    <Flex direction='column' py='56px' position='relative'>
       <HStack spacing='12px'>
         <DataCard
           title='ランキング'

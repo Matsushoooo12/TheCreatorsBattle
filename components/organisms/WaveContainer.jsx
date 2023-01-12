@@ -11,7 +11,7 @@ const WaveContainer = () => {
         speed={0.15}
         height={2}
         gradientColor1='#C5B0FF99'
-        gradientColor2='#8D85F4'
+        gradientColor2='#C1BFFF33'
         points={4}
         amplitude={30}
       />
@@ -20,8 +20,8 @@ const WaveContainer = () => {
         gradientId='main'
         speed={0.3}
         height={3}
-        gradientColor1='#C5B0FF99'
-        gradientColor2='#8D85F4'
+        gradientColor1='#BADEFF00'
+        gradientColor2='#92E5FF'
         points={5}
         amplitude={25}
       />

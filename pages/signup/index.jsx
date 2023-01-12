@@ -1,4 +1,14 @@
-import { Flex, HStack, Image, Text } from '@chakra-ui/react'
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  CloseButton,
+  Flex,
+  HStack,
+  Image,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react'
 import React, { useContext, useEffect, useState } from 'react'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import { useRouter } from 'next/router'
@@ -18,108 +28,97 @@ import {
 import { auth, db, googleProvider } from '../../firebase/config'
 import { collection, doc, getDocs, setDoc } from 'firebase/firestore'
 import { AuthContext } from '../_app'
+import TopContainer from '../../components/templates/TopContainer'
+import { useOAuthLogin } from '../../hooks/useOAuthLogin'
 
 const SignUp = () => {
   const router = useRouter()
+  const { isOpen, onClose, onOpen } = useDisclosure()
   const { setIsLoading } = useContext(AuthContext)
   const sx = { fill: 'url(#linearColors)', fontSize: 20 }
-  const now = dayjs().format()
-  const googleLogin = async () => {
-    await signInWithPopup(auth, googleProvider)
-      .then(async (res) => {
-        const querySnapshot = await getDocs(collection(db, 'users'))
-        const user = []
-        querySnapshot.forEach((doc) => {
-          user.push(doc.id)
-        })
-        if (!user.includes(res.user.uid)) {
-          await setDoc(doc(db, 'users', res.user.uid), {
-            displayName: res.user.displayName,
-            email: res.user.email,
-            photoURL: res.user.photoURL,
-            createdAt: now,
-          })
-            .then(() => {
-              router.push('/')
-            })
-            .catch((e) => {
-              console.log(e)
-            })
-        }
-        router.push('/')
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  }
+  const { googleLogin, errorMessage } = useOAuthLogin()
+  useEffect(() => {
+    if (errorMessage) {
+      onClose
+    } else {
+      return
+    }
+  }, [errorMessage, onClose])
   return (
-    <Flex
-      w="100%"
-      h="100%"
-      justifyContent="center"
-      alignItems="center"
-      direction="column"
-      position="relative"
-    >
-      <Text mb="8px" fontSize="42px" fontWeight="bold" color="blue.800">
-        Signup
-      </Text>
-      <Flex
-        w="120px"
-        h="4px"
-        bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
-        mb="56px"
-      />
-      <Flex
-        color="black"
-        alignItems="center"
-        fontWeight="bold"
-        direction="column"
-        mb="28px"
-      >
-        <Flex alignItems="center">
-          <Text>はじめまして！</Text>
-          <Image
-            cursor="pointer"
-            onClick={() => router.push('/')}
-            mx="2px"
-            mb="4px"
-            h="16px"
-            src="https://user-images.githubusercontent.com/66903388/211488312-9300a760-999a-4407-bab9-8517ccd4c4a4.png"
-            alt=""
+    <>
+      {errorMessage && (
+        <Alert status='error'>
+          <AlertIcon />
+          <AlertTitle>{errorMessage}</AlertTitle>
+          <CloseButton
+            alignSelf='flex-start'
+            position='relative'
+            right={-1}
+            top={-1}
+            onClick={onClose}
           />
-          <Text>へようこそ！</Text>
-        </Flex>
-        <Text mb="24px">あなたの可能性をもっと広げていきましょう✨</Text>
-        <Text>どちらの方法で、アカウントを作成しますか？</Text>
-      </Flex>
-      <HStack spacing="14px" mb="60px">
-        <GithubButtonIcon />
-        <MailButtonIcon onClick={() => router.push('/signup/new')} />
-        <FacebookButtonIcon />
-        <TwitterButtonIcon />
-        <GoogleButtonIcon onClick={googleLogin} />
-      </HStack>
-      <Text color="black" fontWeight="bold" mb="18px">
-        もしかして、すでにアカウントをお持ちですか？
-      </Text>
-      <HStack
-        spacing="2px"
-        bgGradient="linear(to-b, mainGradient.100, mainGradient.200)"
-        bgClip="text"
-        alignItems="center"
-        cursor="pointer"
-        onClick={() => router.push('/signin')}
-      >
-        <Text fontSize="14px" fontWeight="bold">
-          ログイン
+        </Alert>
+      )}
+      <TopContainer>
+        <Text mb='8px' fontSize='42px' fontWeight='bold' color='blue.800'>
+          Signup
         </Text>
-        <GradientIcon>
-          <ArrowCircleRightOutlinedIcon sx={sx} />
-        </GradientIcon>
-      </HStack>
-      <WaveContainer />
-    </Flex>
+        <Flex
+          w='120px'
+          h='4px'
+          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+          mb='56px'
+        />
+        <Flex
+          color='black'
+          alignItems='center'
+          fontWeight='bold'
+          direction='column'
+          mb='28px'
+        >
+          <Flex alignItems='center'>
+            <Text>はじめまして！</Text>
+            <Image
+              cursor='pointer'
+              onClick={() => router.push('/')}
+              mx='2px'
+              mb='4px'
+              h='16px'
+              src='https://user-images.githubusercontent.com/66903388/211488312-9300a760-999a-4407-bab9-8517ccd4c4a4.png'
+              alt=''
+            />
+            <Text>へようこそ！</Text>
+          </Flex>
+          <Text mb='24px'>あなたの可能性をもっと広げていきましょう✨</Text>
+          <Text>どちらの方法で、アカウントを作成しますか？</Text>
+        </Flex>
+        <HStack spacing='14px' mb='60px'>
+          <GithubButtonIcon />
+          <MailButtonIcon onClick={() => router.push('/signup/new')} />
+          <FacebookButtonIcon />
+          <TwitterButtonIcon />
+          <GoogleButtonIcon onClick={googleLogin} />
+        </HStack>
+        <Text color='black' fontWeight='bold' mb='18px'>
+          もしかして、すでにアカウントをお持ちですか？
+        </Text>
+        <HStack
+          spacing='2px'
+          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+          bgClip='text'
+          alignItems='center'
+          cursor='pointer'
+          onClick={() => router.push('/signin')}
+        >
+          <Text fontSize='14px' fontWeight='bold'>
+            ログイン
+          </Text>
+          <GradientIcon>
+            <ArrowCircleRightOutlinedIcon sx={sx} />
+          </GradientIcon>
+        </HStack>
+      </TopContainer>
+    </>
   )
 }
 

@@ -69,7 +69,7 @@ const LeftSidebar = () => {
           </MenuIcon>
         </Flex>
         <Flex direction='column' w='100%'>
-          <Popover placement='right' autoFocus={false} closeOnBlur={true}>
+          <Popover placement='right'>
             <PopoverTrigger>
               <Flex position='relative'>
                 <MenuIcon url={'http://localhost:3000/settings'}>

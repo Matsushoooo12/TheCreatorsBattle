@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
                 position='relative'
               >
                 <Component {...pageProps} />
-                <Image
+                {/* <Image
                   cursor='pointer'
                   onClick={() => router.push('/projects')}
                   mx='2px'
@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps }) {
                   position='absolute'
                   top='36px'
                   left='56px'
-                />
+                /> */}
               </Flex>
             ) : (
               <MainContainer>

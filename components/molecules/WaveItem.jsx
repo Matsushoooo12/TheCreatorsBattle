@@ -1,4 +1,5 @@
 import { Flex, Image } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import React from 'react'
 import Wave from 'react-wavify'
 
@@ -12,6 +13,7 @@ const WaveItem = ({
   points,
   amplitude,
 }) => {
+  const router = useRouter()
   return (
     <Flex w='100%' h='240px' position='absolute' bottom='0' left='0'>
       <Wave
@@ -44,6 +46,9 @@ const WaveItem = ({
         left='0'
         bottom='0'
         margin='auto'
+        onClick={() => router.push('/projects')}
+        cursor='pointer'
+        zIndex={10}
       />
     </Flex>
   )

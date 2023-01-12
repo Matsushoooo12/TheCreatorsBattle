@@ -3,7 +3,7 @@ import React from 'react'
 
 const GithubButtonIcon = () => {
   return (
-    <Flex cursor='pointer'>
+    <Flex cursor='pointer' w='33px' h='33px' borderRadius='full' bg='white'>
       <svg
         width='33'
         height='33'
