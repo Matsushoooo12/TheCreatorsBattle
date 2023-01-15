@@ -1,4 +1,5 @@
 import { Flex, Heading, Image, Text } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useGetStatus } from '../../../hooks/useGetStatus'
 
@@ -12,13 +13,52 @@ const projectItem1 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
 }
 
@@ -32,13 +72,52 @@ const projectItem2 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
 }
 
@@ -52,13 +131,52 @@ const projectItem3 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
   isVoted: true,
 }
@@ -73,75 +191,117 @@ const projectItem4 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
 }
 
 const DetailProject = () => {
-  const { gradientColor, statusText } = useGetStatus(projectItem2.status)
+  const { gradientColor, statusText } = useGetStatus(projectItem1.status)
+  const router = useRouter()
+  const { id } = router.query
   return (
-    <Flex direction="column" py="56px" px="80px">
-      <Flex w="100%" bg="white" p="24px" borderRadius="lg" direction="column">
+    <Flex direction='column' py='56px' px='80px'>
+      <Flex w='100%' bg='white' p='24px' borderRadius='lg' direction='column'>
         <Image
-          w="100%"
-          h="385px"
-          bg="gray.400"
-          alt=""
-          borderRadius="lg"
-          mb="32px"
+          w='100%'
+          h='385px'
+          bg='gray.400'
+          alt=''
+          borderRadius='lg'
+          mb='32px'
         />
-        <Flex alignItems="center" mb="8px">
+        <Flex alignItems='center' mb='8px'>
           <Text
-            fontSize="12px"
-            fontWeight="bold"
-            borderRadius="md"
-            p="4px 12px"
+            fontSize='12px'
+            fontWeight='bold'
+            borderRadius='md'
+            p='4px 12px'
             bgGradient={gradientColor()}
-            mr="8px"
+            mr='8px'
+            color='white'
           >
             {statusText()}
           </Text>
-          <Text fontWeight="bold" fontSize="12px" color="gray.400">
+          <Text fontWeight='bold' fontSize='12px' color='gray.400'>
             {projectItem3.categories?.map((c, index) =>
               index === 0 ? c : `・${c}`,
             )}
           </Text>
         </Flex>
-        <Heading color="blue.800" fontSize="22px" mb="32px">
+        <Heading color='blue.800' fontSize='22px' mb='32px'>
           {projectItem3.title}
         </Heading>
-        <Flex color="black" mb="32px" direction="column">
+        <Flex color='black' mb='32px' direction='column'>
           <Text>{projectItem3.summary}</Text>
         </Flex>
-        <Flex direction="column" mb="32px">
-          <Text fontSize="18px" fontWeight="bold" color="blue.800" mb="10px">
+        <Flex direction='column' mb='32px'>
+          <Text fontSize='18px' fontWeight='bold' color='blue.800' mb='10px'>
             参加におすすめな人
           </Text>
-          <Flex color="black" direction="column">
+          <Flex color='black' direction='column'>
             <Text>{projectItem3.recommendation}</Text>
           </Flex>
         </Flex>
-        <Flex direction="column" mb="32px">
-          <Text fontSize="18px" fontWeight="bold" color="blue.800" mb="10px">
+        <Flex direction='column' mb='32px'>
+          <Text fontSize='18px' fontWeight='bold' color='blue.800' mb='10px'>
             ルール
           </Text>
-          <Flex color="black" direction="column">
+          <Flex color='black' direction='column'>
             <Text>{projectItem3.rule}</Text>
           </Flex>
         </Flex>
-        <Flex direction="column">
-          <Text fontSize="18px" fontWeight="bold" color="blue.800" mb="10px">
+        <Flex direction='column'>
+          <Text fontSize='18px' fontWeight='bold' color='blue.800' mb='10px'>
             提出形式
           </Text>
-          <Flex color="black" direction="column">
-            {projectItem3.format?.map((f, index) => (
-              <Text key={index}>{f}</Text>
+          <Flex color='black' direction='column'>
+            {projectItem3.formats?.map((f) => (
+              <Text key={f.id}>{f.text}</Text>
             ))}
           </Flex>
         </Flex>

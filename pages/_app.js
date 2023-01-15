@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
   const [isSSR, setIsSSR] = useState(true)
   const [isLogin, setIsLogin] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false)
   const { URL } = useGetUrl()
   useEffect(() => {
     setIsSSR(false)
@@ -33,7 +34,15 @@ function MyApp({ Component, pageProps }) {
     )
   }
   return (
-    <AuthContext.Provider value={{ isLogin, isLoading, setIsLoading }}>
+    <AuthContext.Provider
+      value={{
+        isLogin,
+        isLoading,
+        setIsLoading,
+        isModalVisible,
+        setIsModalVisible,
+      }}
+    >
       <ChakraProvider theme={theme}>
         {!isSSR && (
           <>

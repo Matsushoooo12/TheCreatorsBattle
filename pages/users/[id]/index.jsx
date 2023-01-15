@@ -1,4 +1,4 @@
-import { Flex, HStack, Text } from '@chakra-ui/react'
+import { Flex, HStack, Image, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React from 'react'
 import ChapterTitle from '../../../components/atoms/ChapterTitle'
@@ -90,9 +90,9 @@ const DetailUser = () => {
   const router = useRouter()
   const { id } = router.query
   return (
-    <Flex direction="column" py="56px">
+    <Flex direction='column' py='56px'>
       <ProjectList
-        title="これまでの作品"
+        title='これまでの作品'
         onClick={() => router.push('/')}
         isEdit={true}
         isRowScroll={userWorksList.length ? true : false}
@@ -112,8 +112,8 @@ const DetailUser = () => {
           </>
         ) : (
           <NewCreateCard
-            title="作品を投稿してみましょう！"
-            buttonText="作品を投稿する"
+            title='作品を投稿してみましょう！'
+            buttonText='作品を投稿する'
             onClick={() => router.push(`/users/${id}`)}
             isBoxShadow={true}
           >
@@ -121,43 +121,53 @@ const DetailUser = () => {
           </NewCreateCard>
         )}
       </ProjectList>
-      <Flex w="100%" direction="column" mb="32px">
+      <Flex w='100%' direction='column' mb='32px'>
         <ChapterTitle
           isEdit={true}
-          title="スキルレベル"
+          title='スキルレベル'
           onClick={() => router.push(`/users/${id}/skils/edit`)}
         />
-        <HStack spacing="8px" flexWrap="wrap">
-          {skilList.length ? (
+        <HStack spacing='8px' flexWrap='wrap'>
+          {skilList2.length ? (
             <>
-              {skilList?.map((list) => (
+              {skilList2?.map((list) => (
                 <SkilCard
                   key={list.id}
                   text={list.text}
                   level={list.level}
                   thumbnail={list.thumbnail}
-                  fill="url(#skil)"
+                  fill='url(#skil)'
                   isNew={false}
                 />
               ))}
             </>
           ) : (
-            <Flex w="100%" justifyContent="center">
+            <Flex w='100%' justifyContent='center'>
               <NewCreateCard
-                buttonText="スキルを入力する"
-                title="あなたのスキルレベルを入力してみましょう！"
+                buttonText='スキルを入力する'
+                title='あなたのスキルレベルを入力してみましょう！'
                 onClick={() => router.push(`/users/${id}/skils/edit`)}
                 isBoxShadow={true}
               >
-                <Text mb="18px">
+                <Text mb='18px'>
                   自分のスキルやその習熟度を入力すると、他のクリエイターと繋がりやすくなります。
                 </Text>
-                <Flex w="100%" justifyContent="center">
+                <Flex w='100%' justifyContent='center'>
                   <SkilCard
-                    text="サービス名"
+                    text={
+                      <Image
+                        cursor='pointer'
+                        onClick={() => router.push('/')}
+                        mx='2px'
+                        mb='4px'
+                        h='16px'
+                        src='https://user-images.githubusercontent.com/66903388/211488312-9300a760-999a-4407-bab9-8517ccd4c4a4.png'
+                        alt=''
+                      />
+                    }
                     level={4}
-                    thumbnail="https://user-images.githubusercontent.com/66903388/211800043-b726329b-cebb-4fc2-a623-79203b27041a.gif"
-                    fill="url(#skil)"
+                    thumbnail=''
+                    fill='url(#skil)'
                     isNew={false}
                   />
                 </Flex>

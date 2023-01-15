@@ -1,4 +1,4 @@
-import { Flex, Heading, Image, Text } from '@chakra-ui/react'
+import { Flex, Heading, HStack, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const UserWorksCard = (props) => {
@@ -30,6 +30,83 @@ const UserWorksCard = (props) => {
         <Text fontWeight='bold' fontSize='12px' color='gray.400' mb='2px'>
           {categories?.map((c, index) => (index === 0 ? c : `・${c}`))}
         </Text>
+        <HStack mb='2px'>
+          <Flex
+            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+            p='2px'
+            borderRadius='full'
+            alignItems='center'
+            justifyContent='center'
+          >
+            <HStack
+              borderRadius='full'
+              bg='white'
+              alignItems='center'
+              justifyContent='center'
+              p='4px 8px'
+            >
+              <Image
+                w='16px'
+                h='16px'
+                src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                alt=''
+              />
+              <Text bg='white' fontSize='12px'>
+                Next.js
+              </Text>
+            </HStack>
+          </Flex>
+          <Flex
+            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+            p='2px'
+            borderRadius='full'
+            alignItems='center'
+            justifyContent='center'
+          >
+            <HStack
+              borderRadius='full'
+              bg='white'
+              alignItems='center'
+              justifyContent='center'
+              p='4px 8px'
+            >
+              <Image
+                w='16px'
+                h='16px'
+                src='https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png'
+                alt=''
+              />
+              <Text bg='white' fontSize='12px'>
+                TypeScript
+              </Text>
+            </HStack>
+          </Flex>
+          <Flex
+            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+            p='2px'
+            borderRadius='full'
+            alignItems='center'
+            justifyContent='center'
+          >
+            <HStack
+              borderRadius='full'
+              bg='white'
+              alignItems='center'
+              justifyContent='center'
+              p='4px 8px'
+            >
+              <Image
+                w='16px'
+                h='16px'
+                src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
+                alt=''
+              />
+              <Text bg='white' fontSize='12px'>
+                Firebase
+              </Text>
+            </HStack>
+          </Flex>
+        </HStack>
         <Text fontWeight='bold' fontSize='12px' color='gray.400'>
           ⏱ {createdAt}
         </Text>

@@ -41,6 +41,7 @@ const LoginAccount = () => {
         bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
         borderRadius='md'
         cursor='pointer'
+        color='white'
       >
         <Text fontWeight='bold'>continue</Text>
         <Icon as={BiChevronRightCircle} />

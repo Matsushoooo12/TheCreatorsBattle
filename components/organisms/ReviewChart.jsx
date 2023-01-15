@@ -9,7 +9,7 @@ import {
 
 const data = [
   {
-    subject: 'ビジネス 3.2',
+    subject: `ビジネス 3.2`,
     A: 3.2,
     fullMark: 5,
   },

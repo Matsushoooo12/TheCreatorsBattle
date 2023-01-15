@@ -43,7 +43,8 @@ const TopContainer = ({ children }) => {
         {children}
       </Flex>
       <WaveContainer />
-      <Flex w='100%' h='100vh' position='absolute' top='0' left='0'>
+      {/* 流体シェイプ */}
+      {/* <Flex w='100%' h='100vh' position='absolute' top='0' left='0'>
         <Flex
           className='fluid'
           position='absolute'
@@ -57,7 +58,7 @@ const TopContainer = ({ children }) => {
           h='300px'
           bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
         />
-      </Flex>
+      </Flex> */}
     </Flex>
   )
 }

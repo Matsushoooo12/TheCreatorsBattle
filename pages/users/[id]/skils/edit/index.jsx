@@ -1,7 +1,9 @@
 import {
+  Box,
   Flex,
   HStack,
   Icon,
+  Image,
   Input,
   Slider,
   SliderFilledTrack,
@@ -61,9 +63,12 @@ const UserSkilEdit = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [rangeIndex, setRangeIndex] = useState(0)
   const [skilName, setSkilName] = useState('')
+  const [skilImageUrl, setSkilImageUrl] = useState('')
+  const [isFocus, setIsFocus] = useState(false)
+  const [skilFilterSuggestions, setSkilFilterSuggestions] = useState([])
   const sliderText = () => {
     if (rangeIndex === 1) {
-      return '初級者'
+      return '初心者'
     } else if (rangeIndex === 2) {
       return '中級者'
     } else if (rangeIndex === 3) {
@@ -76,37 +81,65 @@ const UserSkilEdit = () => {
   const handleSliderChange = (event) => {
     setRangeIndex(parseInt(event.target.value, 10))
   }
+
+  const handleSkilFilterChange = (text) => {
+    // 入力した値をもとにフィルターをかける。
+    // 空の配列を用意
+    let matches = []
+    // 入力する値が0文字より大きければ処理を行う
+    if (text.length > 1) {
+      matches = skilList.filter((opt) => {
+        // new RegExp = パターンでテキストを検索するために使用
+        const regex = new RegExp(`${text}`, 'gi')
+        return opt.text.match(regex)
+      })
+    }
+    // フィルターをかけた配列をsuggestionsのステートに入れる
+    setSkilFilterSuggestions(matches)
+    setSkilName(text)
+  }
+  const handleModalClose = async () => {
+    try {
+      await setSkilName('')
+      await setSkilImageUrl('')
+      await setRangeIndex(0)
+      await setSkilFilterSuggestions([])
+    } catch (e) {
+      console.log(e)
+    }
+    await onClose()
+  }
   return (
     <>
-      <Flex direction="column" py="56px">
+      <Flex direction='column' py='56px'>
         <Flex
-          alignItems="center"
-          mb="20px"
-          cursor="pointer"
+          alignItems='center'
+          mb='20px'
+          cursor='pointer'
           onClick={() => router.push(`/users/${id}`)}
         >
-          <Icon fontSize="22px" as={AiOutlineLeft} color="blue.800" mr="12px" />
-          <Text color="blue.800" fontWeight="bold" fontSize="22px">
+          <Icon fontSize='22px' as={AiOutlineLeft} color='blue.800' mr='12px' />
+          <Text color='blue.800' fontWeight='bold' fontSize='22px'>
             編集終了
           </Text>
         </Flex>
-        <HStack spacing="8px" flexWrap="wrap">
+        <HStack spacing='8px' flexWrap='wrap'>
           {skilList?.map((list) => (
             <SkilCard
               key={list.id}
               text={list.text}
               level={list.level}
               thumbnail={list.thumbnail}
-              fill="url(#skil)"
+              fill='url(#skil)'
               isNew={false}
               onClick={onOpen}
             />
           ))}
           <SkilCard
-            text="新規作成"
+            text='新規作成'
             level={4}
-            thumbnail=""
-            fill="#DBDDDF"
+            thumbnail=''
+            fill='#DBDDDF'
             isNew={true}
             onClick={onOpen}
           />
@@ -114,53 +147,121 @@ const UserSkilEdit = () => {
       </Flex>
       <ModalCard
         isOpen={isOpen}
-        onClose={onClose}
-        cancelButtonText="キャンセル"
-        submitButtonText="追加する"
-        title="スキルを追加"
+        onClose={handleModalClose}
+        cancelButtonText='キャンセル'
+        submitButtonText='追加する'
+        title='スキルを追加'
       >
         <Flex
-          direction="column"
-          color="black"
-          fontSize="14px"
-          fontWeight="bold"
-          mb="24px"
+          direction='column'
+          color='black'
+          fontSize='14px'
+          fontWeight='bold'
+          mb='24px'
         >
-          <Text mb="12px">スキルを入力してください</Text>
+          <Text mb='12px'>スキルを入力してください</Text>
           <Input
-            focusBorderColor="gray.300"
-            variant="flushed"
-            placeholder="スキル名"
+            onFocus={() => setIsFocus(true)}
+            focusBorderColor='gray.300'
+            variant='flushed'
+            placeholder='スキル名'
             value={skilName}
-            onChange={(e) => setSkilName(e.target.value)}
+            onChange={(e) => handleSkilFilterChange(e.target.value)}
           />
+          {isFocus && (
+            <Box
+              w='100%'
+              h='100%'
+              boxShadow='md'
+              bg='white'
+              mt='8px'
+              borderRadius='lg'
+            >
+              {skilFilterSuggestions?.map((suggestion, i) => (
+                <Flex
+                  cursor='pointer'
+                  bg='white'
+                  _hover={{ bg: 'gray.100' }}
+                  key={i}
+                  p='8px 8px'
+                  alignItems='center'
+                  onClick={async () => {
+                    // textにフィルターをかけた入力候補の値を入れる
+                    await setSkilName(suggestion.text)
+                    await setSkilImageUrl(suggestion.thumbnail)
+                    await setIsFocus(false)
+                  }}
+                >
+                  <Image
+                    w='24px'
+                    h='24px'
+                    mr='8px'
+                    src={suggestion.thumbnail}
+                    alt=''
+                  />
+                  <Text>{suggestion.text}</Text>
+                </Flex>
+              ))}
+            </Box>
+          )}
         </Flex>
         <Flex
-          direction="column"
-          color="black"
-          fontSize="14px"
-          fontWeight="bold"
-          mb="36px"
+          direction='column'
+          color='black'
+          fontSize='14px'
+          fontWeight='bold'
+          mb='36px'
         >
-          <Text mb="12px">スキルを入力してください</Text>
-          <Text color="gray.400" mb="10px">
+          <Text mb='12px'>スキルのレベルを入力してください（自己判断）</Text>
+          <Text color='gray.400' mb='10px'>
             レベル：{sliderText()}
           </Text>
-          <input
-            type="range"
-            min="0"
-            max="4"
+          <Slider
+            aria-label='slider-ex-1'
+            defaultValue={0}
+            step={1}
+            min={0}
+            max={4}
             value={rangeIndex}
-            onChange={handleSliderChange}
-          />
+            onChange={(v) => setRangeIndex(v)}
+          >
+            <SliderTrack>
+              <SliderFilledTrack bgGradient='linear(to-b, mainGradient.100, mainGradient.200)' />
+            </SliderTrack>
+            <SliderThumb
+              boxSize={5}
+              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+              position='relative'
+            >
+              <Flex
+                position='absolute'
+                bg='white'
+                w='15px'
+                h='15px'
+                borderRadius='full'
+                left='0'
+                right='0'
+                top='0'
+                bottom='0'
+                margin='auto'
+              />
+            </SliderThumb>
+          </Slider>
         </Flex>
-        <Flex mb="36px">
+        <Flex
+          mb='36px'
+          direction='column'
+          color='black'
+          fontSize='14px'
+          fontWeight='bold'
+        >
+          <Text mb='12px'>プレビュー</Text>
           <SkilCard
             text={skilName}
             level={rangeIndex}
-            thumbnail="https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png"
-            fill="url(#skil)"
-            isNew={true}
+            thumbnail={skilName ? skilImageUrl : ''}
+            fill='url(#skil)'
+            isNew={false}
             onClick={onOpen}
           />
         </Flex>

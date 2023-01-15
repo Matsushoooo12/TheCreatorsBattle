@@ -16,8 +16,10 @@ const MainContainer = (props) => {
         direction='column'
         position='relative'
         minW='1024px'
+        w='100%'
+        overflowX='scroll'
       >
-        <Flex h='100%' w='100%' overflowX='scroll' direction='column'>
+        <Flex h='100%' w='100%' direction='column' maxW='1600px'>
           {children}
         </Flex>
       </Flex>

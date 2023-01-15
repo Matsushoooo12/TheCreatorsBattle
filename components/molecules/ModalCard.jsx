@@ -7,7 +7,8 @@ import {
   ModalOverlay,
   Text,
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../pages/_app'
 
 const ModalCard = (props) => {
   const {
@@ -19,6 +20,7 @@ const ModalCard = (props) => {
     title,
     titleEmoji,
   } = props
+  const { setIsModalVisible, isModalVisible } = useContext(AuthContext)
   return (
     <Modal
       isCentered
@@ -59,6 +61,7 @@ const ModalCard = (props) => {
                   bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
                   borderRadius='md'
                   cursor='pointer'
+                  color='white'
                 >
                   {submitButtonText}
                 </Flex>

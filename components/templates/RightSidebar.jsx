@@ -5,11 +5,10 @@ import {
   HStack,
   Icon,
   Text,
-  useDisclosure,
   VStack,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AiFillGithub, AiFillStar, AiFillTwitterCircle } from 'react-icons/ai'
 import { useGetUrl } from '../../hooks/useGetUrl'
 import ProjectCard from '../molecules/ProjectCard'
@@ -198,13 +197,52 @@ const projectItem1 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
 }
 
@@ -218,13 +256,52 @@ const projectItem2 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
   isSubmit: true,
 }
@@ -239,15 +316,54 @@ const projectItem3 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
-  isVoted: true,
+  isVoted: false,
 }
 
 const projectItem4 = {
@@ -260,13 +376,52 @@ const projectItem4 = {
   recommendation:
     'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
   rule: 'はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。\nnext.jsだいすき！！\n将来は、個人開発で一発当てたい。野菜社主催 きゅうりハッカソン優勝。',
-  format: [
-    '作品URL',
-    '作品概要',
-    '作品タイトル',
-    '作品が分かるスクショ動画',
-    '使用技術',
-    'Githubリンク',
+  formats: [
+    {
+      id: 1,
+      format: 'image',
+      text: '作品タイトル',
+    },
+    {
+      id: 2,
+      format: 'images',
+      text: '作品が分かるスクショ画像',
+    },
+    {
+      id: 3,
+      format: 'video',
+      text: '作品が分かるスクショ動画',
+    },
+    {
+      id: 4,
+      format: 'text',
+      text: '作品概要',
+    },
+    {
+      id: 5,
+      format: 'text',
+      text: '作った背景・理由',
+    },
+    {
+      id: 6,
+      format: 'text',
+      text: '工夫した点',
+    },
+    {
+      id: 7,
+      format: 'text',
+      text: '作品URL',
+    },
+    {
+      id: 8,
+      format: 'text',
+      text: 'Githubリンク',
+    },
+    {
+      id: 9,
+      format: 'text',
+      text: '使用技術',
+    },
   ],
 }
 
@@ -274,13 +429,26 @@ const RightSidebar = () => {
   const router = useRouter()
   const { id } = router.query
   const { URL } = useGetUrl()
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const { isLogin } = useContext(AuthContext)
+  const { isLogin, isModalVisible, setIsModalVisible } = useContext(AuthContext)
   const { projectButtonText, gradientColor } = useGetStatus(
-    projectItem2.status,
-    projectItem2.isVoted,
-    projectItem2.isSubmit,
+    projectItem3.status,
+    projectItem3.isVoted,
+    projectItem3.isSubmit,
   )
+  const projectStatusLink = () => {
+    if (projectItem3.status === 'recruitment') {
+      return `http://localhost:3000/projects/${id}/join`
+    } else if (projectItem3.status === 'production') {
+      return `http://localhost:3000/projects/${id}/submit`
+    } else if (projectItem3.status === 'vote') {
+      return `http://localhost:3000/projects/${id}/vote`
+    } else {
+      return `http://localhost:3000/projects/${id}`
+    }
+  }
+  const modalClose = () => {
+    setIsModalVisible(false)
+  }
   return (
     <>
       <Flex h='100vh' direction='column' position='relative' minW='400px'>
@@ -293,7 +461,9 @@ const RightSidebar = () => {
           color='black'
           overflowY='scroll'
         >
-          {URL === 'http://localhost:3000/' && (
+          {(URL === 'http://localhost:3000/' ||
+            URL === 'http://localhost:3000/notification' ||
+            URL === 'http://localhost:3000/questions') && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -388,7 +558,8 @@ const RightSidebar = () => {
             </Flex>
           )}
           {(URL === `http://localhost:3000/users/${id}` ||
-            URL === `http://localhost:3000/users/${id}/skils/edit`) && (
+            URL === `http://localhost:3000/users/${id}/skils/edit` ||
+            URL === `http://localhost:3000/works/${id}`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Flex alignSelf='flex-end' mb='12px'>
@@ -490,6 +661,14 @@ const RightSidebar = () => {
                         borderRadius='2px'
                       ></Flex>
                     </Flex>
+                    <Text
+                      color='white'
+                      fontSize='12px'
+                      fontWeight='bold'
+                      mb='6px'
+                    >
+                      あと2,000pt獲得でレベルアップ！
+                    </Text>
                     <Flex alignItems='center' color='white'>
                       <Text fontWeight='bold' fontSize='22px'>
                         259<span style={{ fontSize: '15px' }}>位</span>
@@ -559,12 +738,12 @@ const RightSidebar = () => {
                             textAlign='center'
                             bgGradient={gradientColor()}
                             opacity={projectItem3.isVoted && '50%'}
-                            onClick={onOpen}
+                            onClick={() => router.push(projectStatusLink())}
                           >
                             {projectButtonText()}
                           </Text>
                           {projectItem3.status === 'recruitment' && (
-                            <Text fontWeight='bold'>
+                            <Text fontWeight='bold' mb='8px'>
                               💸 参加するのに、80pt必要です
                             </Text>
                           )}
@@ -579,9 +758,7 @@ const RightSidebar = () => {
                                   title={myWorks1.title}
                                   categories={myWorks1.categories}
                                   createdAt={myWorks1.createdAt}
-                                  onClick={() =>
-                                    router.push(`/works/${myWorks1.id}`)
-                                  }
+                                  onClick={() => router.push(`/works/${id}`)}
                                 />
                               </Flex>
                             </>
@@ -710,8 +887,8 @@ const RightSidebar = () => {
       {projectItem3.status === 'recruitment' && (
         <ModalCard
           cancelButtonText='閉じる'
-          isOpen={isOpen}
-          onClose={onClose}
+          isOpen={isModalVisible}
+          onClose={modalClose}
           title='エントリーが完了しました'
           titleEmoji='🎉'
         ></ModalCard>
@@ -719,8 +896,8 @@ const RightSidebar = () => {
       {projectItem3.status === 'production' && (
         <ModalCard
           cancelButtonText='閉じる'
-          isOpen={isOpen}
-          onClose={onClose}
+          isOpen={isModalVisible}
+          onClose={modalClose}
           title='提出が完了しました'
           titleEmoji='🎉'
         >
@@ -733,8 +910,8 @@ const RightSidebar = () => {
       {projectItem3.status === 'vote' && (
         <ModalCard
           cancelButtonText='閉じる'
-          isOpen={isOpen}
-          onClose={onClose}
+          isOpen={isModalVisible}
+          onClose={modalClose}
           title='投票が完了しました'
           titleEmoji='🎉'
         >
