@@ -93,7 +93,7 @@ const DetailUser = () => {
     <Flex direction='column' py='56px'>
       <ProjectList
         title='これまでの作品'
-        onClick={() => router.push('/')}
+        onClick={() => router.push(`/works/${id}/edit`)}
         isEdit={true}
         isRowScroll={userWorksList.length ? true : false}
       >

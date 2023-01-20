@@ -6,6 +6,8 @@ import {
   Icon,
   Image,
   Input,
+  InputGroup,
+  InputLeftElement,
   Modal,
   ModalBody,
   ModalContent,
@@ -35,6 +37,10 @@ import GradientIcon from '../atoms/GradientIcon'
 import AddIcon from '@mui/icons-material/Add'
 import ReviewChart from '../organisms/ReviewChart'
 import PrimaryButton from '../atoms/PrimaryButton'
+import { SearchIcon } from '@chakra-ui/icons'
+import { RiDeleteBin6Line } from 'react-icons/ri'
+import { RxReload } from 'react-icons/rx'
+import QuestionRankingList from '../organisms/QuestionRankingList'
 
 const inProgressProjects = [
   {
@@ -903,24 +909,178 @@ const currentUser = {
   id: 1,
 }
 
+const questionList = [
+  {
+    id: 1,
+    title: 'ビール販売アプリビール販売',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 1,
+    skils: [
+      {
+        id: 1,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 2,
+    skils: [
+      {
+        id: 2,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 3,
+    skils: [
+      {
+        id: 3,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 4,
+    skils: [
+      {
+        id: 4,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 5,
+    skils: [
+      {
+        id: 5,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 6,
+    skils: [
+      {
+        id: 6,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 7,
+    skils: [
+      {
+        id: 7,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 8,
+    skils: [
+      {
+        id: 8,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 9,
+    skils: [
+      {
+        id: 9,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+  {
+    id: 10,
+    title: 'ビール販売アプリ',
+    date: '2023/01/01 12:00',
+    point: 3000,
+    rank: 10,
+    skils: [
+      {
+        id: 10,
+        name: 'Next.js',
+        thumbnail:
+          'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
+      },
+    ],
+  },
+]
+
 const RightSidebar = () => {
   const router = useRouter()
   const { id, worksId } = router.query
   const { URL } = useGetUrl()
   const [isIntroduction, setIsIntroduction] = useState(false)
   const [isOpenHigherRankModal, setIsOpenHigherRankModal] = useState(false)
+  const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
   const { isLogin, isModalVisible, setIsModalVisible } = useContext(AuthContext)
   const { projectButtonText, gradientColor } = useGetStatus(
-    projectItem4.status,
-    projectItem4.isVoted,
-    projectItem4.isSubmit,
+    projectItem2.status,
+    projectItem2.isVoted,
+    projectItem2.isSubmit,
   )
   const projectStatusLink = () => {
-    if (projectItem4.status === 'recruitment') {
+    if (projectItem2.status === 'recruitment') {
       return `http://localhost:3000/projects/${id}/join`
-    } else if (projectItem4.status === 'production') {
+    } else if (projectItem2.status === 'production') {
       return `http://localhost:3000/projects/${id}/submit`
-    } else if (projectItem4.status === 'vote') {
+    } else if (projectItem2.status === 'vote') {
       return `http://localhost:3000/projects/${id}/vote`
     } else {
       return `http://localhost:3000/projects/${id}`
@@ -945,9 +1105,18 @@ const RightSidebar = () => {
     setIsModalVisible(true)
     router.push(`/projects/${id}`)
   }
-  useEffect(() => {
-    modalHigherRankOpen()
-  }, [])
+
+  const modalQuestionOpen = () => {
+    setIsQuestionModalOpen(true)
+  }
+
+  const modalQuestionClose = () => {
+    router.push('/questions')
+    setIsQuestionModalOpen(false)
+  }
+  // useEffect(() => {
+  //   modalHigherRankOpen()
+  // }, [])
   return (
     <>
       <Flex h='100vh' direction='column' position='relative' minW='400px'>
@@ -961,8 +1130,7 @@ const RightSidebar = () => {
           overflowY='scroll'
         >
           {(URL === 'http://localhost:3000/' ||
-            URL === 'http://localhost:3000/notification' ||
-            URL === 'http://localhost:3000/questions') && (
+            URL === 'http://localhost:3000/notification') && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -1252,7 +1420,7 @@ const RightSidebar = () => {
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
-                  {projectItem4?.status !== 'done' ? (
+                  {projectItem2?.status !== 'done' ? (
                     <>
                       {isLogin && (
                         <>
@@ -1272,17 +1440,17 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem4.isVoted && '50%'}
+                                opacity={projectItem2.isVoted && '50%'}
                                 onClick={handleSubmit}
                               >
                                 {projectButtonText(URL)}
                               </Text>
-                              {projectItem4.status === 'recruitment' && (
+                              {projectItem2.status === 'recruitment' && (
                                 <Text fontWeight='bold' mb='56px'>
                                   💸 参加するのに、80pt必要です
                                 </Text>
                               )}
-                              {projectItem4.status === 'production' && (
+                              {projectItem2.status === 'production' && (
                                 <Flex w='100%' mb='56px' direction='column'>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1296,7 +1464,7 @@ const RightSidebar = () => {
                                   />
                                 </Flex>
                               )}
-                              {projectItem4.status === 'vote' && (
+                              {projectItem2.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1328,12 +1496,12 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem4.isVoted && '50%'}
+                                opacity={projectItem2.isVoted && '50%'}
                                 onClick={() => router.push(projectStatusLink())}
                               >
                                 {projectButtonText()}
                               </Text>
-                              {projectItem4.status === 'recruitment' && (
+                              {projectItem2.status === 'recruitment' && (
                                 <>
                                   <Text fontWeight='bold' mb='56px'>
                                     💸 参加するのに、80pt必要です
@@ -1365,7 +1533,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem4.status === 'production' && (
+                              {projectItem2.status === 'production' && (
                                 <>
                                   <Flex w='100%' mb='56px' direction='column'>
                                     <Text fontWeight='bold' mb='8px'>
@@ -1408,7 +1576,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem4.status === 'vote' && (
+                              {projectItem2.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1696,10 +1864,765 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
+          {(URL === 'http://localhost:3000/questions' ||
+            URL === 'http://localhost:3000/questions/new') && (
+            <Flex direction='column'>
+              <Flex w='328px' direction='column' mb='56px'>
+                {URL === 'http://localhost:3000/questions' && (
+                  <>
+                    <Text
+                      cursor='pointer'
+                      color='white'
+                      borderRadius='md'
+                      boxShadow='lg'
+                      fontWeight='bold'
+                      w='100%'
+                      py='14px'
+                      textAlign='center'
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      onClick={() => router.push('/questions/new')}
+                      mb='32px'
+                    >
+                      質問を作成
+                    </Text>
+                    <Text
+                      color='blue.800'
+                      fontWeight='bold'
+                      fontSize='22px'
+                      mb='16px'
+                    >
+                      人気質問ランキング
+                    </Text>
+                    <QuestionRankingList rankingList={questionList} />
+                  </>
+                )}
+                {URL === 'http://localhost:3000/questions/new' && (
+                  <>
+                    <Text
+                      mb='32px'
+                      cursor='pointer'
+                      color='white'
+                      borderRadius='md'
+                      boxShadow='lg'
+                      fontWeight='bold'
+                      w='100%'
+                      py='14px'
+                      textAlign='center'
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      onClick={modalQuestionOpen}
+                    >
+                      質問を投稿
+                    </Text>
+                    <Text
+                      color='blue.800'
+                      fontWeight='bold'
+                      fontSize='22px'
+                      mb='16px'
+                    >
+                      これまでの質問
+                    </Text>
+                    <InputGroup
+                      color='black'
+                      bg='white'
+                      colorScheme='gray'
+                      mb='32px'
+                    >
+                      <InputLeftElement
+                        pointerEvents='none'
+                        // eslint-disable-next-line react/no-children-prop
+                        children={<SearchIcon color='gray.300' />}
+                      />
+                      <Input
+                        type='text'
+                        placeholder='質問をキーワード検索'
+                        focusBorderColor='gray.400'
+                        borderColor='gray.200'
+                        py='8px'
+                        fontSize='14px'
+                        _placeholder={{ color: 'gray.400' }}
+                        variant='flushed'
+                      />
+                    </InputGroup>
+                    <Flex direction='column'>
+                      {/* 下書き */}
+                      <Flex
+                        bg='white'
+                        borderRadius='lg'
+                        boxShadow='lg'
+                        p='12px'
+                        border='1px solid #000'
+                        borderColor='gray.100'
+                        direction='column'
+                        mb='12px'
+                      >
+                        <Flex justifyContent='space-between' mb='4px'>
+                          <HStack spacing='24px' alignItems='center'>
+                            <Text
+                              p='2px 6px'
+                              border='1px solid #000'
+                              borderColor='gray.400'
+                              borderRadius='md'
+                              fontSize='10px'
+                              color='gray.600'
+                            >
+                              下書き
+                            </Text>
+                            <HStack spacing='6px' alignItems='center'>
+                              <Icon
+                                as={RxReload}
+                                fontSize='20px'
+                                color='gray.400'
+                              />
+                              <Text fontSize='14px' color='gray.500'>
+                                2023/01/01 12:00
+                              </Text>
+                            </HStack>
+                          </HStack>
+                          <Icon
+                            as={RiDeleteBin6Line}
+                            fontSize='24px'
+                            color='gray.400'
+                          />
+                        </Flex>
+                        <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                          ビール販売アプリ
+                        </Text>
+                        <HStack>
+                          <Flex
+                            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                            p='2px'
+                            borderRadius='full'
+                            alignItems='center'
+                            justifyContent='center'
+                          >
+                            <HStack
+                              borderRadius='full'
+                              bg='white'
+                              alignItems='center'
+                              justifyContent='center'
+                              p='4px 8px'
+                            >
+                              <Image
+                                w='16px'
+                                h='16px'
+                                src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                                alt=''
+                              />
+                              <Text bg='white' fontSize='12px'>
+                                Next.js
+                              </Text>
+                            </HStack>
+                          </Flex>
+                          <Flex>
+                            <Text
+                              p='4px 8px'
+                              border='2px solid #000'
+                              borderColor='blue.500'
+                              borderRadius='full'
+                              fontSize='12px'
+                              color='blue.500'
+                            >
+                              💰 300pt
+                            </Text>
+                          </Flex>
+                        </HStack>
+                      </Flex>
+                      {/* 公開中 */}
+                      <Flex
+                        bg='white'
+                        borderRadius='lg'
+                        boxShadow='lg'
+                        p='12px'
+                        border='1px solid #000'
+                        borderColor='gray.100'
+                        direction='column'
+                        mb='12px'
+                      >
+                        <Flex justifyContent='space-between' mb='4px'>
+                          <HStack spacing='24px' alignItems='center'>
+                            <Text
+                              p='2px 6px'
+                              border='1px solid #000'
+                              borderColor='blue.500'
+                              borderRadius='md'
+                              fontSize='10px'
+                              color='blue.500'
+                            >
+                              公開中
+                            </Text>
+                            <HStack spacing='6px' alignItems='center'>
+                              <Icon
+                                as={RxReload}
+                                fontSize='20px'
+                                color='gray.400'
+                              />
+                              <Text fontSize='14px' color='gray.500'>
+                                2023/01/01 12:00
+                              </Text>
+                            </HStack>
+                          </HStack>
+                          <Icon
+                            as={RiDeleteBin6Line}
+                            fontSize='24px'
+                            color='gray.400'
+                          />
+                        </Flex>
+                        <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                          ビール販売アプリ
+                        </Text>
+                        <HStack>
+                          <Flex
+                            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                            p='2px'
+                            borderRadius='full'
+                            alignItems='center'
+                            justifyContent='center'
+                          >
+                            <HStack
+                              borderRadius='full'
+                              bg='white'
+                              alignItems='center'
+                              justifyContent='center'
+                              p='4px 8px'
+                            >
+                              <Image
+                                w='16px'
+                                h='16px'
+                                src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                                alt=''
+                              />
+                              <Text bg='white' fontSize='12px'>
+                                Next.js
+                              </Text>
+                            </HStack>
+                          </Flex>
+                          <Flex>
+                            <Text
+                              p='4px 8px'
+                              border='2px solid #000'
+                              borderColor='blue.500'
+                              borderRadius='full'
+                              fontSize='12px'
+                              color='blue.500'
+                            >
+                              💰 300pt
+                            </Text>
+                          </Flex>
+                        </HStack>
+                      </Flex>
+                      {/* 下書き */}
+                      <Flex
+                        bg='white'
+                        borderRadius='lg'
+                        boxShadow='lg'
+                        p='12px'
+                        border='1px solid #000'
+                        borderColor='gray.100'
+                        direction='column'
+                        mb='12px'
+                      >
+                        <Flex justifyContent='space-between' mb='4px'>
+                          <HStack spacing='24px' alignItems='center'>
+                            <Text
+                              p='2px 6px'
+                              border='1px solid #000'
+                              borderColor='gray.400'
+                              borderRadius='md'
+                              fontSize='10px'
+                              color='gray.600'
+                            >
+                              下書き
+                            </Text>
+                            <HStack spacing='6px' alignItems='center'>
+                              <Icon
+                                as={RxReload}
+                                fontSize='20px'
+                                color='gray.400'
+                              />
+                              <Text fontSize='14px' color='gray.500'>
+                                2023/01/01 12:00
+                              </Text>
+                            </HStack>
+                          </HStack>
+                          <Icon
+                            as={RiDeleteBin6Line}
+                            fontSize='24px'
+                            color='gray.400'
+                          />
+                        </Flex>
+                        <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                          ビール販売アプリ
+                        </Text>
+                        <HStack>
+                          <Flex
+                            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                            p='2px'
+                            borderRadius='full'
+                            alignItems='center'
+                            justifyContent='center'
+                          >
+                            <HStack
+                              borderRadius='full'
+                              bg='white'
+                              alignItems='center'
+                              justifyContent='center'
+                              p='4px 8px'
+                            >
+                              <Image
+                                w='16px'
+                                h='16px'
+                                src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                                alt=''
+                              />
+                              <Text bg='white' fontSize='12px'>
+                                Next.js
+                              </Text>
+                            </HStack>
+                          </Flex>
+                          <Flex>
+                            <Text
+                              p='4px 8px'
+                              border='2px solid #000'
+                              borderColor='blue.500'
+                              borderRadius='full'
+                              fontSize='12px'
+                              color='blue.500'
+                            >
+                              💰 300pt
+                            </Text>
+                          </Flex>
+                        </HStack>
+                      </Flex>
+                      {/* 公開中 */}
+                      <Flex
+                        bg='white'
+                        borderRadius='lg'
+                        boxShadow='lg'
+                        p='12px'
+                        border='1px solid #000'
+                        borderColor='gray.100'
+                        direction='column'
+                      >
+                        <Flex justifyContent='space-between' mb='4px'>
+                          <HStack spacing='24px' alignItems='center'>
+                            <Text
+                              p='2px 6px'
+                              border='1px solid #000'
+                              borderColor='blue.500'
+                              borderRadius='md'
+                              fontSize='10px'
+                              color='blue.500'
+                            >
+                              公開中
+                            </Text>
+                            <HStack spacing='6px' alignItems='center'>
+                              <Icon
+                                as={RxReload}
+                                fontSize='20px'
+                                color='gray.400'
+                              />
+                              <Text fontSize='14px' color='gray.500'>
+                                2023/01/01 12:00
+                              </Text>
+                            </HStack>
+                          </HStack>
+                          <Icon
+                            as={RiDeleteBin6Line}
+                            fontSize='24px'
+                            color='gray.400'
+                          />
+                        </Flex>
+                        <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                          ビール販売アプリ
+                        </Text>
+                        <HStack>
+                          <Flex
+                            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                            p='2px'
+                            borderRadius='full'
+                            alignItems='center'
+                            justifyContent='center'
+                          >
+                            <HStack
+                              borderRadius='full'
+                              bg='white'
+                              alignItems='center'
+                              justifyContent='center'
+                              p='4px 8px'
+                            >
+                              <Image
+                                w='16px'
+                                h='16px'
+                                src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                                alt=''
+                              />
+                              <Text bg='white' fontSize='12px'>
+                                Next.js
+                              </Text>
+                            </HStack>
+                          </Flex>
+                          <Flex>
+                            <Text
+                              p='4px 8px'
+                              border='2px solid #000'
+                              borderColor='blue.500'
+                              borderRadius='full'
+                              fontSize='12px'
+                              color='blue.500'
+                            >
+                              💰 300pt
+                            </Text>
+                          </Flex>
+                        </HStack>
+                      </Flex>
+                    </Flex>
+                  </>
+                )}
+              </Flex>
+            </Flex>
+          )}
+          {URL === `http://localhost:3000/works/${id}/edit` && (
+            <Flex direction='column'>
+              <Flex w='328px' direction='column' mb='56px'>
+                <>
+                  <Text
+                    mb='32px'
+                    cursor='pointer'
+                    color='white'
+                    borderRadius='md'
+                    boxShadow='lg'
+                    fontWeight='bold'
+                    w='100%'
+                    py='14px'
+                    textAlign='center'
+                    bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                    onClick={modalQuestionOpen}
+                  >
+                    質問を投稿
+                  </Text>
+                  <Text
+                    color='blue.800'
+                    fontWeight='bold'
+                    fontSize='22px'
+                    mb='16px'
+                  >
+                    これまでの作品
+                  </Text>
+                  <InputGroup
+                    color='black'
+                    bg='white'
+                    colorScheme='gray'
+                    mb='32px'
+                  >
+                    <InputLeftElement
+                      pointerEvents='none'
+                      // eslint-disable-next-line react/no-children-prop
+                      children={<SearchIcon color='gray.300' />}
+                    />
+                    <Input
+                      type='text'
+                      placeholder='作品をキーワード検索'
+                      focusBorderColor='gray.400'
+                      borderColor='gray.200'
+                      py='8px'
+                      fontSize='14px'
+                      _placeholder={{ color: 'gray.400' }}
+                      variant='flushed'
+                    />
+                  </InputGroup>
+                  <Flex direction='column'>
+                    {/* 下書き */}
+                    <Flex
+                      bg='white'
+                      borderRadius='lg'
+                      boxShadow='lg'
+                      p='12px'
+                      border='1px solid #000'
+                      borderColor='gray.100'
+                      direction='column'
+                      mb='12px'
+                    >
+                      <Flex justifyContent='space-between' mb='4px'>
+                        <HStack spacing='24px' alignItems='center'>
+                          <Text
+                            p='2px 6px'
+                            border='1px solid #000'
+                            borderColor='gray.400'
+                            borderRadius='md'
+                            fontSize='10px'
+                            color='gray.600'
+                          >
+                            下書き
+                          </Text>
+                          <HStack spacing='6px' alignItems='center'>
+                            <Icon
+                              as={RxReload}
+                              fontSize='20px'
+                              color='gray.400'
+                            />
+                            <Text fontSize='14px' color='gray.500'>
+                              2023/01/01 12:00
+                            </Text>
+                          </HStack>
+                        </HStack>
+                        <Icon
+                          as={RiDeleteBin6Line}
+                          fontSize='24px'
+                          color='gray.400'
+                        />
+                      </Flex>
+                      <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                        ビール販売アプリ
+                      </Text>
+                      <HStack>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                      </HStack>
+                    </Flex>
+                    {/* 公開中 */}
+                    <Flex
+                      bg='white'
+                      borderRadius='lg'
+                      boxShadow='lg'
+                      p='12px'
+                      border='1px solid #000'
+                      borderColor='gray.100'
+                      direction='column'
+                      mb='12px'
+                    >
+                      <Flex justifyContent='space-between' mb='4px'>
+                        <HStack spacing='24px' alignItems='center'>
+                          <Text
+                            p='2px 6px'
+                            border='1px solid #000'
+                            borderColor='blue.500'
+                            borderRadius='md'
+                            fontSize='10px'
+                            color='blue.500'
+                          >
+                            公開中
+                          </Text>
+                          <HStack spacing='6px' alignItems='center'>
+                            <Icon
+                              as={RxReload}
+                              fontSize='20px'
+                              color='gray.400'
+                            />
+                            <Text fontSize='14px' color='gray.500'>
+                              2023/01/01 12:00
+                            </Text>
+                          </HStack>
+                        </HStack>
+                        <Icon
+                          as={RiDeleteBin6Line}
+                          fontSize='24px'
+                          color='gray.400'
+                        />
+                      </Flex>
+                      <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                        ビール販売アプリ
+                      </Text>
+                      <HStack>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                      </HStack>
+                    </Flex>
+                    {/* 下書き */}
+                    <Flex
+                      bg='white'
+                      borderRadius='lg'
+                      boxShadow='lg'
+                      p='12px'
+                      border='1px solid #000'
+                      borderColor='gray.100'
+                      direction='column'
+                      mb='12px'
+                    >
+                      <Flex justifyContent='space-between' mb='4px'>
+                        <HStack spacing='24px' alignItems='center'>
+                          <Text
+                            p='2px 6px'
+                            border='1px solid #000'
+                            borderColor='gray.400'
+                            borderRadius='md'
+                            fontSize='10px'
+                            color='gray.600'
+                          >
+                            下書き
+                          </Text>
+                          <HStack spacing='6px' alignItems='center'>
+                            <Icon
+                              as={RxReload}
+                              fontSize='20px'
+                              color='gray.400'
+                            />
+                            <Text fontSize='14px' color='gray.500'>
+                              2023/01/01 12:00
+                            </Text>
+                          </HStack>
+                        </HStack>
+                        <Icon
+                          as={RiDeleteBin6Line}
+                          fontSize='24px'
+                          color='gray.400'
+                        />
+                      </Flex>
+                      <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                        ビール販売アプリ
+                      </Text>
+                      <HStack>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                      </HStack>
+                    </Flex>
+                    {/* 公開中 */}
+                    <Flex
+                      bg='white'
+                      borderRadius='lg'
+                      boxShadow='lg'
+                      p='12px'
+                      border='1px solid #000'
+                      borderColor='gray.100'
+                      direction='column'
+                    >
+                      <Flex justifyContent='space-between' mb='4px'>
+                        <HStack spacing='24px' alignItems='center'>
+                          <Text
+                            p='2px 6px'
+                            border='1px solid #000'
+                            borderColor='blue.500'
+                            borderRadius='md'
+                            fontSize='10px'
+                            color='blue.500'
+                          >
+                            公開中
+                          </Text>
+                          <HStack spacing='6px' alignItems='center'>
+                            <Icon
+                              as={RxReload}
+                              fontSize='20px'
+                              color='gray.400'
+                            />
+                            <Text fontSize='14px' color='gray.500'>
+                              2023/01/01 12:00
+                            </Text>
+                          </HStack>
+                        </HStack>
+                        <Icon
+                          as={RiDeleteBin6Line}
+                          fontSize='24px'
+                          color='gray.400'
+                        />
+                      </Flex>
+                      <Text fontSize='18px' fontWeight='bold' mb='4px'>
+                        ビール販売アプリ
+                      </Text>
+                      <HStack>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                      </HStack>
+                    </Flex>
+                  </Flex>
+                </>
+              </Flex>
+            </Flex>
+          )}
           {(URL ===
             `http://localhost:3000/projects/${id}/works/${myWorks1.id}` ||
             URL === `http://localhost:3000/works/${myWorks1.id}`) && (
-            <Flex direction='column' mb='56px'>
+            <Flex w='328px' direction='column' mb='56px'>
               {currentUser ? (
                 <Text fontWeight='bold' mb='8px'>
                   あなたの結果
@@ -1878,7 +2801,7 @@ const RightSidebar = () => {
         </Flex>
       </Flex>
       {/* エントリー完了モーダル */}
-      {projectItem4.status === 'recruitment' && (
+      {projectItem2.status === 'recruitment' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -1897,7 +2820,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 提出完了モーダル */}
-      {projectItem4.status === 'production' && (
+      {projectItem2.status === 'production' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -1917,7 +2840,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 投票完了モーダル */}
-      {projectItem4.status === 'vote' && (
+      {projectItem2.status === 'vote' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -1943,6 +2866,7 @@ const RightSidebar = () => {
         size='lg'
       >
         <Textarea
+          resize='none'
           height='160px'
           fontSize='14px'
           placeholder='あなたについて書いてみましょう！'
@@ -2108,6 +3032,19 @@ const RightSidebar = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
+      <ModalCard
+        cancelButtonText='閉じる'
+        title='質問を投稿しました'
+        titleEmoji='🎉'
+        isOpen={isQuestionModalOpen}
+        onClose={modalQuestionClose}
+        size='lg'
+      >
+        <Flex direction='column' color='black' fontWeight='bold'>
+          <Text>開発お疲れさま！</Text>
+          <Text>回答が帰ってくるまで、一息ついてみる？</Text>
+        </Flex>
+      </ModalCard>
     </>
   )
 }

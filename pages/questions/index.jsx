@@ -7,6 +7,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import TabItem from '../../components/atoms/TabItem'
 import ModalCard from '../../components/molecules/ModalCard'
@@ -86,8 +87,9 @@ const allList2 = []
 const doneList2 = []
 const waitList2 = []
 
-const Questions = () => {
+const QuestionList = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const router = useRouter()
   const [questionIndex, setQuestionIndex] = useState(0)
   const toggleQuestion = (index) => {
     setQuestionIndex(index)
@@ -144,12 +146,6 @@ const Questions = () => {
                 tabState={questionIndex}
                 tabIndex={2}
                 dataLength={5}
-              />
-              <TabItem
-                title='質問箱について'
-                onClick={() => toggleQuestion(3)}
-                tabState={questionIndex}
-                tabIndex={3}
               />
             </TabItems>
             <Flex w='100%' h='1px' bg='gray.200' />
@@ -248,7 +244,7 @@ const Questions = () => {
                 <NewCreateCard
                   title='質問してみましょう！'
                   buttonText='質問をする'
-                  onClick={onOpen}
+                  onClick={() => router.push('/questions/new')}
                   isBoxShadow={false}
                 >
                   <Text>
@@ -280,4 +276,4 @@ const Questions = () => {
   )
 }
 
-export default Questions
+export default QuestionList

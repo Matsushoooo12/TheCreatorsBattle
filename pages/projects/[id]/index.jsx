@@ -254,7 +254,7 @@ const projectItem4 = {
 }
 
 const DetailProject = () => {
-  const { gradientColor, statusText } = useGetStatus(projectItem4.status)
+  const { gradientColor, statusText } = useGetStatus(projectItem2.status)
   const router = useRouter()
   const { id } = router.query
   const [doneIndex, setDoneIndex] = useState(0)
@@ -267,7 +267,7 @@ const DetailProject = () => {
         onClick={() => router.push('/projects')}
         text='プロジェクト一覧'
       />
-      {projectItem4.status !== 'done' ? (
+      {projectItem2.status !== 'done' ? (
         <Flex w='100%' bg='white' p='24px' borderRadius='lg' direction='column'>
           <Flex alignItems='center' mb='8px'>
             <Text
@@ -282,13 +282,13 @@ const DetailProject = () => {
               {statusText()}
             </Text>
             <Text fontWeight='bold' fontSize='12px' color='gray.400'>
-              {projectItem4.categories?.map((c, index) =>
+              {projectItem2.categories?.map((c, index) =>
                 index === 0 ? c : `・${c}`,
               )}
             </Text>
           </Flex>
           <Heading color='blue.800' fontSize='22px' mb='32px'>
-            {projectItem4.title}
+            {projectItem2.title}
           </Heading>
           <Image
             w='100%'
@@ -299,14 +299,14 @@ const DetailProject = () => {
             mb='32px'
           />
           <Flex color='black' mb='32px' direction='column'>
-            <Text>{projectItem4.summary}</Text>
+            <Text>{projectItem2.summary}</Text>
           </Flex>
           <Flex direction='column' mb='32px'>
             <Text fontSize='18px' fontWeight='bold' color='blue.800' mb='10px'>
               参加におすすめな人
             </Text>
             <Flex color='black' direction='column'>
-              <Text>{projectItem4.recommendation}</Text>
+              <Text>{projectItem2.recommendation}</Text>
             </Flex>
           </Flex>
           <Flex direction='column' mb='32px'>
@@ -314,7 +314,7 @@ const DetailProject = () => {
               ルール
             </Text>
             <Flex color='black' direction='column'>
-              <Text>{projectItem4.rule}</Text>
+              <Text>{projectItem2.rule}</Text>
             </Flex>
           </Flex>
           <Flex direction='column'>
@@ -322,7 +322,7 @@ const DetailProject = () => {
               提出形式
             </Text>
             <Flex color='black' direction='column'>
-              {projectItem4.formats?.map((f) => (
+              {projectItem2.formats?.map((f) => (
                 <Text key={f.id}>{f.text}</Text>
               ))}
             </Flex>
@@ -378,13 +378,13 @@ const DetailProject = () => {
                       {statusText()}
                     </Text>
                     <Text fontWeight='bold' fontSize='12px' color='gray.400'>
-                      {projectItem4.categories?.map((c, index) =>
+                      {projectItem2.categories?.map((c, index) =>
                         index === 0 ? c : `・${c}`,
                       )}
                     </Text>
                   </Flex>
                   <Heading color='blue.800' fontSize='22px' mb='32px'>
-                    {projectItem4.title}
+                    {projectItem2.title}
                   </Heading>
                   <Image
                     w='100%'
@@ -395,7 +395,7 @@ const DetailProject = () => {
                     mb='32px'
                   />
                   <Flex color='black' mb='32px' direction='column'>
-                    <Text>{projectItem4.summary}</Text>
+                    <Text>{projectItem2.summary}</Text>
                   </Flex>
                   <Flex direction='column' mb='32px'>
                     <Text
@@ -407,7 +407,7 @@ const DetailProject = () => {
                       参加におすすめな人
                     </Text>
                     <Flex color='black' direction='column'>
-                      <Text>{projectItem4.recommendation}</Text>
+                      <Text>{projectItem2.recommendation}</Text>
                     </Flex>
                   </Flex>
                   <Flex direction='column' mb='32px'>
@@ -420,7 +420,7 @@ const DetailProject = () => {
                       ルール
                     </Text>
                     <Flex color='black' direction='column'>
-                      <Text>{projectItem4.rule}</Text>
+                      <Text>{projectItem2.rule}</Text>
                     </Flex>
                   </Flex>
                   <Flex direction='column'>
@@ -433,7 +433,7 @@ const DetailProject = () => {
                       提出形式
                     </Text>
                     <Flex color='black' direction='column'>
-                      {projectItem4.formats?.map((f) => (
+                      {projectItem2.formats?.map((f) => (
                         <Text key={f.id}>{f.text}</Text>
                       ))}
                     </Flex>

@@ -7,7 +7,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import TabItem from '../../components/atoms/TabItem'
 import TabItems from '../../components/molecules/TabItems'
 
@@ -119,7 +119,6 @@ const Notification = () => {
           boxShadow='md'
           direction='column'
           p='24px 24px 0'
-          overflowX='scroll'
         >
           <TabItems mb='0px'>
             <TabItem

@@ -107,7 +107,12 @@ const LeftSidebar = () => {
                     <Text fontWeight='bold'>アカウント削除</Text>
                   </HStack>
                   <Flex w='100%' h='1px' bg='gray.300' my='8px' />
-                  <HStack spacing='6px' alignItems='center' cursor='pointer'>
+                  <HStack
+                    spacing='6px'
+                    alignItems='center'
+                    cursor='pointer'
+                    onClick={() => router.push('/settings/payment')}
+                  >
                     <GradientIcon>
                       <CreditCardIcon
                         sx={{ fontSize: '20px', fill: 'url(#linearColors)' }}
