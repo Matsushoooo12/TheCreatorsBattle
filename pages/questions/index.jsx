@@ -155,8 +155,7 @@ const Questions = () => {
             <Flex w='100%' h='1px' bg='gray.200' />
           </Flex>
           <Flex
-            h='70vh'
-            overflowX='scroll'
+            h='100%'
             bg='white'
             px='24px'
             direction='column'

@@ -141,8 +141,7 @@ const Notification = () => {
         </Flex>
         <Flex
           direction='column'
-          h='70vh'
-          overflowX='scroll'
+          h='100%'
           bg='white'
           px='24px'
           borderBottomRadius='md'
@@ -224,7 +223,6 @@ const Notification = () => {
                 ))}
               </>
             )}
-            {/* <Flex w='100%' h='1000px' bg='blue' direction='column'></Flex> */}
           </Flex>
         </Flex>
       </Flex>
