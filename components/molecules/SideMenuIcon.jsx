@@ -4,7 +4,7 @@ import { useGetUrl } from '../../hooks/useGetUrl'
 import GradientIcon from '../atoms/GradientIcon'
 import { BsCircleFill } from 'react-icons/bs'
 
-const MenuIcon = ({ children, onClick, url }) => {
+const SideMenuIcon = ({ children, onClick, url }) => {
   const { URL } = useGetUrl()
   return (
     <Flex
@@ -37,4 +37,4 @@ const MenuIcon = ({ children, onClick, url }) => {
   )
 }
 
-export default MenuIcon
+export default SideMenuIcon

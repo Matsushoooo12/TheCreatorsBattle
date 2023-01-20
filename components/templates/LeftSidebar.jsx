@@ -15,7 +15,7 @@ import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt'
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
 import { useRouter } from 'next/router'
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded'
-import MenuIcon from '../molecules/menuIcon'
+import SideMenuIcon from '../molecules/SideMenuIcon'
 import EmojiObjectsRoundedIcon from '@mui/icons-material/EmojiObjectsRounded'
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded'
 import LogoutIcon from '@mui/icons-material/Logout'
@@ -43,38 +43,38 @@ const LeftSidebar = () => {
         justifyContent='space-between'
       >
         <Flex direction='column' w='100%'>
-          <MenuIcon
+          <SideMenuIcon
             onClick={() => router.push('/')}
             url={'http://localhost:3000/'}
           >
             <SignalCellularAltIcon sx={sx} />
-          </MenuIcon>
-          <MenuIcon
+          </SideMenuIcon>
+          <SideMenuIcon
             onClick={() => router.push('/projects')}
             url={'http://localhost:3000/projects'}
           >
             <EmojiEventsIcon sx={sx} />
-          </MenuIcon>
-          <MenuIcon
+          </SideMenuIcon>
+          <SideMenuIcon
             onClick={() => router.push('/questions')}
             url={'http://localhost:3000/questions'}
           >
             <EmojiObjectsRoundedIcon sx={sx} />
-          </MenuIcon>
-          <MenuIcon
+          </SideMenuIcon>
+          <SideMenuIcon
             onClick={() => router.push('/notification')}
             url={'http://localhost:3000/notification'}
           >
             <NotificationsRoundedIcon sx={sx} />
-          </MenuIcon>
+          </SideMenuIcon>
         </Flex>
         <Flex direction='column' w='100%'>
           <Popover placement='right'>
             <PopoverTrigger>
               <Flex position='relative'>
-                <MenuIcon url={'http://localhost:3000/settings'}>
+                <SideMenuIcon url={'http://localhost:3000/settings'}>
                   <SettingsRoundedIcon sx={sx} />
-                </MenuIcon>
+                </SideMenuIcon>
               </Flex>
             </PopoverTrigger>
             <PopoverContent color='black'>
@@ -119,12 +119,12 @@ const LeftSidebar = () => {
               </PopoverBody>
             </PopoverContent>
           </Popover>
-          <MenuIcon
+          <SideMenuIcon
             onClick={() => router.push('/users/1')}
             url={'http://localhost:3000/users/1'}
           >
             <Avatar w='28px' h='28px' />
-          </MenuIcon>
+          </SideMenuIcon>
         </Flex>
       </Flex>
       <ModalCard
