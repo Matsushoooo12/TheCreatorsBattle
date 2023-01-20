@@ -115,140 +115,152 @@ const Questions = () => {
             _placeholder={{ color: 'gray.400' }}
           />
         </InputGroup>
-        <Flex
-          w='100%'
-          bg='white'
-          borderRadius='md'
-          boxShadow='md'
-          direction='column'
-          p='16px 16px 0'
-        >
-          <TabItems mb='0px'>
-            <TabItem
-              title='すべて'
-              onClick={() => toggleQuestion(0)}
-              tabState={questionIndex}
-              tabIndex={0}
-            />
-            <TabItem
-              title='解決済み'
-              onClick={() => toggleQuestion(1)}
-              tabState={questionIndex}
-              tabIndex={1}
-              dataLength={3}
-            />
-            <TabItem
-              title='回答待ち'
-              onClick={() => toggleQuestion(2)}
-              tabState={questionIndex}
-              tabIndex={2}
-              dataLength={5}
-            />
-            <TabItem
-              title='質問箱について'
-              onClick={() => toggleQuestion(3)}
-              tabState={questionIndex}
-              tabIndex={3}
-            />
-          </TabItems>
-          <Flex w='100%' h='1px' bg='gray.200' />
-          <Flex direction='column'>
-            {questionIndex === 0 && (
-              <>
-                {allList?.map((list) => (
-                  <Flex
-                    key={list.id}
-                    direction='column'
-                    color='black'
-                    py='16px'
-                    fontSize='14px'
-                    borderBottom='1px solid #000'
-                    borderColor='gray.200'
-                  >
-                    <Text
-                      mb='2px'
-                      color='gray.400'
-                      fontSize='12px'
-                      fontWeight='bold'
+        <Flex direction='column'>
+          <Flex
+            w='100%'
+            bg='white'
+            borderTopRadius='md'
+            boxShadow='md'
+            direction='column'
+            p='24px 24px 0'
+          >
+            <TabItems mb='0px'>
+              <TabItem
+                title='すべて'
+                onClick={() => toggleQuestion(0)}
+                tabState={questionIndex}
+                tabIndex={0}
+              />
+              <TabItem
+                title='解決済み'
+                onClick={() => toggleQuestion(1)}
+                tabState={questionIndex}
+                tabIndex={1}
+                dataLength={3}
+              />
+              <TabItem
+                title='回答待ち'
+                onClick={() => toggleQuestion(2)}
+                tabState={questionIndex}
+                tabIndex={2}
+                dataLength={5}
+              />
+              <TabItem
+                title='質問箱について'
+                onClick={() => toggleQuestion(3)}
+                tabState={questionIndex}
+                tabIndex={3}
+              />
+            </TabItems>
+            <Flex w='100%' h='1px' bg='gray.200' />
+          </Flex>
+          <Flex
+            h='70vh'
+            overflowX='scroll'
+            bg='white'
+            px='24px'
+            direction='column'
+            borderBottomRadius='md'
+            boxShadow='md'
+          >
+            <Flex direction='column' w='100%'>
+              {questionIndex === 0 && (
+                <>
+                  {allList?.map((list) => (
+                    <Flex
+                      key={list.id}
+                      direction='column'
+                      color='black'
+                      py='16px'
+                      fontSize='14px'
+                      borderBottom='1px solid #000'
+                      borderColor='gray.200'
                     >
-                      {list.createdAt}
-                    </Text>
-                    <Flex fontWeight='bold' mb={list.status && '6px'}>
-                      <Text>{list.content}</Text>
+                      <Text
+                        mb='2px'
+                        color='gray.400'
+                        fontSize='12px'
+                        fontWeight='bold'
+                      >
+                        {list.createdAt}
+                      </Text>
+                      <Flex fontWeight='bold' mb={list.status && '6px'}>
+                        <Text>{list.content}</Text>
+                      </Flex>
                     </Flex>
-                  </Flex>
-                ))}
-              </>
-            )}
-            {questionIndex === 1 && (
-              <>
-                {doneList?.map((list) => (
-                  <Flex
-                    key={list.id}
-                    direction='column'
-                    color='black'
-                    py='16px'
-                    fontSize='14px'
-                    borderBottom='1px solid #000'
-                    borderColor='gray.200'
-                  >
-                    <Text
-                      mb='2px'
-                      color='gray.400'
-                      fontSize='12px'
-                      fontWeight='bold'
+                  ))}
+                </>
+              )}
+              {questionIndex === 1 && (
+                <>
+                  {doneList?.map((list) => (
+                    <Flex
+                      key={list.id}
+                      direction='column'
+                      color='black'
+                      py='16px'
+                      fontSize='14px'
+                      borderBottom='1px solid #000'
+                      borderColor='gray.200'
                     >
-                      {list.createdAt}
-                    </Text>
-                    <Flex fontWeight='bold' mb={list.status && '6px'}>
-                      <Text>{list.content}</Text>
+                      <Text
+                        mb='2px'
+                        color='gray.400'
+                        fontSize='12px'
+                        fontWeight='bold'
+                      >
+                        {list.createdAt}
+                      </Text>
+                      <Flex fontWeight='bold' mb={list.status && '6px'}>
+                        <Text>{list.content}</Text>
+                      </Flex>
                     </Flex>
-                  </Flex>
-                ))}
-              </>
-            )}
-            {questionIndex === 2 && (
-              <>
-                {waitList?.map((list) => (
-                  <Flex
-                    key={list.id}
-                    direction='column'
-                    color='black'
-                    py='16px'
-                    fontSize='14px'
-                    borderBottom='1px solid #000'
-                    borderColor='gray.200'
-                  >
-                    <Text
-                      mb='2px'
-                      color='gray.400'
-                      fontSize='12px'
-                      fontWeight='bold'
+                  ))}
+                </>
+              )}
+              {questionIndex === 2 && (
+                <>
+                  {waitList?.map((list) => (
+                    <Flex
+                      key={list.id}
+                      direction='column'
+                      color='black'
+                      py='16px'
+                      fontSize='14px'
+                      borderBottom='1px solid #000'
+                      borderColor='gray.200'
                     >
-                      {list.createdAt}
-                    </Text>
-                    <Flex fontWeight='bold' mb={list.status && '6px'}>
-                      <Text>{list.content}</Text>
+                      <Text
+                        mb='2px'
+                        color='gray.400'
+                        fontSize='12px'
+                        fontWeight='bold'
+                      >
+                        {list.createdAt}
+                      </Text>
+                      <Flex fontWeight='bold' mb={list.status && '6px'}>
+                        <Text>{list.content}</Text>
+                      </Flex>
                     </Flex>
-                  </Flex>
-                ))}
-              </>
-            )}
-            {questionIndex === 3 && (
-              <NewCreateCard
-                title='質問してみましょう！'
-                buttonText='質問をする'
-                onClick={onOpen}
-                isBoxShadow={false}
-              >
-                <Text>
-                  開発でなにかお困りごとはありませんか？みんなに質問してみよう！
-                </Text>
-                <Text>
-                  ほかのクリエイターの悩みに答えると、ポイントがもらえる✨
-                </Text>
-              </NewCreateCard>
-            )}
+                  ))}
+                </>
+              )}
+              {questionIndex === 3 && (
+                <NewCreateCard
+                  title='質問してみましょう！'
+                  buttonText='質問をする'
+                  onClick={onOpen}
+                  isBoxShadow={false}
+                >
+                  <Text>
+                    開発でなにかお困りごとはありませんか？みんなに質問してみよう！
+                  </Text>
+                  <Text>
+                    ほかのクリエイターの悩みに答えると、ポイントがもらえる✨
+                  </Text>
+                </NewCreateCard>
+              )}
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
@@ -258,6 +270,7 @@ const Questions = () => {
         titleEmoji='🎉'
         isOpen={isOpen}
         onClose={onClose}
+        size='lg'
       >
         <Flex direction='column' color='black' fontWeight='bold'>
           <Text>開発お疲れさま！</Text>

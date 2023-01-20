@@ -30,6 +30,7 @@ import { collection, doc, getDocs, setDoc } from 'firebase/firestore'
 import { AuthContext } from '../_app'
 import TopContainer from '../../components/templates/TopContainer'
 import { useOAuthLogin } from '../../hooks/useOAuthLogin'
+import ArrowLink from '../../components/atoms/ArrowLink'
 
 const SignUp = () => {
   const router = useRouter()
@@ -102,21 +103,7 @@ const SignUp = () => {
         <Text color='black' fontWeight='bold' mb='18px'>
           もしかして、すでにアカウントをお持ちですか？
         </Text>
-        <HStack
-          spacing='2px'
-          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-          bgClip='text'
-          alignItems='center'
-          cursor='pointer'
-          onClick={() => router.push('/signin')}
-        >
-          <Text fontSize='14px' fontWeight='bold'>
-            ログイン
-          </Text>
-          <GradientIcon>
-            <ArrowCircleRightOutlinedIcon sx={sx} />
-          </GradientIcon>
-        </HStack>
+        <ArrowLink text='ログイン' onClick={() => router.push('/signin')} />
       </TopContainer>
     </>
   )

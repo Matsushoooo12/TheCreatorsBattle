@@ -25,34 +25,41 @@ const skilList = [
     text: 'Next.js',
     thumbnail:
       'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
-    level: 1,
+    level: 4,
   },
   {
     id: 2,
-    text: 'TypeScript',
+    text: 'JavaScript',
     thumbnail:
-      'https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png',
-    level: 2,
-  },
-  {
-    id: 3,
-    text: 'Kotlin',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/211631223-2f47b231-1c12-48d6-9067-68392df5c325.png',
-    level: 3,
-  },
-  {
-    id: 4,
-    text: 'AWS',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/211631369-0d2cb214-498d-4f76-9083-c56434341f24.png',
+      'https://user-images.githubusercontent.com/66903388/213210140-82e95eca-0811-4918-b08f-a72fb1808784.png',
     level: 4,
   },
+  //   {
+  //     id: 3,
+  //     text: 'Kotlin',
+  //     thumbnail:
+  //       'https://user-images.githubusercontent.com/66903388/211631223-2f47b231-1c12-48d6-9067-68392df5c325.png',
+  //     level: 3,
+  //   },
+  //   {
+  //     id: 4,
+  //     text: 'AWS',
+  //     thumbnail:
+  //       'https://user-images.githubusercontent.com/66903388/211631369-0d2cb214-498d-4f76-9083-c56434341f24.png',
+  //     level: 4,
+  //   },
   {
     id: 5,
     text: 'Firebase',
     thumbnail:
       'https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png',
+    level: 4,
+  },
+  {
+    id: 6,
+    text: 'figma',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213248435-cd19abac-340e-4294-abb9-fbbc86ea2ebc.png',
     level: 4,
   },
 ]
@@ -151,119 +158,125 @@ const UserSkilEdit = () => {
         cancelButtonText='キャンセル'
         submitButtonText='追加する'
         title='スキルを追加'
+        size='xl'
       >
-        <Flex
-          direction='column'
-          color='black'
-          fontSize='14px'
-          fontWeight='bold'
-          mb='24px'
-        >
-          <Text mb='12px'>スキルを入力してください</Text>
-          <Input
-            onFocus={() => setIsFocus(true)}
-            focusBorderColor='gray.300'
-            variant='flushed'
-            placeholder='スキル名'
-            value={skilName}
-            onChange={(e) => handleSkilFilterChange(e.target.value)}
-          />
-          {isFocus && (
-            <Box
-              w='100%'
-              h='100%'
-              boxShadow='md'
-              bg='white'
-              mt='8px'
-              borderRadius='lg'
+        <Flex justifyContent='space-between'>
+          <Flex direction='column' w='300px'>
+            <Flex
+              direction='column'
+              color='black'
+              fontSize='14px'
+              fontWeight='bold'
+              mb='24px'
             >
-              {skilFilterSuggestions?.map((suggestion, i) => (
-                <Flex
-                  cursor='pointer'
-                  bg='white'
-                  _hover={{ bg: 'gray.100' }}
-                  key={i}
-                  p='8px 8px'
-                  alignItems='center'
-                  onClick={async () => {
-                    // textにフィルターをかけた入力候補の値を入れる
-                    await setSkilName(suggestion.text)
-                    await setSkilImageUrl(suggestion.thumbnail)
-                    await setIsFocus(false)
-                  }}
-                >
-                  <Image
-                    w='24px'
-                    h='24px'
-                    mr='8px'
-                    src={suggestion.thumbnail}
-                    alt=''
-                  />
-                  <Text>{suggestion.text}</Text>
-                </Flex>
-              ))}
-            </Box>
-          )}
-        </Flex>
-        <Flex
-          direction='column'
-          color='black'
-          fontSize='14px'
-          fontWeight='bold'
-          mb='36px'
-        >
-          <Text mb='12px'>スキルのレベルを入力してください（自己判断）</Text>
-          <Text color='gray.400' mb='10px'>
-            レベル：{sliderText()}
-          </Text>
-          <Slider
-            aria-label='slider-ex-1'
-            defaultValue={0}
-            step={1}
-            min={0}
-            max={4}
-            value={rangeIndex}
-            onChange={(v) => setRangeIndex(v)}
-          >
-            <SliderTrack>
-              <SliderFilledTrack bgGradient='linear(to-b, mainGradient.100, mainGradient.200)' />
-            </SliderTrack>
-            <SliderThumb
-              boxSize={5}
-              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-              position='relative'
-            >
-              <Flex
-                position='absolute'
-                bg='white'
-                w='15px'
-                h='15px'
-                borderRadius='full'
-                left='0'
-                right='0'
-                top='0'
-                bottom='0'
-                margin='auto'
+              <Text mb='12px'>スキルを入力してください</Text>
+              <Input
+                onFocus={() => setIsFocus(true)}
+                focusBorderColor='gray.300'
+                variant='flushed'
+                placeholder='スキル名'
+                value={skilName}
+                onChange={(e) => handleSkilFilterChange(e.target.value)}
               />
-            </SliderThumb>
-          </Slider>
-        </Flex>
-        <Flex
-          mb='36px'
-          direction='column'
-          color='black'
-          fontSize='14px'
-          fontWeight='bold'
-        >
-          <Text mb='12px'>プレビュー</Text>
-          <SkilCard
-            text={skilName}
-            level={rangeIndex}
-            thumbnail={skilName ? skilImageUrl : ''}
-            fill='url(#skil)'
-            isNew={false}
-            onClick={onOpen}
-          />
+              {isFocus && (
+                <Box
+                  w='100%'
+                  h='100%'
+                  boxShadow='md'
+                  bg='white'
+                  mt='8px'
+                  borderRadius='lg'
+                >
+                  {skilFilterSuggestions?.map((suggestion, i) => (
+                    <Flex
+                      cursor='pointer'
+                      bg='white'
+                      _hover={{ bg: 'gray.100' }}
+                      key={i}
+                      p='8px 8px'
+                      alignItems='center'
+                      onClick={async () => {
+                        // textにフィルターをかけた入力候補の値を入れる
+                        await setSkilName(suggestion.text)
+                        await setSkilImageUrl(suggestion.thumbnail)
+                        await setIsFocus(false)
+                      }}
+                    >
+                      <Image
+                        w='24px'
+                        h='24px'
+                        mr='8px'
+                        src={suggestion.thumbnail}
+                        alt=''
+                      />
+                      <Text>{suggestion.text}</Text>
+                    </Flex>
+                  ))}
+                </Box>
+              )}
+            </Flex>
+            <Flex
+              direction='column'
+              color='black'
+              fontSize='14px'
+              fontWeight='bold'
+              mb='36px'
+            >
+              <Text mb='12px'>スキルのレベルを入力してください</Text>
+              <Text color='gray.400' mb='10px'>
+                レベル：{sliderText()}
+              </Text>
+              <Slider
+                aria-label='slider-ex-1'
+                defaultValue={0}
+                step={1}
+                min={0}
+                max={4}
+                value={rangeIndex}
+                onChange={(v) => setRangeIndex(v)}
+              >
+                <SliderTrack>
+                  <SliderFilledTrack bgGradient='linear(to-b, mainGradient.100, mainGradient.200)' />
+                </SliderTrack>
+                <SliderThumb
+                  boxSize={5}
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  position='relative'
+                >
+                  <Flex
+                    position='absolute'
+                    bg='white'
+                    w='15px'
+                    h='15px'
+                    borderRadius='full'
+                    left='0'
+                    right='0'
+                    top='0'
+                    bottom='0'
+                    margin='auto'
+                  />
+                </SliderThumb>
+              </Slider>
+            </Flex>
+          </Flex>
+          <Flex
+            direction='column'
+            color='black'
+            fontWeight='bold'
+            alignItems='center'
+          >
+            <Text mb='12px' fontSize='10px'>
+              プレビュー
+            </Text>
+            <SkilCard
+              text={skilName}
+              level={rangeIndex}
+              thumbnail={skilName ? skilImageUrl : ''}
+              fill='url(#skil)'
+              isNew={false}
+              onClick={onOpen}
+            />
+          </Flex>
         </Flex>
       </ModalCard>
     </>

@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import { AuthContext } from '../../pages/_app'
+import PrimaryButton from '../atoms/PrimaryButton'
 
 const ModalCard = (props) => {
   const {
@@ -19,6 +20,7 @@ const ModalCard = (props) => {
     onClose,
     title,
     titleEmoji,
+    size,
   } = props
   const { setIsModalVisible, isModalVisible } = useContext(AuthContext)
   return (
@@ -27,7 +29,7 @@ const ModalCard = (props) => {
       onClose={onClose}
       isOpen={isOpen}
       motionPreset='slideInBottom'
-      size='lg'
+      size={size}
     >
       <ModalOverlay />
       <ModalContent>
@@ -56,15 +58,7 @@ const ModalCard = (props) => {
                 {cancelButtonText}
               </Flex>
               {submitButtonText && (
-                <Flex
-                  p='12px 24px'
-                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                  borderRadius='md'
-                  cursor='pointer'
-                  color='white'
-                >
-                  {submitButtonText}
-                </Flex>
+                <PrimaryButton>{submitButtonText}</PrimaryButton>
               )}
             </HStack>
           </Flex>

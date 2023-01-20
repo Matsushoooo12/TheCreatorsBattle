@@ -1,9 +1,7 @@
 import { Flex, Heading, HStack, Image, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
-import BackArrowTitle from '../../../components/atoms/BackArrowTitle'
-import { useGetStatus } from '../../../hooks/useGetStatus'
-import { AuthContext } from '../../_app'
+import BackArrowTitle from '../../../../../components/atoms/BackArrowTitle'
 
 const projectItem1 = {
   id: 1,
@@ -242,21 +240,21 @@ const projectItem4 = {
   ],
 }
 
-const DetailWorks = () => {
+const DetailProjectWorks = () => {
   const router = useRouter()
   const { id } = router.query
   return (
     <Flex direction='column' py='56px' px='80px'>
       <BackArrowTitle
-        onClick={() => router.push('/users/1')}
-        text='ユーザー詳細'
+        onClick={() => router.push('/projects/1')}
+        text='プロジェクト詳細'
       />
       <Flex w='100%' bg='white' p='24px' borderRadius='lg' direction='column'>
         <Flex alignItems='center' mb='8px'>
           <Text fontWeight='bold' fontSize='12px' color='gray.400'>
             {/* {projectItem3.categories?.map((c, index) =>
-              index === 0 ? c : `・${c}`,
-            )} */}
+          index === 0 ? c : `・${c}`,
+        )} */}
             ネイティブアプリ
           </Text>
         </Flex>
@@ -376,4 +374,4 @@ const DetailWorks = () => {
   )
 }
 
-export default DetailWorks
+export default DetailProjectWorks

@@ -100,6 +100,29 @@ const reviewComments = [
   },
 ]
 
+const data = [
+  {
+    subject: `ビジネス 3.2`,
+    A: 3.2,
+    fullMark: 5,
+  },
+  {
+    subject: '技術 2.3',
+    A: 2.3,
+    fullMark: 5,
+  },
+  {
+    subject: 'デザイン 4.5',
+    A: 4.5,
+    fullMark: 5,
+  },
+  {
+    subject: '発想 2.8',
+    A: 2.8,
+    fullMark: 5,
+  },
+]
+
 const DashboardContainer = () => {
   const [lineChartIndex, setLineChartIndex] = useState(0)
   const toggleLineChart = (index) => {
@@ -167,7 +190,14 @@ const DashboardContainer = () => {
         </ChartCard>
         <ChartCard title='総合評価'>
           <Flex w='100%' h='100%' justifyContent='center'>
-            <ReviewChart />
+            <ReviewChart
+              cx={200}
+              cy={155}
+              width={400}
+              height={300}
+              data={data}
+              outerRadius={130}
+            />
           </Flex>
         </ChartCard>
       </HStack>

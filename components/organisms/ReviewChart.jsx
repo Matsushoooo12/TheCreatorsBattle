@@ -7,37 +7,15 @@ import {
   PolarRadiusAxis,
 } from 'recharts'
 
-const data = [
-  {
-    subject: `ビジネス 3.2`,
-    A: 3.2,
-    fullMark: 5,
-  },
-  {
-    subject: '技術 2.3',
-    A: 2.3,
-    fullMark: 5,
-  },
-  {
-    subject: 'デザイン 4.5',
-    A: 4.5,
-    fullMark: 5,
-  },
-  {
-    subject: '発想 2.8',
-    A: 2.8,
-    fullMark: 5,
-  },
-]
-
-const ReviewChart = () => {
+const ReviewChart = (props) => {
+  const { cx, cy, width, height, data, outerRadius } = props
   return (
     <RadarChart
-      cx={200}
-      cy={155}
-      outerRadius={130}
-      width={400}
-      height={300}
+      cx={cx}
+      cy={cy}
+      outerRadius={outerRadius}
+      width={width}
+      height={height}
       data={data}
     >
       <PolarGrid />

@@ -11,6 +11,7 @@ import GradientIcon from '../../components/atoms/GradientIcon'
 import WaveContainer from '../../components/organisms/WaveContainer'
 import TopContainer from '../../components/templates/TopContainer'
 import { useOAuthLogin } from '../../hooks/useOAuthLogin'
+import ArrowLink from '../../components/atoms/ArrowLink'
 
 const SignIn = () => {
   const router = useRouter()
@@ -59,21 +60,7 @@ const SignIn = () => {
       <Text color='black' fontWeight='bold' mb='18px'>
         まだアカウントをお持ちではないですか？
       </Text>
-      <HStack
-        spacing='2px'
-        bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-        bgClip='text'
-        alignItems='center'
-        cursor='pointer'
-        onClick={() => router.push('/signup')}
-      >
-        <Text fontSize='14px' fontWeight='bold'>
-          サインアップ
-        </Text>
-        <GradientIcon>
-          <ArrowCircleRightOutlinedIcon sx={sx} />
-        </GradientIcon>
-      </HStack>
+      <ArrowLink text='サインアップ' onClick={() => router.push('/signup')} />
     </TopContainer>
   )
 }

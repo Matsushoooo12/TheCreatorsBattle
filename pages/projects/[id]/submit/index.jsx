@@ -2,6 +2,8 @@
 import {
   AspectRatio,
   Flex,
+  Heading,
+  Icon,
   Image,
   Input,
   InputGroup,
@@ -15,6 +17,9 @@ import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import ModalCard from '../../../../components/molecules/ModalCard'
 import { AuthContext } from '../../../_app'
+import { AiFillCamera } from 'react-icons/ai'
+import BackArrowTitle from '../../../../components/atoms/BackArrowTitle'
+import PrimaryButton from '../../../../components/atoms/PrimaryButton'
 
 const projectItem = {
   id: 1,
@@ -88,89 +93,126 @@ const ProjectSubmitForm = () => {
   return (
     <>
       <Flex direction='column' py='56px' px='80px'>
-        <Flex w='100%' bg='white' p='24px' borderRadius='lg' direction='column'>
-          <Text color='blue.800' fontWeight='bold' fontSize='22px' mb='16px'>
-            作品提出フォーム
-          </Text>
-          {projectItem.formats?.map((f) => (
-            <InputGroup key={f.id} color='black' bg='white' colorScheme='gray'>
-              <Flex direction='column' w='100%'>
-                <Text fontSize='18px' fontWeight='bold' mb='8px'>
-                  {f.text}
-                </Text>
-                {(f.format === 'text' || f.format === 'title') && (
-                  <Input
-                    type='text'
-                    placeholder={f.text}
-                    focusBorderColor='gray.200'
-                    borderRadius='md'
-                    boxShadow='md'
-                    fontSize={f.format === 'title' ? '20px' : '16px'}
-                    _placeholder={{ color: 'gray.400' }}
-                    size={f.format === 'title' ? 'lg' : 'md'}
-                    mb='16px'
-                  />
-                )}
-                {f.format === 'images' && (
-                  <Image w='200px' h='120px' bg='gray.200' alt='' mb='16px' />
-                )}
-                {f.format === 'textarea' && (
-                  <Textarea
-                    placeholder={f.text}
-                    focusBorderColor='gray.200'
-                    _placeholder={{ color: 'gray.400' }}
-                    height='200px'
-                    resize='none'
-                    mb='16px'
-                    borderRadius='md'
-                    boxShadow='md'
-                  />
-                )}
-                {f.format === 'video' && (
-                  <Flex w='200px' h='120px' bg='gray.200' mb='16px' />
-                )}
-                {f.format === 'link' && (
-                  <InputGroup size='md' mb='16px'>
-                    <InputLeftAddon children='https://' />
-                    <Input
-                      placeholder={f.text}
-                      focusBorderColor='gray.200'
-                      _placeholder={{ color: 'gray.400' }}
-                    />
-                    <InputRightAddon children='.com' />
-                  </InputGroup>
-                )}
-                {f.format === 'text[]' && (
-                  <Input
-                    type='text'
-                    placeholder={f.text}
-                    focusBorderColor='gray.200'
-                    borderRadius='md'
-                    boxShadow='md'
-                    _placeholder={{ color: 'gray.400' }}
-                    size='md'
-                    mb='16px'
-                  />
-                )}
-              </Flex>
-            </InputGroup>
-          ))}
-          <Flex
-            p='12px 24px'
-            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+        <Flex justifyContent='space-between' alignItems='center' mb='16px'>
+          <BackArrowTitle
+            text='プロジェクト詳細'
+            onClick={() => router.push(`/projects/${id}`)}
+          />
+          <Flex alignItems='center'>
+            <Text
+              p='12px'
+              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+              bgClip='text'
+              borderRadius='md'
+              cursor='pointer'
+              fontSize='14px'
+            >
+              下書きを保存する
+            </Text>
+          </Flex>
+        </Flex>
+        <Flex
+          w='100%'
+          h='80vh'
+          bg='white'
+          p='24px'
+          borderRadius='lg'
+          direction='column'
+          overflowX='scroll'
+        >
+          <Flex alignItems='center' mb='8px'>
+            <Input
+              fontWeight='bold'
+              fontSize='12px'
+              focusBorderColor='gray.400'
+              borderColor='gray.400'
+              placeholder='作品のカテゴリ：ウェブアプアプリ、ウェブデザイン、など！'
+              _placeholder={{ color: 'gray.400' }}
+            />
+          </Flex>
+          <Input
+            size='lg'
+            placeholder='タイトル'
+            color='blue.800'
             fontWeight='bold'
-            color='white'
+            fontSize='22px'
+            _placeholder={{ color: 'gray.400' }}
+            focusBorderColor='gray.400'
+            borderColor='gray.400'
+            mb='16px'
+            p='16px'
+          />
+          <Flex
+            w='100%'
+            h='385px'
             borderRadius='lg'
-            boxShadow='md'
-            w='100px'
-            alignItems='center'
+            bg='blackAlpha.100'
+            border='1px solid #CBD5E0'
+            borderColor='gray.400'
             justifyContent='center'
+            alignItems='center'
             cursor='pointer'
-            // onClick={() => router.push(`/projects/${id}`)}
-            // onClick={onOpen}
-            onClick={handleSubmitWorks}
+            mb='32px'
+            direction='column'
+            py='145px'
           >
-            提出
+            <Flex
+              direction='column'
+              justifyContent='center'
+              alignItems='center'
+              h='100%'
+            >
+              <Icon
+                as={AiFillCamera}
+                fontSize='40px'
+                color='gray.400'
+                mb='10px'
+              />
+              <Text
+                p='2px 8px'
+                bg='gray.400'
+                color='white'
+                fontSize='12px'
+                mb='8px'
+              >
+                + 画像を選択
+              </Text>
+              <Text fontSize='8px' color='gray.400'>
+                またはドラッグ&ドロップで追加
+              </Text>
+            </Flex>
+          </Flex>
+          <Flex direction='column' mb='32px'>
+            <Text fontSize='12px' fontWeight='bold' mb='8px' color='gray.400'>
+              作品URL
+            </Text>
+            <Input
+              fontSize='14px'
+              borderColor='gray.400'
+              focusBorderColor='gray.400'
+              placeholder='URL'
+              _placeholder={{ color: 'gray.400' }}
+              variant='flushed'
+            />
+          </Flex>
+          <Flex mb='32px'>
+            <Textarea
+              fontSize='14px'
+              borderColor='gray.400'
+              focusBorderColor='gray.400'
+              placeholder='本文：作品の概要やビジュアル、制作ストーリーなどなんでも残してみましょう！'
+              _placeholder={{ color: 'gray.400' }}
+              h='500px'
+            />
+          </Flex>
+          <Flex>
+            <Input
+              fontSize='14px'
+              focusBorderColor='gray.400'
+              borderColor='gray.400'
+              placeholder='使用技術タグを追加する'
+              _placeholder={{ color: 'gray.400' }}
+            />
           </Flex>
         </Flex>
       </Flex>
@@ -180,6 +222,7 @@ const ProjectSubmitForm = () => {
         onClose={onClose}
         title='提出が完了しました'
         titleEmoji='🎉'
+        size='lg'
       >
         <Text mb='24px' color='black' fontWeight='bold'>
           お疲れさまです！『{'{タイトル}'}』の作品を提出しました！{' '}

@@ -128,9 +128,9 @@ const DetailUser = () => {
           onClick={() => router.push(`/users/${id}/skils/edit`)}
         />
         <HStack spacing='8px' flexWrap='wrap'>
-          {skilList2.length ? (
+          {skilList.length ? (
             <>
-              {skilList2?.map((list) => (
+              {skilList?.map((list) => (
                 <SkilCard
                   key={list.id}
                   text={list.text}

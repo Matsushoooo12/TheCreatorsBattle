@@ -7,7 +7,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import TabItem from '../../components/atoms/TabItem'
 import TabItems from '../../components/molecules/TabItems'
 
@@ -111,107 +111,121 @@ const Notification = () => {
           _placeholder={{ color: 'gray.400' }}
         />
       </InputGroup>
-      <Flex
-        w='100%'
-        bg='white'
-        borderRadius='md'
-        boxShadow='md'
-        direction='column'
-        p='16px 16px 0'
-      >
-        <TabItems mb='0px'>
-          <TabItem
-            title='タスク'
-            onClick={() => toggleNotification(0)}
-            tabState={notificationIndex}
-            tabIndex={0}
-            dataLength={2}
-          />
-          <TabItem
-            title='お知らせ'
-            onClick={() => toggleNotification(1)}
-            tabState={notificationIndex}
-            tabIndex={1}
-            // dataLength={3}
-          />
-        </TabItems>
-        <Flex w='100%' h='1px' bg='gray.200' />
-        <Flex direction='column'>
-          {notificationIndex === 0 && (
-            <>
-              {taskList?.map((list) => (
-                <Flex
-                  key={list.id}
-                  direction='column'
-                  color='black'
-                  py='16px'
-                  fontSize='14px'
-                  borderBottom='1px solid #000'
-                  borderColor='gray.200'
-                >
-                  <Text
-                    mb='2px'
-                    color='gray.400'
-                    fontSize='12px'
-                    fontWeight='bold'
+      <Flex direction='column'>
+        <Flex
+          w='100%'
+          bg='white'
+          borderTopRadius='md'
+          boxShadow='md'
+          direction='column'
+          p='24px 24px 0'
+          overflowX='scroll'
+        >
+          <TabItems mb='0px'>
+            <TabItem
+              title='タスク'
+              onClick={() => toggleNotification(0)}
+              tabState={notificationIndex}
+              tabIndex={0}
+              dataLength={2}
+            />
+            <TabItem
+              title='お知らせ'
+              onClick={() => toggleNotification(1)}
+              tabState={notificationIndex}
+              tabIndex={1}
+              dataLength={2}
+            />
+          </TabItems>
+          <Flex w='100%' h='1px' bg='gray.200' />
+        </Flex>
+        <Flex
+          direction='column'
+          h='70vh'
+          overflowX='scroll'
+          bg='white'
+          px='24px'
+          borderBottomRadius='md'
+          boxShadow='md'
+        >
+          <Flex direction='column' w='100%'>
+            {notificationIndex === 0 && (
+              <>
+                {taskList?.map((list) => (
+                  <Flex
+                    key={list.id}
+                    direction='column'
+                    color='black'
+                    py='16px'
+                    fontSize='14px'
+                    borderBottom='1px solid #000'
+                    borderColor='gray.200'
                   >
-                    {list.createdAt}
-                  </Text>
-                  <Flex fontWeight='bold' mb={list.status && '6px'}>
-                    {list.status && (
-                      <Flex>
-                        <Text
-                          onClick={() =>
-                            router.push(`/projects/${list.projectId}`)
-                          }
-                          cursor='pointer'
-                          color='blue.800'
-                        >{`「${list.title}」`}</Text>
-                        <Text>の</Text>
-                      </Flex>
-                    )}
-                    <Text>{list.content}</Text>
-                  </Flex>
-                  {list.status && (
                     <Text
-                      cursor='pointer'
+                      mb='2px'
+                      color='gray.400'
                       fontSize='12px'
                       fontWeight='bold'
-                      bgGradient='linear(to-b, #7CAAFF, #8D85F4)'
-                      bgClip='text'
-                    >{`${linkText(list.status)} >`}</Text>
-                  )}
-                </Flex>
-              ))}
-            </>
-          )}
-          {notificationIndex === 1 && (
-            <>
-              {notificationList?.map((list) => (
-                <Flex
-                  key={list.id}
-                  direction='column'
-                  color='black'
-                  py='16px'
-                  fontSize='14px'
-                  borderBottom='1px solid #000'
-                  borderColor='gray.200'
-                >
-                  <Text
-                    mb='2px'
-                    color='gray.400'
-                    fontSize='12px'
-                    fontWeight='bold'
-                  >
-                    {list.createdAt}
-                  </Text>
-                  <Flex fontWeight='bold' mb={list.status && '6px'}>
-                    <Text>{list.content}</Text>
+                    >
+                      {list.createdAt}
+                    </Text>
+                    <Flex fontWeight='bold' mb={list.status && '6px'}>
+                      {list.status && (
+                        <Flex>
+                          <Text
+                            onClick={() =>
+                              router.push(`/projects/${list.projectId}`)
+                            }
+                            cursor='pointer'
+                            color='blue.800'
+                          >{`「${list.title}」`}</Text>
+                          <Text>の</Text>
+                        </Flex>
+                      )}
+                      <Text>{list.content}</Text>
+                    </Flex>
+                    {list.status && (
+                      <Text
+                        cursor='pointer'
+                        fontSize='12px'
+                        fontWeight='bold'
+                        bgGradient='linear(to-b, #7CAAFF, #8D85F4)'
+                        bgClip='text'
+                      >{`${linkText(list.status)} >`}</Text>
+                    )}
                   </Flex>
-                </Flex>
-              ))}
-            </>
-          )}
+                ))}
+              </>
+            )}
+            {notificationIndex === 1 && (
+              <>
+                {notificationList?.map((list) => (
+                  <Flex
+                    key={list.id}
+                    direction='column'
+                    color='black'
+                    py='16px'
+                    fontSize='14px'
+                    borderBottom='1px solid #000'
+                    borderColor='gray.200'
+                  >
+                    <Text
+                      mb='2px'
+                      color='gray.400'
+                      fontSize='12px'
+                      fontWeight='bold'
+                    >
+                      {list.createdAt}
+                    </Text>
+                    <Flex fontWeight='bold' mb={list.status && '6px'}>
+                      <Text>{list.content}</Text>
+                    </Flex>
+                  </Flex>
+                ))}
+              </>
+            )}
+            {/* <Flex w='100%' h='1000px' bg='blue' direction='column'></Flex> */}
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
