@@ -45,25 +45,25 @@ const LeftSidebar = () => {
         <Flex direction='column' w='100%'>
           <SideMenuIcon
             onClick={() => router.push('/')}
-            url={'http://localhost:3000/'}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/`}
           >
             <SignalCellularAltIcon sx={sx} />
           </SideMenuIcon>
           <SideMenuIcon
             onClick={() => router.push('/projects')}
-            url={'http://localhost:3000/projects'}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects`}
           >
             <EmojiEventsIcon sx={sx} />
           </SideMenuIcon>
           <SideMenuIcon
             onClick={() => router.push('/questions')}
-            url={'http://localhost:3000/questions'}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/questions`}
           >
             <EmojiObjectsRoundedIcon sx={sx} />
           </SideMenuIcon>
           <SideMenuIcon
             onClick={() => router.push('/notification')}
-            url={'http://localhost:3000/notification'}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/notification`}
           >
             <NotificationsRoundedIcon sx={sx} />
           </SideMenuIcon>
@@ -72,7 +72,9 @@ const LeftSidebar = () => {
           <Popover placement='right'>
             <PopoverTrigger>
               <Flex position='relative'>
-                <SideMenuIcon url={'http://localhost:3000/settings'}>
+                <SideMenuIcon
+                  url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/settings`}
+                >
                   <SettingsRoundedIcon sx={sx} />
                 </SideMenuIcon>
               </Flex>
@@ -126,7 +128,7 @@ const LeftSidebar = () => {
           </Popover>
           <SideMenuIcon
             onClick={() => router.push('/users/1')}
-            url={'http://localhost:3000/users/1'}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/1`}
           >
             <Avatar w='28px' h='28px' />
           </SideMenuIcon>
