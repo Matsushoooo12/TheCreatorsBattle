@@ -1087,13 +1087,13 @@ const RightSidebar = () => {
   )
   const projectStatusLink = () => {
     if (projectItem2.status === 'recruitment') {
-      return `http://localhost:3000/projects/${id}/join`
+      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/join`
     } else if (projectItem2.status === 'production') {
-      return `http://localhost:3000/projects/${id}/submit`
+      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
     } else if (projectItem2.status === 'vote') {
-      return `http://localhost:3000/projects/${id}/vote`
+      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
     } else {
-      return `http://localhost:3000/projects/${id}`
+      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`
     }
   }
   const modalProjectClose = () => {
@@ -1139,8 +1139,8 @@ const RightSidebar = () => {
           color='black'
           overflowY='scroll'
         >
-          {(URL === 'http://localhost:3000/' ||
-            URL === 'http://localhost:3000/notification') && (
+          {(URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/` ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/notification`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -1223,7 +1223,7 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {URL === 'http://localhost:3000/projects' && (
+          {URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects` && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -1263,8 +1263,9 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === `http://localhost:3000/users/${id}` ||
-            URL === `http://localhost:3000/users/${id}/skils/edit`) && (
+          {(URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/${id}` ||
+            URL ===
+              `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/${id}/skils/edit`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Flex alignSelf='flex-end' mb='12px'>
@@ -1423,10 +1424,13 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === `http://localhost:3000/projects/${id}` ||
-            URL === `http://localhost:3000/projects/${id}/done` ||
-            URL === `http://localhost:3000/projects/${id}/submit` ||
-            URL === `http://localhost:3000/projects/${id}/vote`) && (
+          {(URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}` ||
+            URL ===
+              `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/done` ||
+            URL ===
+              `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit` ||
+            URL ===
+              `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
@@ -1435,9 +1439,9 @@ const RightSidebar = () => {
                       {isLogin && (
                         <>
                           {URL ===
-                            `http://localhost:3000/projects/${id}/submit` ||
+                            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit` ||
                           URL ===
-                            `http://localhost:3000/projects/${id}/vote` ? (
+                            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote` ? (
                             <>
                               <Text
                                 mb='8px'
@@ -1874,11 +1878,11 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === 'http://localhost:3000/questions' ||
-            URL === 'http://localhost:3000/questions/new') && (
+          {(URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/questions` ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/questions/new`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
-                {URL === 'http://localhost:3000/questions' && (
+                {URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/questions` && (
                   <>
                     <Text
                       cursor='pointer'
@@ -1906,7 +1910,8 @@ const RightSidebar = () => {
                     <QuestionRankingList rankingList={questionList} />
                   </>
                 )}
-                {URL === 'http://localhost:3000/questions/new' && (
+                {URL ===
+                  `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/questions/new` && (
                   <>
                     <Text
                       color='blue.800'
@@ -2276,7 +2281,8 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {URL === `http://localhost:3000/works/${id}/edit` && (
+          {URL ===
+            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/works/${id}/edit` && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <>
@@ -2615,8 +2621,9 @@ const RightSidebar = () => {
             </Flex>
           )}
           {(URL ===
-            `http://localhost:3000/projects/${id}/works/${myWorks1.id}` ||
-            URL === `http://localhost:3000/works/${myWorks1.id}`) && (
+            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/works/${myWorks1.id}` ||
+            URL ===
+              `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/works/${myWorks1.id}`) && (
             <Flex w='328px' direction='column' mb='56px'>
               {currentUser ? (
                 <Text fontWeight='bold' mb='8px'>
