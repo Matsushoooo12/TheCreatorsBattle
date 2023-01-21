@@ -1,5 +1,6 @@
 import {
   Flex,
+  HStack,
   Icon,
   Input,
   Text,
@@ -8,7 +9,7 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { AiFillCamera } from 'react-icons/ai'
+import { AiFillCamera, AiOutlineDoubleRight } from 'react-icons/ai'
 import BackArrowTitle from '../../../components/atoms/BackArrowTitle'
 import PrimaryButton from '../../../components/atoms/PrimaryButton'
 import ModalCard from '../../../components/molecules/ModalCard'
@@ -21,7 +22,6 @@ const CreateQuestion = () => {
   }
   const handleClose = () => {
     onClose()
-    router.push('/questions')
   }
   return (
     <>
@@ -68,6 +68,7 @@ const CreateQuestion = () => {
               >
                 下書きを保存する
               </Text>
+              <PrimaryButton onClick={handleSubmit}>公開する</PrimaryButton>
             </Flex>
           </Flex>
           <Flex
@@ -173,22 +174,66 @@ const CreateQuestion = () => {
                 _placeholder={{ color: 'gray.400' }}
               />
             </Flex>
-            <Flex direction='column' mb='16px'>
-              <Text fontSize='12px' fontWeight='bold' mb='8px' color='gray.400'>
-                支払いポイント
-              </Text>
-              <Input
-                fontSize='14px'
-                borderColor='gray.400'
-                focusBorderColor='gray.400'
-                defaultValue={0}
-                _placeholder={{ color: 'gray.400' }}
-                w='100px'
-                type='number'
+            <HStack spacing='24px'>
+              <Flex direction='column'>
+                <Text
+                  fontSize='12px'
+                  fontWeight='bold'
+                  mb='8px'
+                  color='gray.400'
+                >
+                  自分の残ポイント
+                </Text>
+                <Input
+                  fontSize='14px'
+                  borderColor='gray.400'
+                  focusBorderColor='gray.400'
+                  defaultValue={5000}
+                  _placeholder={{ color: 'gray.400' }}
+                  w='100px'
+                  type='number'
+                />
+              </Flex>
+              <Icon
+                fontSize='24px'
+                color='gray.400'
+                as={AiOutlineDoubleRight}
               />
-            </Flex>
+              <Flex direction='column'>
+                <Text
+                  fontSize='12px'
+                  fontWeight='bold'
+                  mb='8px'
+                  color='gray.400'
+                >
+                  支払いポイント
+                </Text>
+                <Input
+                  fontSize='14px'
+                  borderColor='gray.400'
+                  focusBorderColor='gray.400'
+                  defaultValue={0}
+                  _placeholder={{ color: 'gray.400' }}
+                  w='100px'
+                  type='number'
+                />
+              </Flex>
+            </HStack>
           </Flex>
         </Flex>
+        <ModalCard
+          cancelButtonText='閉じる'
+          title='質問を投稿しました'
+          titleEmoji='🎉'
+          isOpen={isOpen}
+          onClose={handleClose}
+          size='lg'
+        >
+          <Flex direction='column' color='black' fontWeight='bold'>
+            <Text>開発お疲れさま！</Text>
+            <Text>回答が帰ってくるまで、一息ついてみる？</Text>
+          </Flex>
+        </ModalCard>
       </>
     </>
   )

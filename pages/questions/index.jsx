@@ -1,6 +1,8 @@
 import { SearchIcon } from '@chakra-ui/icons'
 import {
   Flex,
+  HStack,
+  Image,
   Input,
   InputGroup,
   InputLeftElement,
@@ -17,69 +19,94 @@ import TabItems from '../../components/molecules/TabItems'
 const allList = [
   {
     id: 1,
-    content: 'すべてです、ミッションコンプリート🌟',
+    content:
+      'すべてです、ミッションコンプリート🌟すべてです、ミッションコンプリート🌟すべてです、ミッションコンプリート🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 2,
     content: 'すべてです、ミッションコンプリート🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 3,
     content: 'すべてです、ミッションコンプリート🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 4,
     content: 'すべてです、ミッションコンプリート🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
 ]
 
 const doneList = [
   {
     id: 1,
-    content: '解決済みです、ミッションコンプリート🌟',
+    content: 'すべてです、解決済み🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 2,
-    content: '解決済みです、ミッションコンプリート🌟',
+    content: 'すべてです、解決済み🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 3,
-    content: '解決済みです、ミッションコンプリート🌟',
+    content: 'すべてです、解決済み🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 4,
-    content: '解決済みです、ミッションコンプリート🌟',
+    content: 'すべてです、解決済み🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
 ]
 
 const waitList = [
   {
     id: 1,
-    content: '回答待ちです、ミッションコンプリート🌟',
+    content: 'すべてです、回答待ち🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 2,
-    content: '回答待ちです、ミッションコンプリート🌟',
+    content: 'すべてです、回答待ち🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 3,
-    content: '回答待ちです、ミッションコンプリート🌟',
+    content: 'すべてです、回答待ち🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
   {
     id: 4,
-    content: '回答待ちです、ミッションコンプリート🌟',
+    content: 'すべてです、回答待ち🌟',
     createdAt: '2023/01/01 11:00',
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
+    number: 3,
   },
 ]
 
@@ -172,16 +199,77 @@ const QuestionList = () => {
                       borderColor='gray.200'
                     >
                       <Text
-                        mb='2px'
+                        mb='4px'
                         color='gray.400'
                         fontSize='12px'
                         fontWeight='bold'
                       >
                         {list.createdAt}
                       </Text>
-                      <Flex fontWeight='bold' mb={list.status && '6px'}>
+                      <Text
+                        fontWeight='bold'
+                        fontSize='12px'
+                        color='gray.400'
+                        mb='4px'
+                      >
+                        {list.categories?.map((c, index) =>
+                          index === 0 ? c : `・${c}`,
+                        )}
+                      </Text>
+                      <Flex fontWeight='bold' mb={'6px'}>
                         <Text>{list.content}</Text>
                       </Flex>
+                      <HStack>
+                        <Flex>
+                          <Text
+                            p='4px 8px'
+                            border='2px solid #000'
+                            borderColor='blue.300'
+                            borderRadius='full'
+                            fontSize='12px'
+                            color='blue.300'
+                          >
+                            💰 300pt
+                          </Text>
+                        </Flex>
+                        <Flex>
+                          <Text
+                            p='4px 8px'
+                            border='2px solid #000'
+                            borderColor='red.300'
+                            borderRadius='full'
+                            fontSize='12px'
+                            color='red.300'
+                          >
+                            🙋‍♀️ {list.number}人
+                          </Text>
+                        </Flex>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                      </HStack>
                     </Flex>
                   ))}
                 </>
@@ -199,16 +287,77 @@ const QuestionList = () => {
                       borderColor='gray.200'
                     >
                       <Text
-                        mb='2px'
+                        mb='4px'
                         color='gray.400'
                         fontSize='12px'
                         fontWeight='bold'
                       >
                         {list.createdAt}
                       </Text>
-                      <Flex fontWeight='bold' mb={list.status && '6px'}>
+                      <Text
+                        fontWeight='bold'
+                        fontSize='12px'
+                        color='gray.400'
+                        mb='4px'
+                      >
+                        {list.categories?.map((c, index) =>
+                          index === 0 ? c : `・${c}`,
+                        )}
+                      </Text>
+                      <Flex fontWeight='bold' mb={'6px'}>
                         <Text>{list.content}</Text>
                       </Flex>
+                      <HStack>
+                        <Flex>
+                          <Text
+                            p='4px 8px'
+                            border='2px solid #000'
+                            borderColor='blue.300'
+                            borderRadius='full'
+                            fontSize='12px'
+                            color='blue.300'
+                          >
+                            💰 300pt
+                          </Text>
+                        </Flex>
+                        <Flex>
+                          <Text
+                            p='4px 8px'
+                            border='2px solid #000'
+                            borderColor='red.300'
+                            borderRadius='full'
+                            fontSize='12px'
+                            color='red.300'
+                          >
+                            🙋‍♀️ {list.number}人
+                          </Text>
+                        </Flex>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                      </HStack>
                     </Flex>
                   ))}
                 </>
@@ -226,16 +375,77 @@ const QuestionList = () => {
                       borderColor='gray.200'
                     >
                       <Text
-                        mb='2px'
+                        mb='4px'
                         color='gray.400'
                         fontSize='12px'
                         fontWeight='bold'
                       >
                         {list.createdAt}
                       </Text>
-                      <Flex fontWeight='bold' mb={list.status && '6px'}>
+                      <Text
+                        fontWeight='bold'
+                        fontSize='12px'
+                        color='gray.400'
+                        mb='4px'
+                      >
+                        {list.categories?.map((c, index) =>
+                          index === 0 ? c : `・${c}`,
+                        )}
+                      </Text>
+                      <Flex fontWeight='bold' mb={'6px'}>
                         <Text>{list.content}</Text>
                       </Flex>
+                      <HStack>
+                        <Flex>
+                          <Text
+                            p='4px 8px'
+                            border='2px solid #000'
+                            borderColor='blue.300'
+                            borderRadius='full'
+                            fontSize='12px'
+                            color='blue.300'
+                          >
+                            💰 300pt
+                          </Text>
+                        </Flex>
+                        <Flex>
+                          <Text
+                            p='4px 8px'
+                            border='2px solid #000'
+                            borderColor='red.300'
+                            borderRadius='full'
+                            fontSize='12px'
+                            color='red.300'
+                          >
+                            🙋‍♀️ {list.number}人
+                          </Text>
+                        </Flex>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                      </HStack>
                     </Flex>
                   ))}
                 </>

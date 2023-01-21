@@ -17,73 +17,7 @@ const QuestionRankingList = ({ rankingList }) => {
   return (
     <VStack spacing='24px' mb='56px'>
       {rankingList?.map((list) => (
-        // <Flex
-        //   key={list.id}
-        //   alignItems='center'
-        //   justifyContent='space-between'
-        //   w='100%'
-        // >
-        //   <Flex
-        //     alignItems='center'
-        //     onClick={() => router.push(`/users/${list.user.id}`)}
-        //     cursor='pointer'
-        //   >
-        //     {list.rank === 1 && (
-        //       <Text mr='6px' fontWeight='bold' fontSize='22px'>
-        //         🥇
-        //       </Text>
-        //     )}
-        //     {list.rank === 2 && (
-        //       <Text mr='6px' fontWeight='bold' fontSize='22px'>
-        //         🥈
-        //       </Text>
-        //     )}
-        //     {list.rank === 3 && (
-        //       <Text mr='6px' fontWeight='bold' fontSize='22px'>
-        //         🥉
-        //       </Text>
-        //     )}
-        //     {list.rank > 3 && (
-        //       <Text mr='6px' fontWeight='bold' fontSize='22px'>
-        //         {list.rank}
-        //       </Text>
-        //     )}
-        //     <Avatar w='40px' h='40px' mr='8px' src={list.user.photoURL} />
-        //     <Flex direction='column'>
-        //       <Text fontWeight='bold' fontSize='14px'>
-        //         {list.user.displayName}
-        //       </Text>
-        //       <Text fontSize='12px' fontWeight='bold'>
-        //         {list.user.userId}
-        //       </Text>
-        //     </Flex>
-        //   </Flex>
-        //   <Flex alignItems='center'>
-        //     <Flex mr='8px' alignItems='center' fontWeight='bold'>
-        //       <Text
-        //         bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-        //         bgClip='text'
-        //       >
-        //         {list.point}
-        //       </Text>
-        //       <Text>💰</Text>
-        //     </Flex>
-        //     <Text
-        //       bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-        //       bgClip='text'
-        //       fontSize='12px'
-        //       fontWeight='bold'
-        //     >
-        //       Following
-        //     </Text>
-        //   </Flex>
-        // </Flex>
-        <Flex
-          key={list.id}
-          alignItems='center'
-          //   justifyContent='space-between'
-          w='100%'
-        >
+        <Flex key={list.id} alignItems='center' w='100%'>
           <Flex
             alignItems='center'
             onClick={() => router.push(`/users/${list.user.id}`)}
@@ -115,23 +49,41 @@ const QuestionRankingList = ({ rankingList }) => {
               </Text>
             )}
           </Flex>
-          <Flex
-            bg='white'
-            p='12px'
-            direction='column'
-            borderRadius='lg'
-            boxShadow='lg'
-            border='1px solid #000'
-            borderColor='gray.100'
-            w='100%'
-          >
-            <Text fontSize='14px' color='gray.500'>
+          <Flex p='12px' direction='column' w='100%'>
+            <Text fontSize='14px' color='gray.500' mb='4px'>
               {list.date}
+            </Text>
+            <Text fontWeight='bold' fontSize='12px' color='gray.400' mb='4px'>
+              {list.categories?.map((c, index) => (index === 0 ? c : `・${c}`))}
             </Text>
             <Text fontSize='18px' fontWeight='bold' mb='4px'>
               {list.title}
             </Text>
             <HStack>
+              <Flex>
+                <Text
+                  p='4px 8px'
+                  border='2px solid #000'
+                  borderColor='blue.300'
+                  borderRadius='full'
+                  fontSize='12px'
+                  color='blue.300'
+                >
+                  💰 {list.point}pt
+                </Text>
+              </Flex>
+              <Flex>
+                <Text
+                  p='4px 8px'
+                  border='2px solid #000'
+                  borderColor='red.300'
+                  borderRadius='full'
+                  fontSize='12px'
+                  color='red.300'
+                >
+                  🙋‍♀️ 5人
+                </Text>
+              </Flex>
               {list.skils?.map((skil) => (
                 <Flex
                   key={skil.id}
@@ -155,18 +107,6 @@ const QuestionRankingList = ({ rankingList }) => {
                   </HStack>
                 </Flex>
               ))}
-              <Flex>
-                <Text
-                  p='4px 8px'
-                  border='2px solid #000'
-                  borderColor='blue.500'
-                  borderRadius='full'
-                  fontSize='12px'
-                  color='blue.500'
-                >
-                  💰 {list.point}pt
-                </Text>
-              </Flex>
             </HStack>
           </Flex>
         </Flex>

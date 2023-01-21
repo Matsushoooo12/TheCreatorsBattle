@@ -10,5 +10,6 @@ export const useGetUrl = () => {
   const URL = `${origin}${asPath}`
   return {
     URL,
+    origin,
   }
 }

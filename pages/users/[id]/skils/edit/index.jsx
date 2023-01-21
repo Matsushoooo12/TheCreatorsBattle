@@ -34,20 +34,20 @@ const skilList = [
       'https://user-images.githubusercontent.com/66903388/213210140-82e95eca-0811-4918-b08f-a72fb1808784.png',
     level: 4,
   },
-  //   {
-  //     id: 3,
-  //     text: 'Kotlin',
-  //     thumbnail:
-  //       'https://user-images.githubusercontent.com/66903388/211631223-2f47b231-1c12-48d6-9067-68392df5c325.png',
-  //     level: 3,
-  //   },
-  //   {
-  //     id: 4,
-  //     text: 'AWS',
-  //     thumbnail:
-  //       'https://user-images.githubusercontent.com/66903388/211631369-0d2cb214-498d-4f76-9083-c56434341f24.png',
-  //     level: 4,
-  //   },
+  {
+    id: 3,
+    text: 'Kotlin',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/211631223-2f47b231-1c12-48d6-9067-68392df5c325.png',
+    level: 3,
+  },
+  {
+    id: 4,
+    text: 'AWS',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/211631369-0d2cb214-498d-4f76-9083-c56434341f24.png',
+    level: 4,
+  },
   {
     id: 5,
     text: 'Firebase',

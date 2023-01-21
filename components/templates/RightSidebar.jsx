@@ -916,6 +916,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 1,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 1,
@@ -931,6 +932,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 2,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 2,
@@ -946,6 +948,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 3,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 3,
@@ -961,6 +964,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 4,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 4,
@@ -976,6 +980,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 5,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 5,
@@ -991,6 +996,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 6,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 6,
@@ -1006,6 +1012,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 7,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 7,
@@ -1021,6 +1028,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 8,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 8,
@@ -1036,6 +1044,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 9,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 9,
@@ -1051,6 +1060,7 @@ const questionList = [
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 10,
+    categories: ['UI/UXデザイン', 'ウェブアプリ'],
     skils: [
       {
         id: 10,
@@ -1065,7 +1075,7 @@ const questionList = [
 const RightSidebar = () => {
   const router = useRouter()
   const { id, worksId } = router.query
-  const { URL } = useGetUrl()
+  const { URL, origin } = useGetUrl()
   const [isIntroduction, setIsIntroduction] = useState(false)
   const [isOpenHigherRankModal, setIsOpenHigherRankModal] = useState(false)
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
@@ -1077,13 +1087,13 @@ const RightSidebar = () => {
   )
   const projectStatusLink = () => {
     if (projectItem2.status === 'recruitment') {
-      return `http://localhost:3000/projects/${id}/join`
+      return `https://the-creators-battle/projects/${id}/join`
     } else if (projectItem2.status === 'production') {
-      return `http://localhost:3000/projects/${id}/submit`
+      return `https://the-creators-battle/projects/${id}/submit`
     } else if (projectItem2.status === 'vote') {
-      return `http://localhost:3000/projects/${id}/vote`
+      return `https://the-creators-battle/projects/${id}/vote`
     } else {
-      return `http://localhost:3000/projects/${id}`
+      return `https://the-creators-battle/projects/${id}`
     }
   }
   const modalProjectClose = () => {
@@ -1129,8 +1139,8 @@ const RightSidebar = () => {
           color='black'
           overflowY='scroll'
         >
-          {(URL === 'http://localhost:3000/' ||
-            URL === 'http://localhost:3000/notification') && (
+          {(URL === 'https://the-creators-battle/' ||
+            URL === 'https://the-creators-battle/notification') && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -1213,7 +1223,7 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {URL === 'http://localhost:3000/projects' && (
+          {URL === 'https://the-creators-battle/projects' && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -1253,8 +1263,8 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === `http://localhost:3000/users/${id}` ||
-            URL === `http://localhost:3000/users/${id}/skils/edit`) && (
+          {(URL === `https://the-creators-battle/users/${id}` ||
+            URL === `https://the-creators-battle/users/${id}/skils/edit`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Flex alignSelf='flex-end' mb='12px'>
@@ -1413,10 +1423,10 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === `http://localhost:3000/projects/${id}` ||
-            URL === `http://localhost:3000/projects/${id}/done` ||
-            URL === `http://localhost:3000/projects/${id}/submit` ||
-            URL === `http://localhost:3000/projects/${id}/vote`) && (
+          {(URL === `https://the-creators-battle/projects/${id}` ||
+            URL === `https://the-creators-battle/projects/${id}/done` ||
+            URL === `https://the-creators-battle/projects/${id}/submit` ||
+            URL === `https://the-creators-battle/projects/${id}/vote`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
@@ -1425,9 +1435,9 @@ const RightSidebar = () => {
                       {isLogin && (
                         <>
                           {URL ===
-                            `http://localhost:3000/projects/${id}/submit` ||
+                            `https://the-creators-battle/projects/${id}/submit` ||
                           URL ===
-                            `http://localhost:3000/projects/${id}/vote` ? (
+                            `https://the-creators-battle/projects/${id}/vote` ? (
                             <>
                               <Text
                                 mb='8px'
@@ -1864,11 +1874,11 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === 'http://localhost:3000/questions' ||
-            URL === 'http://localhost:3000/questions/new') && (
+          {(URL === 'https://the-creators-battle/questions' ||
+            URL === 'https://the-creators-battle/questions/new') && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
-                {URL === 'http://localhost:3000/questions' && (
+                {URL === 'https://the-creators-battle/questions' && (
                   <>
                     <Text
                       cursor='pointer'
@@ -1896,23 +1906,8 @@ const RightSidebar = () => {
                     <QuestionRankingList rankingList={questionList} />
                   </>
                 )}
-                {URL === 'http://localhost:3000/questions/new' && (
+                {URL === 'https://the-creators-battle/questions/new' && (
                   <>
-                    <Text
-                      mb='32px'
-                      cursor='pointer'
-                      color='white'
-                      borderRadius='md'
-                      boxShadow='lg'
-                      fontWeight='bold'
-                      w='100%'
-                      py='14px'
-                      textAlign='center'
-                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                      onClick={modalQuestionOpen}
-                    >
-                      質問を投稿
-                    </Text>
                     <Text
                       color='blue.800'
                       fontWeight='bold'
@@ -1988,6 +1983,18 @@ const RightSidebar = () => {
                           ビール販売アプリ
                         </Text>
                         <HStack>
+                          <Flex>
+                            <Text
+                              p='4px 8px'
+                              border='2px solid #000'
+                              borderColor='blue.300'
+                              borderRadius='full'
+                              fontSize='12px'
+                              color='blue.300'
+                            >
+                              💰 300pt
+                            </Text>
+                          </Flex>
                           <Flex
                             bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
                             p='2px'
@@ -2013,18 +2020,6 @@ const RightSidebar = () => {
                               </Text>
                             </HStack>
                           </Flex>
-                          <Flex>
-                            <Text
-                              p='4px 8px'
-                              border='2px solid #000'
-                              borderColor='blue.500'
-                              borderRadius='full'
-                              fontSize='12px'
-                              color='blue.500'
-                            >
-                              💰 300pt
-                            </Text>
-                          </Flex>
                         </HStack>
                       </Flex>
                       {/* 公開中 */}
@@ -2043,10 +2038,10 @@ const RightSidebar = () => {
                             <Text
                               p='2px 6px'
                               border='1px solid #000'
-                              borderColor='blue.500'
+                              borderColor='blue.300'
                               borderRadius='md'
                               fontSize='10px'
-                              color='blue.500'
+                              color='blue.300'
                             >
                               公開中
                             </Text>
@@ -2100,10 +2095,10 @@ const RightSidebar = () => {
                             <Text
                               p='4px 8px'
                               border='2px solid #000'
-                              borderColor='blue.500'
+                              borderColor='blue.300'
                               borderRadius='full'
                               fontSize='12px'
-                              color='blue.500'
+                              color='blue.300'
                             >
                               💰 300pt
                             </Text>
@@ -2183,10 +2178,10 @@ const RightSidebar = () => {
                             <Text
                               p='4px 8px'
                               border='2px solid #000'
-                              borderColor='blue.500'
+                              borderColor='blue.300'
                               borderRadius='full'
                               fontSize='12px'
-                              color='blue.500'
+                              color='blue.300'
                             >
                               💰 300pt
                             </Text>
@@ -2208,10 +2203,10 @@ const RightSidebar = () => {
                             <Text
                               p='2px 6px'
                               border='1px solid #000'
-                              borderColor='blue.500'
+                              borderColor='blue.300'
                               borderRadius='md'
                               fontSize='10px'
-                              color='blue.500'
+                              color='blue.300'
                             >
                               公開中
                             </Text>
@@ -2265,10 +2260,10 @@ const RightSidebar = () => {
                             <Text
                               p='4px 8px'
                               border='2px solid #000'
-                              borderColor='blue.500'
+                              borderColor='blue.300'
                               borderRadius='full'
                               fontSize='12px'
-                              color='blue.500'
+                              color='blue.300'
                             >
                               💰 300pt
                             </Text>
@@ -2281,7 +2276,7 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {URL === `http://localhost:3000/works/${id}/edit` && (
+          {URL === `https://the-creators-battle/works/${id}/edit` && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <>
@@ -2418,10 +2413,10 @@ const RightSidebar = () => {
                           <Text
                             p='2px 6px'
                             border='1px solid #000'
-                            borderColor='blue.500'
+                            borderColor='blue.300'
                             borderRadius='md'
                             fontSize='10px'
-                            color='blue.500'
+                            color='blue.300'
                           >
                             公開中
                           </Text>
@@ -2559,10 +2554,10 @@ const RightSidebar = () => {
                           <Text
                             p='2px 6px'
                             border='1px solid #000'
-                            borderColor='blue.500'
+                            borderColor='blue.300'
                             borderRadius='md'
                             fontSize='10px'
-                            color='blue.500'
+                            color='blue.300'
                           >
                             公開中
                           </Text>
@@ -2620,8 +2615,8 @@ const RightSidebar = () => {
             </Flex>
           )}
           {(URL ===
-            `http://localhost:3000/projects/${id}/works/${myWorks1.id}` ||
-            URL === `http://localhost:3000/works/${myWorks1.id}`) && (
+            `https://the-creators-battle/projects/${id}/works/${myWorks1.id}` ||
+            URL === `https://the-creators-battle/works/${myWorks1.id}`) && (
             <Flex w='328px' direction='column' mb='56px'>
               {currentUser ? (
                 <Text fontWeight='bold' mb='8px'>
