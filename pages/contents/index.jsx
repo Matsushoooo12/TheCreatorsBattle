@@ -9,7 +9,7 @@ import PrimaryButton from '../../components/atoms/PrimaryButton'
 const ContentsIndex = () => {
   const router = useRouter()
   return (
-    <Flex direction='column' minW='2000px'>
+    <Flex direction='column'>
       <Image
         objectFit='cover'
         w='200px'
@@ -159,130 +159,127 @@ const ContentsIndex = () => {
           >
             <Text>作りきるまでモチベーションを持ち続ける３つの仕組み</Text>
           </Flex>
-          <HStack
-            spacing='80px'
-            w='100%'
-            justifyContent='center'
-            alignItems='flex-start'
-          >
-            <Flex w='33%' alignItems='center' direction='column'>
-              <Flex
-                w='200px'
-                h='200px'
-                bg='gray.400'
-                borderRadius='full'
-                mb='16px'
-                position='relative'
-              >
-                <Image
-                  objectFit='cover'
-                  alt=''
-                  src='https://user-images.githubusercontent.com/66903388/213880139-334b98d4-8210-47bb-9662-26768343c318.png'
-                  position='absolute'
-                  top='0'
-                  left='0'
-                  right='0'
-                  bottom='0'
-                  margin='auto'
-                />
+          <Flex direction='column' alignItems='center'>
+            <Flex justifyContent='center' alignItems='flex-start' w='1200px'>
+              <Flex w='33%' alignItems='center' direction='column'>
+                <Flex
+                  w='200px'
+                  h='200px'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  borderRadius='full'
+                  mb='16px'
+                  position='relative'
+                >
+                  <Image
+                    objectFit='cover'
+                    alt=''
+                    src='https://user-images.githubusercontent.com/66903388/213880139-334b98d4-8210-47bb-9662-26768343c318.png'
+                    position='absolute'
+                    top='0'
+                    left='0'
+                    right='0'
+                    bottom='0'
+                    margin='auto'
+                  />
+                </Flex>
+                <Flex
+                  alignItems='center'
+                  fontSize='20px'
+                  fontWeight='bold'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  bgClip='text'
+                  justifyContent='center'
+                  direction='column'
+                  mb='16px'
+                >
+                  <Text>賞金を目指して争う</Text>
+                  <Text>自分のお金を賭けて戦う</Text>
+                </Flex>
+                <Flex direction='column' fontSize='14px'>
+                  <Text>集めた参加費から賞金が決まるコンテスト形式</Text>
+                  <Text>作らないと損という意識で本気度が上がる。</Text>
+                </Flex>
               </Flex>
-              <Flex
-                alignItems='center'
-                fontSize='20px'
-                fontWeight='bold'
-                bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                bgClip='text'
-                justifyContent='center'
-                direction='column'
-                mb='16px'
-              >
-                <Text>賞金を目指して争う</Text>
-                <Text>自分のお金を賭けて戦う</Text>
+              <Flex w='33%' alignItems='center' direction='column'>
+                <Flex
+                  w='200px'
+                  h='200px'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  borderRadius='full'
+                  mb='16px'
+                  position='relative'
+                >
+                  <Image
+                    objectFit='cover'
+                    alt=''
+                    src='https://user-images.githubusercontent.com/66903388/213880301-9561400e-426c-46c1-8451-f38a81ace860.png'
+                    position='absolute'
+                    top='0'
+                    left='0'
+                    right='0'
+                    bottom='0'
+                    margin='auto'
+                  />
+                </Flex>
+                <Flex
+                  alignItems='center'
+                  fontSize='20px'
+                  fontWeight='bold'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  bgClip='text'
+                  justifyContent='center'
+                  direction='column'
+                  mb='16px'
+                >
+                  <Text>ランキングやポイントを</Text>
+                  <Text>グラフで可視化</Text>
+                </Flex>
+                <Flex direction='column' fontSize='14px'>
+                  <Text>ランキングやポイントが可視化されることで</Text>
+                  <Text>競争心が煽られる</Text>
+                </Flex>
               </Flex>
-              <Flex direction='column' fontSize='14px'>
-                <Text>集めた参加費から賞金が決まるコンテスト形式</Text>
-                <Text>作らないと損という意識で本気度が上がる。</Text>
-              </Flex>
-            </Flex>
-            <Flex w='33%' alignItems='center' direction='column'>
-              <Flex
-                w='200px'
-                h='200px'
-                bg='gray.400'
-                borderRadius='full'
-                mb='16px'
-                position='relative'
-              >
-                <Image
-                  objectFit='cover'
-                  alt=''
-                  src='https://user-images.githubusercontent.com/66903388/213880301-9561400e-426c-46c1-8451-f38a81ace860.png'
-                  position='absolute'
-                  top='0'
-                  left='0'
-                  right='0'
-                  bottom='0'
-                  margin='auto'
-                />
-              </Flex>
-              <Flex
-                alignItems='center'
-                fontSize='20px'
-                fontWeight='bold'
-                bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                bgClip='text'
-                justifyContent='center'
-                direction='column'
-                mb='16px'
-              >
-                <Text>ランキングやポイントを</Text>
-                <Text>グラフで可視化</Text>
-              </Flex>
-              <Flex direction='column' fontSize='14px'>
-                <Text>ランキングやポイントが可視化されることで</Text>
-                <Text>競争心が煽られる</Text>
-              </Flex>
-            </Flex>
-            <Flex w='33%' alignItems='center' direction='column'>
-              <Flex
-                w='200px'
-                h='200px'
-                bg='gray.400'
-                borderRadius='full'
-                mb='16px'
-                position='relative'
-              >
-                <Image
-                  objectFit='cover'
-                  alt=''
-                  src='https://user-images.githubusercontent.com/66903388/213880319-6b13be2a-472a-49f8-a2bb-f4dc53dc4ac7.png'
-                  position='absolute'
-                  top='0'
-                  left='0'
-                  right='0'
-                  bottom='0'
-                  margin='auto'
-                />
-              </Flex>
-              <Flex
-                alignItems='center'
-                fontSize='20px'
-                fontWeight='bold'
-                bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                bgClip='text'
-                justifyContent='center'
-                direction='column'
-                mb='16px'
-              >
-                <Text>第三者から客観的な</Text>
-                <Text>レビューを貰える</Text>
-              </Flex>
-              <Flex direction='column' fontSize='14px'>
-                <Text>作品にレビューをもらうことで</Text>
-                <Text>自分の課題が明確になる</Text>
+              <Flex w='33%' alignItems='center' direction='column'>
+                <Flex
+                  w='200px'
+                  h='200px'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  borderRadius='full'
+                  mb='16px'
+                  position='relative'
+                >
+                  <Image
+                    objectFit='cover'
+                    alt=''
+                    src='https://user-images.githubusercontent.com/66903388/213880319-6b13be2a-472a-49f8-a2bb-f4dc53dc4ac7.png'
+                    position='absolute'
+                    top='0'
+                    left='0'
+                    right='0'
+                    bottom='0'
+                    margin='auto'
+                  />
+                </Flex>
+                <Flex
+                  alignItems='center'
+                  fontSize='20px'
+                  fontWeight='bold'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  bgClip='text'
+                  justifyContent='center'
+                  direction='column'
+                  mb='16px'
+                >
+                  <Text>第三者から客観的な</Text>
+                  <Text>レビューを貰える</Text>
+                </Flex>
+                <Flex direction='column' fontSize='14px'>
+                  <Text>作品にレビューをもらうことで</Text>
+                  <Text>自分の課題が明確になる</Text>
+                </Flex>
               </Flex>
             </Flex>
-          </HStack>
+          </Flex>
         </Flex>
         <Flex direction='column' mb='56px'>
           <Flex
