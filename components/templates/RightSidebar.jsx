@@ -1087,13 +1087,13 @@ const RightSidebar = () => {
   )
   const projectStatusLink = () => {
     if (projectItem2.status === 'recruitment') {
-      return `https://the-creators-battle/projects/${id}/join`
+      return `http://localhost:3000/projects/${id}/join`
     } else if (projectItem2.status === 'production') {
-      return `https://the-creators-battle/projects/${id}/submit`
+      return `http://localhost:3000/projects/${id}/submit`
     } else if (projectItem2.status === 'vote') {
-      return `https://the-creators-battle/projects/${id}/vote`
+      return `http://localhost:3000/projects/${id}/vote`
     } else {
-      return `https://the-creators-battle/projects/${id}`
+      return `http://localhost:3000/projects/${id}`
     }
   }
   const modalProjectClose = () => {
@@ -1139,8 +1139,8 @@ const RightSidebar = () => {
           color='black'
           overflowY='scroll'
         >
-          {(URL === 'https://the-creators-battle/' ||
-            URL === 'https://the-creators-battle/notification') && (
+          {(URL === 'http://localhost:3000/' ||
+            URL === 'http://localhost:3000/notification') && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -1223,7 +1223,7 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {URL === 'https://the-creators-battle/projects' && (
+          {URL === 'http://localhost:3000/projects' && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Text
@@ -1263,8 +1263,8 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === `https://the-creators-battle/users/${id}` ||
-            URL === `https://the-creators-battle/users/${id}/skils/edit`) && (
+          {(URL === `http://localhost:3000/users/${id}` ||
+            URL === `http://localhost:3000/users/${id}/skils/edit`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 <Flex alignSelf='flex-end' mb='12px'>
@@ -1423,10 +1423,10 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === `https://the-creators-battle/projects/${id}` ||
-            URL === `https://the-creators-battle/projects/${id}/done` ||
-            URL === `https://the-creators-battle/projects/${id}/submit` ||
-            URL === `https://the-creators-battle/projects/${id}/vote`) && (
+          {(URL === `http://localhost:3000/projects/${id}` ||
+            URL === `http://localhost:3000/projects/${id}/done` ||
+            URL === `http://localhost:3000/projects/${id}/submit` ||
+            URL === `http://localhost:3000/projects/${id}/vote`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
@@ -1435,9 +1435,9 @@ const RightSidebar = () => {
                       {isLogin && (
                         <>
                           {URL ===
-                            `https://the-creators-battle/projects/${id}/submit` ||
+                            `http://localhost:3000/projects/${id}/submit` ||
                           URL ===
-                            `https://the-creators-battle/projects/${id}/vote` ? (
+                            `http://localhost:3000/projects/${id}/vote` ? (
                             <>
                               <Text
                                 mb='8px'
@@ -1874,11 +1874,11 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {(URL === 'https://the-creators-battle/questions' ||
-            URL === 'https://the-creators-battle/questions/new') && (
+          {(URL === 'http://localhost:3000/questions' ||
+            URL === 'http://localhost:3000/questions/new') && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
-                {URL === 'https://the-creators-battle/questions' && (
+                {URL === 'http://localhost:3000/questions' && (
                   <>
                     <Text
                       cursor='pointer'
@@ -1906,7 +1906,7 @@ const RightSidebar = () => {
                     <QuestionRankingList rankingList={questionList} />
                   </>
                 )}
-                {URL === 'https://the-creators-battle/questions/new' && (
+                {URL === 'http://localhost:3000/questions/new' && (
                   <>
                     <Text
                       color='blue.800'
@@ -2276,7 +2276,7 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
-          {URL === `https://the-creators-battle/works/${id}/edit` && (
+          {URL === `http://localhost:3000/works/${id}/edit` && (
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <>
@@ -2615,8 +2615,8 @@ const RightSidebar = () => {
             </Flex>
           )}
           {(URL ===
-            `https://the-creators-battle/projects/${id}/works/${myWorks1.id}` ||
-            URL === `https://the-creators-battle/works/${myWorks1.id}`) && (
+            `http://localhost:3000/projects/${id}/works/${myWorks1.id}` ||
+            URL === `http://localhost:3000/works/${myWorks1.id}`) && (
             <Flex w='328px' direction='column' mb='56px'>
               {currentUser ? (
                 <Text fontWeight='bold' mb='8px'>
