@@ -1087,16 +1087,16 @@ const RightSidebar = () => {
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
   const { isLogin, isModalVisible, setIsModalVisible } = useContext(AuthContext)
   const { projectButtonText, gradientColor } = useGetStatus(
-    projectItem2.status,
-    projectItem2.isVoted,
-    projectItem2.isSubmit,
+    projectItem3.status,
+    projectItem3.isVoted,
+    projectItem3.isSubmit,
   )
   const projectStatusLink = () => {
-    if (projectItem2.status === 'recruitment') {
+    if (projectItem3.status === 'recruitment') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/join`
-    } else if (projectItem2.status === 'production') {
+    } else if (projectItem3.status === 'production') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
-    } else if (projectItem2.status === 'vote') {
+    } else if (projectItem3.status === 'vote') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
     } else {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`
@@ -1564,7 +1564,7 @@ const RightSidebar = () => {
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
-                  {projectItem2?.status !== 'done' ? (
+                  {projectItem3?.status !== 'done' ? (
                     <>
                       {isLogin && (
                         <>
@@ -1584,17 +1584,17 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem2.isVoted && '50%'}
+                                opacity={projectItem3.isVoted && '50%'}
                                 onClick={handleSubmit}
                               >
                                 {projectButtonText(URL)}
                               </Text>
-                              {projectItem2.status === 'recruitment' && (
+                              {projectItem3.status === 'recruitment' && (
                                 <Text fontWeight='bold' mb='56px'>
                                   💸 参加するのに、80pt必要です
                                 </Text>
                               )}
-                              {projectItem2.status === 'production' && (
+                              {projectItem3.status === 'production' && (
                                 <Flex w='100%' mb='56px' direction='column'>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1608,7 +1608,7 @@ const RightSidebar = () => {
                                   />
                                 </Flex>
                               )}
-                              {projectItem2.status === 'vote' && (
+                              {projectItem3.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1640,12 +1640,12 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem2.isVoted && '50%'}
+                                opacity={projectItem3.isVoted && '50%'}
                                 onClick={() => router.push(projectStatusLink())}
                               >
                                 {projectButtonText()}
                               </Text>
-                              {projectItem2.status === 'recruitment' && (
+                              {projectItem3.status === 'recruitment' && (
                                 <>
                                   <Text fontWeight='bold' mb='56px'>
                                     💸 参加するのに、80pt必要です
@@ -1677,7 +1677,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem2.status === 'production' && (
+                              {projectItem3.status === 'production' && (
                                 <>
                                   <Flex w='100%' mb='56px' direction='column'>
                                     <Text fontWeight='bold' mb='8px'>
@@ -1720,7 +1720,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem2.status === 'vote' && (
+                              {projectItem3.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -2957,7 +2957,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -2982,7 +2982,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3007,7 +3007,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3032,7 +3032,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3057,7 +3057,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3082,7 +3082,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3107,7 +3107,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3132,7 +3132,7 @@ const RightSidebar = () => {
                     <Text>2022 / 01 / 01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3157,7 +3157,7 @@ const RightSidebar = () => {
                     <Text>2022/01/01</Text>
                     <Text>¥500</Text>
                   </Flex>
-                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                  <HStack spacing='16px' alignItems='center' fontSize='20px'>
                     <Text>350pt</Text>
                     <Icon as={RxDoubleArrowRight} />
                     <Text
@@ -3174,7 +3174,7 @@ const RightSidebar = () => {
         </Flex>
       </Flex>
       {/* エントリー完了モーダル */}
-      {projectItem2.status === 'recruitment' && (
+      {projectItem3.status === 'recruitment' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3193,7 +3193,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 提出完了モーダル */}
-      {projectItem2.status === 'production' && (
+      {projectItem3.status === 'production' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3213,7 +3213,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 投票完了モーダル */}
-      {projectItem2.status === 'vote' && (
+      {projectItem3.status === 'vote' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3282,7 +3282,7 @@ const RightSidebar = () => {
         </Flex>
       </ModalCard>
       {/* 1位モーダル */}
-      {/* <Modal
+      <Modal
         isCentered
         onClose={modalHigherRankClose}
         isOpen={isOpenHigherRankModal}
@@ -3342,9 +3342,9 @@ const RightSidebar = () => {
             </Flex>
           </ModalBody>
         </ModalContent>
-      </Modal> */}
+      </Modal>
       {/* 8位モーダル */}
-      <Modal
+      {/* <Modal
         isCentered
         onClose={modalHigherRankClose}
         isOpen={isOpenHigherRankModal}
@@ -3404,7 +3404,7 @@ const RightSidebar = () => {
             </Flex>
           </ModalBody>
         </ModalContent>
-      </Modal>
+      </Modal> */}
       <ModalCard
         cancelButtonText='閉じる'
         title='質問を投稿しました'

@@ -24,6 +24,7 @@ import GradientIcon from '../atoms/GradientIcon'
 import DeleteIcon from '@mui/icons-material/Delete'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
 import ModalCard from '../molecules/ModalCard'
+import HelpSharpIcon from '@mui/icons-material/HelpSharp'
 
 const LeftSidebar = () => {
   const router = useRouter()
@@ -132,6 +133,20 @@ const LeftSidebar = () => {
                       />
                     </GradientIcon>
                     <Text fontWeight='bold'>お支払い情報</Text>
+                  </HStack>
+                  <Flex w='100%' h='1px' bg='gray.300' my='8px' />
+                  <HStack
+                    spacing='6px'
+                    alignItems='center'
+                    cursor='pointer'
+                    onClick={() => router.push('/contents')}
+                  >
+                    <GradientIcon>
+                      <HelpSharpIcon
+                        sx={{ fontSize: '20px', fill: 'url(#linearColors)' }}
+                      />
+                    </GradientIcon>
+                    <Text fontWeight='bold'>The Creators Battleとは？</Text>
                   </HStack>
                 </Flex>
               </PopoverBody>

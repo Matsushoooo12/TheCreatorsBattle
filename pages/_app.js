@@ -11,7 +11,7 @@ export const AuthContext = createContext()
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [isSSR, setIsSSR] = useState(true)
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const { URL } = useGetUrl()
@@ -53,18 +53,20 @@ function MyApp({ Component, pageProps }) {
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signup/new` ||
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signin/new` ||
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/contents` ? (
-              <Flex
-                h='100vh'
-                w='100%'
-                bg='white'
-                justifyContent='center'
-                alignItems='center'
-                direction='column'
-                position='relative'
-                fontFamily='body'
-              >
-                <Component {...pageProps} />
-                {/* <Image
+              <>
+                {URL !== `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/contents` ? (
+                  <Flex
+                    h='100vh'
+                    w='100%'
+                    bg='white'
+                    justifyContent='center'
+                    alignItems='center'
+                    direction='column'
+                    position='relative'
+                    fontFamily='body'
+                  >
+                    <Component {...pageProps} />
+                    {/* <Image
                   cursor='pointer'
                   onClick={() => router.push('/projects')}
                   mx='2px'
@@ -76,7 +78,33 @@ function MyApp({ Component, pageProps }) {
                   top='36px'
                   left='56px'
                 /> */}
-              </Flex>
+                  </Flex>
+                ) : (
+                  <Flex
+                    h='100%'
+                    w='100%'
+                    bg='white'
+                    alignItems='center'
+                    direction='column'
+                    position='relative'
+                    fontFamily='body'
+                  >
+                    <Component {...pageProps} />
+                    {/* <Image
+                  cursor='pointer'
+                  onClick={() => router.push('/projects')}
+                  mx='2px'
+                  mb='4px'
+                  h='24px'
+                  src='https://user-images.githubusercontent.com/66903388/211488312-9300a760-999a-4407-bab9-8517ccd4c4a4.png'
+                  alt=''
+                  position='absolute'
+                  top='36px'
+                  left='56px'
+                /> */}
+                  </Flex>
+                )}
+              </>
             ) : (
               <MainContainer>
                 <Flex bg='gray.100' h='100%' direction='column' px='24px'>
