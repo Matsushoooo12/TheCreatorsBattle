@@ -62,7 +62,7 @@ const ProjectCard = (props) => {
             alignItems='center'
             justifyContent='center'
           >
-            <Text fontSize='12px'>🙋‍♀️ 人数</Text>
+            <Text fontSize='11px'>🙋‍♀️ 人数</Text>
             <Text
               fontWeight='bold'
               bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
@@ -77,7 +77,7 @@ const ProjectCard = (props) => {
             alignItems='center'
             justifyContent='center'
           >
-            <Text fontSize='12px'>💰 獲得ポイント</Text>
+            <Text fontSize='11px'>💰 獲得ポイント</Text>
             <Text
               fontWeight='bold'
               bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
@@ -92,7 +92,7 @@ const ProjectCard = (props) => {
             alignItems='center'
             justifyContent='center'
           >
-            <Text fontSize='12px'>💣 残り</Text>
+            <Text fontSize='11px'>💣 残り</Text>
             <Text
               fontWeight='bold'
               bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'

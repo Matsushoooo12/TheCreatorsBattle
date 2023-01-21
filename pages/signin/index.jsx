@@ -41,7 +41,6 @@ const SignIn = () => {
             cursor='pointer'
             onClick={() => router.push('/')}
             mx='2px'
-            mb='4px'
             h='16px'
             src='https://user-images.githubusercontent.com/66903388/211488312-9300a760-999a-4407-bab9-8517ccd4c4a4.png'
             alt=''

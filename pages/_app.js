@@ -61,6 +61,7 @@ function MyApp({ Component, pageProps }) {
                 alignItems='center'
                 direction='column'
                 position='relative'
+                fontFamily='body'
               >
                 <Component {...pageProps} />
                 {/* <Image

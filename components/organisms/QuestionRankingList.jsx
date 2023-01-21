@@ -62,7 +62,13 @@ const QuestionRankingList = ({ rankingList }) => {
             <Text fontWeight='bold' fontSize='12px' color='gray.400' mb='4px'>
               {list.categories?.map((c, index) => (index === 0 ? c : `・${c}`))}
             </Text>
-            <Text fontSize='18px' fontWeight='bold' mb='4px'>
+            <Text
+              fontSize='18px'
+              fontWeight='bold'
+              mb='4px'
+              onClick={() => router.push(`/questions/${list.id}`)}
+              cursor='pointer'
+            >
               {list.title}
             </Text>
             <HStack>

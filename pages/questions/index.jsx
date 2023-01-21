@@ -117,6 +117,7 @@ const waitList2 = []
 const QuestionList = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const router = useRouter()
+  const { id } = router.query
   const [questionIndex, setQuestionIndex] = useState(0)
   const toggleQuestion = (index) => {
     setQuestionIndex(index)
@@ -216,7 +217,12 @@ const QuestionList = () => {
                           index === 0 ? c : `・${c}`,
                         )}
                       </Text>
-                      <Flex fontWeight='bold' mb={'6px'}>
+                      <Flex
+                        fontWeight='bold'
+                        mb={'6px'}
+                        onClick={() => router.push(`/questions/${list.id}`)}
+                        cursor='pointer'
+                      >
                         <Text>{list.content}</Text>
                       </Flex>
                       <HStack>

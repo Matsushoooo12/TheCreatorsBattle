@@ -6,7 +6,7 @@ import RightSidebar from './RightSidebar'
 const MainContainer = (props) => {
   const { children } = props
   return (
-    <Flex>
+    <Flex fontFamily='body'>
       <LeftSidebar />
       <Flex
         flex={1}

@@ -18,7 +18,13 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React, { useContext, useEffect, useState } from 'react'
-import { AiFillGithub, AiFillStar, AiFillTwitterCircle } from 'react-icons/ai'
+import {
+  AiFillGithub,
+  AiFillStar,
+  AiFillTwitterCircle,
+  AiOutlineArrowLeft,
+  AiOutlineDoubleRight,
+} from 'react-icons/ai'
 import { useGetUrl } from '../../hooks/useGetUrl'
 import ProjectCard from '../molecules/ProjectCard'
 import RankingList from '../organisms/RankingList'
@@ -1263,14 +1269,138 @@ const RightSidebar = () => {
               </Flex>
             </Flex>
           )}
+          {URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/questions/${id}` && (
+            <Flex direction='column'>
+              <Flex w='328px' direction='column'>
+                <Flex
+                  w='100%'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  borderRadius='2xl'
+                  direction='column'
+                  p='12px 16px'
+                  mb='16px'
+                  boxShadow='lg'
+                >
+                  <Flex alignItems='center' mb='10px'>
+                    <Avatar w='64px' h='64px' mr='12px' />
+                    <Flex direction='column' color='white'>
+                      <Text fontSize='22px' fontWeight='bold'>
+                        やまもとみずき
+                      </Text>
+                      <Text>@zukki</Text>
+                    </Flex>
+                  </Flex>
+                  <HStack w='100%' spacing='8px'>
+                    <Flex
+                      w='33%'
+                      h='56px'
+                      bg='rgba(255, 255, 255, 0.1)'
+                      borderRadius='4px'
+                      direction='column'
+                      alignItems='center'
+                      justifyContent='center'
+                      color='white'
+                      fontWeight='bold'
+                    >
+                      <Text fontSize='12px'>ポイント</Text>
+                      <Text fontSize='18px'>3,000</Text>
+                    </Flex>
+                    <Flex
+                      w='33%'
+                      h='56px'
+                      bg='rgba(255, 255, 255, 0.1)'
+                      borderRadius='4px'
+                      direction='column'
+                      alignItems='center'
+                      justifyContent='center'
+                      color='white'
+                      fontWeight='bold'
+                    >
+                      <Text fontSize='12px'>フォロワー</Text>
+                      <Text fontSize='18px'>15</Text>
+                    </Flex>
+                    <Flex
+                      w='33%'
+                      h='56px'
+                      bg='rgba(255, 255, 255, 0.1)'
+                      borderRadius='4px'
+                      direction='column'
+                      alignItems='center'
+                      justifyContent='center'
+                      color='white'
+                      fontWeight='bold'
+                    >
+                      <Text fontSize='12px'>フォロー</Text>
+                      <Text fontSize='18px'>99</Text>
+                    </Flex>
+                  </HStack>
+                </Flex>
+                <Flex
+                  w='100%'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  borderRadius='2xl'
+                  direction='column'
+                  p='12px 16px'
+                  mb='16px'
+                  boxShadow='lg'
+                >
+                  <HStack w='100%' spacing='8px'>
+                    <Flex
+                      w='40%'
+                      h='56px'
+                      bg='rgba(255, 255, 255, 0.1)'
+                      borderRadius='4px'
+                      direction='column'
+                      alignItems='center'
+                      justifyContent='center'
+                      color='white'
+                      fontWeight='bold'
+                    >
+                      <Text fontSize='12px'>獲得ポイント</Text>
+                      <Text fontSize='18px'>3,000</Text>
+                    </Flex>
+                    <Flex
+                      w='20%'
+                      h='56px'
+                      bg='rgba(255, 255, 255, 0.1)'
+                      borderRadius='4px'
+                      direction='column'
+                      alignItems='center'
+                      justifyContent='center'
+                      color='white'
+                      fontWeight='bold'
+                    >
+                      <Icon as={AiOutlineDoubleRight} fontSize='18px' />
+                    </Flex>
+                    <Flex
+                      w='40%'
+                      h='56px'
+                      bg='rgba(255, 255, 255, 0.1)'
+                      borderRadius='4px'
+                      direction='column'
+                      alignItems='center'
+                      justifyContent='center'
+                      color='white'
+                      fontWeight='bold'
+                    >
+                      <Text fontSize='12px'>残りポイント</Text>
+                      <Text fontSize='18px'>140</Text>
+                    </Flex>
+                  </HStack>
+                </Flex>
+              </Flex>
+            </Flex>
+          )}
           {(URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/${id}` ||
             URL ===
               `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/${id}/skils/edit`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
-                <Flex alignSelf='flex-end' mb='12px'>
-                  <EditButton onClick={modalIntroductionOpen} />
-                </Flex>
+                {isLogin && (
+                  <Flex alignSelf='flex-end' mb='12px'>
+                    <EditButton onClick={modalIntroductionOpen} />
+                  </Flex>
+                )}
                 <Flex
                   w='100%'
                   bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
