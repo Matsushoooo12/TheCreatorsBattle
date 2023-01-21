@@ -29,7 +29,9 @@ export const useGetStatus = (status, isVoted, isSubmit) => {
     if (status === 'recruitment') {
       return '参加する >'
     } else if (status === 'production') {
-      if (url !== `http://localhost:3000/projects/${id}/submit`) {
+      if (
+        url !== `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
+      ) {
         if (!isSubmit) {
           return '提出する >'
         } else {
@@ -39,7 +41,9 @@ export const useGetStatus = (status, isVoted, isSubmit) => {
         return '提出完了する'
       }
     } else if (status === 'vote') {
-      if (url !== `http://localhost:3000/projects/${id}/vote`) {
+      if (
+        url !== `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
+      ) {
         if (!isVoted) {
           return '投票する >'
         } else {

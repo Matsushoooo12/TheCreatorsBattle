@@ -46,11 +46,12 @@ function MyApp({ Component, pageProps }) {
       <ChakraProvider theme={theme}>
         {!isSSR && (
           <>
-            {(isLogin === false && URL === 'http://localhost:3000/') ||
-            URL === 'http://localhost:3000/signup' ||
-            URL === 'http://localhost:3000/signin' ||
-            URL === 'http://localhost:3000/signup/new' ||
-            URL === 'http://localhost:3000/signin/new' ? (
+            {(isLogin === false &&
+              URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/`) ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signup` ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signin` ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signup/new` ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signin/new` ? (
               <Flex
                 h='100vh'
                 w='100%'

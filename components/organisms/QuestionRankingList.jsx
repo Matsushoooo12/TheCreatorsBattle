@@ -15,9 +15,15 @@ import { RxReload } from 'react-icons/rx'
 const QuestionRankingList = ({ rankingList }) => {
   const router = useRouter()
   return (
-    <VStack spacing='24px' mb='56px'>
+    <Flex direction='column' mb='56px'>
       {rankingList?.map((list) => (
-        <Flex key={list.id} alignItems='center' w='100%'>
+        <Flex
+          key={list.id}
+          alignItems='center'
+          w='100%'
+          borderBottom='1px solid #000'
+          borderColor='gray.200'
+        >
           <Flex
             alignItems='center'
             onClick={() => router.push(`/users/${list.user.id}`)}
@@ -111,7 +117,7 @@ const QuestionRankingList = ({ rankingList }) => {
           </Flex>
         </Flex>
       ))}
-    </VStack>
+    </Flex>
   )
 }
 

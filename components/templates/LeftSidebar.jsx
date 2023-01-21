@@ -3,6 +3,7 @@ import {
   Avatar,
   Flex,
   HStack,
+  Image,
   Popover,
   PopoverBody,
   PopoverCloseButton,
@@ -38,10 +39,20 @@ const LeftSidebar = () => {
         alignItems='center'
         direction='column'
         boxShadow='lg'
-        pt='120px'
+        pt='160px'
         pb='40px'
         justifyContent='space-between'
+        position='relative'
       >
+        <Flex direction='column' position='absolute' top='10' left='0' w='100%'>
+          <SideMenuIcon onClick={() => router.push('/')}>
+            <Image
+              src='https://user-images.githubusercontent.com/66903388/213845543-f8732feb-fe6f-47da-b2b5-e564dc67ef55.png'
+              w='28px'
+              alt=''
+            />
+          </SideMenuIcon>
+        </Flex>
         <Flex direction='column' w='100%'>
           <SideMenuIcon
             onClick={() => router.push('/')}
