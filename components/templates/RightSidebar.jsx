@@ -39,7 +39,7 @@ import ReviewChart from '../organisms/ReviewChart'
 import PrimaryButton from '../atoms/PrimaryButton'
 import { SearchIcon } from '@chakra-ui/icons'
 import { RiDeleteBin6Line } from 'react-icons/ri'
-import { RxReload } from 'react-icons/rx'
+import { RxDoubleArrowRight, RxReload } from 'react-icons/rx'
 import QuestionRankingList from '../organisms/QuestionRankingList'
 
 const inProgressProjects = [
@@ -2797,6 +2797,247 @@ const RightSidebar = () => {
                 <Avatar mb='4px' mr='4px' w='32px' h='32px' />
                 <Avatar mb='4px' mr='4px' w='32px' h='32px' />
                 <Avatar mb='4px' mr='4px' w='32px' h='32px' />
+              </Flex>
+            </Flex>
+          )}
+          {URL ===
+            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/settings/payment` && (
+            <Flex w='328px' direction='column' mb='56px'>
+              <Text
+                color='blue.800'
+                fontWeight='bold'
+                fontSize='22px'
+                mb='16px'
+              >
+                お支払内容
+              </Text>
+              <Flex direction='column'>
+                {/* お支払内容一覧 */}
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022 / 01 / 01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
+                <Flex
+                  direction='column'
+                  py='24px'
+                  borderBottom='1px solid #000'
+                  borderColor='gray.200'
+                >
+                  <Flex
+                    alignItems='center'
+                    justifyContent='space-between'
+                    mb='4px'
+                  >
+                    <Text>2022/01/01</Text>
+                    <Text>¥500</Text>
+                  </Flex>
+                  <HStack spacing='16px' alignItems='center' fontSize='24px'>
+                    <Text>350pt</Text>
+                    <Icon as={RxDoubleArrowRight} />
+                    <Text
+                      bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                      bgClip='text'
+                    >
+                      700pt
+                    </Text>
+                  </HStack>
+                </Flex>
               </Flex>
             </Flex>
           )}

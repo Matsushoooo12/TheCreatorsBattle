@@ -11,7 +11,7 @@ export const AuthContext = createContext()
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [isSSR, setIsSSR] = useState(true)
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const { URL } = useGetUrl()
@@ -51,7 +51,8 @@ function MyApp({ Component, pageProps }) {
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signup` ||
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signin` ||
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signup/new` ||
-            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signin/new` ? (
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signin/new` ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/contents` ? (
               <Flex
                 h='100vh'
                 w='100%'

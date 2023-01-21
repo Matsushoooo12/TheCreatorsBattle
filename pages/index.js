@@ -1,4 +1,4 @@
-import { Flex, Image, Text } from '@chakra-ui/react'
+import { Flex, Image, Text, Tooltip } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import ArrowLink from '../components/atoms/ArrowLink'
@@ -16,14 +16,23 @@ export default function Home() {
         <DashboardContainer />
       ) : (
         <TopContainer>
-          <Image
-            mb='56px'
-            objectFit='cover'
-            w='418px'
-            h='45px'
-            src='https://user-images.githubusercontent.com/66903388/211488312-9300a760-999a-4407-bab9-8517ccd4c4a4.png'
-            alt=''
-          />
+          <Tooltip
+            label='The Creators Battleとは？'
+            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+            color='white'
+            placement='top'
+          >
+            <Image
+              mb='56px'
+              objectFit='cover'
+              w='418px'
+              h='45px'
+              src='https://user-images.githubusercontent.com/66903388/211488312-9300a760-999a-4407-bab9-8517ccd4c4a4.png'
+              alt=''
+              onClick={() => router.push('/contents')}
+              cursor='pointer'
+            />
+          </Tooltip>
           <Text
             mb='16px'
             fontSize='42px'
