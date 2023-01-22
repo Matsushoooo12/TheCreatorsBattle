@@ -2757,7 +2757,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        SQLのJOINがわかりません
+                        ヨガを楽しくするアプリ
                       </Text>
                       <HStack>
                         <Flex
@@ -2782,6 +2782,31 @@ const RightSidebar = () => {
                             />
                             <Text bg='white' fontSize='12px'>
                               Next.js
+                            </Text>
+                          </HStack>
+                        </Flex>
+                        <Flex
+                          bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                          p='2px'
+                          borderRadius='full'
+                          alignItems='center'
+                          justifyContent='center'
+                        >
+                          <HStack
+                            borderRadius='full'
+                            bg='white'
+                            alignItems='center'
+                            justifyContent='center'
+                            p='4px 8px'
+                          >
+                            <Image
+                              w='16px'
+                              h='16px'
+                              src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
+                              alt=''
+                            />
+                            <Text bg='white' fontSize='12px'>
+                              Firebase
                             </Text>
                           </HStack>
                         </Flex>
@@ -2828,7 +2853,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        gitのブランチ管理がわかりません
+                        カロリーを減らすアプリ
                       </Text>
                       <HStack>
                         <Flex
@@ -2899,7 +2924,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        HTTPのステータスコードがわかりません
+                        フットボールを楽しくするアプリ
                       </Text>
                       <HStack>
                         <Flex
@@ -2969,7 +2994,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        Linuxのシェルスクリプトがわかりません
+                        ダイエットを楽しくするアプリ
                       </Text>
                       <HStack>
                         <Flex
