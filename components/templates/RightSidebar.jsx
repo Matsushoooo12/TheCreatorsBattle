@@ -2686,21 +2686,6 @@ const RightSidebar = () => {
               <Flex w='328px' direction='column' mb='56px'>
                 <>
                   <Text
-                    mb='32px'
-                    cursor='pointer'
-                    color='white'
-                    borderRadius='md'
-                    boxShadow='lg'
-                    fontWeight='bold'
-                    w='100%'
-                    py='14px'
-                    textAlign='center'
-                    bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                    onClick={modalQuestionOpen}
-                  >
-                    質問を投稿
-                  </Text>
-                  <Text
                     color='blue.800'
                     fontWeight='bold'
                     fontSize='22px'
