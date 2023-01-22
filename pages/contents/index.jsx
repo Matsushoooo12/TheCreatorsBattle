@@ -167,7 +167,7 @@ const ContentsIndex = () => {
                     <Image
                       objectFit='cover'
                       alt=''
-                      src='https://user-images.githubusercontent.com/66903388/213880139-334b98d4-8210-47bb-9662-26768343c318.png'
+                      src='https://user-images.githubusercontent.com/66903388/213921284-5c55f682-864f-46dc-9328-6da868379cc9.png'
                       position='absolute'
                       top='0'
                       left='0'
@@ -206,7 +206,7 @@ const ContentsIndex = () => {
                     <Image
                       objectFit='cover'
                       alt=''
-                      src='https://user-images.githubusercontent.com/66903388/213880301-9561400e-426c-46c1-8451-f38a81ace860.png'
+                      src='https://user-images.githubusercontent.com/66903388/213921435-5764b775-b028-4fb6-9f9c-d06dd78368b9.png'
                       position='absolute'
                       top='0'
                       left='0'
@@ -245,7 +245,7 @@ const ContentsIndex = () => {
                     <Image
                       objectFit='cover'
                       alt=''
-                      src='https://user-images.githubusercontent.com/66903388/213880319-6b13be2a-472a-49f8-a2bb-f4dc53dc4ac7.png'
+                      src='https://user-images.githubusercontent.com/66903388/213921311-d92f966d-4383-41bc-8c88-fd0257079d80.png'
                       position='absolute'
                       top='0'
                       left='0'
