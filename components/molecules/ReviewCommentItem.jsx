@@ -15,14 +15,7 @@ const ReviewCommentItem = (props) => {
   return (
     <Flex w='100%' direction='column'>
       <Flex w='100%'>
-        <Image
-          bg='gray.500'
-          w='120px'
-          h='80px'
-          alt=''
-          mr='16px'
-          src={worksThumbnail}
-        />
+        <Image w='120px' h='80px' alt='' mr='16px' src={worksThumbnail} />
         <Flex direction='column'>
           <Text fontSize='12px' color='gray.500' mb='10px'>
             {date}

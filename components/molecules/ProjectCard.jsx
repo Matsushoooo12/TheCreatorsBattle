@@ -34,7 +34,6 @@ const ProjectCard = (props) => {
         <Image
           w='100%'
           h='100%'
-          bg='gray.500'
           alt=''
           borderTopLeftRadius='2xl'
           borderTopRightRadius='2xl'
