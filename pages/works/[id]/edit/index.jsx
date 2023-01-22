@@ -17,6 +17,7 @@ import {
 import BackArrowTitle from '../../../../components/atoms/BackArrowTitle'
 import { useRouter } from 'next/router'
 import { AiFillCamera } from 'react-icons/ai'
+import PrimaryButton from '../../../../components/atoms/PrimaryButton'
 
 const EditWorks = () => {
   const router = useRouter()
@@ -39,6 +40,7 @@ const EditWorks = () => {
           >
             下書きを保存する
           </Text>
+          <PrimaryButton>公開する</PrimaryButton>
         </Flex>
       </Flex>
       <Flex
