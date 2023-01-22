@@ -290,8 +290,15 @@ const ContentsIndex = () => {
             </Flex>
             <Flex direction='column' alignItems='center'>
               <Flex direction='column' w='600px'>
-                <Flex bg='gray.400' p='16px' w='100%'>
-                  <Flex w='120px' h='100px' bg='gray.600' mr='16px'></Flex>
+                <Flex bg='gray.200' p='16px' w='100%'>
+                  <Image
+                    src='https://user-images.githubusercontent.com/66903388/213908249-7bd45ba6-cc72-4b18-bef5-abb4c3a539a6.png'
+                    alt=''
+                    w='120px'
+                    h='100px'
+                    objectFit='cover'
+                    mr='16px'
+                  />
                   <Flex direction='column'>
                     <Text fontSize='18px' fontWeight='bold' mb='16px'>
                       アカウント・プロフィールを登録する
@@ -308,8 +315,15 @@ const ContentsIndex = () => {
                 />
               </GradientIcon>
               <Flex direction='column' w='600px'>
-                <Flex bg='gray.400' p='16px' w='100%'>
-                  <Flex w='120px' h='100px' bg='gray.600' mr='16px'></Flex>
+                <Flex bg='gray.200' p='16px' w='100%'>
+                  <Image
+                    src='https://user-images.githubusercontent.com/66903388/213908252-f7be6df5-8147-4586-880f-594807a8a212.png'
+                    alt=''
+                    w='120px'
+                    h='100px'
+                    objectFit='cover'
+                    mr='16px'
+                  />
                   <Flex direction='column'>
                     <Text fontSize='18px' fontWeight='bold' mb='16px'>
                       参加したいプロジェクトを探す
@@ -326,8 +340,15 @@ const ContentsIndex = () => {
                 />
               </GradientIcon>
               <Flex direction='column' w='600px'>
-                <Flex bg='gray.400' p='16px' w='100%'>
-                  <Flex w='120px' h='100px' bg='gray.600' mr='16px'></Flex>
+                <Flex bg='gray.200' p='16px' w='100%'>
+                  <Image
+                    src='https://user-images.githubusercontent.com/66903388/213908253-84164ce8-8c1d-46cc-a1bd-f330d2ebf549.png'
+                    alt=''
+                    w='120px'
+                    h='100px'
+                    objectFit='cover'
+                    mr='16px'
+                  />
                   <Flex direction='column'>
                     <Text fontSize='18px' fontWeight='bold' mb='16px'>
                       参加ポイントを支払い、プロジェクトに参加する
@@ -344,14 +365,21 @@ const ContentsIndex = () => {
                 />
               </GradientIcon>
               <Flex direction='column' w='600px'>
-                <Flex bg='gray.400' p='16px' w='100%'>
-                  <Flex w='120px' h='100px' bg='gray.600' mr='16px'></Flex>
+                <Flex bg='gray.200' p='16px' w='100%'>
+                  <Image
+                    src='https://user-images.githubusercontent.com/66903388/213908255-0546275e-f929-495e-8005-8629230605ed.png'
+                    alt=''
+                    w='120px'
+                    h='100px'
+                    objectFit='cover'
+                    mr='16px'
+                  />
                   <Flex direction='column'>
                     <Text fontSize='18px' fontWeight='bold' mb='16px'>
                       テーマを元にオリジナル作品を制作する。
                     </Text>
                     <Text fontSize='14px'>
-                      参加したプロジェクトのルールを守り、作品を制作しましょう。アイデアの壁当てや質問箱を活用しながら立ち止まることなく作ることができます。
+                      参加したプロジェクトのルールを守り、作品を制作しましょう。他の参加者と協力しながら立ち止まることなく作ることができます。
                     </Text>
                   </Flex>
                 </Flex>
@@ -362,8 +390,15 @@ const ContentsIndex = () => {
                 />
               </GradientIcon>
               <Flex direction='column' w='600px'>
-                <Flex bg='gray.400' p='16px' w='100%'>
-                  <Flex w='120px' h='100px' bg='gray.600' mr='16px'></Flex>
+                <Flex bg='gray.200' p='16px' w='100%'>
+                  <Image
+                    src='https://user-images.githubusercontent.com/66903388/213908257-6e16b9c6-5485-48e6-b303-b2c2cfaef27f.png'
+                    alt=''
+                    w='120px'
+                    h='100px'
+                    objectFit='cover'
+                    mr='16px'
+                  />
                   <Flex direction='column'>
                     <Text fontSize='18px' fontWeight='bold' mb='16px'>
                       ３名以上の作品のレビュー投票を行う
@@ -380,8 +415,15 @@ const ContentsIndex = () => {
                 />
               </GradientIcon>
               <Flex direction='column' w='600px'>
-                <Flex bg='gray.400' p='16px' w='100%'>
-                  <Flex w='120px' h='100px' bg='gray.600' mr='16px'></Flex>
+                <Flex bg='gray.200' p='16px' w='100%'>
+                  <Image
+                    src='https://user-images.githubusercontent.com/66903388/213908258-bb9a3f83-dc98-4d39-9f7b-6a3a7184f954.png'
+                    alt=''
+                    w='120px'
+                    h='100px'
+                    objectFit='cover'
+                    mr='16px'
+                  />
                   <Flex direction='column'>
                     <Text fontSize='18px' fontWeight='bold' mb='16px'>
                       上位に選ばれると賞金ポイントをゲットできる
@@ -398,8 +440,15 @@ const ContentsIndex = () => {
                 />
               </GradientIcon>
               <Flex direction='column' w='600px'>
-                <Flex bg='gray.400' p='16px' w='100%'>
-                  <Flex w='120px' h='100px' bg='gray.600' mr='16px'></Flex>
+                <Flex bg='gray.200' p='16px' w='100%'>
+                  <Image
+                    src='https://user-images.githubusercontent.com/66903388/213908260-5ffd9c01-2413-4a43-a8db-96f22b2a28d6.png'
+                    alt=''
+                    w='120px'
+                    h='100px'
+                    objectFit='cover'
+                    mr='16px'
+                  />
                   <Flex direction='column'>
                     <Text fontSize='18px' fontWeight='bold' mb='16px'>
                       ポイントを使ったり、作品を世間に広めよう

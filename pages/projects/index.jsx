@@ -7,7 +7,9 @@ import ProjectList from '../../components/organisms/ProjectList'
 const todoProjects = [
   {
     id: 1,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'ゴルフを楽しくするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907364-83751dcb-7e19-4ba4-893c-de0d36d97268.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -16,7 +18,9 @@ const todoProjects = [
   },
   {
     id: 2,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'ファイターズトレーニングを楽しくするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907365-55363992-a4d2-48fb-bd07-b292ac15599f.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -25,7 +29,9 @@ const todoProjects = [
   },
   {
     id: 3,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'ウエイトリフティングを楽しくするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907367-903e9206-530e-4d5e-8601-6ad8267bbd32.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -34,7 +40,9 @@ const todoProjects = [
   },
   {
     id: 4,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'エクササイズを楽しくするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907369-5f5897ab-a673-4e1e-9cfd-0cefe879eb59.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -43,7 +51,9 @@ const todoProjects = [
   },
   {
     id: 5,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'タスクを管理するアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -52,7 +62,9 @@ const todoProjects = [
   },
   {
     id: 6,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: '旅行を計画するアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -61,7 +73,9 @@ const todoProjects = [
   },
   {
     id: 7,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: '貯金をするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -73,7 +87,9 @@ const todoProjects = [
 const inProgressProjects = [
   {
     id: 1,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: '翻訳をするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907359-827435e6-f4cd-424b-a589-1279ad40a49b.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -82,7 +98,9 @@ const inProgressProjects = [
   },
   {
     id: 2,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'フォトを編集するアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907360-7bbf5008-0264-4627-8db9-5f23b87f9f3b.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -91,7 +109,9 @@ const inProgressProjects = [
   },
   {
     id: 3,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: '通話をするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -103,7 +123,9 @@ const inProgressProjects = [
 const doneProjects = [
   {
     id: 1,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'メッセージをするアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907364-83751dcb-7e19-4ba4-893c-de0d36d97268.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -112,7 +134,9 @@ const doneProjects = [
   },
   {
     id: 2,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'ニュースを読むアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907365-55363992-a4d2-48fb-bd07-b292ac15599f.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -121,7 +145,9 @@ const doneProjects = [
   },
   {
     id: 3,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'ブログを書くアプリ',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907367-903e9206-530e-4d5e-8601-6ad8267bbd32.jpg',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
@@ -133,34 +159,35 @@ const doneProjects = [
 const Projects = () => {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  document.querySelector('.fluid')?.animate(
-    {
-      borderRadius: [
-        '50% 50% 50% 70%/50% 50% 70% 60%',
-        '80% 30% 50% 50%/50%',
-        '40% 40% 50% 40%/30% 50% 40% 80%',
-      ],
-    },
-    {
-      iterations: Infinity,
-      direction: 'alternate',
-      duration: 4000,
-    },
-  )
-  document.querySelector('.fluid4')?.animate(
-    {
-      borderRadius: [
-        '50% 50% 50% 70%/50% 50% 70% 60%',
-        '80% 30% 50% 50%/50%',
-        '40% 40% 50% 40%/30% 50% 40% 80%',
-      ],
-    },
-    {
-      iterations: Infinity,
-      direction: 'alternate',
-      duration: 4000,
-    },
-  )
+  // 流体シェイプ
+  // document.querySelector('.fluid')?.animate(
+  //   {
+  //     borderRadius: [
+  //       '50% 50% 50% 70%/50% 50% 70% 60%',
+  //       '80% 30% 50% 50%/50%',
+  //       '40% 40% 50% 40%/30% 50% 40% 80%',
+  //     ],
+  //   },
+  //   {
+  //     iterations: Infinity,
+  //     direction: 'alternate',
+  //     duration: 4000,
+  //   },
+  // )
+  // document.querySelector('.fluid4')?.animate(
+  //   {
+  //     borderRadius: [
+  //       '50% 50% 50% 70%/50% 50% 70% 60%',
+  //       '80% 30% 50% 50%/50%',
+  //       '40% 40% 50% 40%/30% 50% 40% 80%',
+  //     ],
+  //   },
+  //   {
+  //     iterations: Infinity,
+  //     direction: 'alternate',
+  //     duration: 4000,
+  //   },
+  // )
   return (
     <Flex direction='column' py='56px' position='relative'>
       <ProjectList
@@ -176,6 +203,7 @@ const Projects = () => {
             joinNumber={list.joinNumber}
             acquisitionPoints={list.acquisitionPoints}
             untilTheDeadline={list.untilTheDeadline}
+            thumbnail={list.thumbnail}
             status={list.status}
             onClick={() => router.push(`/projects/${list.id}`)}
           />
@@ -194,6 +222,7 @@ const Projects = () => {
             joinNumber={list.joinNumber}
             acquisitionPoints={list.acquisitionPoints}
             untilTheDeadline={list.untilTheDeadline}
+            thumbnail={list.thumbnail}
             status={list.status}
             onClick={() => router.push(`/projects/${list.id}`)}
           />
@@ -210,6 +239,7 @@ const Projects = () => {
             title={list.title}
             categories={list.categories}
             joinNumber={list.joinNumber}
+            thumbnail={list.thumbnail}
             acquisitionPoints={list.acquisitionPoints}
             untilTheDeadline={list.untilTheDeadline}
             status={list.status}

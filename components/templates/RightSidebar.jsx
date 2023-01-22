@@ -51,24 +51,28 @@ import QuestionRankingList from '../organisms/QuestionRankingList'
 const inProgressProjects = [
   {
     id: 1,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'マラソンを楽しくするアプリ',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
     status: 'production',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg',
   },
 ]
 
 const doneProjects = [
   {
     id: 1,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: '腹筋を楽しくするアプリ',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
     status: 'done',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907359-827435e6-f4cd-424b-a589-1279ad40a49b.jpg',
   },
   {
     id: 2,
@@ -78,15 +82,19 @@ const doneProjects = [
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
     status: 'done',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907360-7bbf5008-0264-4627-8db9-5f23b87f9f3b.jpg',
   },
   {
     id: 3,
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: '筋トレを楽しくするアプリ',
     categories: ['UI/UXデザイン', 'ウェブアプリ'],
     joinNumber: 25,
     acquisitionPoints: 3000,
     untilTheDeadline: 3,
     status: 'done',
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg',
   },
 ]
 
@@ -99,9 +107,10 @@ const rankingList = [
     rank: 1,
     user: {
       id: 1,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908443-9610dc14-3644-4e61-b428-3334e7b44c85.jpeg',
+      displayName: '宮崎駿',
+      userId: '@Hayao Miyazaki',
     },
     point: 300,
   },
@@ -110,9 +119,10 @@ const rankingList = [
     rank: 2,
     user: {
       id: 2,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908444-69d90727-82a7-4b82-bb71-7c25bfe2d3b0.jpeg',
+      displayName: '庵野秀明',
+      userId: '@Hideaki Anno',
     },
     point: 300,
   },
@@ -121,9 +131,10 @@ const rankingList = [
     rank: 3,
     user: {
       id: 3,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908445-cd0a59f8-876b-441c-a18c-381f3b2e5362.jpeg',
+      displayName: '宮本茂',
+      userId: '@Shigeru Miyamoto',
     },
     point: 300,
   },
@@ -132,9 +143,10 @@ const rankingList = [
     rank: 4,
     user: {
       id: 4,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908446-3e13d005-03a4-499e-a24d-06771c3af41a.jpeg',
+      displayName: '小島秀夫',
+      userId: '@Hideo Kojima',
     },
     point: 300,
   },
@@ -143,9 +155,10 @@ const rankingList = [
     rank: 5,
     user: {
       id: 5,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908458-b60f132a-ab6c-44f3-ae71-694a87bc2b3d.jpeg',
+      displayName: '北野武',
+      userId: '@Takeshi Kitano',
     },
     point: 300,
   },
@@ -154,9 +167,10 @@ const rankingList = [
     rank: 6,
     user: {
       id: 6,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908459-ab8c8294-ce7a-4c92-8c9a-470bb83c100a.jpeg',
+      displayName: '坂本龍一',
+      userId: '@Ryuichi Sakamoto',
     },
     point: 300,
   },
@@ -165,9 +179,10 @@ const rankingList = [
     rank: 7,
     user: {
       id: 7,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908460-e033fe38-f119-4928-9667-b3ca1b57074a.jpeg',
+      displayName: '押井守',
+      userId: '@Mamoru Oshii',
     },
     point: 300,
   },
@@ -176,9 +191,10 @@ const rankingList = [
     rank: 8,
     user: {
       id: 8,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908462-1c834253-e194-4d5b-b009-daa45513623d.jpeg',
+      displayName: '今敏',
+      userId: '@Satoshi Kon',
     },
     point: 300,
   },
@@ -187,9 +203,10 @@ const rankingList = [
     rank: 9,
     user: {
       id: 9,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908441-7d18ceb9-32cb-4ec2-9397-d9fab3651654.jpeg',
+      displayName: '竹内直子',
+      userId: '@Naoko Takeuchi',
     },
     point: 300,
   },
@@ -198,9 +215,10 @@ const rankingList = [
     rank: 10,
     user: {
       id: 10,
-      photoURL: '',
-      displayName: 'まつもと',
-      userId: '@matsushoooo12',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908443-9610dc14-3644-4e61-b428-3334e7b44c85.jpeg',
+      displayName: '大友克洋',
+      userId: '@Katsuhiro Otomo',
     },
     point: 300,
   },
@@ -208,8 +226,9 @@ const rankingList = [
 
 const myWorks1 = {
   id: 1,
-  thumbnail: '',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213905832-48f184b5-df99-4d81-82b4-7e533ffc9884.png',
+  title: 'カーディオを楽しくするアプリ',
   createdAt: '2022/01/01',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
   user: {
@@ -221,7 +240,9 @@ const myWorks1 = {
 const projectItem1 = {
   id: 1,
   status: 'recruitment',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'スイミングを楽しくするアプリ',
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpg',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
@@ -280,8 +301,10 @@ const projectItem1 = {
 const projectItem2 = {
   id: 2,
   status: 'production',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'バスケットボールを楽しくするアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -340,8 +363,10 @@ const projectItem2 = {
 const projectItem3 = {
   id: 3,
   status: 'vote',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'ランニングを楽しくするアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpgg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -400,8 +425,10 @@ const projectItem3 = {
 const projectItem4 = {
   id: 4,
   status: 'done',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'ウォーキングを楽しくするアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -459,8 +486,10 @@ const projectItem4 = {
 const projectItem5 = {
   id: 4,
   status: 'done',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'ピラティスを楽しくするアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -517,7 +546,9 @@ const projectItem5 = {
 
 const worksItem1 = {
   id: 1,
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'スキーを楽しくするアプリ',
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg',
   skils: [
     {
       id: 1,
@@ -544,6 +575,8 @@ const worksItem1 = {
     rank: 4,
     point: 15,
     views: 3000,
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg',
     data: [
       {
         subject: `ビジネス`,
@@ -590,7 +623,9 @@ const worksItem1 = {
 
 const worksItem2 = {
   id: 2,
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'バイクを楽しくするアプリ',
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg',
   skils: [
     {
       id: 1,
@@ -617,6 +652,8 @@ const worksItem2 = {
     rank: 4,
     point: 15,
     views: 3000,
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg',
     data: [
       {
         subject: `ビジネス`,
@@ -663,7 +700,9 @@ const worksItem2 = {
 
 const worksItem3 = {
   id: 3,
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: '野球を楽しくするアプリ',
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg',
   skils: [
     {
       id: 1,
@@ -690,6 +729,8 @@ const worksItem3 = {
     rank: 4,
     point: 15,
     views: 3000,
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg',
     data: [
       {
         subject: `ビジネス`,
@@ -736,7 +777,9 @@ const worksItem3 = {
 
 const worksItem4 = {
   id: 4,
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'テニスを楽しくするアプリ',
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg',
   skils: [
     {
       id: 1,
@@ -763,6 +806,8 @@ const worksItem4 = {
     rank: 4,
     point: 15,
     views: 3000,
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg',
     data: [
       {
         subject: `ビジネス`,
@@ -810,6 +855,8 @@ const worksItem4 = {
 const worksItem5 = {
   id: 5,
   title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg',
   skils: [
     {
       id: 1,
@@ -836,6 +883,8 @@ const worksItem5 = {
     rank: 4,
     point: 15,
     views: 3000,
+    thumbnail:
+      'https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg',
     data: [
       {
         subject: `ビジネス`,
@@ -918,7 +967,7 @@ const currentUser = {
 const questionList = [
   {
     id: 1,
-    title: 'ビール販売アプリビール販売',
+    title: 'Dockerのイメージとコンテナの違いがわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 1,
@@ -934,7 +983,7 @@ const questionList = [
   },
   {
     id: 2,
-    title: 'ビール販売アプリ',
+    title: 'Reactのライフサイクルメソッドがわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 2,
@@ -950,7 +999,7 @@ const questionList = [
   },
   {
     id: 3,
-    title: 'ビール販売アプリ',
+    title: 'JavaのストリームAPIがわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 3,
@@ -966,7 +1015,7 @@ const questionList = [
   },
   {
     id: 4,
-    title: 'ビール販売アプリ',
+    title: 'C#のジェネリック型がわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 4,
@@ -982,7 +1031,7 @@ const questionList = [
   },
   {
     id: 5,
-    title: 'ビール販売アプリ',
+    title: 'Node.jsのモジュールがわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 5,
@@ -998,7 +1047,7 @@ const questionList = [
   },
   {
     id: 6,
-    title: 'ビール販売アプリ',
+    title: 'HTMLのフォーム入力がわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 6,
@@ -1014,7 +1063,7 @@ const questionList = [
   },
   {
     id: 7,
-    title: 'ビール販売アプリ',
+    title: 'CSSのグリッドレイアウトがわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 7,
@@ -1030,7 +1079,7 @@ const questionList = [
   },
   {
     id: 8,
-    title: 'ビール販売アプリ',
+    title: 'Ajaxの非同期通信がわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 8,
@@ -1046,7 +1095,7 @@ const questionList = [
   },
   {
     id: 9,
-    title: 'ビール販売アプリ',
+    title: 'C++のテンプレートがわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 9,
@@ -1062,7 +1111,7 @@ const questionList = [
   },
   {
     id: 10,
-    title: 'ビール販売アプリ',
+    title: 'JavaScriptのプロトタイプチェーンがわかりません',
     date: '2023/01/01 12:00',
     point: 3000,
     rank: 10,
@@ -1087,16 +1136,16 @@ const RightSidebar = () => {
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
   const { isLogin, isModalVisible, setIsModalVisible } = useContext(AuthContext)
   const { projectButtonText, gradientColor } = useGetStatus(
-    projectItem3.status,
-    projectItem3.isVoted,
-    projectItem3.isSubmit,
+    projectItem2.status,
+    projectItem2.isVoted,
+    projectItem2.isSubmit,
   )
   const projectStatusLink = () => {
-    if (projectItem3.status === 'recruitment') {
+    if (projectItem2.status === 'recruitment') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/join`
-    } else if (projectItem3.status === 'production') {
+    } else if (projectItem2.status === 'production') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
-    } else if (projectItem3.status === 'vote') {
+    } else if (projectItem2.status === 'vote') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
     } else {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`
@@ -1169,6 +1218,7 @@ const RightSidebar = () => {
                           acquisitionPoints={project.acquisitionPoints}
                           untilTheDeadline={project.untilTheDeadline}
                           status={project.status}
+                          thumbnail={project.thumbnail}
                           onClick={() => router.push(`/projects/${project.id}`)}
                         />
                       ))}
@@ -1221,6 +1271,7 @@ const RightSidebar = () => {
                         acquisitionPoints={project.acquisitionPoints}
                         untilTheDeadline={project.untilTheDeadline}
                         status={project.status}
+                        thumbnail={project.thumbnail}
                         onClick={() => router.push(`/projects/${project.id}`)}
                       />
                     ))}
@@ -1253,7 +1304,12 @@ const RightSidebar = () => {
                     <Text mr='6px' fontWeight='bold'>
                       250
                     </Text>
-                    <Avatar w='40px' h='40px' mr='8px' />
+                    <Avatar
+                      w='40px'
+                      h='40px'
+                      mr='8px'
+                      src='https://user-images.githubusercontent.com/66903388/213908441-7d18ceb9-32cb-4ec2-9397-d9fab3651654.jpeg'
+                    />
                     <Flex direction='column'>
                       <Text fontWeight='bold' fontSize='14px'>
                         まつもと
@@ -1285,9 +1341,9 @@ const RightSidebar = () => {
                     <Avatar w='64px' h='64px' mr='12px' />
                     <Flex direction='column' color='white'>
                       <Text fontSize='22px' fontWeight='bold'>
-                        やまもとみずき
+                        まつもとしょうご
                       </Text>
-                      <Text>@zukki</Text>
+                      <Text>@matsushoooo12</Text>
                     </Flex>
                   </Flex>
                   <HStack w='100%' spacing='8px'>
@@ -1411,12 +1467,17 @@ const RightSidebar = () => {
                   boxShadow='lg'
                 >
                   <Flex alignItems='center' mb='10px'>
-                    <Avatar w='64px' h='64px' mr='12px' />
+                    <Avatar
+                      w='64px'
+                      h='64px'
+                      mr='12px'
+                      src='https://user-images.githubusercontent.com/66903388/213908441-7d18ceb9-32cb-4ec2-9397-d9fab3651654.jpeg'
+                    />
                     <Flex direction='column' color='white'>
                       <Text fontSize='22px' fontWeight='bold'>
-                        やまもとみずき
+                        まつもとしょうご
                       </Text>
-                      <Text>@zukki</Text>
+                      <Text>@matsushoooo12</Text>
                     </Flex>
                   </Flex>
                   <HStack w='100%' spacing='8px'>
@@ -1523,7 +1584,7 @@ const RightSidebar = () => {
                 {/* テキストがある場合 */}
                 <Flex direction='column' mb='24px'>
                   <Text fontSize='14px'>
-                    はじめまして、ずっきです。普段はとあるSaas企業でデザインエンジニアをしています。
+                    はじめまして、しょうごです。普段はとあるSaas企業でデザインエンジニアをしています。
                     next.jsだいすき！！
                   </Text>
                   <Text fontSize='14px'>
@@ -1564,7 +1625,7 @@ const RightSidebar = () => {
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
-                  {projectItem3?.status !== 'done' ? (
+                  {projectItem2?.status !== 'done' ? (
                     <>
                       {isLogin && (
                         <>
@@ -1584,17 +1645,17 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem3.isVoted && '50%'}
+                                opacity={projectItem2.isVoted && '50%'}
                                 onClick={handleSubmit}
                               >
                                 {projectButtonText(URL)}
                               </Text>
-                              {projectItem3.status === 'recruitment' && (
+                              {projectItem2.status === 'recruitment' && (
                                 <Text fontWeight='bold' mb='56px'>
                                   💸 参加するのに、80pt必要です
                                 </Text>
                               )}
-                              {projectItem3.status === 'production' && (
+                              {projectItem2.status === 'production' && (
                                 <Flex w='100%' mb='56px' direction='column'>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1608,7 +1669,7 @@ const RightSidebar = () => {
                                   />
                                 </Flex>
                               )}
-                              {projectItem3.status === 'vote' && (
+                              {projectItem2.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1640,12 +1701,12 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem3.isVoted && '50%'}
+                                opacity={projectItem2.isVoted && '50%'}
                                 onClick={() => router.push(projectStatusLink())}
                               >
                                 {projectButtonText()}
                               </Text>
-                              {projectItem3.status === 'recruitment' && (
+                              {projectItem2.status === 'recruitment' && (
                                 <>
                                   <Text fontWeight='bold' mb='56px'>
                                     💸 参加するのに、80pt必要です
@@ -1677,16 +1738,16 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem3.status === 'production' && (
+                              {projectItem2.status === 'production' && (
                                 <>
                                   <Flex w='100%' mb='56px' direction='column'>
                                     <Text fontWeight='bold' mb='8px'>
                                       📌 提出済みのあなたの作品
                                     </Text>
                                     <UserWorksCard
-                                      thumbnail={myWorks1.thumbnail}
                                       title={myWorks1.title}
                                       categories={myWorks1.categories}
+                                      thumbnail={myWorks1.thumbnail}
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
                                         router.push(`/works/${id}`)
@@ -1720,7 +1781,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem3.status === 'vote' && (
+                              {projectItem2.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -2115,7 +2176,7 @@ const RightSidebar = () => {
                           />
                         </Flex>
                         <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                          ビール販売アプリ
+                          JavaScriptのクロージャがわかりません
                         </Text>
                         <HStack>
                           <Flex>
@@ -2198,7 +2259,7 @@ const RightSidebar = () => {
                           />
                         </Flex>
                         <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                          ビール販売アプリ
+                          C++のポインタがわかりません
                         </Text>
                         <HStack>
                           <Flex
@@ -2281,7 +2342,7 @@ const RightSidebar = () => {
                           />
                         </Flex>
                         <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                          ビール販売アプリ
+                          Pythonのデコレータがわかりません
                         </Text>
                         <HStack>
                           <Flex
@@ -2363,7 +2424,7 @@ const RightSidebar = () => {
                           />
                         </Flex>
                         <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                          ビール販売アプリ
+                          Javaのインターフェイスがわかりません
                         </Text>
                         <HStack>
                           <Flex
@@ -2503,7 +2564,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        ビール販売アプリ
+                        SQLのJOINがわかりません
                       </Text>
                       <HStack>
                         <Flex
@@ -2574,7 +2635,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        ビール販売アプリ
+                        gitのブランチ管理がわかりません
                       </Text>
                       <HStack>
                         <Flex
@@ -2645,7 +2706,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        ビール販売アプリ
+                        HTTPのステータスコードがわかりません
                       </Text>
                       <HStack>
                         <Flex
@@ -2715,7 +2776,7 @@ const RightSidebar = () => {
                         />
                       </Flex>
                       <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                        ビール販売アプリ
+                        Linuxのシェルスクリプトがわかりません
                       </Text>
                       <HStack>
                         <Flex
@@ -3174,7 +3235,7 @@ const RightSidebar = () => {
         </Flex>
       </Flex>
       {/* エントリー完了モーダル */}
-      {projectItem3.status === 'recruitment' && (
+      {projectItem2.status === 'recruitment' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3193,7 +3254,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 提出完了モーダル */}
-      {projectItem3.status === 'production' && (
+      {projectItem2.status === 'production' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3213,7 +3274,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 投票完了モーダル */}
-      {projectItem3.status === 'vote' && (
+      {projectItem2.status === 'vote' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}

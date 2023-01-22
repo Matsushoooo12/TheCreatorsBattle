@@ -15,7 +15,7 @@ const taskList = [
   {
     id: 1,
     content: '投票期間がスタートしました。投票をしてください。',
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'トレーニングを楽しくするアプリ',
     createdAt: '2023/01/01 11:00',
     status: 'vote',
     projectId: '1',
@@ -23,7 +23,7 @@ const taskList = [
   {
     id: 2,
     content: '投票期間がスタートしました。投票をしてください。',
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'スパルタントレーニングを楽しくするアプリ',
     createdAt: '2023/01/01 11:00',
     status: 'vote',
     projectId: '2',
@@ -31,7 +31,7 @@ const taskList = [
   {
     id: 3,
     content: '制作期間がスタートしました。作品を提出してください。',
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: 'スケートを楽しくするアプリ',
     createdAt: '2023/01/01 11:00',
     status: 'production',
     projectId: '3',
@@ -39,37 +39,32 @@ const taskList = [
   {
     id: 4,
     content: 'プロジェクトが終了しました。結果を確認しましょう。',
-    title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+    title: '瞑想を楽しくするアプリ',
     status: 'done',
     createdAt: '2023/01/01 11:00',
     projectId: '4',
-  },
-  {
-    id: 5,
-    content: 'ミッションコンプリート🌟',
-    createdAt: '2023/01/01 11:00',
   },
 ]
 
 const notificationList = [
   {
     id: 1,
-    content: 'お知らせです、ミッションコンプリート🌟',
+    content: 'みずきさんからフォローされました。',
     createdAt: '2023/01/01 11:00',
   },
   {
     id: 2,
-    content: 'お知らせです、ミッションコンプリート🌟',
+    content: '作品にいいねがつけられました。',
     createdAt: '2023/01/01 11:00',
   },
   {
     id: 3,
-    content: 'お知らせです、ミッションコンプリート🌟',
+    content: '質問箱に回答が届きました。',
     createdAt: '2023/01/01 11:00',
   },
   {
     id: 4,
-    content: 'お知らせです、ミッションコンプリート🌟',
+    content: 'おすすめのプロジェクトがあります。参加しますか？',
     createdAt: '2023/01/01 11:00',
   },
 ]

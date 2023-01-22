@@ -13,6 +13,13 @@ const ProjectCard = (props) => {
     thumbnail,
     onClick,
   } = props
+  const characterCountDisplay = (text) => {
+    const string = text.substr(0, 13)
+    if (text.length > 13) {
+      return `${string}...`
+    }
+    return text
+  }
   const { gradientColor, statusText } = useGetStatus(status)
   return (
     <Flex
@@ -50,7 +57,7 @@ const ProjectCard = (props) => {
       </Flex>
       <Flex w='100%' p='8px 16px 16px' direction='column'>
         <Heading fontSize='18px' mb='2px' cursor='pointer' onClick={onClick}>
-          {title}
+          {characterCountDisplay(title)}
         </Heading>
         <Text fontWeight='bold' fontSize='12px' color='gray.400' mb='16px'>
           {categories?.map((c, index) => (index === 0 ? c : `・${c}`))}

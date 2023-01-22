@@ -161,7 +161,7 @@ const TabContainer = (props) => {
                         onClick={() => router.push(`/projects/1/works/1`)}
                         cursor='pointer'
                       >
-                        筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                        ヨガを楽しくするアプリ
                       </Text>
                       <HStack mb='48px'>
                         <Flex
@@ -281,7 +281,7 @@ const TabContainer = (props) => {
                       >
                         <Flex direction='column' justifyContent='center'>
                           <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                            筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                            カロリーを減らすアプリ
                           </Text>
                           <HStack mb='24px'>
                             <Flex
@@ -399,7 +399,7 @@ const TabContainer = (props) => {
                       >
                         <Flex direction='column' justifyContent='center'>
                           <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                            筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                            フットボールを楽しくするアプリ
                           </Text>
                           <HStack mb='24px'>
                             <Flex
@@ -524,7 +524,7 @@ const TabContainer = (props) => {
                       >
                         <Flex direction='column' justifyContent='center'>
                           <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                            筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                            ダイエットを楽しくするアプリ
                           </Text>
                           <HStack mb='24px'>
                             <Flex
@@ -647,7 +647,7 @@ const TabContainer = (props) => {
                       >
                         <Flex direction='column' justifyContent='center'>
                           <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                            筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                            健康的な食事を楽しくするアプリ
                           </Text>
                           <HStack mb='24px'>
                             <Flex

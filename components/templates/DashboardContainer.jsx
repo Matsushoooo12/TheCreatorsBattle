@@ -74,28 +74,49 @@ const reviewComments = [
   {
     id: 1,
     date: '2022/12/12. Tue',
-    text: 'デザインも綺麗でとっても好きです！頑張ってください！',
+    text: '素晴らしい作品をお見せいただきありがとうございました！あなたのクリエイティブな才能に感銘を受けました。',
     user: {
-      displayName: '松本省吾',
-      photoURL: '',
+      displayName: '宮崎駿',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908443-9610dc14-3644-4e61-b428-3334e7b44c85.jpeg',
+    },
+    works: {
+      id: 1,
+      title: 'aaaa',
+      thumbnail:
+        'https://user-images.githubusercontent.com/66903388/213907367-903e9206-530e-4d5e-8601-6ad8267bbd32.jpg',
     },
   },
   {
     id: 2,
     date: '2022/12/12. Tue',
-    text: 'デザインも綺麗でとっても好きです！頑張ってください！',
+    text: 'あなたの作品にはとても感動しました。あなたの才能に敬意を表します。',
     user: {
-      displayName: '松本省吾',
-      photoURL: '',
+      displayName: '庵野秀明',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908444-69d90727-82a7-4b82-bb71-7c25bfe2d3b0.jpeg',
+    },
+    works: {
+      id: 1,
+      title: 'aaaa',
+      thumbnail:
+        'https://user-images.githubusercontent.com/66903388/213907369-5f5897ab-a673-4e1e-9cfd-0cefe879eb59.jpg',
     },
   },
   {
     id: 3,
     date: '2022/12/12. Tue',
-    text: 'デザインも綺麗でとっても好きです！頑張ってください！',
+    text: 'クリエイティブな発想が光る作品をお見せいただき感謝します。あなたの作品を見ることが大変楽しかったです。',
     user: {
-      displayName: '松本省吾',
-      photoURL: '',
+      displayName: '宮本茂',
+      photoURL:
+        'https://user-images.githubusercontent.com/66903388/213908445-cd0a59f8-876b-441c-a18c-381f3b2e5362.jpeg',
+    },
+    works: {
+      id: 1,
+      title: 'aaaa',
+      thumbnail:
+        'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpg',
     },
   },
 ]
@@ -221,6 +242,7 @@ const DashboardContainer = () => {
               text={comment.text}
               displayName={comment.user.displayName}
               photoURL={comment.user.photoURL}
+              worksThumbnail={comment.works.thumbnail}
             />
           ))}
         </Flex>

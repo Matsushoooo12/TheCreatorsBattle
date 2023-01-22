@@ -39,7 +39,7 @@ const DetailQuestion = () => {
           </Text>
         </Flex>
         <Heading color='blue.800' fontSize='22px' mb='32px'>
-          ビール販売アプリ
+          コードを書くアプリ
         </Heading>
         <Flex direction='column' mb='32px'>
           <Text fontSize='12px' fontWeight='bold' mb='8px'>

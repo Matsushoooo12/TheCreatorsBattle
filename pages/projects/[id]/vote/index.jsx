@@ -28,7 +28,7 @@ const voteProjects = [
   {
     id: 1,
     categories: ['Webアプリ', 'ネイティブアプリ'],
-    title: 'ビール販売アプリ',
+    title: 'ショッピングをするアプリ',
     siteUrl: '',
     githubUrl: '',
     skils: [
@@ -56,7 +56,7 @@ const voteProjects = [
   {
     id: 2,
     categories: ['Webアプリ', 'ネイティブアプリ'],
-    title: 'ビール販売アプリ',
+    title: '新しい友達を作るアプリ',
     siteUrl: '',
     githubUrl: '',
     skils: [
@@ -84,7 +84,7 @@ const voteProjects = [
   {
     id: 3,
     categories: ['Webアプリ', 'ネイティブアプリ'],
-    title: 'ビール販売アプリ',
+    title: 'カメラを撮るアプリ',
     siteUrl: '',
     githubUrl: '',
     skils: [
@@ -115,7 +115,7 @@ const ProjectVoteForm = () => {
   const router = useRouter()
   const { id } = router.query
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [voteProjectIndex, setVoteProjectIndex] = useState(1)
+  const [voteProjectIndex, setVoteProjectIndex] = useState(2)
   const [ratingValue, setRatingValue] = useState(0)
   const { setIsModalVisible } = useContext(AuthContext)
   const handleVoteProject = () => {
@@ -388,7 +388,7 @@ const ProjectVoteForm = () => {
               </Text>
             </Flex>
             <Heading color='blue.800' fontSize='22px' mb='32px'>
-              ビール販売アプリ
+              単語を覚えるアプリ
             </Heading>
             <Image
               w='100%'
@@ -692,10 +692,12 @@ const ProjectVoteForm = () => {
             <Image
               w='100%'
               h='385px'
-              bg='gray.400'
+              // bg='gray.400'
               alt=''
               borderRadius='lg'
               mb='32px'
+              objectFit='cover'
+              src='https://user-images.githubusercontent.com/66903388/213907364-83751dcb-7e19-4ba4-893c-de0d36d97268.jpg'
             />
             <Flex direction='column' mb='32px'>
               <Text fontSize='12px' fontWeight='bold' mb='8px'>
@@ -997,6 +999,8 @@ const ProjectVoteForm = () => {
               alt=''
               borderRadius='lg'
               mb='32px'
+              objectFit='cover'
+              src='https://user-images.githubusercontent.com/66903388/213907364-83751dcb-7e19-4ba4-893c-de0d36d97268.jpg'
             />
             <Flex direction='column' mb='32px'>
               <Text fontSize='12px' fontWeight='bold' mb='8px'>

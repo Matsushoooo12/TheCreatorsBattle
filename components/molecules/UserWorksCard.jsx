@@ -16,11 +16,12 @@ const UserWorksCard = (props) => {
         <Image
           w='100%'
           h='100%'
-          bg='gray.500'
+          // bg='gray.500'
           alt=''
           borderTopLeftRadius='2xl'
           borderTopRightRadius='2xl'
           src={thumbnail}
+          objectFit='cover'
         />
       </Flex>
       <Flex w='100%' p='8px 16px 16px' direction='column'>

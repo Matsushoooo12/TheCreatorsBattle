@@ -19,8 +19,10 @@ import TabItem from '../../../components/atoms/TabItem'
 const projectItem1 = {
   id: 1,
   status: 'recruitment',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'ビデオを見るアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -78,8 +80,10 @@ const projectItem1 = {
 const projectItem2 = {
   id: 2,
   status: 'production',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: '音楽を聴くアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -137,8 +141,10 @@ const projectItem2 = {
 const projectItem3 = {
   id: 3,
   status: 'vote',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'スケジュールを管理するアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -197,8 +203,10 @@ const projectItem3 = {
 const projectItem4 = {
   id: 4,
   status: 'done',
-  title: '筋トレが楽しくなってもりもり筋肉がつくアプリケーション',
+  title: 'ファイルを共有するアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
+  thumbnail:
+    'https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -293,10 +301,12 @@ const DetailProject = () => {
           <Image
             w='100%'
             h='385px'
-            bg='gray.400'
+            // bg='gray.400'
             alt=''
             borderRadius='lg'
             mb='32px'
+            src={projectItem2.thumbnail}
+            objectFit='cover'
           />
           <Flex color='black' mb='32px' direction='column'>
             <Text>{projectItem2.summary}</Text>
@@ -393,6 +403,8 @@ const DetailProject = () => {
                     alt=''
                     borderRadius='lg'
                     mb='32px'
+                    src={projectItem2.thumbnail}
+                    objectFit='cover'
                   />
                   <Flex color='black' mb='32px' direction='column'>
                     <Text>{projectItem2.summary}</Text>
@@ -458,6 +470,8 @@ const DetailProject = () => {
                           bg='gray.600'
                           alt=''
                           borderLeftRadius='lg'
+                          src={projectItem2.thumbnail}
+                          objectFit='cover'
                         />
                         <Text
                           fontSize='56px'
@@ -484,7 +498,7 @@ const DetailProject = () => {
                             onClick={() => router.push(`/projects/1/works/1`)}
                             cursor='pointer'
                           >
-                            筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                            メモをするアプリ
                           </Text>
                           <HStack mb='48px'>
                             <Flex
@@ -586,6 +600,8 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
+                              src={projectItem2.thumbnail}
+                              objectFit='cover'
                             />
                             <Text
                               fontSize='56px'
@@ -604,7 +620,7 @@ const DetailProject = () => {
                           >
                             <Flex direction='column' justifyContent='center'>
                               <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                                位置を共有するアプリ
                               </Text>
                               <HStack mb='24px'>
                                 <Flex
@@ -704,6 +720,8 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
+                              src={projectItem2.thumbnail}
+                              objectFit='cover'
                             />
                             <Text
                               fontSize='56px'
@@ -722,7 +740,7 @@ const DetailProject = () => {
                           >
                             <Flex direction='column' justifyContent='center'>
                               <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                                予約をするアプリ
                               </Text>
                               <HStack mb='24px'>
                                 <Flex
@@ -824,6 +842,8 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
+                              src={projectItem2.thumbnail}
+                              objectFit='cover'
                             />
                             <Center
                               fontSize='22px'
@@ -847,7 +867,7 @@ const DetailProject = () => {
                           >
                             <Flex direction='column' justifyContent='center'>
                               <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                                ショッピングをするアプリ
                               </Text>
                               <HStack mb='24px'>
                                 <Flex
@@ -947,6 +967,8 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
+                              src={projectItem2.thumbnail}
+                              objectFit='cover'
                             />
                             <Center
                               fontSize='22px'
@@ -970,7 +992,7 @@ const DetailProject = () => {
                           >
                             <Flex direction='column' justifyContent='center'>
                               <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                筋トレが楽しくなってもりもり筋肉がつくアプリケーション
+                                新しい友達を作るアプリ
                               </Text>
                               <HStack mb='24px'>
                                 <Flex
@@ -1074,6 +1096,8 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
+                            src={projectItem2.thumbnail}
+                            objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
                             <Text fontWeight='bold' mb='4px'>
@@ -1146,6 +1170,8 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
+                            src={projectItem2.thumbnail}
+                            objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
                             <Text fontWeight='bold' mb='4px'>
@@ -1218,6 +1244,8 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
+                            src={projectItem2.thumbnail}
+                            objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
                             <Text fontWeight='bold' mb='4px'>
@@ -1292,6 +1320,8 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
+                            src={projectItem2.thumbnail}
+                            objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
                             <Text fontWeight='bold' mb='4px'>
@@ -1364,6 +1394,8 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
+                            src={projectItem2.thumbnail}
+                            objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
                             <Text fontWeight='bold' mb='4px'>
@@ -1436,6 +1468,8 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
+                            src={projectItem2.thumbnail}
+                            objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
                             <Text fontWeight='bold' mb='4px'>

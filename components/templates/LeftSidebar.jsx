@@ -156,7 +156,11 @@ const LeftSidebar = () => {
             onClick={() => router.push('/users/1')}
             url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/1`}
           >
-            <Avatar w='28px' h='28px' />
+            <Avatar
+              w='28px'
+              h='28px'
+              src='https://user-images.githubusercontent.com/66903388/213908441-7d18ceb9-32cb-4ec2-9397-d9fab3651654.jpeg'
+            />
           </SideMenuIcon>
         </Flex>
       </Flex>

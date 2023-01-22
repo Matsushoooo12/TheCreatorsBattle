@@ -11,11 +11,18 @@ import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
 
 const ReviewCommentItem = (props) => {
-  const { date, text, displayName, photoURL } = props
+  const { date, text, displayName, photoURL, worksThumbnail } = props
   return (
     <Flex w='100%' direction='column'>
       <Flex w='100%'>
-        <Image bg='gray.500' w='120px' h='80px' alt='' mr='16px' />
+        <Image
+          bg='gray.500'
+          w='120px'
+          h='80px'
+          alt=''
+          mr='16px'
+          src={worksThumbnail}
+        />
         <Flex direction='column'>
           <Text fontSize='12px' color='gray.500' mb='10px'>
             {date}
