@@ -366,7 +366,7 @@ const projectItem3 = {
   title: 'ランニングを楽しくするアプリ',
   categories: ['UI/UXデザイン', 'ウェブアプリ'],
   thumbnail:
-    'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpgg',
+    'https://user-images.githubusercontent.com/66903388/213907354-f4555c40-f60f-42db-b322-e9e27df68b06.jpeg',
   summary:
     '未来の社会に進むにつれ当然ながらテクノロジーの発展は必要不可欠なものとなります。しかし発展しすぎたテクノロジーは果たして人類が使いこなせるものなのでしょうか？\nいま世界中で「気候危機」が叫ばれています。世界平均気温は工業化前と比べて、2011～2020で1.09℃上昇していると言われ、今世紀末までには最大5.7℃の上昇が予測されています。そのような中、様々なレベルで具体的な対策が検討され、既に実施も進んでいるものもありますが、その多くはエコな素材の使用であったりリサイクルに関するものが多いのではないでしょうか。\nもしかしたら。エンジニアリングの力で気候危機を回避できるかもしれない。積極的にテクノロジーの力を借りて気候危機の回避にチャレンジできるアイデアがあるのではないか？ Future Design Challengeではともに問題解決に取り組む世界中の若い才能あふれるクリエーターとイノベーターによるアイデアを募集します。',
   recommendation:
@@ -1136,16 +1136,16 @@ const RightSidebar = () => {
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
   const { isLogin, isModalVisible, setIsModalVisible } = useContext(AuthContext)
   const { projectButtonText, gradientColor } = useGetStatus(
-    projectItem2.status,
-    projectItem2.isVoted,
-    projectItem2.isSubmit,
+    projectItem1.status,
+    projectItem1.isVoted,
+    projectItem1.isSubmit,
   )
   const projectStatusLink = () => {
-    if (projectItem2.status === 'recruitment') {
+    if (projectItem1.status === 'recruitment') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/join`
-    } else if (projectItem2.status === 'production') {
+    } else if (projectItem1.status === 'production') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
-    } else if (projectItem2.status === 'vote') {
+    } else if (projectItem1.status === 'vote') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
     } else {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`
@@ -1180,7 +1180,7 @@ const RightSidebar = () => {
     setIsQuestionModalOpen(false)
   }
   // useEffect(() => {
-  //   modalHigherRankOpen()
+  // modalHigherRankOpen()
   // }, [])
   return (
     <>
@@ -1625,7 +1625,7 @@ const RightSidebar = () => {
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
-                  {projectItem2?.status !== 'done' ? (
+                  {projectItem1?.status !== 'done' ? (
                     <>
                       {isLogin && (
                         <>
@@ -1645,17 +1645,17 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem2.isVoted && '50%'}
+                                opacity={projectItem1.isVoted && '50%'}
                                 onClick={handleSubmit}
                               >
                                 {projectButtonText(URL)}
                               </Text>
-                              {projectItem2.status === 'recruitment' && (
+                              {projectItem1.status === 'recruitment' && (
                                 <Text fontWeight='bold' mb='56px'>
                                   💸 参加するのに、80pt必要です
                                 </Text>
                               )}
-                              {projectItem2.status === 'production' && (
+                              {projectItem1.status === 'production' && (
                                 <Flex w='100%' mb='56px' direction='column'>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1669,7 +1669,7 @@ const RightSidebar = () => {
                                   />
                                 </Flex>
                               )}
-                              {projectItem2.status === 'vote' && (
+                              {projectItem1.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1701,12 +1701,12 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem2.isVoted && '50%'}
+                                opacity={projectItem1.isVoted && '50%'}
                                 onClick={() => router.push(projectStatusLink())}
                               >
                                 {projectButtonText()}
                               </Text>
-                              {projectItem2.status === 'recruitment' && (
+                              {projectItem1.status === 'recruitment' && (
                                 <>
                                   <Text fontWeight='bold' mb='56px'>
                                     💸 参加するのに、80pt必要です
@@ -1738,7 +1738,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem2.status === 'production' && (
+                              {projectItem1.status === 'production' && (
                                 <>
                                   <Flex w='100%' mb='56px' direction='column'>
                                     <Text fontWeight='bold' mb='8px'>
@@ -1781,7 +1781,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem2.status === 'vote' && (
+                              {projectItem1.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1867,7 +1867,11 @@ const RightSidebar = () => {
                           mr='4px'
                           mb='4px'
                         >
-                          <Avatar w='28px' h='28px' />
+                          <Avatar
+                            w='28px'
+                            h='28px'
+                            src='https://user-images.githubusercontent.com/66903388/213917179-63b8c6d2-0205-452b-b109-9bc50f64764b.jpg'
+                          />
                         </Center>
                         <Center
                           w='32px'
@@ -1877,24 +1881,124 @@ const RightSidebar = () => {
                           mr='4px'
                           mb='4px'
                         >
-                          <Avatar w='28px' h='28px' />
+                          <Avatar
+                            w='28px'
+                            h='28px'
+                            src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
+                          />
                         </Center>
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917173-058112fa-b9af-4491-9316-95329b1c22e6.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917177-d607255e-dc04-42e8-ab30-c95e6b7b5700.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917178-1dc1c08e-7502-4070-919e-50e5dcda7647.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917179-63b8c6d2-0205-452b-b109-9bc50f64764b.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917180-dba9b831-9da6-4e58-baec-88e5e57b194c.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917182-dd2afdd5-46c8-48a8-8d3a-5d39bfb450b6.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917183-9abf09dd-7910-4275-ba15-3b09c606bad3.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917187-d2284cd3-bb7b-49b3-a785-1be7751661d8.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917189-2918c797-f1fe-4261-8e2b-835493907145.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917191-39e4eeeb-cb4d-4b22-96e4-c515943ccca8.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917193-628a986f-29aa-4100-85d9-29a2ed45fea4.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917195-89582a4b-7ffc-4e29-8c3b-5c3987db9722.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917197-87a6f0af-aa00-4af2-a719-54ab6ea044d3.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917198-189e62df-06f9-4196-921b-a96a49e124fb.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917200-2d1aee75-2691-48bc-842d-3dbacdf62023.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
                       </Flex>
                     </>
                   ) : (
@@ -2034,7 +2138,11 @@ const RightSidebar = () => {
                           mr='4px'
                           mb='4px'
                         >
-                          <Avatar w='28px' h='28px' />
+                          <Avatar
+                            w='28px'
+                            h='28px'
+                            src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
+                          />
                         </Center>
                         <Center
                           w='32px'
@@ -2044,24 +2152,124 @@ const RightSidebar = () => {
                           mr='4px'
                           mb='4px'
                         >
-                          <Avatar w='28px' h='28px' />
+                          <Avatar
+                            w='28px'
+                            h='28px'
+                            src='https://user-images.githubusercontent.com/66903388/213917183-9abf09dd-7910-4275-ba15-3b09c606bad3.jpg'
+                          />
                         </Center>
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                        <Avatar mb='4px' mr='4px' w='32px' h='32px' />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917173-058112fa-b9af-4491-9316-95329b1c22e6.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917177-d607255e-dc04-42e8-ab30-c95e6b7b5700.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917178-1dc1c08e-7502-4070-919e-50e5dcda7647.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917179-63b8c6d2-0205-452b-b109-9bc50f64764b.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917180-dba9b831-9da6-4e58-baec-88e5e57b194c.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917182-dd2afdd5-46c8-48a8-8d3a-5d39bfb450b6.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917183-9abf09dd-7910-4275-ba15-3b09c606bad3.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917187-d2284cd3-bb7b-49b3-a785-1be7751661d8.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917189-2918c797-f1fe-4261-8e2b-835493907145.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917191-39e4eeeb-cb4d-4b22-96e4-c515943ccca8.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917193-628a986f-29aa-4100-85d9-29a2ed45fea4.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917195-89582a4b-7ffc-4e29-8c3b-5c3987db9722.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917197-87a6f0af-aa00-4af2-a719-54ab6ea044d3.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917198-189e62df-06f9-4196-921b-a96a49e124fb.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
+                        <Avatar
+                          src='https://user-images.githubusercontent.com/66903388/213917200-2d1aee75-2691-48bc-842d-3dbacdf62023.jpg'
+                          mb='4px'
+                          mr='4px'
+                          w='32px'
+                          h='32px'
+                        />
                       </Flex>
                     </>
                   )}
@@ -2960,7 +3168,11 @@ const RightSidebar = () => {
                   mr='4px'
                   mb='4px'
                 >
-                  <Avatar w='28px' h='28px' />
+                  <Avatar
+                    src='https://user-images.githubusercontent.com/66903388/213917180-dba9b831-9da6-4e58-baec-88e5e57b194c.jpg'
+                    w='28px'
+                    h='28px'
+                  />
                 </Center>
                 <Center
                   w='32px'
@@ -2970,24 +3182,124 @@ const RightSidebar = () => {
                   mr='4px'
                   mb='4px'
                 >
-                  <Avatar w='28px' h='28px' />
+                  <Avatar
+                    src="src='https://user-images.githubusercontent.com/66903388/213917197-87a6f0af-aa00-4af2-a719-54ab6ea044d3.jpg'"
+                    w='28px'
+                    h='28px'
+                  />
                 </Center>
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
-                <Avatar mb='4px' mr='4px' w='32px' h='32px' />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917173-058112fa-b9af-4491-9316-95329b1c22e6.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917177-d607255e-dc04-42e8-ab30-c95e6b7b5700.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917178-1dc1c08e-7502-4070-919e-50e5dcda7647.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917179-63b8c6d2-0205-452b-b109-9bc50f64764b.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917180-dba9b831-9da6-4e58-baec-88e5e57b194c.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917182-dd2afdd5-46c8-48a8-8d3a-5d39bfb450b6.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917183-9abf09dd-7910-4275-ba15-3b09c606bad3.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917187-d2284cd3-bb7b-49b3-a785-1be7751661d8.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917189-2918c797-f1fe-4261-8e2b-835493907145.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917191-39e4eeeb-cb4d-4b22-96e4-c515943ccca8.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917193-628a986f-29aa-4100-85d9-29a2ed45fea4.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917195-89582a4b-7ffc-4e29-8c3b-5c3987db9722.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917197-87a6f0af-aa00-4af2-a719-54ab6ea044d3.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917198-189e62df-06f9-4196-921b-a96a49e124fb.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
+                <Avatar
+                  src='https://user-images.githubusercontent.com/66903388/213917200-2d1aee75-2691-48bc-842d-3dbacdf62023.jpg'
+                  mb='4px'
+                  mr='4px'
+                  w='32px'
+                  h='32px'
+                />
               </Flex>
             </Flex>
           )}
@@ -3235,7 +3547,7 @@ const RightSidebar = () => {
         </Flex>
       </Flex>
       {/* エントリー完了モーダル */}
-      {projectItem2.status === 'recruitment' && (
+      {projectItem1.status === 'recruitment' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3254,7 +3566,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 提出完了モーダル */}
-      {projectItem2.status === 'production' && (
+      {projectItem1.status === 'production' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3274,7 +3586,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 投票完了モーダル */}
-      {projectItem2.status === 'vote' && (
+      {projectItem1.status === 'vote' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3343,7 +3655,7 @@ const RightSidebar = () => {
         </Flex>
       </ModalCard>
       {/* 1位モーダル */}
-      <Modal
+      {/* <Modal
         isCentered
         onClose={modalHigherRankClose}
         isOpen={isOpenHigherRankModal}
@@ -3403,9 +3715,9 @@ const RightSidebar = () => {
             </Flex>
           </ModalBody>
         </ModalContent>
-      </Modal>
+      </Modal> */}
       {/* 8位モーダル */}
-      {/* <Modal
+      <Modal
         isCentered
         onClose={modalHigherRankClose}
         isOpen={isOpenHigherRankModal}
@@ -3465,7 +3777,7 @@ const RightSidebar = () => {
             </Flex>
           </ModalBody>
         </ModalContent>
-      </Modal> */}
+      </Modal>
       <ModalCard
         cancelButtonText='閉じる'
         title='質問を投稿しました'

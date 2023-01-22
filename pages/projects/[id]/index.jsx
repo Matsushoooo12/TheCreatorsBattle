@@ -262,7 +262,7 @@ const projectItem4 = {
 }
 
 const DetailProject = () => {
-  const { gradientColor, statusText } = useGetStatus(projectItem2.status)
+  const { gradientColor, statusText } = useGetStatus(projectItem1.status)
   const router = useRouter()
   const { id } = router.query
   const [doneIndex, setDoneIndex] = useState(0)
@@ -275,7 +275,7 @@ const DetailProject = () => {
         onClick={() => router.push('/projects')}
         text='プロジェクト一覧'
       />
-      {projectItem2.status !== 'done' ? (
+      {projectItem1.status !== 'done' ? (
         <Flex w='100%' bg='white' p='24px' borderRadius='lg' direction='column'>
           <Flex alignItems='center' mb='8px'>
             <Text
@@ -290,13 +290,13 @@ const DetailProject = () => {
               {statusText()}
             </Text>
             <Text fontWeight='bold' fontSize='12px' color='gray.400'>
-              {projectItem2.categories?.map((c, index) =>
+              {projectItem3.categories?.map((c, index) =>
                 index === 0 ? c : `・${c}`,
               )}
             </Text>
           </Flex>
           <Heading color='blue.800' fontSize='22px' mb='32px'>
-            {projectItem2.title}
+            {projectItem3.title}
           </Heading>
           <Image
             w='100%'
@@ -305,18 +305,18 @@ const DetailProject = () => {
             alt=''
             borderRadius='lg'
             mb='32px'
-            src={projectItem2.thumbnail}
+            src={projectItem3.thumbnail}
             objectFit='cover'
           />
           <Flex color='black' mb='32px' direction='column'>
-            <Text>{projectItem2.summary}</Text>
+            <Text>{projectItem3.summary}</Text>
           </Flex>
           <Flex direction='column' mb='32px'>
             <Text fontSize='18px' fontWeight='bold' color='blue.800' mb='10px'>
               参加におすすめな人
             </Text>
             <Flex color='black' direction='column'>
-              <Text>{projectItem2.recommendation}</Text>
+              <Text>{projectItem3.recommendation}</Text>
             </Flex>
           </Flex>
           <Flex direction='column' mb='32px'>
@@ -324,7 +324,7 @@ const DetailProject = () => {
               ルール
             </Text>
             <Flex color='black' direction='column'>
-              <Text>{projectItem2.rule}</Text>
+              <Text>{projectItem3.rule}</Text>
             </Flex>
           </Flex>
           <Flex direction='column'>
@@ -332,7 +332,7 @@ const DetailProject = () => {
               提出形式
             </Text>
             <Flex color='black' direction='column'>
-              {projectItem2.formats?.map((f) => (
+              {projectItem3.formats?.map((f) => (
                 <Text key={f.id}>{f.text}</Text>
               ))}
             </Flex>
@@ -388,13 +388,13 @@ const DetailProject = () => {
                       {statusText()}
                     </Text>
                     <Text fontWeight='bold' fontSize='12px' color='gray.400'>
-                      {projectItem2.categories?.map((c, index) =>
+                      {projectItem3.categories?.map((c, index) =>
                         index === 0 ? c : `・${c}`,
                       )}
                     </Text>
                   </Flex>
                   <Heading color='blue.800' fontSize='22px' mb='32px'>
-                    {projectItem2.title}
+                    {projectItem3.title}
                   </Heading>
                   <Image
                     w='100%'
@@ -403,11 +403,11 @@ const DetailProject = () => {
                     alt=''
                     borderRadius='lg'
                     mb='32px'
-                    src={projectItem2.thumbnail}
+                    src={projectItem3.thumbnail}
                     objectFit='cover'
                   />
                   <Flex color='black' mb='32px' direction='column'>
-                    <Text>{projectItem2.summary}</Text>
+                    <Text>{projectItem3.summary}</Text>
                   </Flex>
                   <Flex direction='column' mb='32px'>
                     <Text
@@ -419,7 +419,7 @@ const DetailProject = () => {
                       参加におすすめな人
                     </Text>
                     <Flex color='black' direction='column'>
-                      <Text>{projectItem2.recommendation}</Text>
+                      <Text>{projectItem3.recommendation}</Text>
                     </Flex>
                   </Flex>
                   <Flex direction='column' mb='32px'>
@@ -432,7 +432,7 @@ const DetailProject = () => {
                       ルール
                     </Text>
                     <Flex color='black' direction='column'>
-                      <Text>{projectItem2.rule}</Text>
+                      <Text>{projectItem3.rule}</Text>
                     </Flex>
                   </Flex>
                   <Flex direction='column'>
@@ -445,7 +445,7 @@ const DetailProject = () => {
                       提出形式
                     </Text>
                     <Flex color='black' direction='column'>
-                      {projectItem2.formats?.map((f) => (
+                      {projectItem3.formats?.map((f) => (
                         <Text key={f.id}>{f.text}</Text>
                       ))}
                     </Flex>
@@ -470,7 +470,7 @@ const DetailProject = () => {
                           bg='gray.600'
                           alt=''
                           borderLeftRadius='lg'
-                          src={projectItem2.thumbnail}
+                          src='https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg'
                           objectFit='cover'
                         />
                         <Text
@@ -600,7 +600,7 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
-                              src={projectItem2.thumbnail}
+                              src='https://user-images.githubusercontent.com/66903388/213907359-827435e6-f4cd-424b-a589-1279ad40a49b.jpg'
                               objectFit='cover'
                             />
                             <Text
@@ -720,7 +720,7 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
-                              src={projectItem2.thumbnail}
+                              src='https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
                               objectFit='cover'
                             />
                             <Text
@@ -842,7 +842,7 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
-                              src={projectItem2.thumbnail}
+                              src='https://user-images.githubusercontent.com/66903388/213907360-7bbf5008-0264-4627-8db9-5f23b87f9f3b.jpg'
                               objectFit='cover'
                             />
                             <Center
@@ -967,7 +967,7 @@ const DetailProject = () => {
                               alt=''
                               borderTopRadius='lg'
                               h='180px'
-                              src={projectItem2.thumbnail}
+                              src='https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg'
                               objectFit='cover'
                             />
                             <Center
@@ -1096,7 +1096,7 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
-                            src={projectItem2.thumbnail}
+                            src='https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
                             objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
@@ -1170,7 +1170,7 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
-                            src={projectItem2.thumbnail}
+                            src='https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg'
                             objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
@@ -1244,7 +1244,7 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
-                            src={projectItem2.thumbnail}
+                            src='https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
                             objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
@@ -1320,7 +1320,7 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
-                            src={projectItem2.thumbnail}
+                            src='https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg'
                             objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
@@ -1394,7 +1394,7 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
-                            src={projectItem2.thumbnail}
+                            src='https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
                             objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
@@ -1468,7 +1468,7 @@ const DetailProject = () => {
                             alt=''
                             borderTopRadius='lg'
                             h='122px'
-                            src={projectItem2.thumbnail}
+                            src='https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg'
                             objectFit='cover'
                           />
                           <Flex direction='column' p='16px 12px'>
