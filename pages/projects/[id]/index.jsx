@@ -262,7 +262,7 @@ const projectItem4 = {
 }
 
 const DetailProject = () => {
-  const { gradientColor, statusText } = useGetStatus(projectItem1.status)
+  const { gradientColor, statusText } = useGetStatus(projectItem2.status)
   const router = useRouter()
   const { id } = router.query
   const [doneIndex, setDoneIndex] = useState(0)

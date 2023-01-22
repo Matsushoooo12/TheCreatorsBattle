@@ -1136,16 +1136,16 @@ const RightSidebar = () => {
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
   const { isLogin, isModalVisible, setIsModalVisible } = useContext(AuthContext)
   const { projectButtonText, gradientColor } = useGetStatus(
-    projectItem1.status,
-    projectItem1.isVoted,
-    projectItem1.isSubmit,
+    projectItem2.status,
+    projectItem2.isVoted,
+    projectItem2.isSubmit,
   )
   const projectStatusLink = () => {
-    if (projectItem1.status === 'recruitment') {
+    if (projectItem2.status === 'recruitment') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/join`
-    } else if (projectItem1.status === 'production') {
+    } else if (projectItem2.status === 'production') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
-    } else if (projectItem1.status === 'vote') {
+    } else if (projectItem2.status === 'vote') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
     } else {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`
@@ -1625,7 +1625,7 @@ const RightSidebar = () => {
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
-                  {projectItem1?.status !== 'done' ? (
+                  {projectItem2?.status !== 'done' ? (
                     <>
                       {isLogin && (
                         <>
@@ -1645,17 +1645,17 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem1.isVoted && '50%'}
+                                opacity={projectItem2.isVoted && '50%'}
                                 onClick={handleSubmit}
                               >
                                 {projectButtonText(URL)}
                               </Text>
-                              {projectItem1.status === 'recruitment' && (
+                              {projectItem2.status === 'recruitment' && (
                                 <Text fontWeight='bold' mb='56px'>
                                   💸 参加するのに、80pt必要です
                                 </Text>
                               )}
-                              {projectItem1.status === 'production' && (
+                              {projectItem2.status === 'production' && (
                                 <Flex w='100%' mb='56px' direction='column'>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1669,7 +1669,7 @@ const RightSidebar = () => {
                                   />
                                 </Flex>
                               )}
-                              {projectItem1.status === 'vote' && (
+                              {projectItem2.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1701,12 +1701,12 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem1.isVoted && '50%'}
+                                opacity={projectItem2.isVoted && '50%'}
                                 onClick={() => router.push(projectStatusLink())}
                               >
                                 {projectButtonText()}
                               </Text>
-                              {projectItem1.status === 'recruitment' && (
+                              {projectItem2.status === 'recruitment' && (
                                 <>
                                   <Text fontWeight='bold' mb='56px'>
                                     💸 参加するのに、80pt必要です
@@ -1738,7 +1738,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem1.status === 'production' && (
+                              {projectItem2.status === 'production' && (
                                 <>
                                   <Flex w='100%' mb='56px' direction='column'>
                                     <Text fontWeight='bold' mb='8px'>
@@ -1781,7 +1781,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem1.status === 'vote' && (
+                              {projectItem2.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -3547,7 +3547,7 @@ const RightSidebar = () => {
         </Flex>
       </Flex>
       {/* エントリー完了モーダル */}
-      {projectItem1.status === 'recruitment' && (
+      {projectItem2.status === 'recruitment' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3566,7 +3566,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 提出完了モーダル */}
-      {projectItem1.status === 'production' && (
+      {projectItem2.status === 'production' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3586,7 +3586,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 投票完了モーダル */}
-      {projectItem1.status === 'vote' && (
+      {projectItem2.status === 'vote' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
