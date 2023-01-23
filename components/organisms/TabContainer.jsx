@@ -242,7 +242,7 @@ const TabContainer = (props) => {
                       </HStack>
                       <HStack spacing='4px'>
                         <Avatar w='20px' h='20px' />
-                        <Text fontSize='12px'>やまもとみずき</Text>
+                        <Text fontSize='12px'>まつもとしょうご</Text>
                       </HStack>
                     </Flex>
                   </Flex>
@@ -362,7 +362,7 @@ const TabContainer = (props) => {
                           </HStack>
                           <HStack spacing='4px'>
                             <Avatar w='20px' h='20px' />
-                            <Text fontSize='12px'>やまもとみずき</Text>
+                            <Text fontSize='12px'>まつもとしょうご</Text>
                           </HStack>
                         </Flex>
                       </Flex>
@@ -480,7 +480,7 @@ const TabContainer = (props) => {
                           </HStack>
                           <HStack spacing='4px'>
                             <Avatar w='20px' h='20px' />
-                            <Text fontSize='12px'>やまもとみずき</Text>
+                            <Text fontSize='12px'>まつもとしょうご</Text>
                           </HStack>
                         </Flex>
                       </Flex>
@@ -605,7 +605,7 @@ const TabContainer = (props) => {
                           </HStack>
                           <HStack spacing='4px'>
                             <Avatar w='20px' h='20px' />
-                            <Text fontSize='12px'>やまもとみずき</Text>
+                            <Text fontSize='12px'>まつもとしょうご</Text>
                           </HStack>
                         </Flex>
                       </Flex>
@@ -728,7 +728,7 @@ const TabContainer = (props) => {
                           </HStack>
                           <HStack spacing='4px'>
                             <Avatar w='20px' h='20px' />
-                            <Text fontSize='12px'>やまもとみずき</Text>
+                            <Text fontSize='12px'>まつもとしょうご</Text>
                           </HStack>
                         </Flex>
                       </Flex>
