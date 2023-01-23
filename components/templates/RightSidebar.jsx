@@ -3192,27 +3192,27 @@ const RightSidebar = () => {
             URL ===
               `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/works/${myWorks1.id}`) && (
             <Flex w='328px' direction='column' mb='56px'>
-              {currentUser ? (
+              {/* {currentUser ? (
                 <Text fontWeight='bold' mb='8px'>
                   あなたの結果
                 </Text>
-              ) : (
-                <Flex alignItems='center'>
-                  <Text
-                    fontWeight='bold'
-                    fontSize='18px'
-                    mb='8px'
-                    mr='8px'
-                    bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                    bgClip='text'
-                  >
-                    やまもとみずき
-                  </Text>
-                  <Text fontWeight='bold' mb='8px'>
-                    さんの結果
-                  </Text>
-                </Flex>
-              )}
+              ) : ( */}
+              <Flex alignItems='center'>
+                <Text
+                  fontWeight='bold'
+                  fontSize='18px'
+                  mb='8px'
+                  mr='8px'
+                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                  bgClip='text'
+                >
+                  宮崎駿
+                </Text>
+                <Text fontWeight='bold' mb='8px'>
+                  さんの結果
+                </Text>
+              </Flex>
+              {/* )} */}
               <Flex
                 w='100%'
                 bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
@@ -3222,17 +3222,22 @@ const RightSidebar = () => {
                 mb='12px'
                 boxShadow='lg'
               >
-                {currentUser === 1 && (
-                  <Flex alignItems='center' mb='10px'>
-                    <Avatar w='64px' h='64px' mr='12px' />
-                    <Flex direction='column' color='white'>
-                      <Text fontSize='22px' fontWeight='bold'>
-                        やまもとみずき
-                      </Text>
-                      <Text>@zukki</Text>
-                    </Flex>
+                {/* {currentUser === 1 && ( */}
+                <Flex alignItems='center' mb='10px'>
+                  <Avatar
+                    w='64px'
+                    h='64px'
+                    mr='12px'
+                    src='https://user-images.githubusercontent.com/66903388/213908443-9610dc14-3644-4e61-b428-3334e7b44c85.jpeg'
+                  />
+                  <Flex direction='column' color='white'>
+                    <Text fontSize='22px' fontWeight='bold'>
+                      宮崎駿
+                    </Text>
+                    <Text>@Hayao Miyazaki</Text>
                   </Flex>
-                )}
+                </Flex>
+                {/* )} */}
                 <HStack w='100%' spacing='8px'>
                   <Flex
                     w='33%'
