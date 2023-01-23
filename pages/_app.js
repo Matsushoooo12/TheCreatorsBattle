@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }) {
       <ChakraProvider theme={theme}>
         {!isSSR && (
           <>
-            {(isLogin === false &&
+            {(!currentUser &&
               URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/`) ||
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signup` ||
             URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/signin` ||
