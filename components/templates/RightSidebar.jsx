@@ -1374,7 +1374,12 @@ const RightSidebar = () => {
                   boxShadow='lg'
                 >
                   <Flex alignItems='center' mb='10px'>
-                    <Avatar w='64px' h='64px' mr='12px' />
+                    <Avatar
+                      w='64px'
+                      h='64px'
+                      mr='12px'
+                      src='https://user-images.githubusercontent.com/66903388/213908443-9610dc14-3644-4e61-b428-3334e7b44c85.jpeg'
+                    />
                     <Flex direction='column' color='white'>
                       <Text fontSize='22px' fontWeight='bold'>
                         まつもとしょうご
@@ -1926,6 +1931,8 @@ const RightSidebar = () => {
                             w='28px'
                             h='28px'
                             src='https://user-images.githubusercontent.com/66903388/213917179-63b8c6d2-0205-452b-b109-9bc50f64764b.jpg'
+                            onClick={() => router.push('/users/1')}
+                            cursor='pointer'
                           />
                         </Center>
                         <Center
@@ -1940,6 +1947,8 @@ const RightSidebar = () => {
                             w='28px'
                             h='28px'
                             src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
+                            onClick={() => router.push('/users/1')}
+                            cursor='pointer'
                           />
                         </Center>
                         <Avatar
@@ -1948,6 +1957,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917177-d607255e-dc04-42e8-ab30-c95e6b7b5700.jpg'
@@ -1955,6 +1966,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917178-1dc1c08e-7502-4070-919e-50e5dcda7647.jpg'
@@ -1962,6 +1975,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917179-63b8c6d2-0205-452b-b109-9bc50f64764b.jpg'
@@ -1969,6 +1984,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917180-dba9b831-9da6-4e58-baec-88e5e57b194c.jpg'
@@ -1976,6 +1993,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917182-dd2afdd5-46c8-48a8-8d3a-5d39bfb450b6.jpg'
@@ -1983,6 +2002,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917183-9abf09dd-7910-4275-ba15-3b09c606bad3.jpg'
@@ -1990,6 +2011,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917187-d2284cd3-bb7b-49b3-a785-1be7751661d8.jpg'
@@ -1997,6 +2020,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917189-2918c797-f1fe-4261-8e2b-835493907145.jpg'
@@ -2004,6 +2029,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917191-39e4eeeb-cb4d-4b22-96e4-c515943ccca8.jpg'
@@ -2011,6 +2038,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
@@ -2018,6 +2047,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917193-628a986f-29aa-4100-85d9-29a2ed45fea4.jpg'
@@ -2025,6 +2056,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917195-89582a4b-7ffc-4e29-8c3b-5c3987db9722.jpg'
@@ -2032,6 +2065,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917197-87a6f0af-aa00-4af2-a719-54ab6ea044d3.jpg'
@@ -2039,6 +2074,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917198-189e62df-06f9-4196-921b-a96a49e124fb.jpg'
@@ -2046,6 +2083,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917200-2d1aee75-2691-48bc-842d-3dbacdf62023.jpg'
@@ -2053,6 +2092,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                       </Flex>
                     </>
@@ -2203,6 +2244,8 @@ const RightSidebar = () => {
                             w='28px'
                             h='28px'
                             src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
+                            onClick={() => router.push('/users/1')}
+                            cursor='pointer'
                           />
                         </Center>
                         <Center
@@ -2217,6 +2260,8 @@ const RightSidebar = () => {
                             w='28px'
                             h='28px'
                             src='https://user-images.githubusercontent.com/66903388/213917183-9abf09dd-7910-4275-ba15-3b09c606bad3.jpg'
+                            onClick={() => router.push('/users/1')}
+                            cursor='pointer'
                           />
                         </Center>
                         <Avatar
@@ -2225,6 +2270,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917177-d607255e-dc04-42e8-ab30-c95e6b7b5700.jpg'
@@ -2232,6 +2279,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917178-1dc1c08e-7502-4070-919e-50e5dcda7647.jpg'
@@ -2239,6 +2288,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917179-63b8c6d2-0205-452b-b109-9bc50f64764b.jpg'
@@ -2253,6 +2304,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917182-dd2afdd5-46c8-48a8-8d3a-5d39bfb450b6.jpg'
@@ -2260,12 +2313,16 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917183-9abf09dd-7910-4275-ba15-3b09c606bad3.jpg'
                           mb='4px'
                           mr='4px'
                           w='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                           h='32px'
                         />
                         <Avatar
@@ -2274,6 +2331,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917189-2918c797-f1fe-4261-8e2b-835493907145.jpg'
@@ -2281,6 +2340,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917191-39e4eeeb-cb4d-4b22-96e4-c515943ccca8.jpg'
@@ -2288,6 +2349,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917192-11f57a71-b4d5-4249-a761-ff997377c35a.jpg'
@@ -2295,6 +2358,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917193-628a986f-29aa-4100-85d9-29a2ed45fea4.jpg'
@@ -2302,6 +2367,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917195-89582a4b-7ffc-4e29-8c3b-5c3987db9722.jpg'
@@ -2309,6 +2376,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917197-87a6f0af-aa00-4af2-a719-54ab6ea044d3.jpg'
@@ -2316,6 +2385,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917198-189e62df-06f9-4196-921b-a96a49e124fb.jpg'
@@ -2323,6 +2394,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                         <Avatar
                           src='https://user-images.githubusercontent.com/66903388/213917200-2d1aee75-2691-48bc-842d-3dbacdf62023.jpg'
@@ -2330,6 +2403,8 @@ const RightSidebar = () => {
                           mr='4px'
                           w='32px'
                           h='32px'
+                          onClick={() => router.push('/users/1')}
+                          cursor='pointer'
                         />
                       </Flex>
                     </>
