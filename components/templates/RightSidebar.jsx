@@ -1154,15 +1154,25 @@ const RightSidebar = () => {
     project?.isVoted,
     project?.isSubmit,
   )
+  const handleSubmit = () => {
+    setIsModalVisible(true)
+    router.push(`/projects/${id}`)
+  }
   const projectStatusLink = () => {
     if (project?.status === 'recruitment') {
-      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/join`
+      handleSubmit()
     } else if (project?.status === 'production') {
-      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
+      return router.push(
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`,
+      )
     } else if (project?.status === 'vote') {
-      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
+      return router.push(
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`,
+      )
     } else {
-      return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`
+      return router.push(
+        `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`,
+      )
     }
   }
   const modalProjectClose = () => {
@@ -1179,10 +1189,6 @@ const RightSidebar = () => {
   }
   const modalHigherRankOpen = () => {
     setIsOpenHigherRankModal(true)
-  }
-  const handleSubmit = () => {
-    setIsModalVisible(true)
-    router.push(`/projects/${id}`)
   }
 
   const modalQuestionOpen = () => {
@@ -1718,7 +1724,7 @@ const RightSidebar = () => {
                                 textAlign='center'
                                 bgGradient={gradientColor()}
                                 opacity={project?.isVoted && '50%'}
-                                onClick={() => router.push(projectStatusLink())}
+                                onClick={() => projectStatusLink()}
                               >
                                 {projectButtonText()}
                               </Text>
