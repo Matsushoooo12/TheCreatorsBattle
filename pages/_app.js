@@ -13,7 +13,7 @@ export const AuthContext = createContext()
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [isSSR, setIsSSR] = useState(true)
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState('aaa')
   const [isLogin, setIsLogin] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false)

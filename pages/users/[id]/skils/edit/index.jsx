@@ -35,13 +35,6 @@ const skilList = [
     level: 4,
   },
   {
-    id: 3,
-    text: 'Kotlin',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/211631223-2f47b231-1c12-48d6-9067-68392df5c325.png',
-    level: 3,
-  },
-  {
     id: 4,
     text: 'AWS',
     thumbnail:
@@ -53,13 +46,6 @@ const skilList = [
     text: 'Firebase',
     thumbnail:
       'https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png',
-    level: 4,
-  },
-  {
-    id: 6,
-    text: 'figma',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/213248435-cd19abac-340e-4294-abb9-fbbc86ea2ebc.png',
     level: 4,
   },
 ]

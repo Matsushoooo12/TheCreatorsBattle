@@ -63,21 +63,14 @@ const skilList = [
     text: 'Next.js',
     thumbnail:
       'https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png',
-    level: 1,
+    level: 4,
   },
   {
     id: 2,
-    text: 'TypeScript',
+    text: 'JavaScript',
     thumbnail:
-      'https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png',
-    level: 2,
-  },
-  {
-    id: 3,
-    text: 'Kotlin',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/211631223-2f47b231-1c12-48d6-9067-68392df5c325.png',
-    level: 3,
+      'https://user-images.githubusercontent.com/66903388/213210140-82e95eca-0811-4918-b08f-a72fb1808784.png',
+    level: 4,
   },
   {
     id: 4,
@@ -113,11 +106,11 @@ const DetailUser = () => {
         title='これまでの作品'
         onClick={() => router.push(`/works/${id}/edit`)}
         isEdit={true}
-        isRowScroll={userWorksList.length ? true : false}
+        isRowScroll={userWorksList2.length ? true : false}
       >
-        {userWorksList?.length ? (
+        {userWorksList2?.length ? (
           <>
-            {userWorksList?.map((list) => (
+            {userWorksList2?.map((list) => (
               <UserWorksCard
                 key={list.id}
                 thumbnail={list.thumbnail}
@@ -132,7 +125,6 @@ const DetailUser = () => {
           <NewCreateCard
             title='作品を投稿してみましょう！'
             buttonText='作品を投稿する'
-            onClick={() => router.push(`/users/${id}`)}
             isBoxShadow={true}
           >
             <Text>作品を投稿すると、ポイントがもらえるかも...🤭</Text>

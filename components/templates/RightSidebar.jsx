@@ -1479,7 +1479,8 @@ const RightSidebar = () => {
           )}
           {(URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/${id}` ||
             URL ===
-              `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/${id}/skils/edit`) && (
+              `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/users/${id}/skils/edit` ||
+            URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/works/${id}`) && (
             <Flex direction='column'>
               <Flex w='328px' direction='column'>
                 {isLogin && (
@@ -1695,7 +1696,11 @@ const RightSidebar = () => {
                                     title={myWorks1.title}
                                     categories={myWorks1.categories}
                                     createdAt={myWorks1.createdAt}
-                                    onClick={() => router.push(`/works/${id}`)}
+                                    onClick={() =>
+                                      router.push(
+                                        `projects/${id}/works/${worksId}`,
+                                      )
+                                    }
                                   />
                                 </Flex>
                               )}
@@ -1711,7 +1716,9 @@ const RightSidebar = () => {
                                       categories={myWorks1.categories}
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
-                                        router.push(`/works/${myWorks1.id}`)
+                                        router.push(
+                                          `projects/${id}/works/${worksId}`,
+                                        )
                                       }
                                     />
                                   </Flex>
@@ -1780,7 +1787,9 @@ const RightSidebar = () => {
                                       thumbnail={myWorks1.thumbnail}
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
-                                        router.push(`/works/${id}`)
+                                        router.push(
+                                          `projects/${id}/works/${worksId}`,
+                                        )
                                       }
                                     />
                                   </Flex>
@@ -1823,7 +1832,9 @@ const RightSidebar = () => {
                                       categories={myWorks1.categories}
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
-                                        router.push(`/works/${myWorks1.id}`)
+                                        router.push(
+                                          `projects/${id}/works/${worksId}`,
+                                        )
                                       }
                                     />
                                   </Flex>
@@ -2126,7 +2137,9 @@ const RightSidebar = () => {
                           title={myWorks1.title}
                           categories={myWorks1.categories}
                           createdAt={myWorks1.createdAt}
-                          onClick={() => router.push(`/works/${myWorks1.id}`)}
+                          // onClick={() =>
+                          //   router.push(`projects/${id}/works/${myWorks1.id}`)
+                          // }
                         />
                       </Flex>
                       <Flex direction='column' mb='16px'>
