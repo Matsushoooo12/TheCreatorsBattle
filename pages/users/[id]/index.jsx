@@ -126,6 +126,7 @@ const DetailUser = () => {
             title='作品を投稿してみましょう！'
             buttonText='作品を投稿する'
             isBoxShadow={true}
+            onClick={() => router.push(`/works/${id}/edit`)}
           >
             <Text>作品を投稿すると、ポイントがもらえるかも...🤭</Text>
           </NewCreateCard>
