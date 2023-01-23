@@ -223,7 +223,7 @@ const Projects = () => {
             categories={list.categories}
             joinNumber={list.joinNumber}
             acquisitionPoints={list.acquisitionPoints}
-            untilTheDeadline={4}
+            untilTheDeadline={list.untilTheDeadline ? list.untilTheDeadline : 4}
             thumbnail={list.thumbnail}
             status={list.status}
             onClick={() => router.push(`/projects/${list.id}`)}
@@ -244,7 +244,9 @@ const Projects = () => {
             acquisitionPoints={
               list.acquisitionPoints ? list.acquisitionPoints : 3000
             }
-            untilTheDeadline={4}
+            untilTheDeadline={
+              list?.untilTheDeadline ? list?.untilTheDeadline : 3
+            }
             thumbnail={list.thumbnail}
             status={list.status}
             onClick={() => router.push(`/projects/${list.id}`)}
@@ -263,8 +265,12 @@ const Projects = () => {
             categories={list.categories}
             joinNumber={list.joinNumber}
             thumbnail={list.thumbnail}
-            acquisitionPoints={3000}
-            untilTheDeadline={4}
+            acquisitionPoints={
+              list.acquisitionPoints ? list.acquisitionPoints : 3000
+            }
+            untilTheDeadline={
+              list?.untilTheDeadline ? list?.untilTheDeadline : 3
+            }
             status={list.status}
             onClick={() => router.push(`/projects/${list.id}`)}
           />

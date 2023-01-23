@@ -1245,8 +1245,16 @@ const RightSidebar = () => {
                               title={project?.title}
                               categories={project?.categories}
                               joinNumber={project?.joinNumber}
-                              acquisitionPoints={project?.acquisitionPoints}
-                              untilTheDeadline={3}
+                              acquisitionPoints={
+                                project?.acquisitionPoints
+                                  ? project?.acquisitionPoints
+                                  : 3000
+                              }
+                              untilTheDeadline={
+                                project?.untilTheDeadline
+                                  ? project?.untilTheDeadline
+                                  : 3
+                              }
                               status={project?.status}
                               thumbnail={project?.thumbnail}
                               onClick={() =>
@@ -1303,8 +1311,16 @@ const RightSidebar = () => {
                           title={project?.title}
                           categories={project?.categories}
                           joinNumber={project?.joinNumber}
-                          acquisitionPoints={project?.acquisitionPoints}
-                          untilTheDeadline={3}
+                          acquisitionPoints={
+                            project?.acquisitionPoints
+                              ? project?.acquisitionPoints
+                              : 3000
+                          }
+                          untilTheDeadline={
+                            project?.untilTheDeadline
+                              ? project?.untilTheDeadline
+                              : 3
+                          }
                           status={project?.status}
                           thumbnail={project?.thumbnail}
                           onClick={() =>
