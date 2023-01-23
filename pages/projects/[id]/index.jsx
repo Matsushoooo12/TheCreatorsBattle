@@ -18,6 +18,11 @@ import TabItem from '../../../components/atoms/TabItem'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import { db } from '../../../firebase/config'
 import { doc } from 'firebase/firestore'
+import {
+  useCollection,
+  useCollectionData,
+} from 'react-firebase-hooks/firestore'
+import { collection, query } from 'firebase/firestore'
 
 const projectItem1 = {
   id: 1,
@@ -267,13 +272,18 @@ const projectItem4 = {
 const DetailProject = () => {
   const router = useRouter()
   const { id } = router.query
+  const [worksSnapshot] = useCollection(collection(db, 'works'))
+  const works = worksSnapshot?.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+  const projectWorks = works?.filter((w) => w.projectId === id)
   const [project] = useDocumentData(doc(db, 'projects', id))
   const { gradientColor, statusText } = useGetStatus(project?.status)
   const [doneIndex, setDoneIndex] = useState(0)
   const toggleDone = (index) => {
     setDoneIndex(index)
   }
-  console.log('project', project)
   return (
     <Flex direction='column' py='56px' px='80px'>
       <BackArrowTitle
@@ -490,629 +500,309 @@ const DetailProject = () => {
               {doneIndex === 1 && (
                 <>
                   <Flex direction='column'>
-                    <Flex
-                      h='240px'
-                      w='100%'
-                      borderRadius='lg'
-                      boxShadow='lg'
-                      mb='16px'
-                      borderWidth='1px'
-                      borderColor='gray.200'
-                    >
-                      <Flex w='50%' position='relative'>
-                        <Image
-                          w='100%'
-                          bg='gray.600'
-                          alt=''
-                          borderLeftRadius='lg'
-                          src='https://user-images.githubusercontent.com/66903388/213907363-fb223792-b1fd-4b2a-94c3-0d2aef02531c.jpg'
-                          objectFit='cover'
-                        />
-                        <Text
-                          fontSize='56px'
-                          position='absolute'
-                          top='-3'
-                          left='8'
-                        >
-                          🥇
-                        </Text>
-                      </Flex>
+                    {projectWorks?.find((w) => w.rank === 1) && (
                       <Flex
-                        direction='column'
-                        p='16px 12px'
-                        alignItems='center'
-                        w='50%'
-                        justifyContent='center'
+                        h='240px'
+                        w='100%'
+                        borderRadius='lg'
+                        boxShadow='lg'
+                        mb='16px'
+                        borderWidth='1px'
                         borderColor='gray.200'
                       >
-                        <Flex direction='column'>
+                        <Flex w='50%' position='relative'>
+                          <Image
+                            w='100%'
+                            bg='gray.600'
+                            alt=''
+                            borderLeftRadius='lg'
+                            src={
+                              projectWorks?.find((w) => w.rank === 1).thumbnail
+                            }
+                            objectFit='cover'
+                          />
                           <Text
-                            fontSize='18px'
-                            fontWeight='bold'
-                            mb='8px'
-                            onClick={() => router.push(`/projects/1/works/1`)}
-                            cursor='pointer'
+                            fontSize='56px'
+                            position='absolute'
+                            top='-3'
+                            left='8'
                           >
-                            メモをするアプリ
+                            🥇
                           </Text>
-                          <HStack mb='48px'>
-                            <Flex
-                              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                              p='2px'
-                              borderRadius='full'
-                              alignItems='center'
-                              justifyContent='center'
+                        </Flex>
+                        <Flex
+                          direction='column'
+                          p='16px 12px'
+                          alignItems='center'
+                          w='50%'
+                          justifyContent='center'
+                          borderColor='gray.200'
+                        >
+                          <Flex direction='column'>
+                            <Text
+                              fontSize='18px'
+                              fontWeight='bold'
+                              mb='8px'
+                              onClick={() =>
+                                router.push(
+                                  `/projects/${id}/works/${
+                                    projectWorks?.find((w) => w.rank === 1).id
+                                  }`,
+                                )
+                              }
+                              cursor='pointer'
                             >
-                              <HStack
-                                borderRadius='full'
-                                bg='white'
-                                alignItems='center'
-                                justifyContent='center'
-                                p='4px 8px'
-                              >
-                                <Image
-                                  w='16px'
-                                  h='16px'
-                                  src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
-                                  alt=''
-                                />
-                                <Text bg='white' fontSize='12px'>
-                                  Next.js
-                                </Text>
-                              </HStack>
-                            </Flex>
-                            <Flex
-                              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                              p='2px'
-                              borderRadius='full'
-                              alignItems='center'
-                              justifyContent='center'
-                            >
-                              <HStack
-                                borderRadius='full'
-                                bg='white'
-                                alignItems='center'
-                                justifyContent='center'
-                                p='4px 8px'
-                              >
-                                <Image
-                                  w='16px'
-                                  h='16px'
-                                  src='https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png'
-                                  alt=''
-                                />
-                                <Text bg='white' fontSize='12px'>
-                                  TypeScript
-                                </Text>
-                              </HStack>
-                            </Flex>
-                            <Flex
-                              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                              p='2px'
-                              borderRadius='full'
-                              alignItems='center'
-                              justifyContent='center'
-                            >
-                              <HStack
-                                borderRadius='full'
-                                bg='white'
-                                alignItems='center'
-                                justifyContent='center'
-                                p='4px 8px'
-                              >
-                                <Image
-                                  w='16px'
-                                  h='16px'
-                                  src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
-                                  alt=''
-                                />
-                                <Text bg='white' fontSize='12px'>
-                                  Firebase
-                                </Text>
-                              </HStack>
-                            </Flex>
-                          </HStack>
-                          <HStack spacing='4px'>
-                            <Avatar w='20px' h='20px' />
-                            <Text fontSize='12px'>やまもとみずき</Text>
-                          </HStack>
+                              {projectWorks?.find((w) => w.rank === 1).title}
+                            </Text>
+                            <HStack mb='48px'>
+                              {projectWorks
+                                ?.find((w) => w.rank === 1)
+                                .skils?.map((s, index) => (
+                                  <Flex
+                                    key={index}
+                                    bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                                    p='2px'
+                                    borderRadius='full'
+                                    alignItems='center'
+                                    justifyContent='center'
+                                  >
+                                    <HStack
+                                      borderRadius='full'
+                                      bg='white'
+                                      alignItems='center'
+                                      justifyContent='center'
+                                      p='4px 8px'
+                                    >
+                                      <Image
+                                        w='16px'
+                                        h='16px'
+                                        src={s.thumbnail}
+                                        alt=''
+                                      />
+                                      <Text bg='white' fontSize='12px'>
+                                        {s.name}
+                                      </Text>
+                                    </HStack>
+                                  </Flex>
+                                ))}
+                            </HStack>
+                            <HStack spacing='4px'>
+                              <Avatar
+                                w='20px'
+                                h='20px'
+                                src={
+                                  projectWorks?.find((w) => w.rank === 1).user
+                                    .photoURL
+                                }
+                              />
+                              <Text fontSize='12px'>
+                                {
+                                  projectWorks?.find((w) => w.rank === 1).user
+                                    .displayName
+                                }
+                              </Text>
+                            </HStack>
+                          </Flex>
                         </Flex>
                       </Flex>
-                    </Flex>
+                    )}
                     <Flex direction='column'>
                       <HStack w='100%' spacing='16px' mb='16px'>
-                        <Flex
-                          w='50%'
-                          borderRadius='lg'
-                          boxShadow='lg'
-                          direction='column'
-                          borderColor='gray.200'
-                        >
-                          <Flex w='100%' position='relative'>
-                            <Image
-                              w='100%'
-                              bg='gray.600'
-                              alt=''
-                              borderTopRadius='lg'
-                              h='180px'
-                              src='https://user-images.githubusercontent.com/66903388/213907359-827435e6-f4cd-424b-a589-1279ad40a49b.jpg'
-                              objectFit='cover'
-                            />
-                            <Text
-                              fontSize='56px'
-                              position='absolute'
-                              top='-3'
-                              left='8'
+                        {projectWorks
+                          ?.filter((w) => w.rank > 1 && w.rank < 4)
+                          ?.map((w, index) => (
+                            <Flex
+                              key={index}
+                              w='50%'
+                              borderRadius='lg'
+                              boxShadow='lg'
+                              direction='column'
+                              borderColor='gray.200'
                             >
-                              🥈
-                            </Text>
-                          </Flex>
-                          <Flex
-                            direction='column'
-                            p='16px 16px'
-                            alignItems='center'
-                            justifyContent='center'
-                          >
-                            <Flex direction='column' justifyContent='center'>
-                              <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                位置を共有するアプリ
-                              </Text>
-                              <HStack mb='24px'>
+                              <Flex w='100%' position='relative'>
+                                <Image
+                                  w='100%'
+                                  bg='gray.600'
+                                  alt=''
+                                  borderTopRadius='lg'
+                                  h='180px'
+                                  src={w.thumbnail}
+                                  objectFit='cover'
+                                />
+                                <Text
+                                  fontSize='56px'
+                                  position='absolute'
+                                  top='-3'
+                                  left='8'
+                                >
+                                  {w.rank === 2 ? '🥈' : '🥉'}
+                                </Text>
+                              </Flex>
+                              <Flex
+                                direction='column'
+                                p='16px 16px'
+                                alignItems='center'
+                                justifyContent='center'
+                              >
                                 <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
+                                  direction='column'
                                   justifyContent='center'
                                 >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
+                                  <Text
+                                    fontSize='18px'
+                                    fontWeight='bold'
+                                    mb='4px'
+                                    cursor='pointer'
+                                    onClick={() =>
+                                      router.push(
+                                        `/projects/${id}/works/${w.id}`,
+                                      )
+                                    }
                                   >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
-                                      alt=''
+                                    {w.title}
+                                  </Text>
+                                  <HStack mb='24px'>
+                                    {w.skils?.map((s, index) => (
+                                      <Flex
+                                        key={index}
+                                        bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                                        p='2px'
+                                        borderRadius='full'
+                                        alignItems='center'
+                                        justifyContent='center'
+                                      >
+                                        <HStack
+                                          borderRadius='full'
+                                          bg='white'
+                                          alignItems='center'
+                                          justifyContent='center'
+                                          p='4px 8px'
+                                        >
+                                          <Image
+                                            w='16px'
+                                            h='16px'
+                                            src={s.thumbnail}
+                                            alt=''
+                                          />
+                                          <Text bg='white' fontSize='12px'>
+                                            {s.name}
+                                          </Text>
+                                        </HStack>
+                                      </Flex>
+                                    ))}
+                                  </HStack>
+                                  <HStack spacing='4px'>
+                                    <Avatar
+                                      w='20px'
+                                      h='20px'
+                                      src={w.user.photoURL}
                                     />
-                                    <Text bg='white' fontSize='12px'>
-                                      Next.js
+                                    <Text fontSize='12px'>
+                                      {w.user.displayName}
                                     </Text>
                                   </HStack>
                                 </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      TypeScript
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      Firebase
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                              </HStack>
-                              <HStack spacing='4px'>
-                                <Avatar w='20px' h='20px' />
-                                <Text fontSize='12px'>やまもとみずき</Text>
-                              </HStack>
+                              </Flex>
                             </Flex>
-                          </Flex>
-                        </Flex>
-                        <Flex
-                          w='50%'
-                          borderRadius='lg'
-                          boxShadow='lg'
-                          direction='column'
-                          borderColor='gray.200'
-                        >
-                          <Flex w='100%' position='relative'>
-                            <Image
-                              w='100%'
-                              bg='gray.600'
-                              alt=''
-                              borderTopRadius='lg'
-                              h='180px'
-                              src='https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
-                              objectFit='cover'
-                            />
-                            <Text
-                              fontSize='56px'
-                              position='absolute'
-                              top='-3'
-                              left='8'
-                            >
-                              🥉
-                            </Text>
-                          </Flex>
-                          <Flex
-                            direction='column'
-                            p='16px 16px'
-                            alignItems='center'
-                            justifyContent='center'
-                          >
-                            <Flex direction='column' justifyContent='center'>
-                              <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                予約をするアプリ
-                              </Text>
-                              <HStack mb='24px'>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      Next.js
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      TypeScript
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      Firebase
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                              </HStack>
-                              <HStack spacing='4px'>
-                                <Avatar w='20px' h='20px' />
-                                <Text fontSize='12px'>やまもとみずき</Text>
-                              </HStack>
-                            </Flex>
-                          </Flex>
-                        </Flex>
+                          ))}
                       </HStack>
                       <HStack w='100%' spacing='16px'>
-                        <Flex
-                          w='50%'
-                          borderRadius='lg'
-                          boxShadow='lg'
-                          direction='column'
-                          borderColor='gray.200'
-                        >
-                          <Flex w='100%' position='relative'>
-                            <Image
-                              w='100%'
-                              bg='gray.600'
-                              alt=''
-                              borderTopRadius='lg'
-                              h='180px'
-                              src='https://user-images.githubusercontent.com/66903388/213907360-7bbf5008-0264-4627-8db9-5f23b87f9f3b.jpg'
-                              objectFit='cover'
-                            />
-                            <Center
-                              fontSize='22px'
-                              position='absolute'
-                              top='4'
-                              left='8'
-                              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                              w='40px'
-                              h='40px'
-                              borderRadius='full'
-                              color='white'
+                        {projectWorks
+                          ?.filter((w) => w.rank > 3 && w.rank < 6)
+                          .map((w) => (
+                            <Flex
+                              key={w.id}
+                              w='50%'
+                              borderRadius='lg'
+                              boxShadow='lg'
+                              direction='column'
+                              borderColor='gray.200'
                             >
-                              <Text fontWeight='bold'>4</Text>
-                            </Center>
-                          </Flex>
-                          <Flex
-                            direction='column'
-                            p='16px 16px'
-                            alignItems='center'
-                            justifyContent='center'
-                          >
-                            <Flex direction='column' justifyContent='center'>
-                              <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                ショッピングをするアプリ
-                              </Text>
-                              <HStack mb='24px'>
-                                <Flex
+                              <Flex w='100%' position='relative'>
+                                <Image
+                                  w='100%'
+                                  bg='gray.600'
+                                  alt=''
+                                  borderTopRadius='lg'
+                                  h='180px'
+                                  src={w.thumbnail}
+                                  objectFit='cover'
+                                />
+                                <Center
+                                  fontSize='22px'
+                                  position='absolute'
+                                  top='4'
+                                  left='8'
                                   bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
+                                  w='40px'
+                                  h='40px'
                                   borderRadius='full'
-                                  alignItems='center'
+                                  color='white'
+                                >
+                                  <Text fontWeight='bold'>{w.rank}</Text>
+                                </Center>
+                              </Flex>
+                              <Flex
+                                direction='column'
+                                p='16px 16px'
+                                alignItems='center'
+                                justifyContent='center'
+                              >
+                                <Flex
+                                  direction='column'
                                   justifyContent='center'
                                 >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
+                                  <Text
+                                    fontSize='18px'
+                                    fontWeight='bold'
+                                    mb='4px'
                                   >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
-                                      alt=''
+                                    {w.title}
+                                  </Text>
+                                  <HStack mb='24px'>
+                                    {w.skils?.map((s, index) => (
+                                      <Flex
+                                        key={index}
+                                        bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+                                        p='2px'
+                                        borderRadius='full'
+                                        alignItems='center'
+                                        justifyContent='center'
+                                      >
+                                        <HStack
+                                          borderRadius='full'
+                                          bg='white'
+                                          alignItems='center'
+                                          justifyContent='center'
+                                          p='4px 8px'
+                                        >
+                                          <Image
+                                            w='16px'
+                                            h='16px'
+                                            src={s.thumbnail}
+                                            alt=''
+                                          />
+                                          <Text bg='white' fontSize='12px'>
+                                            {s.name}
+                                          </Text>
+                                        </HStack>
+                                      </Flex>
+                                    ))}
+                                  </HStack>
+                                  <HStack spacing='4px'>
+                                    <Avatar
+                                      w='20px'
+                                      h='20px'
+                                      src={w.user.photoURL}
                                     />
-                                    <Text bg='white' fontSize='12px'>
-                                      Next.js
+                                    <Text fontSize='12px'>
+                                      {w.user.displayName}
                                     </Text>
                                   </HStack>
                                 </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      TypeScript
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      Firebase
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                              </HStack>
-                              <HStack spacing='4px'>
-                                <Avatar w='20px' h='20px' />
-                                <Text fontSize='12px'>やまもとみずき</Text>
-                              </HStack>
+                              </Flex>
                             </Flex>
-                          </Flex>
-                        </Flex>
-                        <Flex
-                          w='50%'
-                          borderRadius='lg'
-                          boxShadow='lg'
-                          direction='column'
-                          borderColor='gray.200'
-                        >
-                          <Flex w='100%' position='relative'>
-                            <Image
-                              w='100%'
-                              bg='gray.600'
-                              alt=''
-                              borderTopRadius='lg'
-                              h='180px'
-                              src='https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg'
-                              objectFit='cover'
-                            />
-                            <Center
-                              fontSize='22px'
-                              position='absolute'
-                              top='4'
-                              left='8'
-                              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                              w='40px'
-                              h='40px'
-                              borderRadius='full'
-                              color='white'
-                            >
-                              <Text fontWeight='bold'>5</Text>
-                            </Center>
-                          </Flex>
-                          <Flex
-                            direction='column'
-                            p='16px 16px'
-                            alignItems='center'
-                            justifyContent='center'
-                          >
-                            <Flex direction='column' justifyContent='center'>
-                              <Text fontSize='18px' fontWeight='bold' mb='4px'>
-                                新しい友達を作るアプリ
-                              </Text>
-                              <HStack mb='24px'>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      Next.js
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      TypeScript
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                                <Flex
-                                  bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-                                  p='2px'
-                                  borderRadius='full'
-                                  alignItems='center'
-                                  justifyContent='center'
-                                >
-                                  <HStack
-                                    borderRadius='full'
-                                    bg='white'
-                                    alignItems='center'
-                                    justifyContent='center'
-                                    p='4px 8px'
-                                  >
-                                    <Image
-                                      w='16px'
-                                      h='16px'
-                                      src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
-                                      alt=''
-                                    />
-                                    <Text bg='white' fontSize='12px'>
-                                      Firebase
-                                    </Text>
-                                  </HStack>
-                                </Flex>
-                              </HStack>
-                              <HStack spacing='4px'>
-                                <Avatar w='20px' h='20px' />
-                                <Text fontSize='12px'>やまもとみずき</Text>
-                              </HStack>
-                            </Flex>
-                          </Flex>
-                        </Flex>
+                          ))}
                       </HStack>
                     </Flex>
                     <Flex w='100%' h='1px' bg='gray.200' my='32px' />

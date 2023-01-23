@@ -2,6 +2,13 @@ import { Flex, Heading, HStack, Image, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import BackArrowTitle from '../../../../../components/atoms/BackArrowTitle'
+import { db } from '../../../../../firebase/config'
+import { doc } from 'firebase/firestore'
+import {
+  useCollection,
+  useCollectionData,
+} from 'react-firebase-hooks/firestore'
+import { useDocumentData } from 'react-firebase-hooks/firestore'
 
 const projectItem1 = {
   id: 1,
@@ -250,24 +257,22 @@ const projectItem4 = {
 
 const DetailProjectWorks = () => {
   const router = useRouter()
-  const { id } = router.query
+  const { id, worksId } = router.query
+  const [works] = useDocumentData(doc(db, 'works', worksId))
   return (
     <Flex direction='column' py='56px' px='80px'>
       <BackArrowTitle
-        onClick={() => router.push('/projects/1')}
+        onClick={() => router.push(`/projects/${id}`)}
         text='プロジェクト詳細'
       />
       <Flex w='100%' bg='white' p='24px' borderRadius='lg' direction='column'>
         <Flex alignItems='center' mb='8px'>
           <Text fontWeight='bold' fontSize='12px' color='gray.400'>
-            {/* {projectItem3.categories?.map((c, index) =>
-          index === 0 ? c : `・${c}`,
-        )} */}
-            ネイティブアプリ
+            {works?.categories?.map((c, index) => (index === 0 ? c : `・${c}`))}
           </Text>
         </Flex>
         <Heading color='blue.800' fontSize='22px' mb='32px'>
-          数学を学ぶアプリ
+          {works?.title}
         </Heading>
         <Image
           w='100%'
@@ -276,7 +281,7 @@ const DetailProjectWorks = () => {
           alt=''
           borderRadius='lg'
           mb='32px'
-          src='https://user-images.githubusercontent.com/66903388/213907358-433205a8-128e-40a1-b7d9-9ef3c9125824.jpg'
+          src={works?.thumbnail}
         />
         <Flex direction='column' mb='32px'>
           <Text fontSize='12px' fontWeight='bold' mb='8px'>
@@ -302,81 +307,29 @@ const DetailProjectWorks = () => {
           <Text>触ってみたい方はこちら → https/gkhghasgvabvjdbvkasef</Text>
         </Flex>
         <HStack>
-          <Flex
-            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-            p='2px'
-            borderRadius='full'
-            alignItems='center'
-            justifyContent='center'
-          >
-            <HStack
+          {works?.skils?.map((s, index) => (
+            <Flex
+              key={index}
+              bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
+              p='2px'
               borderRadius='full'
-              bg='white'
               alignItems='center'
               justifyContent='center'
-              p='4px 8px'
             >
-              <Image
-                w='16px'
-                h='16px'
-                src='https://user-images.githubusercontent.com/66903388/211630639-03287355-ac37-463c-951f-b9b156752911.png'
-                alt=''
-              />
-              <Text bg='white' fontSize='12px'>
-                Next.js
-              </Text>
-            </HStack>
-          </Flex>
-          <Flex
-            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-            p='2px'
-            borderRadius='full'
-            alignItems='center'
-            justifyContent='center'
-          >
-            <HStack
-              borderRadius='full'
-              bg='white'
-              alignItems='center'
-              justifyContent='center'
-              p='4px 8px'
-            >
-              <Image
-                w='16px'
-                h='16px'
-                src='https://user-images.githubusercontent.com/66903388/211630979-f834954b-f2ba-4954-960b-09bec004751b.png'
-                alt=''
-              />
-              <Text bg='white' fontSize='12px'>
-                TypeScript
-              </Text>
-            </HStack>
-          </Flex>
-          <Flex
-            bgGradient='linear(to-b, mainGradient.100, mainGradient.200)'
-            p='2px'
-            borderRadius='full'
-            alignItems='center'
-            justifyContent='center'
-          >
-            <HStack
-              borderRadius='full'
-              bg='white'
-              alignItems='center'
-              justifyContent='center'
-              p='4px 8px'
-            >
-              <Image
-                w='16px'
-                h='16px'
-                src='https://user-images.githubusercontent.com/66903388/211631467-df73eb15-ba30-4acf-89cb-b224722bb597.png'
-                alt=''
-              />
-              <Text bg='white' fontSize='12px'>
-                Firebase
-              </Text>
-            </HStack>
-          </Flex>
+              <HStack
+                borderRadius='full'
+                bg='white'
+                alignItems='center'
+                justifyContent='center'
+                p='4px 8px'
+              >
+                <Image w='16px' h='16px' src={s.thumbnail} alt='' />
+                <Text bg='white' fontSize='12px'>
+                  {s.name}
+                </Text>
+              </HStack>
+            </Flex>
+          ))}
         </HStack>
       </Flex>
     </Flex>

@@ -1227,23 +1227,27 @@ const RightSidebar = () => {
                   参加中のプロジェクト
                 </Text>
                 <Flex direction='column' mb='48px'>
-                  {inProgressProjects?.length ? (
+                  {projects?.filter(
+                    (project) => project.status === 'production',
+                  ).length ? (
                     <>
-                      {inProgressProjects?.map((project) => (
-                        <ProjectCard
-                          key={project?.id}
-                          title={project?.title}
-                          categories={project?.categories}
-                          joinNumber={project?.joinNumber}
-                          acquisitionPoints={project?.acquisitionPoints}
-                          untilTheDeadline={project?.untilTheDeadline}
-                          status={project?.status}
-                          thumbnail={project?.thumbnail}
-                          onClick={() =>
-                            router.push(`/projects/${project?.id}`)
-                          }
-                        />
-                      ))}
+                      {projects
+                        ?.filter((project) => project.status === 'production')
+                        .map((project) => (
+                          <ProjectCard
+                            key={project?.id}
+                            title={project?.title}
+                            categories={project?.categories}
+                            joinNumber={project?.joinNumber}
+                            acquisitionPoints={project?.acquisitionPoints}
+                            untilTheDeadline={project?.untilTheDeadline}
+                            status={project?.status}
+                            thumbnail={project?.thumbnail}
+                            onClick={() =>
+                              router.push(`/projects/${project?.id}`)
+                            }
+                          />
+                        ))}
                     </>
                   ) : (
                     <Flex direction='column'>
@@ -1284,19 +1288,23 @@ const RightSidebar = () => {
                 </Text>
                 <Flex direction='column' mb='48px'>
                   <VStack spacing='16px'>
-                    {doneProjects?.map((project) => (
-                      <ProjectCard
-                        key={project?.id}
-                        title={project?.title}
-                        categories={project?.categories}
-                        joinNumber={project?.joinNumber}
-                        acquisitionPoints={project?.acquisitionPoints}
-                        untilTheDeadline={project?.untilTheDeadline}
-                        status={project?.status}
-                        thumbnail={project?.thumbnail}
-                        onClick={() => router.push(`/projects/${project?.id}`)}
-                      />
-                    ))}
+                    {projects
+                      ?.filter((project) => project.status === 'done')
+                      ?.map((project) => (
+                        <ProjectCard
+                          key={project?.id}
+                          title={project?.title}
+                          categories={project?.categories}
+                          joinNumber={project?.joinNumber}
+                          acquisitionPoints={project?.acquisitionPoints}
+                          untilTheDeadline={project?.untilTheDeadline}
+                          status={project?.status}
+                          thumbnail={project?.thumbnail}
+                          onClick={() =>
+                            router.push(`/projects/${project?.id}`)
+                          }
+                        />
+                      ))}
                   </VStack>
                 </Flex>
               </Flex>
@@ -3052,7 +3060,7 @@ const RightSidebar = () => {
             </Flex>
           )}
           {(URL ===
-            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/works/${myWorks1.id}` ||
+            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/works/${worksId}` ||
             URL ===
               `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/works/${myWorks1.id}`) && (
             <Flex w='328px' direction='column' mb='56px'>

@@ -6,6 +6,13 @@ import NewCreateCard from '../../../components/molecules/NewCreateCard'
 import SkilCard from '../../../components/molecules/SkilCard'
 import UserWorksCard from '../../../components/molecules/UserWorksCard'
 import ProjectList from '../../../components/organisms/ProjectList'
+import { db } from '../../../firebase/config'
+import { doc } from 'firebase/firestore'
+import {
+  useCollection,
+  useCollectionData,
+} from 'react-firebase-hooks/firestore'
+import { collection, query } from 'firebase/firestore'
 
 const userWorksList = [
   {
@@ -94,6 +101,12 @@ const skilList2 = []
 const DetailUser = () => {
   const router = useRouter()
   const { id } = router.query
+  const [worksSnapshot] = useCollection(collection(db, 'works'))
+  const works = worksSnapshot?.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+  console.log('works', works)
   return (
     <Flex direction='column' py='56px'>
       <ProjectList

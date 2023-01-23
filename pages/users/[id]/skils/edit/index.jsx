@@ -72,6 +72,7 @@ const UserSkilEdit = () => {
   const [skilName, setSkilName] = useState('')
   const [skilImageUrl, setSkilImageUrl] = useState('')
   const [isFocus, setIsFocus] = useState(false)
+  const [error, setError] = useState('')
   const [skilFilterSuggestions, setSkilFilterSuggestions] = useState([])
   const sliderText = () => {
     if (rangeIndex === 1) {
@@ -112,7 +113,7 @@ const UserSkilEdit = () => {
       await setRangeIndex(0)
       await setSkilFilterSuggestions([])
     } catch (e) {
-      console.log(e)
+      setError(e)
     }
     await onClose()
   }
