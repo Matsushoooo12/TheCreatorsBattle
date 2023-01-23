@@ -1698,7 +1698,7 @@ const RightSidebar = () => {
                                     createdAt={myWorks1.createdAt}
                                     onClick={() =>
                                       router.push(
-                                        `projects/${id}/works/${worksId}`,
+                                        `projects/${id}/works/${myWorks1.id}`,
                                       )
                                     }
                                   />
@@ -1717,7 +1717,7 @@ const RightSidebar = () => {
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
                                         router.push(
-                                          `projects/${id}/works/${worksId}`,
+                                          `projects/${id}/works/${myWorks1.id}`,
                                         )
                                       }
                                     />
@@ -1788,7 +1788,7 @@ const RightSidebar = () => {
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
                                         router.push(
-                                          `projects/${id}/works/${worksId}`,
+                                          `projects/${id}/works/${myWorks1.id}`,
                                         )
                                       }
                                     />
@@ -1833,7 +1833,7 @@ const RightSidebar = () => {
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
                                         router.push(
-                                          `projects/${id}/works/${worksId}`,
+                                          `projects/${id}/works/${myWorks1.id}`,
                                         )
                                       }
                                     />
