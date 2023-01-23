@@ -1246,7 +1246,7 @@ const RightSidebar = () => {
                               categories={project?.categories}
                               joinNumber={project?.joinNumber}
                               acquisitionPoints={project?.acquisitionPoints}
-                              untilTheDeadline={project?.untilTheDeadline}
+                              untilTheDeadline={3}
                               status={project?.status}
                               thumbnail={project?.thumbnail}
                               onClick={() =>
@@ -1304,7 +1304,7 @@ const RightSidebar = () => {
                           categories={project?.categories}
                           joinNumber={project?.joinNumber}
                           acquisitionPoints={project?.acquisitionPoints}
-                          untilTheDeadline={project?.untilTheDeadline}
+                          untilTheDeadline={3}
                           status={project?.status}
                           thumbnail={project?.thumbnail}
                           onClick={() =>
