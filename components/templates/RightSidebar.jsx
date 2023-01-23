@@ -1240,19 +1240,20 @@ const RightSidebar = () => {
                             project.status === 'vote',
                         )
                         .map((project) => (
-                          <ProjectCard
-                            key={project?.id}
-                            title={project?.title}
-                            categories={project?.categories}
-                            joinNumber={project?.joinNumber}
-                            acquisitionPoints={project?.acquisitionPoints}
-                            untilTheDeadline={project?.untilTheDeadline}
-                            status={project?.status}
-                            thumbnail={project?.thumbnail}
-                            onClick={() =>
-                              router.push(`/projects/${project?.id}`)
-                            }
-                          />
+                          <Flex key={project?.id} mb='16px'>
+                            <ProjectCard
+                              title={project?.title}
+                              categories={project?.categories}
+                              joinNumber={project?.joinNumber}
+                              acquisitionPoints={project?.acquisitionPoints}
+                              untilTheDeadline={project?.untilTheDeadline}
+                              status={project?.status}
+                              thumbnail={project?.thumbnail}
+                              onClick={() =>
+                                router.push(`/projects/${project?.id}`)
+                              }
+                            />
+                          </Flex>
                         ))}
                     </>
                   ) : (

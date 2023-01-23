@@ -29,7 +29,6 @@ const ProjectCard = (props) => {
       borderRadius='2xl'
       direction='column'
       boxShadow='lg'
-      mb='16px'
     >
       <Flex w='100%' h='180px' borderTopRightRadius='2xl' position='relative'>
         <Image
