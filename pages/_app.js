@@ -2,21 +2,37 @@ import { Center, ChakraProvider, Flex, Image, Spinner } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { createContext, useEffect, useState } from 'react'
 import MainContainer from '../components/templates/MainContainer'
+import { auth } from '../firebase/config'
 import { useGetUrl } from '../hooks/useGetUrl'
 import '../styles/globals.css'
 import theme from '../theme/theme'
+import { onAuthStateChanged } from 'firebase/auth'
 
 export const AuthContext = createContext()
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [isSSR, setIsSSR] = useState(true)
+  const [currentUser, setCurrentUser] = useState(null)
   const [isLogin, setIsLogin] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const { URL } = useGetUrl()
   useEffect(() => {
-    setIsSSR(false)
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser({
+          displayName: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+          uid: user.uid,
+        })
+      } else {
+        setCurrentUser(null)
+      }
+      setIsSSR(false)
+      setIsLoading(false)
+    })
   }, [])
   if (isSSR) {
     return (
@@ -41,6 +57,8 @@ function MyApp({ Component, pageProps }) {
         setIsLoading,
         isModalVisible,
         setIsModalVisible,
+        currentUser,
+        setCurrentUser,
       }}
     >
       <ChakraProvider theme={theme}>

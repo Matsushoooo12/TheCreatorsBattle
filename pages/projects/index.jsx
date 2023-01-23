@@ -3,6 +3,13 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import ProjectCard from '../../components/molecules/ProjectCard'
 import ProjectList from '../../components/organisms/ProjectList'
+import {
+  useCollection,
+  useCollectionData,
+  useDocumentData,
+} from 'react-firebase-hooks/firestore'
+import { collection, doc, query } from 'firebase/firestore'
+import { db } from '../../firebase/config'
 
 const todoProjects = [
   {
@@ -120,45 +127,59 @@ const inProgressProjects = [
   },
 ]
 
-const doneProjects = [
-  {
-    id: 1,
-    title: 'メッセージをするアプリ',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/213907364-83751dcb-7e19-4ba4-893c-de0d36d97268.jpg',
-    categories: ['UI/UXデザイン', 'ウェブアプリ'],
-    joinNumber: 25,
-    acquisitionPoints: 3000,
-    untilTheDeadline: 3,
-    status: 'done',
-  },
-  {
-    id: 2,
-    title: 'ニュースを読むアプリ',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/213907365-55363992-a4d2-48fb-bd07-b292ac15599f.jpg',
-    categories: ['UI/UXデザイン', 'ウェブアプリ'],
-    joinNumber: 25,
-    acquisitionPoints: 3000,
-    untilTheDeadline: 3,
-    status: 'done',
-  },
-  {
-    id: 3,
-    title: 'ブログを書くアプリ',
-    thumbnail:
-      'https://user-images.githubusercontent.com/66903388/213907367-903e9206-530e-4d5e-8601-6ad8267bbd32.jpg',
-    categories: ['UI/UXデザイン', 'ウェブアプリ'],
-    joinNumber: 25,
-    acquisitionPoints: 3000,
-    untilTheDeadline: 3,
-    status: 'done',
-  },
-]
+// const doneProjects = [
+//   {
+//     id: 1,
+//     title: 'メッセージをするアプリ',
+//     thumbnail:
+//       'https://user-images.githubusercontent.com/66903388/213907364-83751dcb-7e19-4ba4-893c-de0d36d97268.jpg',
+//     categories: ['UI/UXデザイン', 'ウェブアプリ'],
+//     joinNumber: 25,
+//     acquisitionPoints: 3000,
+//     untilTheDeadline: 3,
+//     status: 'done',
+//   },
+//   {
+//     id: 2,
+//     title: 'ニュースを読むアプリ',
+//     thumbnail:
+//       'https://user-images.githubusercontent.com/66903388/213907365-55363992-a4d2-48fb-bd07-b292ac15599f.jpg',
+//     categories: ['UI/UXデザイン', 'ウェブアプリ'],
+//     joinNumber: 25,
+//     acquisitionPoints: 3000,
+//     untilTheDeadline: 3,
+//     status: 'done',
+//   },
+//   {
+//     id: 3,
+//     title: 'ブログを書くアプリ',
+//     thumbnail:
+//       'https://user-images.githubusercontent.com/66903388/213907367-903e9206-530e-4d5e-8601-6ad8267bbd32.jpg',
+//     categories: ['UI/UXデザイン', 'ウェブアプリ'],
+//     joinNumber: 25,
+//     acquisitionPoints: 3000,
+//     untilTheDeadline: 3,
+//     status: 'done',
+//   },
+// ]
 
 const Projects = () => {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const [projectsSnapshot] = useCollection(collection(db, 'projects'))
+  const projects = projectsSnapshot?.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+  const recruitmentProjects = projects?.filter(
+    (project) => project.status === 'recruitment',
+  )
+  const productionProjects = projects?.filter(
+    (project) => project.status === 'production',
+  )
+  const voteProjects = projects?.filter((project) => project.status === 'vote')
+  const doneProjects = projects?.filter((project) => project.status === 'done')
   // 流体シェイプ
   // document.querySelector('.fluid')?.animate(
   //   {
@@ -195,7 +216,7 @@ const Projects = () => {
         isEdit={false}
         isRowScroll={true}
       >
-        {todoProjects?.map((list) => (
+        {recruitmentProjects?.map((list) => (
           <ProjectCard
             key={list.id}
             title={list.title}
@@ -214,7 +235,7 @@ const Projects = () => {
         isEdit={false}
         isRowScroll={true}
       >
-        {inProgressProjects?.map((list) => (
+        {productionProjects?.map((list) => (
           <ProjectCard
             key={list.id}
             title={list.title}

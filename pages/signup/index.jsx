@@ -19,7 +19,6 @@ import TwitterButtonIcon from '../../components/atoms/TwitterButtonIcon'
 import GoogleButtonIcon from '../../components/atoms/GoogleButtonIcon'
 import GradientIcon from '../../components/atoms/GradientIcon'
 import WaveContainer from '../../components/organisms/WaveContainer'
-import dayjs from 'dayjs'
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,

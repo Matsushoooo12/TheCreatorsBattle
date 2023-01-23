@@ -47,6 +47,13 @@ import { SearchIcon } from '@chakra-ui/icons'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { RxDoubleArrowRight, RxReload } from 'react-icons/rx'
 import QuestionRankingList from '../organisms/QuestionRankingList'
+import { db } from '../../firebase/config'
+import { collection, deleteDoc, doc, query, setDoc } from 'firebase/firestore'
+import {
+  useCollection,
+  useCollectionData,
+  useDocumentData,
+} from 'react-firebase-hooks/firestore'
 
 const inProgressProjects = [
   {
@@ -1130,22 +1137,29 @@ const questionList = [
 const RightSidebar = () => {
   const router = useRouter()
   const { id, worksId } = router.query
+  // const [project] = useDocumentData(doc(db, 'projects', id))
+  const [projectsSnapshot] = useCollection(collection(db, 'projects'))
+  const projects = projectsSnapshot?.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+  const project = projects?.find((project) => project.id === id)
   const { URL, origin } = useGetUrl()
   const [isIntroduction, setIsIntroduction] = useState(false)
   const [isOpenHigherRankModal, setIsOpenHigherRankModal] = useState(false)
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
   const { isLogin, isModalVisible, setIsModalVisible } = useContext(AuthContext)
   const { projectButtonText, gradientColor } = useGetStatus(
-    projectItem2.status,
-    projectItem2.isVoted,
-    projectItem2.isSubmit,
+    project?.status,
+    project?.isVoted,
+    project?.isSubmit,
   )
   const projectStatusLink = () => {
-    if (projectItem2.status === 'recruitment') {
+    if (project?.status === 'recruitment') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/join`
-    } else if (projectItem2.status === 'production') {
+    } else if (project?.status === 'production') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit`
-    } else if (projectItem2.status === 'vote') {
+    } else if (project?.status === 'vote') {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/vote`
     } else {
       return `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}`
@@ -1211,15 +1225,17 @@ const RightSidebar = () => {
                     <>
                       {inProgressProjects?.map((project) => (
                         <ProjectCard
-                          key={project.id}
-                          title={project.title}
-                          categories={project.categories}
-                          joinNumber={project.joinNumber}
-                          acquisitionPoints={project.acquisitionPoints}
-                          untilTheDeadline={project.untilTheDeadline}
-                          status={project.status}
-                          thumbnail={project.thumbnail}
-                          onClick={() => router.push(`/projects/${project.id}`)}
+                          key={project?.id}
+                          title={project?.title}
+                          categories={project?.categories}
+                          joinNumber={project?.joinNumber}
+                          acquisitionPoints={project?.acquisitionPoints}
+                          untilTheDeadline={project?.untilTheDeadline}
+                          status={project?.status}
+                          thumbnail={project?.thumbnail}
+                          onClick={() =>
+                            router.push(`/projects/${project?.id}`)
+                          }
                         />
                       ))}
                     </>
@@ -1264,15 +1280,15 @@ const RightSidebar = () => {
                   <VStack spacing='16px'>
                     {doneProjects?.map((project) => (
                       <ProjectCard
-                        key={project.id}
-                        title={project.title}
-                        categories={project.categories}
-                        joinNumber={project.joinNumber}
-                        acquisitionPoints={project.acquisitionPoints}
-                        untilTheDeadline={project.untilTheDeadline}
-                        status={project.status}
-                        thumbnail={project.thumbnail}
-                        onClick={() => router.push(`/projects/${project.id}`)}
+                        key={project?.id}
+                        title={project?.title}
+                        categories={project?.categories}
+                        joinNumber={project?.joinNumber}
+                        acquisitionPoints={project?.acquisitionPoints}
+                        untilTheDeadline={project?.untilTheDeadline}
+                        status={project?.status}
+                        thumbnail={project?.thumbnail}
+                        onClick={() => router.push(`/projects/${project?.id}`)}
                       />
                     ))}
                   </VStack>
@@ -1625,7 +1641,7 @@ const RightSidebar = () => {
             <Flex direction='column'>
               <Flex w='328px' direction='column' mb='56px'>
                 <Flex direction='column' mb='56px'>
-                  {projectItem2?.status !== 'done' ? (
+                  {project?.status !== 'done' ? (
                     <>
                       {isLogin && (
                         <>
@@ -1645,17 +1661,17 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem2.isVoted && '50%'}
+                                opacity={project?.isVoted && '50%'}
                                 onClick={handleSubmit}
                               >
                                 {projectButtonText(URL)}
                               </Text>
-                              {projectItem2.status === 'recruitment' && (
+                              {project?.status === 'recruitment' && (
                                 <Text fontWeight='bold' mb='56px'>
                                   💸 参加するのに、80pt必要です
                                 </Text>
                               )}
-                              {projectItem2.status === 'production' && (
+                              {project?.status === 'production' && (
                                 <Flex w='100%' mb='56px' direction='column'>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1669,7 +1685,7 @@ const RightSidebar = () => {
                                   />
                                 </Flex>
                               )}
-                              {projectItem2.status === 'vote' && (
+                              {project?.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -1701,12 +1717,12 @@ const RightSidebar = () => {
                                 py='14px'
                                 textAlign='center'
                                 bgGradient={gradientColor()}
-                                opacity={projectItem2.isVoted && '50%'}
+                                opacity={project?.isVoted && '50%'}
                                 onClick={() => router.push(projectStatusLink())}
                               >
                                 {projectButtonText()}
                               </Text>
-                              {projectItem2.status === 'recruitment' && (
+                              {project?.status === 'recruitment' && (
                                 <>
                                   <Text fontWeight='bold' mb='56px'>
                                     💸 参加するのに、80pt必要です
@@ -1738,7 +1754,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem2.status === 'production' && (
+                              {project?.status === 'production' && (
                                 <>
                                   <Flex w='100%' mb='56px' direction='column'>
                                     <Text fontWeight='bold' mb='8px'>
@@ -1781,7 +1797,7 @@ const RightSidebar = () => {
                                   </Flex>
                                 </>
                               )}
-                              {projectItem2.status === 'vote' && (
+                              {project?.status === 'vote' && (
                                 <>
                                   <Text fontWeight='bold' mb='8px'>
                                     📌 提出済みのあなたの作品
@@ -2030,7 +2046,7 @@ const RightSidebar = () => {
                             >
                               <Text fontSize='12px'>ランキング</Text>
                               <Text fontSize='18px'>
-                                {worksItem5.project.rank}
+                                {worksItem5.project?.rank}
                               </Text>
                             </Flex>
                             <Flex
@@ -2046,7 +2062,7 @@ const RightSidebar = () => {
                             >
                               <Text fontSize='12px'>獲得ポイント</Text>
                               <Text fontSize='18px'>
-                                {worksItem5.project.point}
+                                {worksItem5.project?.point}
                               </Text>
                             </Flex>
                             <Flex
@@ -2062,7 +2078,7 @@ const RightSidebar = () => {
                             >
                               <Text fontSize='12px'>作品閲覧数</Text>
                               <Text fontSize='18px'>
-                                {worksItem5.project.views}
+                                {worksItem5.project?.views}
                               </Text>
                             </Flex>
                           </HStack>
@@ -3088,7 +3104,7 @@ const RightSidebar = () => {
                     fontWeight='bold'
                   >
                     <Text fontSize='12px'>ランキング</Text>
-                    <Text fontSize='18px'>{worksItem5.project.rank}</Text>
+                    <Text fontSize='18px'>{worksItem5.project?.rank}</Text>
                   </Flex>
                   <Flex
                     w='33%'
@@ -3102,7 +3118,7 @@ const RightSidebar = () => {
                     fontWeight='bold'
                   >
                     <Text fontSize='12px'>獲得ポイント</Text>
-                    <Text fontSize='18px'>{worksItem5.project.point}</Text>
+                    <Text fontSize='18px'>{worksItem5.project?.point}</Text>
                   </Flex>
                   <Flex
                     w='33%'
@@ -3116,7 +3132,7 @@ const RightSidebar = () => {
                     fontWeight='bold'
                   >
                     <Text fontSize='12px'>作品閲覧数</Text>
-                    <Text fontSize='18px'>{worksItem5.project.views}</Text>
+                    <Text fontSize='18px'>{worksItem5.project?.views}</Text>
                   </Flex>
                 </HStack>
               </Flex>
@@ -3557,7 +3573,7 @@ const RightSidebar = () => {
         </Flex>
       </Flex>
       {/* エントリー完了モーダル */}
-      {projectItem2.status === 'recruitment' && (
+      {project?.status === 'recruitment' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3576,7 +3592,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 提出完了モーダル */}
-      {projectItem2.status === 'production' && (
+      {project?.status === 'production' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
@@ -3596,7 +3612,7 @@ const RightSidebar = () => {
         </ModalCard>
       )}
       {/* 投票完了モーダル */}
-      {projectItem2.status === 'vote' && (
+      {project?.status === 'vote' && (
         <ModalCard
           cancelButtonText='閉じる'
           isOpen={isModalVisible}
