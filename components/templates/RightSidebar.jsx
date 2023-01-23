@@ -1658,7 +1658,7 @@ const RightSidebar = () => {
                 <Flex direction='column' mb='56px'>
                   {project?.status !== 'done' ? (
                     <>
-                      {isLogin && (
+                      {currentUser && (
                         <>
                           {URL ===
                             `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}/submit` ||
@@ -1692,13 +1692,15 @@ const RightSidebar = () => {
                                     📌 提出済みのあなたの作品
                                   </Text>
                                   <UserWorksCard
-                                    thumbnail={myWorks1.thumbnail}
-                                    title={myWorks1.title}
+                                    thumbnail={
+                                      'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
+                                    }
+                                    title={'健康を管理するアプリ'}
                                     categories={myWorks1.categories}
                                     createdAt={myWorks1.createdAt}
                                     onClick={() =>
                                       router.push(
-                                        `projects/${id}/works/${myWorks1.id}`,
+                                        `/projects/Chnk1Jln9oAk9lyC12pF/works/3gC3ohh4PEAkLlpYbz5k`,
                                       )
                                     }
                                   />
@@ -1711,13 +1713,15 @@ const RightSidebar = () => {
                                   </Text>
                                   <Flex w='100%' mb='56px'>
                                     <UserWorksCard
-                                      thumbnail={myWorks1.thumbnail}
-                                      title={myWorks1.title}
+                                      thumbnail={
+                                        'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
+                                      }
+                                      title={'健康を管理するアプリ'}
                                       categories={myWorks1.categories}
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
                                         router.push(
-                                          `projects/${id}/works/${myWorks1.id}`,
+                                          `/projects/Chnk1Jln9oAk9lyC12pF/works/3gC3ohh4PEAkLlpYbz5k`,
                                         )
                                       }
                                     />
@@ -1782,13 +1786,15 @@ const RightSidebar = () => {
                                       📌 提出済みのあなたの作品
                                     </Text>
                                     <UserWorksCard
-                                      title={myWorks1.title}
+                                      thumbnail={
+                                        'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
+                                      }
+                                      title={'健康を管理するアプリ'}
                                       categories={myWorks1.categories}
-                                      thumbnail={myWorks1.thumbnail}
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
                                         router.push(
-                                          `projects/${id}/works/${myWorks1.id}`,
+                                          `/projects/Chnk1Jln9oAk9lyC12pF/works/3gC3ohh4PEAkLlpYbz5k`,
                                         )
                                       }
                                     />
@@ -1827,13 +1833,15 @@ const RightSidebar = () => {
                                   </Text>
                                   <Flex w='100%' mb='56px'>
                                     <UserWorksCard
-                                      thumbnail={myWorks1.thumbnail}
-                                      title={myWorks1.title}
+                                      thumbnail={
+                                        'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
+                                      }
+                                      title={'健康を管理するアプリ'}
                                       categories={myWorks1.categories}
                                       createdAt={myWorks1.createdAt}
                                       onClick={() =>
                                         router.push(
-                                          `projects/${id}/works/${myWorks1.id}`,
+                                          `/projects/Chnk1Jln9oAk9lyC12pF/works/3gC3ohh4PEAkLlpYbz5k`,
                                         )
                                       }
                                     />
@@ -2133,13 +2141,17 @@ const RightSidebar = () => {
                       </Text>
                       <Flex w='100%' mb='56px'>
                         <UserWorksCard
-                          thumbnail={myWorks1.thumbnail}
-                          title={myWorks1.title}
+                          thumbnail={
+                            'https://user-images.githubusercontent.com/66903388/213907356-d816a314-b81e-47bb-8792-e3d657d71034.jpg'
+                          }
+                          title={'健康を管理するアプリ'}
                           categories={myWorks1.categories}
                           createdAt={myWorks1.createdAt}
-                          // onClick={() =>
-                          //   router.push(`projects/${id}/works/${myWorks1.id}`)
-                          // }
+                          onClick={() =>
+                            router.push(
+                              `/projects/Chnk1Jln9oAk9lyC12pF/works/3gC3ohh4PEAkLlpYbz5k`,
+                            )
+                          }
                         />
                       </Flex>
                       <Flex direction='column' mb='16px'>
