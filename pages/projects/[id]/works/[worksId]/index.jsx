@@ -282,6 +282,7 @@ const DetailProjectWorks = () => {
           borderRadius='lg'
           mb='32px'
           src={works?.thumbnail}
+          objectFit='cover'
         />
         <Flex direction='column' mb='32px'>
           <Text fontSize='12px' fontWeight='bold' mb='8px'>
