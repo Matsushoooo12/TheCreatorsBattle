@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
   const [isSSR, setIsSSR] = useState(true)
   const [currentUser, setCurrentUser] = useState('aaa')
   const [isLogin, setIsLogin] = useState(true)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const { URL } = useGetUrl()
   useEffect(() => {
@@ -31,8 +31,11 @@ function MyApp({ Component, pageProps }) {
       } else {
         setCurrentUser(null)
       }
-      setIsSSR(false)
-      setIsLoading(false)
+      const timer = setTimeout(() => {
+        setIsLoading(false)
+        setIsSSR(false)
+      }, 1000)
+      return () => clearTimeout(timer)
     })
   }, [])
   if (isSSR) {
