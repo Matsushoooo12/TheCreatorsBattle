@@ -1228,11 +1228,17 @@ const RightSidebar = () => {
                 </Text>
                 <Flex direction='column' mb='48px'>
                   {projects?.filter(
-                    (project) => project.status === 'production',
+                    (project) =>
+                      project.status === 'production' ||
+                      project.status === 'vote',
                   ).length ? (
                     <>
                       {projects
-                        ?.filter((project) => project.status === 'production')
+                        ?.filter(
+                          (project) =>
+                            project.status === 'production' ||
+                            project.status === 'vote',
+                        )
                         .map((project) => (
                           <ProjectCard
                             key={project?.id}

@@ -176,7 +176,7 @@ const Projects = () => {
     (project) => project.status === 'recruitment',
   )
   const productionProjects = projects?.filter(
-    (project) => project.status === 'production',
+    (project) => project.status === 'production' || project.status === 'vote',
   )
   const voteProjects = projects?.filter((project) => project.status === 'vote')
   const doneProjects = projects?.filter((project) => project.status === 'done')
