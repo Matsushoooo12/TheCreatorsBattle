@@ -106,18 +106,18 @@ const DetailUser = () => {
         title='これまでの作品'
         onClick={() => router.push(`/works/${id}/edit`)}
         isEdit={true}
-        isRowScroll={userWorksList2.length ? true : false}
+        isRowScroll={userWorksList.length ? true : false}
       >
-        {userWorksList2?.length ? (
+        {userWorksList?.length ? (
           <>
-            {userWorksList2?.map((list) => (
+            {userWorksList?.map((list) => (
               <UserWorksCard
                 key={list.id}
                 thumbnail={list.thumbnail}
                 title={list.title}
                 categories={list.categories}
                 createdAt={list.createdAt}
-                onClick={() => router.push(`/works/${list.id}`)}
+                onClick={() => router.push(`/works/3gC3ohh4PEAkLlpYbz5k`)}
               />
             ))}
           </>
