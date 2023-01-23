@@ -7,6 +7,7 @@ import { useGetUrl } from '../hooks/useGetUrl'
 import '../styles/globals.css'
 import theme from '../theme/theme'
 import { onAuthStateChanged } from 'firebase/auth'
+import { PacmanLoader } from 'react-spinners'
 
 export const AuthContext = createContext()
 
@@ -38,13 +39,7 @@ function MyApp({ Component, pageProps }) {
     return (
       <ChakraProvider>
         <Center h='100vh' w='100%' bg='white'>
-          <Spinner
-            thickness='4px'
-            speed='0.65s'
-            emptyColor='gray.200'
-            color='blue.500'
-            size='xl'
-          />
+          <PacmanLoader color='#7CAAFF' />
         </Center>
       </ChakraProvider>
     )
