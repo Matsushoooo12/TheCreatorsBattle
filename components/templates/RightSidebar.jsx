@@ -1199,9 +1199,14 @@ const RightSidebar = () => {
     router.push('/questions')
     setIsQuestionModalOpen(false)
   }
-  // useEffect(() => {
-  // modalHigherRankOpen()
-  // }, [])
+  useEffect(() => {
+    if (
+      URL === `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/projects/${id}` &&
+      project?.status === 'done'
+    ) {
+      modalHigherRankOpen()
+    }
+  }, [URL, id, project?.status])
   return (
     <>
       <Flex h='100vh' direction='column' position='relative' minW='400px'>
@@ -3818,7 +3823,7 @@ const RightSidebar = () => {
         </Flex>
       </ModalCard>
       {/* 1位モーダル */}
-      {/* <Modal
+      <Modal
         isCentered
         onClose={modalHigherRankClose}
         isOpen={isOpenHigherRankModal}
@@ -3878,9 +3883,9 @@ const RightSidebar = () => {
             </Flex>
           </ModalBody>
         </ModalContent>
-      </Modal> */}
+      </Modal>
       {/* 8位モーダル */}
-      <Modal
+      {/* <Modal
         isCentered
         onClose={modalHigherRankClose}
         isOpen={isOpenHigherRankModal}
@@ -3940,7 +3945,7 @@ const RightSidebar = () => {
             </Flex>
           </ModalBody>
         </ModalContent>
-      </Modal>
+      </Modal> */}
       <ModalCard
         cancelButtonText='閉じる'
         title='質問を投稿しました'
