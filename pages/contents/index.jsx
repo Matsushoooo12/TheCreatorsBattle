@@ -167,7 +167,7 @@ const ContentsIndex = () => {
                     <Image
                       objectFit='cover'
                       alt=''
-                      src='https://user-images.githubusercontent.com/66903388/213921284-5c55f682-864f-46dc-9328-6da868379cc9.png'
+                      src='https://user-images.githubusercontent.com/66903388/213921435-5764b775-b028-4fb6-9f9c-d06dd78368b9.png'
                       position='absolute'
                       top='0'
                       left='0'
@@ -206,7 +206,7 @@ const ContentsIndex = () => {
                     <Image
                       objectFit='cover'
                       alt=''
-                      src='https://user-images.githubusercontent.com/66903388/213921435-5764b775-b028-4fb6-9f9c-d06dd78368b9.png'
+                      src='https://user-images.githubusercontent.com/66903388/213921284-5c55f682-864f-46dc-9328-6da868379cc9.png'
                       position='absolute'
                       top='0'
                       left='0'
