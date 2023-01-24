@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
       const timer = setTimeout(() => {
         setIsLoading(false)
         setIsSSR(false)
-      }, 1000)
+      }, 1500)
       return () => clearTimeout(timer)
     })
   }, [])
