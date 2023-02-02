@@ -213,7 +213,7 @@ const ProjectVoteForm = () => {
           >
             <Flex direction='column'>
               <Text fontSize='22px' fontWeight='bold' color='blue.800' mb='8px'>
-                {'{プロジェクト名}'}の評価
+                エクササイズを楽しくするアプリの評価
               </Text>
               <Text fontSize='14px' mb='2px'>
                 ルールを守って下の作品の評価を行ってください。
@@ -516,7 +516,7 @@ const ProjectVoteForm = () => {
           >
             <Flex direction='column'>
               <Text fontSize='22px' fontWeight='bold' color='blue.800' mb='8px'>
-                {'{プロジェクト名}'}の評価
+                エクササイズを楽しくするアプリの評価
               </Text>
               <Text fontSize='14px' mb='2px'>
                 ルールを守って下の作品の評価を行ってください。
